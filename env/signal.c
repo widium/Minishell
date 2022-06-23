@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/06/22 14:23:11 by ebennace         ###   ########.fr       */
+/*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
+/*   Updated: 2022/06/23 13:09:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include "../minishell.h"
 
-int	main(void)
+void use_signal(t_env *env, int key)
 {
-	t_env	*env;
-	
-	env = init_env();
-	open_files(env);
-	prompt(env);
+    if (key == 0)
+    {
+        // free_all(env);
+        signal(SIGQUIT, exit_prompt);
+    }
+        
+}
 
+void exit_prompt(int key)
+{
+    printf("Exit...\n");
+    exit(0);
+    
 }

@@ -6,20 +6,26 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/06/20 18:04:29 by ebennace         ###   ########.fr        #
+#    Updated: 2022/06/22 14:35:17 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 SRCS		= 	main.c \
+				utils/init.c \
+				env/prompt.c \
+				env/signal.c \
+				exit_free/exit.c \
+				exit_free/free.c \
+				history/file.c \
 
 
 
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
 # FLAGS 		= -Wall -Werror -Wextra
-FLAGS			= -g3 
+FLAGS			= -g3 -lreadline
 SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
 

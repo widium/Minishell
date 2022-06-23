@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/06/22 14:23:11 by ebennace         ###   ########.fr       */
+/*   Created: 2022/06/22 14:26:37 by ebennace          #+#    #+#             */
+/*   Updated: 2022/06/22 14:31:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include "../minishell.h"
 
-int	main(void)
+
+void free_all(t_env *env)
 {
-	t_env	*env;
-	
-	env = init_env();
-	open_files(env);
-	prompt(env);
-
+    free(env->history);
+    free(env);
 }
