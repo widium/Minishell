@@ -1,13 +1,5 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/widium/Programming/42_cursus/Minishell'
-clang -c -g3 -lreadline main.c -o main.o
-clang -c -g3 -lreadline utils/init.c -o utils/init.o
-clang -c -g3 -lreadline env/prompt.c -o env/prompt.o
- 
-clang -c -g3 -lreadline env/signal.c -o env/signal.o
-clang -c -g3 -lreadline exit_free/exit.c -o exit_free/exit.o
-clang -c -g3 -lreadline exit_free/free.c -o exit_free/free.o
-make -C libft
-clang main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o -g3 -lreadline libft/libft.a -o minishell		
+make: 'minishell' is up to date.
 make: Leaving directory '/home/widium/Programming/42_cursus/Minishell'
  

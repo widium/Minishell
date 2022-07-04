@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/06/22 14:35:17 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/04 16:58:08 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS		= 	main.c \
 				exit_free/exit.c \
 				exit_free/free.c \
 				history/file.c \
+				parsing/detect.c \
 
 
 
@@ -30,7 +31,7 @@ SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
 
 %.o : %.c
-			$(CC) -c $(FLAGS) $< -o $@
+			$(CC) -c $< -o $@
 	
 $(NAME) : 		$(OBJS)
 				make -C libft
