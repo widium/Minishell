@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/04 17:08:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:33:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,39 @@ void    parsing(char *line)
     printf("string : %d\n", string);
 }
 
-char *double_quotes_extraction(char *string)
+// char *double_quotes_detection(char *string)
+// {
+//     int start;
+//     int end;
+//     int len;
+
+//     start = 0;
+//     end = 0;
+    
+//     while (string[start])
+//     {
+//         if (string[start] == '\"')
+//         {
+//             start++;
+//             end = start;
+//             while (string[end])
+//             {
+//                 if (string[end] == '\"')
+//                 {
+//                     len = end - start;
+//                     return (ft_substr(string, start, len));
+//                 }
+//                 end++;
+//             }
+//             printf("Pas de 2e occurence...\n");
+//         }
+//         start++;
+//     }
+//     return (NULL);
+    
+// }
+
+char *double_quotes_detection(char *string)
 {
     int start;
     int end;
@@ -53,26 +85,24 @@ char *double_quotes_extraction(char *string)
     {
         if (string[start] == '\"')
         {
-            start++;
-            end = start;
-            while (string[end])
+            printf("DOUBLE_QUOTES : [");
+            end = start+1;
+            while (string[end] && string[end] != '\"')
             {
-                if (string[end] == '\"')
-                {
-                    len = end - start;
-                    return (ft_substr(string, start, len));
-                }
+                printf("%c", string[end]);
                 end++;
             }
-            printf("Pas de 2e occurence...\n");
+            printf("]\n");
+            start = end;
         }
         start++;
     }
+    
     return (NULL);
     
 }
 
-char *single_quotes_extraction(char *string)
+char *single_quotes_detection(char *string)
 {
     int start;
     int end;
@@ -85,18 +115,15 @@ char *single_quotes_extraction(char *string)
     {
         if (string[start] == '\'')
         {
-            start++;
-            end = start;
-            while (string[end])
+            printf("SINGLE_QUOTES : [");
+            end = start + 1;
+            while (string[end] && string[end] != '\'')
             {
-                if (string[end] == '\'')
-                {
-                    len = end - start;
-                    return (ft_substr(string, start, len));
-                }
+                printf("%c", string[end]);
                 end++;
             }
-            printf("Pas de 2e occurence...\n");
+            start = end;
+            printf("]\n");
         }
         start++;
     }
@@ -104,18 +131,7 @@ char *single_quotes_extraction(char *string)
     
 }
 
-// void quotes_extraction(char *str)
-// {
-//     int i;
-
-//     i = 0;
-//     while (str[i])
-//     {
-        
-//     }
-// }
-
-void word_extraction(char *str)
+void word_detection(char *str)
 {
     int i;
     int y;
@@ -123,18 +139,84 @@ void word_extraction(char *str)
     i = 0;
     while (str[i])
     {
-        
-        if (str[i] == ' ')
+        if (str[i] == ' ' || i == 0)
         {
-            printf("\"");
-            y = i+1;
-            while (str[y] != ' ')
+            printf("WORD : [");
+            if (i > 0)
+                y = i+1;
+            else
+                y = i;
+            while (str[y] && str[y] != ' ')
             {
                printf("%c", str[y]);
                y++; 
             }
-            printf("\",");
+            printf("],");
         }
         i++;
+    }
+    printf("\n");
+}
+
+void variables_detection(char *str)
+{
+    int start;
+    int end;
+
+    start = 0;
+    end = 0;
+    while (str[start])
+    {
+        if (str[start] == '$')
+        {
+            printf("VARIABLE : [");
+            end = start;
+            while (str[end] && str[end] != ' ')
+            {
+               printf("%c", str[end]);
+               end++; 
+            }
+            start = end;
+            printf("]\n");
+        }
+        start++;
+    }
+}
+
+int is_redirection(char c)
+{
+    if (c == '|' || c == '>' || c == '<')
+        return (1);
+    return (0);
+}
+int is_append_redirection(char *str, int i)
+{
+    if (str[i] == '>' && str[i] == '>')
+        return (1);
+    return (0);
+}
+
+void redirection_detection(char *str)
+{
+    int start;
+    int end;
+
+    start = 0;
+    end = 0;
+    while (str[start])
+    {
+        if (is_redirection(str[start]) || is_append_redirection(str, start))
+        {
+            printf("REDIRECTION : [");
+            end = start;
+            while (str[end] && str[end] != ' ')
+            {
+               printf("%c", str[end]);
+               end++; 
+            }
+            start = end;
+            printf("]\n");
+        }
+        start++;
     }
 }

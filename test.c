@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/05 16:52:54 by ebennace         ###   ########.fr       */
+/*   Created: 2022/07/05 11:55:24 by ebennace          #+#    #+#             */
+/*   Updated: 2022/07/05 17:30:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include <stdio.h>
 
-int	main(void)
+int is_append_redirection(char *str, int i)
 {
-	t_env	*env;
-	
-	env = init_env();
-	open_files(env);
-	prompt(env);
-
+    while (str[i++])
+        printf("%c", str[i]);
 }
 
-// int main()
-// {
-//     char *str = "echo salut moi c'est eddie | wc -l";
-// 	word_detection(str);
-// 	// char *ret = double_quotes_detection(str);
-// 	// char *ret2 = single_quotes_detection(str);
-//     // printf("return : %s\n", ret);
-// 	// printf("return : %s\n", ret2);
-// }
+
+int main()
+{
+    int i = 0;
+    char *str = " echo salut moi c'est eddie | wc -l";
+    while (str[i])
+    {
+        if (i > 8)
+            break;
+        i++;
+    }
+    is_append_redirection(str, i);
+}

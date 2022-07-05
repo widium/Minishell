@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/04 17:08:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:07:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ void ft_exit(t_env *env);
 void free_all(t_env *env);
 
 void    parsing(char *line);
-char *double_quotes_extraction(char *string);
-char *single_quotes_extraction(char *string);
-void word_extraction(char *str);
+char *double_quotes_detection(char *string);
+char *single_quotes_detection(char *string);
+void word_detection(char *str);
+void variables_detection(char *str);
+void redirection_detection(char *str);
 
 #endif
