@@ -1,8 +1,8 @@
-echo > salut >> ta mere
-echo > salut >> ta mere | 
-echo > salut >> ta mere | ||
-echo > salut >> ta mere | || |||
-echo > salut >> ta mere |
-echo > salut >> ta mere |
+echo "bonjour" | cat -e > result.txt && echo $HOME && echo 'salu'ut || cat *.c && cat << STOP
+echo |||| salut
+echo |||| "salut"
+echo <<< "salut"
+e
+alut >> ta mere |
 echo >>>>> salut >> ta mere |
 echo > salut >> ta mere |

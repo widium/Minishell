@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/04 16:58:08 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/06 12:53:53 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS		= 	main.c \
 				exit_free/free.c \
 				history/file.c \
 				parsing/detect.c \
+				parsing/is.c \
 
 
 

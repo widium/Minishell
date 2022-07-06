@@ -5,6 +5,12 @@
         "readline.h": "c",
         "history.h": "c",
         "libft.h": "c",
-        "stddef.h": "c"
+        "stddef.h": "c",
+        "random": "c",
+        "type_traits": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "valarray": "c"
     }
 }

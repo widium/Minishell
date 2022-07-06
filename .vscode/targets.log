@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul  5 11:44:52 2022
+# Make data base, printed on Wed Jul  6 12:53:54 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/widium/.gtkrc:/home/widium/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-6b464374-f317-415d-9b74-5e431cc7ce4a.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-350eebd4-fafa-47e7-9aef-b0cb91caa1f3.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -75,7 +75,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 15)
-SRCS = main.c utils/init.c env/prompt.c env/signal.c exit_free/exit.c exit_free/free.c history/file.c parsing/detect.c 
+SRCS = main.c utils/init.c env/prompt.c env/signal.c exit_free/exit.c exit_free/free.c history/file.c parsing/detect.c parsing/is.c 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -103,15 +103,15 @@ CONDA_SHLVL = 0
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4804
+VSCODE_PID = 3629
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 29)
+# makefile (from 'Makefile', line 30)
 FLAGS = -g3 -lreadline
 # environment
-SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1117,unix/manjaro:/tmp/.ICE-unix/1117
+SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1099,unix/manjaro:/tmp/.ICE-unix/1099
 # automatic
 *F = $(notdir $*)
 # environment
@@ -124,7 +124,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'Makefile', line 26)
+# makefile (from 'Makefile', line 27)
 OBJS = $(SRCS:.c=.o)
 # makefile
 SHELL = /bin/sh
@@ -140,9 +140,9 @@ MAKE = $(MAKE_COMMAND)
 PATH = /home/widium/.local/bin:/usr/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin
 # default
 MAKEFILES := 
-# makefile (from 'Makefile', line 31)
+# makefile (from 'Makefile', line 32)
 LEAKS = -fsanitize=leak
-# makefile (from 'Makefile', line 30)
+# makefile (from 'Makefile', line 31)
 SANITIZE = -fsanitize=address
 # environment
 LC_MONETARY = fr_FR.UTF-8
@@ -187,7 +187,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := minishell
 # environment
-SYSTEMD_EXEC_PID = 990
+SYSTEMD_EXEC_PID = 967
 # environment
 DISPLAY = :0
 # environment
@@ -240,7 +240,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 KDE_SESSION_VERSION = 5
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# makefile (from 'Makefile', line 27)
+# makefile (from 'Makefile', line 28)
 CC = clang
 # environment
 KDE_FULL_SESSION = true
@@ -257,14 +257,19 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 
 # Directories
 
-# . (device 66306, inode 5113271): 18 files, no impossibilities.
+# history (device 66306, inode 5113648): 4 files, no impossibilities so far.
+# utils (device 66306, inode 5113314): 4 files, no impossibilities so far.
+# . (device 66306, inode 5113271): 22 files, no impossibilities.
+# parsing (device 66306, inode 5113646): 2 files, no impossibilities so far.
+# exit_free (device 66306, inode 5116007): 3 files, no impossibilities so far.
+# env (device 66306, inode 5113650): 6 files, no impossibilities so far.
 
-# 18 files, no impossibilities in 1 directories.
+# 41 files, no impossibilities in 6 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  recipe to execute (from 'Makefile', line 34):
+#  recipe to execute (from 'Makefile', line 35):
 			$(CC) -c $< -o $@
 	
 
@@ -272,40 +277,58 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # Files
 
 # Not a target:
-history/file.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+utils/init.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-23 12:26:04.05333391
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
- 
-env/prompt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+history/file.o: history/file.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'history/file'
+#  Last modified 2022-07-06 12:43:47.343333828
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
 
-minishell: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o
+env/prompt.o: env/prompt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'env/prompt'
+#  Last modified 2022-07-06 12:51:23.473333958
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
+
+minishell: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/is.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-07-06 12:51:23.536667292
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  recipe to execute (from 'Makefile', line 37):
+#  recipe to execute (from 'Makefile', line 38):
 				make -C libft
 				$(CC) $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
 
-# Not a target:
-exit_free/exit.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+exit_free/exit.o: exit_free/exit.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exit_free/exit'
+#  Last modified 2022-07-06 12:43:47.286667162
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
 
-debug: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o
+debug: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/is.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 51):
+#  recipe to execute (from 'Makefile', line 52):
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) -g3 libft/libft.a  -o $(NAME)
 				gdb $(NAME)
 				
@@ -313,24 +336,43 @@ debug: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 16:58:08.483335564
+#  Last modified 2022-07-06 12:53:53.123334005
 #  File has been updated.
+ 
 #  Successfully updated.
 
+parsing/detect.o: parsing/detect.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/detect'
+#  Last modified 2022-07-06 12:51:23.503333959
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
+
 # Not a target:
-parsing/detect.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+parsing/is.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-06 12:53:33.170000666
+#  File has been updated.
+#  Successfully updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 43):
+#  recipe to execute (from 'Makefile', line 44):
 				make clean -C libft
 				/bin/rm -rf $(OBJS)
+
+# Not a target:
+history/file.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-22 11:57:15.866633941
+#  File has been updated.
+#  Successfully updated.
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -339,10 +381,21 @@ re: fclean all
 #  File has not been updated.
 
 # Not a target:
-exit_free/free.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+exit_free/free.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-22 14:31:47.046635739
+#  File has been updated.
+#  Successfully updated.
+
+exit_free/free.o: exit_free/free.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exit_free/free'
+#  Last modified 2022-07-06 12:43:47.316667162
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
 
 # Not a target:
 .DEFAULT:
@@ -365,71 +418,110 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 				make fclean -C libft
 				/bin/rm -rf $(NAME)
 
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 17:11:24.163335698
+#  Last modified 2022-07-05 16:52:54.593333573
 #  File has been updated.
 #  Successfully updated.
 
-leak: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o
+leak: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/is.o
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 58):
+#  recipe to execute (from 'Makefile', line 59):
 				$(CC) $(OBJS) $(FLAGS) $(LEAKS) libft/libft.a  -o $(NAME)
 
 main.o: main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  File does not exist.
+#  Last modified 2022-07-06 12:43:47.163333829
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := main.o
-# automatic
-# * := main
-# automatic
-# < := main.c
-# automatic
-# + := main.c
-# automatic
-# % := 
-# automatic
-# ^ := main.c
-# automatic
-# ? := main.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/14=14%
-#  recipe to execute (from 'Makefile', line 34):
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
+
+env/signal.o: env/signal.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'env/signal'
+#  Last modified 2022-07-06 12:43:47.256667162
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
 			$(CC) -c $< -o $@
 	
 
 # Not a target:
-env/signal.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+env/prompt.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-06 12:51:19.49666729
+#  File has been updated.
+#  Successfully updated.
+
+parsing/is.o: parsing/is.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parsing/is'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := parsing/is.o
+# automatic
+# * := parsing/is
+# automatic
+# < := parsing/is.c
+# automatic
+# + := parsing/is.c
+# automatic
+# % := 
+# automatic
+# ^ := parsing/is.c
+# automatic
+# ? := parsing/is.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/14=14%
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
 
 # Not a target:
-utils/init.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+exit_free/exit.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-22 14:32:57.246635763
+#  File has been updated.
+#  Successfully updated.
 
-sanitize: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o
+utils/init.o: utils/init.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils/init'
+#  Last modified 2022-07-06 12:43:47.196667162
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 35):
+			$(CC) -c $< -o $@
+	
+
+# Not a target:
+parsing/detect.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-06 12:51:06.863333954
+#  File has been updated.
+#  Successfully updated.
+
+sanitize: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/is.o
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 55):
+#  recipe to execute (from 'Makefile', line 56):
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
 
 .PHONY: all clean fclean re leak sanitize
@@ -437,20 +529,27 @@ sanitize: main.o utils/init.o env/prompt.o env/signal.o exit_free/exit.o exit_fr
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+env/signal.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-23 13:09:40.616667196
+#  File has been updated.
+#  Successfully updated.
+
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=0/77=0%
+# Load=30/1024=3%, Rehash=0, Collisions=0/114=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 42 / storage = 377 B / avg = 8 B
-# current buf: size = 8162 B / used = 377 B / count = 42 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 74 / storage = 722 B / avg = 9 B
+# current buf: size = 8162 B / used = 722 B / count = 74 / avg = 9 B
 
-# strcache performance: lookups = 92 / hit rate = 54%
+# strcache performance: lookups = 148 / hit rate = 50%
 # hash-table stats:
-# Load=42/8192=1%, Rehash=0, Collisions=1/92=1%
-# Finished Make data base on Tue Jul  5 11:44:52 2022
+# Load=74/8192=1%, Rehash=0, Collisions=1/148=1%
+# Finished Make data base on Wed Jul  6 12:53:54 2022
 
  

@@ -6,39 +6,39 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/05 17:33:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/06 17:57:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void    parsing(char *line)
-{
-    int i;
-    int space;
-    int cote;
-    int string;
+// void    parsing(char *line)
+// {
+//     int i;
+//     int space;
+//     int cote;
+//     int string;
 
-    i = 0;
-    space = 0;
-    cote = 0;
-    string = 0;
+//     i = 0;
+//     space = 0;
+//     cote = 0;
+//     string = 0;
     
-    while (line[i])
-    {
-        if (line[i] == ' ')
-            space++;
-        if (line[i] == '\"')
-            cote++;
-        if (line[i] == '\'')
-            string++;
-        i++;
-    }
+//     while (line[i])
+//     {
+//         if (line[i] == ' ')
+//             space++;
+//         if (line[i] == '\"')
+//             cote++;
+//         if (line[i] == '\'')
+//             string++;
+//         i++;
+//     }
 
-    printf("space : %d\n", space);
-    printf("cote : %d\n", cote);
-    printf("string : %d\n", string);
-}
+//     printf("space : %d\n", space);
+//     printf("cote : %d\n", cote);
+//     printf("string : %d\n", string);
+// }
 
 // char *double_quotes_detection(char *string)
 // {
@@ -85,14 +85,14 @@ char *double_quotes_detection(char *string)
     {
         if (string[start] == '\"')
         {
-            printf("DOUBLE_QUOTES : [");
+            printf("DOUBLE_QUOTES : [\"");
             end = start+1;
             while (string[end] && string[end] != '\"')
             {
                 printf("%c", string[end]);
                 end++;
             }
-            printf("]\n");
+            printf("\"]\n");
             start = end;
         }
         start++;
@@ -115,7 +115,7 @@ char *single_quotes_detection(char *string)
     {
         if (string[start] == '\'')
         {
-            printf("SINGLE_QUOTES : [");
+            printf("SINGLE_QUOTES : [\'");
             end = start + 1;
             while (string[end] && string[end] != '\'')
             {
@@ -123,7 +123,7 @@ char *single_quotes_detection(char *string)
                 end++;
             }
             start = end;
-            printf("]\n");
+            printf("\']\n");
         }
         start++;
     }
@@ -183,19 +183,6 @@ void variables_detection(char *str)
     }
 }
 
-int is_redirection(char c)
-{
-    if (c == '|' || c == '>' || c == '<')
-        return (1);
-    return (0);
-}
-int is_append_redirection(char *str, int i)
-{
-    if (str[i] == '>' && str[i] == '>')
-        return (1);
-    return (0);
-}
-
 void redirection_detection(char *str)
 {
     int start;
@@ -205,7 +192,7 @@ void redirection_detection(char *str)
     end = 0;
     while (str[start])
     {
-        if (is_redirection(str[start]) || is_append_redirection(str, start))
+        if (is_redirection(str, start))
         {
             printf("REDIRECTION : [");
             end = start;
@@ -220,3 +207,86 @@ void redirection_detection(char *str)
         start++;
     }
 }
+
+
+void boolean_detection(char *str)
+{
+    int start;
+    int end;
+
+    start = 0;
+    while (str[start])
+    {
+        if (is_boolean_operator(str, start))
+        {
+            printf("BOOLEAN : [");
+            end = start;
+            while (str[end] && str[end] != ' ')
+            {
+                printf("%c", str[end]);
+                end++;
+            }
+            start = end;
+            printf("]\n");
+        }
+        start++;
+    }
+}
+
+void wildcard_detection(char *str)
+{
+    int start;
+    
+    start = 0;
+    while (str[start])
+    {
+        if (str[start] == '*')
+            printf("WILDCARD : [%c]\n",str[start]);
+        start++;
+    }
+}
+
+void heredoc_detection(char *str)
+{
+    int start;
+    int end;
+
+    start = 0;
+    end = 0;
+    while (str[start])
+    {
+        if (is_doublons(str, start, '<'))
+        {
+            printf("HERE_DOC : [");
+            end = start;
+            while (str[end] && str[end] != ' ')
+            {
+                printf("%c",str[end]); 
+                end++; 
+            }
+            start = end;
+            printf("]");
+            recover_keyword(str, start);
+        }
+        start++;
+    }
+    
+}
+
+void recover_keyword(char *str, int i)
+{
+    i++;
+    printf(" --> KEYWORD : [");
+    while (str[i] && str[i] != ' ')
+    {
+        printf("%c", str[i]);
+        i++;
+    }
+    printf("]\n");
+}
+
+
+// void file_detection(char *str)
+// {
+    
+// }
