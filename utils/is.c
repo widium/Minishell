@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/06 13:10:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/07 17:38:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,28 @@ int is_boolean_operator(char *str, int i)
 int is_redirection(char *str, int i)
 {
     if (is_single(str, i, '|') || is_single(str, i, '>') ||
-            is_single(str, i, '<') || is_doublons(str, i, '>>'))
+            is_single(str, i, '<') || is_doublons(str, i, '>'))
         return (1);
     return (0);
+}
+
+int is_heredoc(char *line, int i)
+{
+    if (is_doublons(line, i, '<'))
+        return (1);
+    return (0);
+}
+
+int is_separator(char *line, int i)
+{
+    if (is_redirection(line, i) || is_boolean_operator(line, i) || is_heredoc(line, i))
+        return (1);
+    return (0);    
+}
+
+int is_not_NULL(char c, char d)
+{
+	if (c && d)
+		return (1);
+	return (0);
 }

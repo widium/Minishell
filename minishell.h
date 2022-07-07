@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/06 17:57:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:21:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,22 @@ void variables_detection(char *str);
 void redirection_detection(char *str);
 void boolean_detection(char *str);
 void wildcard_detection(char *str);
-int built_in_detection(char *str);
+void prefixe_wildcard_detection(char *line, int i);
+void suffix_wildcard_detection(char *line, int i);
+void built_in_detection(char *str);
 void heredoc_detection(char *str);
 
 void recover_keyword(char *str, int i);
 
 int	is_in_str(char *first, int i, char *second);
 
+int is_not_NULL(char c, char d);
 int is_redirection(char *str, int i);
 int is_boolean_operator(char *str, int i);
 int is_doublons(char *str, int i, int c);
+int is_heredoc(char *line, int i);
+int is_separator(char *line, int i);
+
+void printf_str_index(char *str, int i);
 
 #endif

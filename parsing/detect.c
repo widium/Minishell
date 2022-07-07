@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/06 17:57:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/07 17:47:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,63 +72,94 @@
     
 // }
 
-char *double_quotes_detection(char *string)
+void printf_str_index(char *str, int i)
 {
-    int start;
-    int end;
-    int len;
-
-    start = 0;
-    end = 0;
-    
-    while (string[start])
+    while (str[i])
     {
-        if (string[start] == '\"')
-        {
-            printf("DOUBLE_QUOTES : [\"");
-            end = start+1;
-            while (string[end] && string[end] != '\"')
-            {
-                printf("%c", string[end]);
-                end++;
-            }
-            printf("\"]\n");
-            start = end;
-        }
-        start++;
+        printf("%c", str[i]);
+        i++;
     }
-    
-    return (NULL);
-    
+    printf("\n");
 }
 
-char *single_quotes_detection(char *string)
+int detect_flags(char *line, int i)
 {
-    int start;
-    int end;
-    int len;
-
-    start = 0;
-    end = 0;
+    int old_index;
     
-    while (string[start])
+    old_index = i;
+    while (line[i] && line[i] != ' ')
     {
-        if (string[start] == '\'')
+        if (line[i] == '-')
         {
-            printf("SINGLE_QUOTES : [\'");
-            end = start + 1;
-            while (string[end] && string[end] != '\'')
+            printf(" --> FLAGS : [");
+            while (line[i] && line[i] != ' ')
             {
-                printf("%c", string[end]);
-                end++;
+                printf("%c", line[i]);
+                i++;
             }
-            start = end;
-            printf("\']\n");
+            printf("]");
+            // printf("index apres flags --> %d : char : %c\n", i +1, line[i+1]);
+            return (i + 1);
         }
-        start++;
+        i++;
     }
-    return (NULL);
-    
+    printf(" --> FLAGS : [NULL]");
+    // printf("\nindex sans flags --> %d : char : %c\n", old_index +1, line[old_index]);
+    return (old_index);
+}
+
+void arguments_detection(char *line, int i)
+{
+    while (line[i])
+    {
+        if (!(is_separator(line, i)))
+        {
+            printf(" --> ARGUMENTS : [");
+            while (line[i] && !(is_separator(line, i)))
+            {
+                printf("%c", line[i]);
+                i++;
+            }
+            printf("]\n");
+        }
+        i++;
+        return ;
+    }
+}
+
+int search_built_in(char *line, char *built_in)
+{
+	int i;
+    int new_index;
+	int count;
+	
+	i = 0;
+	count = 0;
+	while (line[i])
+	{
+		if (is_in_str(line, i, built_in))
+		{
+			printf("BUILT_IN : [%s]", built_in);
+            new_index = detect_flags(line, i + ft_strlen(built_in));
+            arguments_detection(line, new_index);
+			count++;
+		}
+		i++;
+	}
+	return (count);
+}
+
+void built_in_detection(char *str)
+{
+	search_built_in(str, "echo ");
+	search_built_in(str, "cd ");
+	search_built_in(str, "pwd ");
+	search_built_in(str, "export ");
+	search_built_in(str, "unset ");
+	search_built_in(str, "env ");
+	search_built_in(str, "exit ");
+
+	return ;
 }
 
 void word_detection(char *str)
@@ -156,133 +187,6 @@ void word_detection(char *str)
         i++;
     }
     printf("\n");
-}
-
-void variables_detection(char *str)
-{
-    int start;
-    int end;
-
-    start = 0;
-    end = 0;
-    while (str[start])
-    {
-        if (str[start] == '$')
-        {
-            printf("VARIABLE : [");
-            end = start;
-            while (str[end] && str[end] != ' ')
-            {
-               printf("%c", str[end]);
-               end++; 
-            }
-            start = end;
-            printf("]\n");
-        }
-        start++;
-    }
-}
-
-void redirection_detection(char *str)
-{
-    int start;
-    int end;
-
-    start = 0;
-    end = 0;
-    while (str[start])
-    {
-        if (is_redirection(str, start))
-        {
-            printf("REDIRECTION : [");
-            end = start;
-            while (str[end] && str[end] != ' ')
-            {
-               printf("%c", str[end]);
-               end++; 
-            }
-            start = end;
-            printf("]\n");
-        }
-        start++;
-    }
-}
-
-
-void boolean_detection(char *str)
-{
-    int start;
-    int end;
-
-    start = 0;
-    while (str[start])
-    {
-        if (is_boolean_operator(str, start))
-        {
-            printf("BOOLEAN : [");
-            end = start;
-            while (str[end] && str[end] != ' ')
-            {
-                printf("%c", str[end]);
-                end++;
-            }
-            start = end;
-            printf("]\n");
-        }
-        start++;
-    }
-}
-
-void wildcard_detection(char *str)
-{
-    int start;
-    
-    start = 0;
-    while (str[start])
-    {
-        if (str[start] == '*')
-            printf("WILDCARD : [%c]\n",str[start]);
-        start++;
-    }
-}
-
-void heredoc_detection(char *str)
-{
-    int start;
-    int end;
-
-    start = 0;
-    end = 0;
-    while (str[start])
-    {
-        if (is_doublons(str, start, '<'))
-        {
-            printf("HERE_DOC : [");
-            end = start;
-            while (str[end] && str[end] != ' ')
-            {
-                printf("%c",str[end]); 
-                end++; 
-            }
-            start = end;
-            printf("]");
-            recover_keyword(str, start);
-        }
-        start++;
-    }
-    
-}
-
-void recover_keyword(char *str, int i)
-{
-    i++;
-    printf(" --> KEYWORD : [");
-    while (str[i] && str[i] != ' ')
-    {
-        printf("%c", str[i]);
-        i++;
-    }
-    printf("]\n");
 }
 
 

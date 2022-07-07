@@ -1,8 +1,5 @@
-echo "bonjour" | cat -e > result.txt && echo $HOME && echo 'salu'ut || cat *.c && cat << STOP
-echo |||| salut
-echo |||| "salut"
-echo <<< "salut"
-e
-alut >> ta mere |
-echo >>>>> salut >> ta mere |
-echo > salut >> ta mere |
+cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+< STOP
+cho -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+&& echo -e $HOME | cat -e | wc -l > result.txt && cat *.c | wc -l >> result.txt && wc -l << STOP
+TOP

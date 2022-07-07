@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/06 12:53:53 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/07 18:31:06 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,18 @@ NAME = minishell
 
 SRCS		= 	main.c \
 				utils/init.c \
+				utils/string_utils.c \
 				env/prompt.c \
 				env/signal.c \
 				exit_free/exit.c \
 				exit_free/free.c \
 				history/file.c \
 				parsing/detect.c \
-				parsing/is.c \
+				parsing/detect2.c \
+				parsing/detect3.c \
+				parsing/detect4.c \
+				parsing/detect5.c \
+				utils/is.c \
 
 
 
