@@ -11,6 +11,7 @@
         "array": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "valarray": "c"
+        "valarray": "c",
+        "string": "c"
     }
 }

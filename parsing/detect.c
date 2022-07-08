@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/07 17:47:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/08 17:52:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@
     
 // }
 
-void printf_str_index(char *str, int i)
+void print_str_index(char *str, int i)
 {
     while (str[i])
     {
@@ -162,32 +162,25 @@ void built_in_detection(char *str)
 	return ;
 }
 
-void word_detection(char *str)
-{
-    int i;
-    int y;
+// void word_detection(char *str, int i)
+// {
+//     int end;
 
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == ' ' || i == 0)
-        {
-            printf("WORD : [");
-            if (i > 0)
-                y = i+1;
-            else
-                y = i;
-            while (str[y] && str[y] != ' ')
-            {
-               printf("%c", str[y]);
-               y++; 
-            }
-            printf("],");
-        }
-        i++;
-    }
-    printf("\n");
-}
+//     end = i;
+//     while (str[i] && !(is_blank(str[i])))
+//     {
+//         if (str[i] == '\"')
+//         {
+            
+//         }
+//         if (str[i] == '\'')
+//         {
+            
+//         }
+//         i++;
+//     }
+//     printf("\n");
+// }
 
 
 // void file_detection(char *str)

@@ -1,5 +1,10 @@
+s  lut m oi c'e  st ed dddie
+"
+echo "bonjour\""
+echo "bonjour\'"
+echo "bonjour"
+echo "bonjour" "salut"
+OP
 cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
-< STOP
-cho -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
-&& echo -e $HOME | cat -e | wc -l > result.txt && cat *.c | wc -l >> result.txt && wc -l << STOP
+echo -e $HOME | cat -e | wc -l > result.txt && cat *.c | wc -l >> result.txt && wc -l << STOP
 TOP
