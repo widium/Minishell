@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/08 17:52:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:12:08 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,25 +162,29 @@ void built_in_detection(char *str)
 	return ;
 }
 
-// void word_detection(char *str, int i)
-// {
-//     int end;
+int word_detection(char *line, int index)
+{
+    int start;
 
-//     end = i;
-//     while (str[i] && !(is_blank(str[i])))
-//     {
-//         if (str[i] == '\"')
-//         {
-            
-//         }
-//         if (str[i] == '\'')
-//         {
-            
-//         }
-//         i++;
-//     }
-//     printf("\n");
-// }
+    start = index;
+    while (line[index])
+    {
+        if (is_blank(line[index]))
+        {
+            return (index - 1);
+        }
+        if (is_double_quote(line[index]))
+        {
+            index = double_quotes_detection(line, index);
+        }
+        if (is_single_quote(line[index]))
+        {
+            index = single_quotes_detection(line, index);
+        }
+        index++;
+    }
+    return (index);
+}
 
 
 // void file_detection(char *str)

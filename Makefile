@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/08 17:52:38 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/11 17:26:43 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ SRCS		= 	main.c \
 				parsing/detect5.c \
 				utils/is.c \
 				verbose/verbose.c \
+				tokenization/init_token.c \
 				tokenization/tokenizer.c \
+				
+				 
 
 
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/08 17:54:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:45:34 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    prompt(t_env	*env)
 		env->line = readline("$> ");
 		create_history(env);
 		
-		tokenizer(env->line);
+		tokenization(env->line);
 	}
 
 }

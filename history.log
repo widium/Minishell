@@ -1,10 +1,16 @@
-s  lut m oi c'e  st ed dddie
-"
-echo "bonjour\""
-echo "bonjour\'"
-echo "bonjour"
-echo "bonjour" "salut"
-OP
-cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
-echo -e $HOME | cat -e | wc -l > result.txt && cat *.c | wc -l >> result.txt && wc -l << STOP
-TOP
+echo "bonjour" | cat -l && tamer
+WD |  ta mere 'lap'
+echo "bonjour" && echo bon$HOME$PWD |  ta mere 'lap'dc
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'dc
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'e
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'esp
+echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'esp
+echo "bonjour" && echo bon$HOME$PWD | ta mere d'lap'esp
+echo "bonjour" && echo bon$HOME$PWD | ta mere d'lap'esp;
+echo "bonjour" && echo bon$HOME$PWD | ta mere d'lap'esp
+echo "bonjour" && echo bon$HOME$PWD | ta mere d'lap'e\
+echo "bonjour" && echo bon$HOME$PWD | ta mere d'lap'e
+echo "bonjour" && echo bon$HOME$PWD | ta mere d'lap'

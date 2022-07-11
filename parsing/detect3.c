@@ -6,35 +6,24 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/07 18:31:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:04:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void variables_detection(char *str)
+int variables_detection(char *line, int index)
 {
     int start;
-    int end;
 
-    start = 0;
-    end = 0;
-    while (str[start])
+    start = index;
+    while (line[index])
     {
-        if (str[start] == '$')
-        {
-            printf("VARIABLE : [");
-            end = start;
-            while (str[end] && str[end] != ' ')
-            {
-               printf("%c", str[end]);
-               end++; 
-            }
-            start = end;
-            printf("]\n");
-        }
-        start++;
+        if (is_blank(line[index]) || is_variable(line, index))
+            return (index - 1);
+        index++;
     }
+    return (start);
 }
 
 void redirection_detection(char *str)

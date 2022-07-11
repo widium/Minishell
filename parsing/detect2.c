@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/08 19:01:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/11 13:23:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,57 +42,38 @@
 //     return (NULL);
 // }
 
-int double_quotes_detection(char *string, int index)
+int double_quotes_detection(char *line, int index)
 {
     int start;
-    int len;
 
     start = index;
-    
     index++;
-    while (string[index])
+    while (line[index])
     {
-        if (is_back_slash(string[index]))
-        {
+        while (line[index] && is_back_slash(line[index]))
             index++;
-            if (is_double_quote(string[index]))
-                index++;
-        }
-        if (is_double_quote(string[index]))
+        if (is_double_quote(line[index]))
             return (index);
         index++;
     }
     return (start);
-    
 }
 
-char *single_quotes_detection(char *string)
+int single_quotes_detection(char *line, int index)
 {
     int start;
-    int end;
-    int len;
 
-    start = 0;
-    end = 0;
-    
-    while (string[start])
+    start = index;
+    index++;
+    while (line[start])
     {
-        if (string[start] == '\'')
-        {
-            printf("SINGLE_QUOTES : [\'");
-            end = start + 1;
-            while (string[end] && string[end] != '\'')
-            {
-                printf("%c", string[end]);
-                end++;
-            }
-            start = end;
-            printf("\']\n");
-        }
-        start++;
+        while (line[index] && is_back_slash(line[index]))
+            index++;
+        if (is_single_quote(line[index]))
+            return (index);
+        index++;
     }
-    return (NULL);
-    
+    return (start);
 }
 
 
@@ -100,5 +81,5 @@ int blank_detection(char *line, int index)
 {
     while (line[index] && is_blank(line[index]))
         index++;
-    return (index);
+    return (index - 1);
 }

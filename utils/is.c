@@ -6,12 +6,18 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/08 17:46:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:09:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
+int is_finish(char c)
+{
+    if (c == '\0')
+        return (1);
+    return (0);
+}
 int is_single(char *str, int i, int c)
 {
     if (str[i - 1] == ' ' && str[i] == c && str[i + 1] == ' ')
@@ -86,6 +92,20 @@ int is_double_quote(char c)
 int is_single_quote(char c)
 {
     if (c == '\'')
+        return (1);
+    return (0);
+}
+
+int is_word(char *line, int i)
+{
+    if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])))
+        return (1);
+    return (0);
+}
+
+int is_variable(char *line, int index)
+{
+    if (line[index] == '$' && !(is_blank(line[index + 1])))
         return (1);
     return (0);
 }

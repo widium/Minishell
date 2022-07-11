@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/08 19:01:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:43:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,11 @@ void free_all(t_env *env);
 
 void    parsing(char *line);
 
-void tokenizer(char *line);
-void tokenization(char *line, int start, int end, int token);
-
 int blank_detection(char *line, int index);
 int double_quotes_detection(char *string, int i);
-char *single_quotes_detection(char *string);
-void word_detection(char *str, int i);
-void variables_detection(char *str);
+int single_quotes_detection(char *line, int index);
+int word_detection(char *line, int index);
+int variables_detection(char *line, int index);
 void redirection_detection(char *str);
 void boolean_detection(char *str);
 void wildcard_detection(char *str);
@@ -99,18 +96,19 @@ void heredoc_detection(char *str);
 void recover_keyword(char *str, int i);
 
 int	is_in_str(char *first, int i, char *second);
-
+int is_finish(char c);
 int is_blank(char c);
 int is_back_slash(char c);
 int is_double_quote(char c);
 int is_single_quote(char c);
-
 int is_not_NULL(char c, char d);
 int is_redirection(char *str, int i);
 int is_boolean_operator(char *str, int i);
 int is_doublons(char *str, int i, int c);
 int is_heredoc(char *line, int i);
 int is_separator(char *line, int i);
+int is_word(char *line, int i);
+int is_variable(char *line, int index);
 
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);
