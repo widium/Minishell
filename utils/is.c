@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/11 17:09:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/12 17:36:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ int is_single_quote(char c)
 
 int is_word(char *line, int i)
 {
-    if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])))
+    if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])) &&
+     !(is_paranthesis(line, i)))
         return (1);
     return (0);
 }
@@ -106,6 +107,13 @@ int is_word(char *line, int i)
 int is_variable(char *line, int index)
 {
     if (line[index] == '$' && !(is_blank(line[index + 1])))
+        return (1);
+    return (0);
+}
+
+int is_paranthesis(char *line, int index)
+{
+    if ((line[index] == '(' || line[index] == ')') && line[index - 1] != '\\')
         return (1);
     return (0);
 }

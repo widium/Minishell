@@ -1,5 +1,20 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/widium/Programming/42_cursus/Minishell'
+clang -c main.c -o main.o
+clang -c utils/init.c -o utils/init.o
+clang -c utils/string_utils.c -o utils/string_utils.o
+clang -c env/prompt.c -o env/prompt.o
+clang -c env/signal.c -o env/signal.o
+clang -c exit_free/exit.c -o exit_free/exit.o
+clang -c exit_free/free.c -o exit_free/free.o
+clang -c history/file.c -o history/file.o
+clang -c parsing/detect.c -o parsing/detect.o
+clang -c parsing/detect2.c -o parsing/detect2.o
+clang -c parsing/detect3.c -o parsing/detect3.o
+clang -c parsing/detect4.c -o parsing/detect4.o
+clang -c parsing/detect5.c -o parsing/detect5.o
+clang -c utils/is.c -o utils/is.o
+clang -c verbose/verbose.c -o verbose/verbose.o
 clang -c tokenization/init_token.c -o tokenization/init_token.o
 clang -c tokenization/tokenizer.c -o tokenization/tokenizer.o
 make -C libft

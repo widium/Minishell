@@ -6,81 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/11 17:12:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/12 14:46:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
-
-// void    parsing(char *line)
-// {
-//     int i;
-//     int space;
-//     int cote;
-//     int string;
-
-//     i = 0;
-//     space = 0;
-//     cote = 0;
-//     string = 0;
-    
-//     while (line[i])
-//     {
-//         if (line[i] == ' ')
-//             space++;
-//         if (line[i] == '\"')
-//             cote++;
-//         if (line[i] == '\'')
-//             string++;
-//         i++;
-//     }
-
-//     printf("space : %d\n", space);
-//     printf("cote : %d\n", cote);
-//     printf("string : %d\n", string);
-// }
-
-// char *double_quotes_detection(char *string)
-// {
-//     int start;
-//     int end;
-//     int len;
-
-//     start = 0;
-//     end = 0;
-    
-//     while (string[start])
-//     {
-//         if (string[start] == '\"')
-//         {
-//             start++;
-//             end = start;
-//             while (string[end])
-//             {
-//                 if (string[end] == '\"')
-//                 {
-//                     len = end - start;
-//                     return (ft_substr(string, start, len));
-//                 }
-//                 end++;
-//             }
-//             printf("Pas de 2e occurence...\n");
-//         }
-//         start++;
-//     }
-//     return (NULL);
-    
-// }
-
-void print_str_index(char *str, int i)
-{
-    while (str[i])
-    {
-        printf("%c", str[i]);
-        i++;
-    }
-    printf("\n");
-}
 
 int detect_flags(char *line, int i)
 {
@@ -161,31 +91,6 @@ void built_in_detection(char *str)
 
 	return ;
 }
-
-int word_detection(char *line, int index)
-{
-    int start;
-
-    start = index;
-    while (line[index])
-    {
-        if (is_blank(line[index]))
-        {
-            return (index - 1);
-        }
-        if (is_double_quote(line[index]))
-        {
-            index = double_quotes_detection(line, index);
-        }
-        if (is_single_quote(line[index]))
-        {
-            index = single_quotes_detection(line, index);
-        }
-        index++;
-    }
-    return (index);
-}
-
 
 // void file_detection(char *str)
 // {

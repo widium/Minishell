@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/06/23 12:26:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/12 15:05:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_env	*init_env(void)
     env->history = init_file();
 	env->first_cmd = NULL;
     env->line = NULL;
+	env->first_token = NULL;
 	env->nbr_cmd = 0;
 	return (env);
 }

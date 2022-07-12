@@ -6,41 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/11 13:23:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/12 17:35:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
-
-
-// int double_quotes_detection(char *string, int i)
-// {
-//     int start;
-//     int end;
-//     int len;
-
-//     start = 0;
-//     end = 0;
-    
-//     while (string[start])
-//     {
-//         if (string[start] == '\"')
-//         {
-//             printf("DOUBLE_QUOTES : [\"");
-//             end = start+1;
-//             while (string[end] && string[end] != '\"')
-//             {
-//                 printf("%c", string[end]);
-//                 end++;
-//             }
-//             printf("\"]\n");
-//             start = end;
-//         }
-//         start++;
-//     }
-    
-//     return (NULL);
-// }
 
 int double_quotes_detection(char *line, int index)
 {
@@ -76,10 +46,39 @@ int single_quotes_detection(char *line, int index)
     return (start);
 }
 
+int word_detection(char *line, int index)
+{
+    int start;
+
+    start = index;
+    while (line[index])
+    {
+        if (is_blank(line[index]))
+        {
+            return (index - 1);
+        }
+        if (is_double_quote(line[index]))
+        {
+            index = double_quotes_detection(line, index);
+        }
+        if (is_single_quote(line[index]))
+        {
+            index = single_quotes_detection(line, index);
+        }
+        index++;
+    }
+    return (index);
+}
+
 
 int blank_detection(char *line, int index)
 {
     while (line[index] && is_blank(line[index]))
         index++;
     return (index - 1);
+}
+
+int paranthesis_detection(char *line, int index)
+{
+    return (index);
 }

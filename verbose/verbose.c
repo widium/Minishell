@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/08 18:26:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/12 14:20:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,14 @@ void print_detection(char *line, int start, int end, int token)
     }
     printf("]\n");
     
+}
+
+void print_str_index(char *str, int i)
+{
+    while (str[i])
+    {
+        printf("%c", str[i]);
+        i++;
+    }
+    printf("\n");
 }

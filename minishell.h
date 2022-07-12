@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/11 17:43:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/12 17:30:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_env
 	t_err	*error;
 	t_file	*history;
 	t_cmd	*first_cmd;
+	t_token *first_token;
 }   t_env;
 
 t_err	*init_err(void);
@@ -85,6 +86,7 @@ int double_quotes_detection(char *string, int i);
 int single_quotes_detection(char *line, int index);
 int word_detection(char *line, int index);
 int variables_detection(char *line, int index);
+int paranthesis_detection(char *line, int index);
 void redirection_detection(char *str);
 void boolean_detection(char *str);
 void wildcard_detection(char *str);
@@ -109,7 +111,12 @@ int is_heredoc(char *line, int i);
 int is_separator(char *line, int i);
 int is_word(char *line, int i);
 int is_variable(char *line, int index);
+int is_paranthesis(char *line, int index);
 
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);
+void print_chained_list(t_env *env);
+
+void tokenization(t_env *env, char *line);
+void add_chained_list(t_env *env, t_token *token);
 #endif
