@@ -1,5 +1,6 @@
-echo "bonjour" && echo "\(salut" && ( )
-onjour" && echo "\(salut" && ()
+echo "bonjour" >>>  echo "salu|t"
+ "bonjour" | echo "salu|t"
+bonjour\""
 echo "bonjour" && echo "\(salut" && ( )
  "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'dc
 echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'e

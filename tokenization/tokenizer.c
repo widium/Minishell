@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/12 17:32:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:31:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,14 @@ void tokenization(t_env *env, char *line)
         {
             new_index = paranthesis_detection(line, index);
             token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
+            add_chained_list(env, token);
+
+            index = new_index;
+        }
+        if (is_redirection(line, index))
+        {
+            new_index = redirection_detection(line, index);
+            token = tokenizer(line, index, new_index, TOKEN_REDIRECTION);
             add_chained_list(env, token);
 
             index = new_index;

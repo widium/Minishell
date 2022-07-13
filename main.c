@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/07 14:55:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:31:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ int	main(void)
 
 // int main()
 // {
-//     char *str = "echo \"bonjour\" && cd .. && pwd > result.txt | echo $HOME ";
-// 	// printf("\n\n%d\n", is_in_str(str, 0, "echo"));
-// 	built_in_detection(str);
+// 	int index = 0;
+	
+//     char *line = "echo \"bo|jour\" | echo \"salut\"";
+	
+// 	while (line[index])
+// 	{
+// 		printf("%d : %c --> Return : %d\n", index, line[index], is_in_quote(line, index));
+// 		index++;
+// 	}
 //     // printf("result : %s\n",ft_strnstr(str, "echo", ft_strlen("echo")));
 // }
