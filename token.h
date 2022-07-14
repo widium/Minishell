@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/12 17:25:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/14 11:20:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@
 # define TOKEN_WILDCARD 15
 # define TOKEN_REDIRECTION 16
 # define TOKEN_PIPE 17
-# define TOKEN_CHEVRON 18
-# define TOKEN_HERE_DOC 19
+# define TOKEN_INPUT_CHEVRON 18
+# define TOKEN_OUTPUT_CHEVRON 19
+# define TOKEN_APPEND_CHEVRON 20
+# define TOKEN_HERE_DOC 21
+# define TOKEN_BOOLEAN 22
 
 # include "minishell.h"
 
@@ -52,5 +55,6 @@ void connect_token(t_token *curr_token, t_token *next_token);
 t_token *tokenizer(char *line, int start, int end, int id);
 
 void print_token(t_token *token);
+char *convert_id(int id);
 
 # endif

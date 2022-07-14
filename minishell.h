@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/13 17:48:38 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/14 11:28:42 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int redirection_detection(char *line, int index);
 int variables_detection(char *line, int index);
 int paranthesis_detection(char *line, int index);
 
-void boolean_detection(char *str);
+int boolean_detection(char *line, int index);
 void wildcard_detection(char *str);
 void prefixe_wildcard_detection(char *line, int i);
 void suffix_wildcard_detection(char *line, int i);
@@ -110,8 +110,10 @@ int is_output_chevrons(char *line, int i);
 int is_pipe(char *line, int index);
 int is_append_chevrons(char *line, int i);
 int is_heredoc(char *line, int i);
-int is_redirection(char *str, int i);
-int is_boolean_operator(char *str, int i);
+int is_redirection(char *line, int i);
+int is_boolean_operator(char *line, int i);
+int is_and_operator(char *line, int i);
+int is_or_operator(char *line, int i);
 int is_doublons(char *str, int i, int c);
 int is_separator(char *line, int i);
 int is_word(char *line, int i);

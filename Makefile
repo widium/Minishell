@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/13 17:46:57 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/14 11:27:37 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS		= 	main.c \
 				parsing/detect5.c \
 				parsing/is.c \
 				parsing/is_redirection.c \
+				parsing/is_boolean.c \
+				parsing/is_quote.c \
 				verbose/verbose.c \
 				tokenization/init_token.c \
 				tokenization/tokenizer.c \

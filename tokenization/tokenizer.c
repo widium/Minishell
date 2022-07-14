@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/13 18:31:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/14 21:33:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,23 @@ void tokenization(t_env *env, char *line)
 
             index = new_index;
         }
+        if (is_boolean_operator(line, index))
+        {
+            new_index = boolean_detection(line, index);
+            token = tokenizer(line, index, new_index, TOKEN_BOOLEAN);
+            add_chained_list(env, token);
+
+            index = new_index;
+        }
+        // printf("%d , [%c] : is variable -> %d\n", index, line[index], is_variable(line, index));
+        if (is_variable(line, index))
+        {
+            new_index = variables_detection(line, index);
+            token = tokenizer(line, index, new_index, TOKEN_VARIABLE);
+            add_chained_list(env, token);
+
+            index = new_index;
+        }
         index++;
     }
     print_chained_list(env);
@@ -102,24 +119,4 @@ void add_chained_list(t_env *env, t_token *token)
             iter = iter->next;
         connect_token(iter, token);
     }
-}
-
-void print_token(t_token *token)
-{
-    printf("token : id [%d], content [%s]\n", token->id, token->content);
-}
-
-void print_chained_list(t_env *env)
-{
-    t_token *iter;
-    
-    iter = env->first_token; 
-    printf("==== LIST ====\n");
-    while (iter->next)
-    {
-        print_token(iter);
-        iter = iter->next;
-    }
-    print_token(iter);
-    printf("==== ==== ====\n");
 }
