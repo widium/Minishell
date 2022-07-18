@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/14 11:28:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:38:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@
 # include "token.h"
 # include <readline/readline.h>
 # include <readline/history.h>
-
-typedef struct s_cmd
-{
-	int				index;
-	char			*brut;
-	char			*bin;
-	char			*flags;
-	char			**complete;
-	struct s_cmd	*next_cmd;
-}   t_cmd;
-
-typedef struct s_file
-{
-	int		fd;
-	char	*name;
-}	t_file;
 
 typedef struct s_err
 {
@@ -93,7 +77,7 @@ int boolean_detection(char *line, int index);
 void wildcard_detection(char *str);
 void prefixe_wildcard_detection(char *line, int i);
 void suffix_wildcard_detection(char *line, int i);
-void built_in_detection(char *str);
+
 void heredoc_detection(char *str);
 
 void recover_keyword(char *str, int i);
@@ -122,6 +106,11 @@ int is_paranthesis(char *line, int index);
 int is_in_double_quote(char *line, int index);
 int is_in_single_quote(char *line, int index);
 int is_in_quote(char *line, int index);
+
+int is_built_in_index(char *line, int index);
+int is_built_in(char *content);
+char *return_built_in(char *content);
+int command_information(t_token *token, char *line, int index);
 
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);

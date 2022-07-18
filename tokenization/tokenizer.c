@@ -6,11 +6,21 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/14 21:33:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:50:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+t_token *tokenizer(char *line, int start, int end, int id)
+{
+    t_token *token;
+    char *content;
+    
+    content = ft_substr(line, start, (end - start) + 1);
+    token = create_token(content, id);
+    return (token);
+}
 
 void tokenization(t_env *env, char *line)
 {
@@ -18,6 +28,7 @@ void tokenization(t_env *env, char *line)
     int new_index;
     int count;
     t_token *token;
+    char *content;
 
     count = 0;
     index = 0;
@@ -33,90 +44,65 @@ void tokenization(t_env *env, char *line)
             
             index = new_index;
         }
-        if (is_double_quote(line[index]))
-        {
-           new_index = double_quotes_detection(line, index);
-           token = tokenizer(line, index, new_index, TOKEN_DOUBLE_QUOTE);
-           add_chained_list(env, token);
+        // if (is_double_quote(line[index]))
+        // {
+        //    new_index = double_quotes_detection(line, index);
+        //    token = tokenizer(line, index, new_index, TOKEN_DOUBLE_QUOTE);
+        //    add_chained_list(env, token);
            
-           index = new_index;
-        }
-        if (is_single_quote(line[index]))
-        {
-            new_index = single_quotes_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_SINGLE_QUOTE);
-            add_chained_list(env, token);
+        //    index = new_index;
+        // }
+        // if (is_single_quote(line[index]))
+        // {
+        //     new_index = single_quotes_detection(line, index);
+        //     token = tokenizer(line, index, new_index, TOKEN_SINGLE_QUOTE);
+        //     add_chained_list(env, token);
             
-            index = new_index;
-        }
+        //     index = new_index;
+        // }
         if (is_word(line, index))
         {
             new_index = word_detection(line, index);
             token = tokenizer(line, index, new_index, TOKEN_WORD);
             add_chained_list(env, token);
-            
-            index = new_index;
-        }
-        if (is_paranthesis(line, index))
-        {
-            new_index = paranthesis_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
-            add_chained_list(env, token);
 
             index = new_index;
         }
-        if (is_redirection(line, index))
-        {
-            new_index = redirection_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_REDIRECTION);
-            add_chained_list(env, token);
+        // if (is_paranthesis(line, index))
+        // {
+        //     new_index = paranthesis_detection(line, index);
+        //     token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
+        //     add_chained_list(env, token);
 
-            index = new_index;
-        }
-        if (is_boolean_operator(line, index))
-        {
-            new_index = boolean_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_BOOLEAN);
-            add_chained_list(env, token);
+        //     index = new_index;
+        // }
+        // if (is_redirection(line, index))
+        // {
+        //     new_index = redirection_detection(line, index);
+        //     token = tokenizer(line, index, new_index, TOKEN_REDIRECTION);
+        //     add_chained_list(env, token);
 
-            index = new_index;
-        }
-        // printf("%d , [%c] : is variable -> %d\n", index, line[index], is_variable(line, index));
-        if (is_variable(line, index))
-        {
-            new_index = variables_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_VARIABLE);
-            add_chained_list(env, token);
+        //     index = new_index;
+        // }
+        // if (is_boolean_operator(line, index))
+        // {
+        //     new_index = boolean_detection(line, index);
+        //     token = tokenizer(line, index, new_index, TOKEN_BOOLEAN);
+        //     add_chained_list(env, token);
 
-            index = new_index;
-        }
+        //     index = new_index;
+        // }
+        // // printf("%d , [%c] : is variable -> %d\n", index, line[index], is_variable(line, index));
+        // if (is_variable(line, index))
+        // {
+        //     new_index = variables_detection(line, index);
+        //     token = tokenizer(line, index, new_index, TOKEN_VARIABLE);
+        //     add_chained_list(env, token);
+
+        //     index = new_index;
+        // }
         index++;
     }
     print_chained_list(env);
      
-}
-
-t_token *tokenizer(char *line, int start, int end, int id)
-{
-    t_token *token;
-    char *content;
-    
-    content = ft_substr(line, start, (end - start) + 1);
-    token = create_token(content, id);
-    return (token);
-}
-
-void add_chained_list(t_env *env, t_token *token)
-{
-    t_token *iter;
-    
-    if (!(env->first_token))
-        env->first_token = token;
-    else 
-    {
-        iter = env->first_token;
-        while (iter->next)
-            iter = iter->next;
-        connect_token(iter, token);
-    }
 }

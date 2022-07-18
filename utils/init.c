@@ -6,39 +6,12 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/12 15:05:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:56:08 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-t_cmd   *init_cmd(void)
-{
-	t_cmd	*cmd;
-
-	cmd = (t_cmd *)malloc(sizeof(t_cmd));
-	if (!cmd)
-        return (NULL);
-	cmd->brut = NULL;
-	cmd->bin = NULL;
-	cmd->flags = NULL;
-	cmd->complete = NULL;
-	cmd->next_cmd = NULL;
-	cmd->index = 0;
-	return (cmd);
-}
-
-t_file	*init_file(void)
-{
-	t_file	*file;
-
-	file = (t_file *)malloc(sizeof(t_file));
-	if (!file)
-		return (NULL);
-	file->name = NULL;
-	file->fd = -1;
-	return (file);
-}
 
 t_err *init_err(void)
 {

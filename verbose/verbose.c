@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/14 21:34:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/18 17:23:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,16 @@
 
 void print_token(t_token *token)
 {
-    printf("[%s] : content [%s]\n", convert_id(token->id), token->content);
+    printf("[%s] : [%s]\n", convert_id(token->id), get_content(token));
+}
+
+char *get_content(t_token *token)
+{
+    if (token->id == TOKEN_BLANK)
+		return (((t_blank *)token->class)->content);
+    else if (token->id == TOKEN_WORD)
+        return (((t_word *)token->class)->content);
+	return (NULL);
 }
 
 void print_chained_list(t_env *env)

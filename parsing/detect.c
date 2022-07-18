@@ -6,90 +6,115 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/12 14:46:02 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/18 16:38:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-int detect_flags(char *line, int i)
+int detect_flags(char *line, int index)
 {
-    int old_index;
-    
-    old_index = i;
-    while (line[i] && line[i] != ' ')
-    {
-        if (line[i] == '-')
-        {
-            printf(" --> FLAGS : [");
-            while (line[i] && line[i] != ' ')
-            {
-                printf("%c", line[i]);
-                i++;
-            }
-            printf("]");
-            // printf("index apres flags --> %d : char : %c\n", i +1, line[i+1]);
-            return (i + 1);
-        }
-        i++;
-    }
-    printf(" --> FLAGS : [NULL]");
-    // printf("\nindex sans flags --> %d : char : %c\n", old_index +1, line[old_index]);
-    return (old_index);
+    while (line[index] && !(is_blank(line[index])) && !(is_separator(line, index)))
+        index++;
+    return (index);
 }
 
-void arguments_detection(char *line, int i)
+int arguments_detection(char *line, int index)
 {
-    while (line[i])
-    {
-        if (!(is_separator(line, i)))
-        {
-            printf(" --> ARGUMENTS : [");
-            while (line[i] && !(is_separator(line, i)))
-            {
-                printf("%c", line[i]);
-                i++;
-            }
-            printf("]\n");
-        }
-        i++;
-        return ;
-    }
+    while (line[index] && !(is_separator(line, index)))
+        index++;
+    return (index);
 }
 
-int search_built_in(char *line, char *built_in)
+int command_information(t_token *token, char *line, int index)
 {
-	int i;
+    int start;
     int new_index;
-	int count;
+    char *flags;
+    char *arg;
+
+    flags = NULL;
+    arg = NULL;
+    
+    start = index;
+    new_index = index;
+    
+    while (line[index])
+    {
+        if (line[index] == '-')
+        {
+            new_index = detect_flags(line, index);
+            flags = ft_substr(line, index, (new_index - index) + 1);
+            index = new_index;
+        }
+        else if (is_word(line, index))
+        {
+            new_index = arguments_detection(line, index);
+            arg = ft_substr(line, index, (new_index - index) + 1);
+            index = new_index;
+            printf("FLAGS : %s ARGUMENT : %s\n", flags, arg);
+            return (index);
+        }
+        index++;
+    }
+    return (index);
 	
-	i = 0;
-	count = 0;
-	while (line[i])
-	{
-		if (is_in_str(line, i, built_in))
-		{
-			printf("BUILT_IN : [%s]", built_in);
-            new_index = detect_flags(line, i + ft_strlen(built_in));
-            arguments_detection(line, new_index);
-			count++;
-		}
-		i++;
-	}
-	return (count);
+}
+char *return_built_in(char *content)
+{
+    if (same_str(content, "echo", ft_strlen("echo")))
+            return ("echo");
+    if (same_str(content, "cd", ft_strlen("cd")))
+            return ("cd");
+    if (same_str(content, "pwd", ft_strlen("pwd")))
+            return ("pwd");
+    if (same_str(content, "env", ft_strlen("env")))
+            return ("env");
+    if (same_str(content, "export", ft_strlen("export")))
+            return ("export");
+    if (same_str(content, "unset", ft_strlen("unset")))
+            return ("unset");
+    if (same_str(content, "exit", ft_strlen("exit")))
+            return ("exit");
+	return (NULL);
 }
 
-void built_in_detection(char *str)
+int is_built_in(char *content)
 {
-	search_built_in(str, "echo ");
-	search_built_in(str, "cd ");
-	search_built_in(str, "pwd ");
-	search_built_in(str, "export ");
-	search_built_in(str, "unset ");
-	search_built_in(str, "env ");
-	search_built_in(str, "exit ");
+    if (same_str(content, "echo", ft_strlen("echo")))
+            return (1);
+    if (same_str(content, "cd", ft_strlen("cd")))
+            return (1);
+    if (same_str(content, "pwd", ft_strlen("pwd")))
+            return (1);
+    if (same_str(content, "env", ft_strlen("env")))
+            return (1);
+    if (same_str(content, "export", ft_strlen("export")))
+            return (1);
+    if (same_str(content, "unset", ft_strlen("unset")))
+            return (1);
+    if (same_str(content, "exit", ft_strlen("exit")))
+            return (1);
+	return (0);
+}
 
-	return ;
+int is_built_in_index(char *line, int index)
+{
+    if (same_str_index(line, "echo", ft_strlen("echo"), index))
+            return (1);
+    else if (same_str_index(line, "cd", ft_strlen("cd"), index))
+            return (1);
+    else if (same_str_index(line, "pwd", ft_strlen("pwd"), index))
+            return (1);
+    else if (same_str_index(line, "env", ft_strlen("env"), index))
+            return (1);
+    else if (same_str_index(line, "export", ft_strlen("export"), index))
+            return (1);
+    else if (same_str_index(line, "unset", ft_strlen("unset"), index))
+            return (1);
+    else if (same_str_index(line, "exit", ft_strlen("exit"), index))
+            return (1);
+	return (0); 
 }
 
 // void file_detection(char *str)

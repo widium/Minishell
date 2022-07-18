@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:47:54 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/07 14:49:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/15 19:41:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	is_in_str(char *first, int i, char *second)
 	{
 		if (first[i] != second[second_i])
 			return (0);
-		// printf("%c %c\n", first[i], second[i]);
 		++i;
 		++second_i;
 	}

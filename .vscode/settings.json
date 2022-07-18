@@ -12,6 +12,8 @@
         "string_view": "c",
         "initializer_list": "c",
         "valarray": "c",
-        "string": "c"
+        "string": "c",
+        "stdarg.h": "c",
+        "typeinfo": "c"
     }
 }
