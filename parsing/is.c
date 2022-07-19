@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/14 12:09:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:06:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,15 @@ int is_word(char *line, int i)
 {
     if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])) &&
      !(is_paranthesis(line, i)) && !(is_redirection(line, i)) && !(is_boolean_operator(line, i)) &&
-     !(is_variable(line, i)))
+     !(is_variable(line, i)) && !(is_built_in_index(line, i)))
+        return (1);
+    return (0);
+}
+
+int is_argument(char *line, int i)
+{
+    if (!(is_blank(line[i])) && !(is_paranthesis(line, i)) &&
+     !(is_redirection(line, i)) && !(is_boolean_operator(line, i)))
         return (1);
     return (0);
 }
@@ -80,5 +88,28 @@ int is_variable(char *line, int i)
 {
     if (line[i] == '$' && !(is_blank(line[i + 1])) && !(is_finish(line[i + 1])))
         return (1);
+    return (0);
+}
+
+int is_file(char *line, int i)
+{
+    if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])) &&
+     !(is_paranthesis(line, i)) && !(is_redirection(line, i)) && !(is_boolean_operator(line, i)) &&
+     !(is_variable(line, i)) && !(is_built_in_index(line, i)))
+        return (1);
+    return (0);
+}
+
+int is_bin(char *word)
+{
+    char *path;
+
+    path = ft_strjoin("/bin/", word);
+    if (access(path, X_OK & F_OK))
+    {
+        free(path);
+        return (1); 
+    }
+    free(path);
     return (0);
 }

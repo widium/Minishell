@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/18 16:38:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:59:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_env
 }   t_env;
 
 t_err	*init_err(void);
-t_cmd   *init_cmd(void);
 t_file	*init_file(void);
 t_env	*init_env(void);
 
@@ -63,7 +62,6 @@ void ft_exit(t_env *env);
 
 void free_all(t_env *env);
 
-void    parsing(char *line);
 
 int blank_detection(char *line, int index);
 int double_quotes_detection(char *string, int i);
@@ -106,6 +104,10 @@ int is_paranthesis(char *line, int index);
 int is_in_double_quote(char *line, int index);
 int is_in_single_quote(char *line, int index);
 int is_in_quote(char *line, int index);
+int is_argument(char *line, int i);
+int is_bin(char *word);
+
+int type_of_redirect(char *content);
 
 int is_built_in_index(char *line, int index);
 int is_built_in(char *content);
@@ -116,6 +118,6 @@ void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);
 void print_chained_list(t_env *env);
 
-void tokenization(t_env *env, char *line);
+void parsing(t_env *env, char *line);
 void add_chained_list(t_env *env, t_token *token);
 #endif

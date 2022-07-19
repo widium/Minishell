@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/18 16:50:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:04:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,91 +18,65 @@ t_token *tokenizer(char *line, int start, int end, int id)
     char *content;
     
     content = ft_substr(line, start, (end - start) + 1);
+    printf("%s : is_bin -> %d\n", content, is_bin(content));
+    printf("wc is_bin : %d\n",(access("/bin/wc", X_OK & F_OK)));
     token = create_token(content, id);
     return (token);
 }
 
-void tokenization(t_env *env, char *line)
+t_token *tokenizer_bool(char *line, int start, int end, int id)
 {
-    int index;
-    int new_index;
-    int count;
+    t_token *token;
+    char *content;
+    char *first;
+    char *second;
+    int i;
+    
+    i = start - 1;
+    while (line[i] && !(is_boolean_operator(line, i)))
+        i--;
+    i++;
+    first = ft_substr(line, i, (start - i));
+    i = end + 1;
+    while (line[i] && !(is_boolean_operator(line, i)))
+        i++;
+    i--;
+    second = ft_substr(line, end + 1, (i - end));
+
+    content = ft_substr(line, start, (end - start)+1);
+    token = create_token_bool(content, first, second, id);
+    return (token);
+}
+
+t_token *tokenizer_redir(char *line, int start, int end, int id)
+{
+    t_token *token;
+    char *content;
+    int type;
+    int i;
+
+    content = ft_substr(line, start, (end - start) + 1);
+    type = type_of_redirect(content);
+    token = create_token_redir(id, type, 0, 1, content);
+    return (token);
+}
+
+t_token *tokenizer_variable(char *line, int start, int end, int id)
+{
     t_token *token;
     char *content;
 
-    count = 0;
-    index = 0;
-    new_index = index;
-    
-    while (line[index])
-    {
-        if (is_blank(line[index]))
-        {
-            new_index = blank_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_BLANK);
-            add_chained_list(env, token);
-            
-            index = new_index;
-        }
-        // if (is_double_quote(line[index]))
-        // {
-        //    new_index = double_quotes_detection(line, index);
-        //    token = tokenizer(line, index, new_index, TOKEN_DOUBLE_QUOTE);
-        //    add_chained_list(env, token);
-           
-        //    index = new_index;
-        // }
-        // if (is_single_quote(line[index]))
-        // {
-        //     new_index = single_quotes_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_SINGLE_QUOTE);
-        //     add_chained_list(env, token);
-            
-        //     index = new_index;
-        // }
-        if (is_word(line, index))
-        {
-            new_index = word_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_WORD);
-            add_chained_list(env, token);
+    content = ft_substr(line, start, (end - start) + 1);
+    token = create_token_variable(id, content);
+    return (token);
+}
 
-            index = new_index;
-        }
-        // if (is_paranthesis(line, index))
-        // {
-        //     new_index = paranthesis_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
-        //     add_chained_list(env, token);
+t_token *tokenizer_command(char *line, int start, int end, int id)
+{
+    t_token *token;
+    char *content;
 
-        //     index = new_index;
-        // }
-        // if (is_redirection(line, index))
-        // {
-        //     new_index = redirection_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_REDIRECTION);
-        //     add_chained_list(env, token);
-
-        //     index = new_index;
-        // }
-        // if (is_boolean_operator(line, index))
-        // {
-        //     new_index = boolean_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_BOOLEAN);
-        //     add_chained_list(env, token);
-
-        //     index = new_index;
-        // }
-        // // printf("%d , [%c] : is variable -> %d\n", index, line[index], is_variable(line, index));
-        // if (is_variable(line, index))
-        // {
-        //     new_index = variables_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_VARIABLE);
-        //     add_chained_list(env, token);
-
-        //     index = new_index;
-        // }
-        index++;
-    }
-    print_chained_list(env);
-     
+    content = ft_substr(line, start, (end - start) + 1);
+    token = create_token_command(id, content);
+    return (token);
 }

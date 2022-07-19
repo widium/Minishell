@@ -14,6 +14,18 @@
         "valarray": "c",
         "string": "c",
         "stdarg.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "chrono": "c",
+        "variant": "c",
+        "compare": "c",
+        "functional": "c",
+        "ratio": "c",
+        "tuple": "c",
+        "utility": "c",
+        "deque": "c",
+        "list": "c",
+        "unordered_map": "c",
+        "unordered_set": "c",
+        "vector": "c"
     }
 }

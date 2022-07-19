@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/18 17:23:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:10:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,40 +38,15 @@
 
 # include "minishell.h"
 
-
-// typedef union s_Token
-// {
-//     t_blank blank;
-//     t_word word;
-//     t_single single;
-//     t_double double_q;
-//     t_boolean boolean;
-//     t_variable variable;
-//     t_file file;
-//     t_redirection redirection;
-//     t_wildcard wildcard;
-//     t_cmd cmd;
-// } t_Token;
-
-
 typedef struct s_token
 {
     void *class;
     int id;
+    int index;
     struct s_token *next;
     struct s_token *prev;
 
 }   t_token;
-
-// typedef struct s_token
-// {
-//     int index;
-//     int id;
-//     char *content;
-//     struct s_token *next;
-//     struct s_token *prev;
-
-// }   t_token;
 
 typedef struct s_blank
 {
@@ -103,7 +78,6 @@ typedef struct s_double
 
 typedef struct s_variable
 {
-    int             id;
 	char			*content;
 
 }   t_variable;
@@ -112,14 +86,16 @@ typedef struct s_redirection
 {
     int fd_in;
     int fd_out;
-    int id;
+    int type;
+    char *content;
 
 }   t_redirection;
 
 typedef struct s_boolean
 {
-    char *in;
-    char *out;
+    char *content;
+    char *first;
+    char *second;
     int     id;
 
 }   t_boolean;
@@ -141,8 +117,10 @@ typedef struct s_wildcard
 typedef struct s_cmd
 {
     int             id;
+    char            *content;
 	char			*bin;
 	char			*flags;
+    char            *arg;
 	char			**complete;
     int             fd_in;
     int             fd_out;
@@ -153,24 +131,33 @@ typedef struct s_cmd
 t_token *init_token(void);
 t_blank	*init_blank(char *content, int id);
 t_word	*init_word(char *content, int id);
-t_cmd   *init_cmd(void);
+t_cmd   *init_cmd(char *content);
 t_file	*init_file(void);
-t_single	*init_single(void);
-t_double	*init_double(void);
-t_variable	*init_variable(void);
-t_redirection	*init_redirection(void);
-t_boolean	*init_boolean_operator(void);
+t_single	*init_single(char *content, int id);
+t_double	*init_double(char *content, int id);
+t_variable	*init_variable(char *content);
+t_redirection	*init_redirection(int type, int fd_in, int fd_out, char *content);
+t_boolean	*init_boolean_operator(char * content, char *first, char *second, int id);
 t_wildcard	*init_wildcard(void);
 
 
 
 t_token *create_token(char *content, int id);
+t_token *create_token_bool(char *content, char *first, char *second, int id);
+t_token *create_token_redir(int id, int type, int fd_in, int fd_out, char *content);
+t_token *create_token_variable(int id, char *content);
+t_token *create_token_command(int id, char *content);
+
 t_token *word_classfication(char *line, char *content, int index);
 void *choose_class(char *content, int id);
 void connect_token(t_token *curr_token, t_token *next_token);
 char *get_content(t_token *token);
 
 t_token *tokenizer(char *line, int start, int end, int id);
+t_token *tokenizer_bool(char *line, int start, int end, int id);
+t_token *tokenizer_redir(char *line, int start, int end, int id);
+t_token *tokenizer_variable(char *line, int start, int end, int id);
+t_token *tokenizer_command(char *line, int start, int end, int id);
 
 void print_token(t_token *token);
 char *convert_id(int id);

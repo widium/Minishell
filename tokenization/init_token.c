@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/18 17:19:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:10:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,17 @@ t_word	*init_word(char *content, int id)
 }
 
 
-t_cmd   *init_cmd(void)
+t_cmd   *init_cmd(char *content)
 {
 	t_cmd	*cmd;
 
 	cmd = (t_cmd *)malloc(sizeof(t_cmd));
 	if (!cmd)
         return (NULL);
+	cmd->content = content;
 	cmd->bin = NULL;
 	cmd->flags = NULL;
+	cmd->arg = NULL;
 	cmd->complete = NULL;
 	cmd->fd_in = -1;
 	cmd->fd_out = -1;
@@ -80,65 +82,66 @@ t_file	*init_file(void)
 	return (file);
 }
 
-t_single	*init_single(void)
+t_single	*init_single(char *content, int id)
 {
 	t_single	*single;
 
 	single = (t_single *)malloc(sizeof(t_single));
 	if (!single)
 		return (NULL);
-	single->id = 0;
-	single->content = NULL;
+	single->id = id;
+	single->content = content;
 	return (single);
 }
 
-t_double	*init_double(void)
+t_double	*init_double(char *content, int id)
 {
 	t_double	*double_q;
 
 	double_q = (t_double *)malloc(sizeof(t_double));
 	if (!double_q)
 		return (NULL);
-	double_q->id = 0;
-	double_q->content = NULL;
+	double_q->id = id;
+	double_q->content = content;
 	return (double_q);
 }
 
-t_variable	*init_variable(void)
+t_variable	*init_variable(char *content)
 {
 	t_variable	*variable;
 
 	variable = (t_variable *)malloc(sizeof(t_variable));
 	if (!variable)
 		return (NULL);
-	variable->id = 0;
-	variable->content = NULL;
+	variable->content = content;
 	return (variable);
 }
 
-t_redirection	*init_redirection(void)
+t_redirection	*init_redirection(int type, int fd_in, int fd_out, char *content)
 {
 	t_redirection	*redir;
 
 	redir = (t_redirection *)malloc(sizeof(t_redirection));
 	if (!redir)
 		return (NULL);
-	redir->id = 0;
-	redir->fd_in = 0;
-	redir->fd_out = 0;
+	redir->type = type;
+	redir->fd_in = fd_in;
+	redir->fd_out = fd_out;
+	redir->content = content;
 	return (redir);
 }
 
-t_boolean	*init_boolean_operator(void)
+t_boolean	*init_boolean_operator(char * content, char *first, char *second, int id)
 {
 	t_boolean	*boolean;
 
 	boolean = (t_boolean *)malloc(sizeof(t_boolean));
 	if (!boolean)
 		return (NULL);
-	boolean->id = 0;
-	boolean->in = NULL;
-	boolean->out = NULL;
+	boolean->id = id;
+	boolean->first = first;
+	boolean->second = second;
+	boolean->content = content;
 	return (boolean);
 }
 

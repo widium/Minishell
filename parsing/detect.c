@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/18 16:38:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:22:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ int detect_flags(char *line, int index)
 {
     while (line[index] && !(is_blank(line[index])) && !(is_separator(line, index)))
         index++;
-    return (index);
+    return (index-1);
 }
 
 int arguments_detection(char *line, int index)
 {
     while (line[index] && !(is_separator(line, index)))
         index++;
-    return (index);
+    return (index -1);
 }
 
 int command_information(t_token *token, char *line, int index)
@@ -47,19 +47,22 @@ int command_information(t_token *token, char *line, int index)
             flags = ft_substr(line, index, (new_index - index) + 1);
             index = new_index;
         }
-        else if (is_word(line, index))
+        else if (is_argument(line, index))
         {
             new_index = arguments_detection(line, index);
             arg = ft_substr(line, index, (new_index - index) + 1);
             index = new_index;
-            printf("FLAGS : %s ARGUMENT : %s\n", flags, arg);
-            return (index);
+        //     printf("FLAGS : %s ARGUMENT : %s\n", flags, arg);
+            break;
         }
         index++;
     }
+    ((t_cmd *)token->class)->flags = flags;
+    ((t_cmd *)token->class)->arg = arg;
     return (index);
 	
 }
+
 char *return_built_in(char *content)
 {
     if (same_str(content, "echo", ft_strlen("echo")))
@@ -114,10 +117,16 @@ int is_built_in_index(char *line, int index)
             return (1);
     else if (same_str_index(line, "exit", ft_strlen("exit"), index))
             return (1);
-	return (0); 
+    return (0); 
 }
 
-// void file_detection(char *str)
+// int built_in_detection(char *line, int index)
 // {
-    
+//     int start;
+
+//     start = index;
+//     while (line[i])
+//     {
+        
+//     }
 // }

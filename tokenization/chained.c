@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/18 16:38:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/19 13:23:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,24 @@
 void add_chained_list(t_env *env, t_token *token)
 {
     t_token *iter;
+    int i;
     
+    i = 1;
     if (!(env->first_token))
+    {
         env->first_token = token;
+        token->index = i;
+    } 
     else 
     {
         iter = env->first_token;
+        i++;
         while (iter->next)
-            iter = iter->next;
+        {
+            i++;
+            iter = iter->next;  
+        }
+        token->index = i; 
         connect_token(iter, token);
     }
 }
