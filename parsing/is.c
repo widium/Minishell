@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 19:06:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:23:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int is_word(char *line, int i)
 
 int is_argument(char *line, int i)
 {
-    if (!(is_blank(line[i])) && !(is_paranthesis(line, i)) &&
-     !(is_redirection(line, i)) && !(is_boolean_operator(line, i)))
+    if (!(is_paranthesis(line, i)) && !(is_separator(line, i)) &&
+    !(is_blank(line[i])))
         return (1);
     return (0);
 }
@@ -105,7 +105,7 @@ int is_bin(char *word)
     char *path;
 
     path = ft_strjoin("/bin/", word);
-    if (access(path, X_OK & F_OK))
+    if (access(path, X_OK & F_OK) == 0)
     {
         free(path);
         return (1); 

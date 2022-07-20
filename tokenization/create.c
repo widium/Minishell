@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 17:54:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:26:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ t_token *create_token_bool(char *content, char *first, char *second, int id)
 	return (token);
 }
 
-t_token *create_token_redir(int id, int type, int fd_in, int fd_out, char *content)
+t_token *create_token_redir(int type, char *content)
 {
 	t_token *token;
 
 	token = init_token();
-	token->id = id;
-	token->class = init_redirection(type, fd_in, fd_out, content);
+	token->id = type;
+	token->class = init_redirection(type, content);
 	
 	return (token);
 }

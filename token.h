@@ -6,13 +6,14 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 18:10:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:57:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKEN_H
 # define TOKEN_H
 
+# define TOKEN_NULL 0
 # define TOKEN_BLANK 1
 # define TOKEN_WORD 2
 # define TOKEN_SINGLE_QUOTE 3
@@ -117,6 +118,7 @@ typedef struct s_wildcard
 typedef struct s_cmd
 {
     int             id;
+    int             id_arg;
     char            *content;
 	char			*bin;
 	char			*flags;
@@ -136,7 +138,7 @@ t_file	*init_file(void);
 t_single	*init_single(char *content, int id);
 t_double	*init_double(char *content, int id);
 t_variable	*init_variable(char *content);
-t_redirection	*init_redirection(int type, int fd_in, int fd_out, char *content);
+t_redirection	*init_redirection(int type, char *content);
 t_boolean	*init_boolean_operator(char * content, char *first, char *second, int id);
 t_wildcard	*init_wildcard(void);
 
@@ -144,12 +146,13 @@ t_wildcard	*init_wildcard(void);
 
 t_token *create_token(char *content, int id);
 t_token *create_token_bool(char *content, char *first, char *second, int id);
-t_token *create_token_redir(int id, int type, int fd_in, int fd_out, char *content);
+t_token *create_token_redir(int type, char *content);
 t_token *create_token_variable(int id, char *content);
 t_token *create_token_command(int id, char *content);
 
 t_token *word_classfication(char *line, char *content, int index);
 void *choose_class(char *content, int id);
+void choose_arg_class(t_token *token, char *arg);
 void connect_token(t_token *curr_token, t_token *next_token);
 char *get_content(t_token *token);
 
@@ -159,7 +162,12 @@ t_token *tokenizer_redir(char *line, int start, int end, int id);
 t_token *tokenizer_variable(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *line, int start, int end, int id);
 
+int is_token_redirection(t_token *token);
+int is_token_boolean(t_token *token);
+int is_token_cmd(t_token *token);
+
 void print_token(t_token *token);
+void print_cmd(t_token *token);
 char *convert_id(int id);
 
 # endif

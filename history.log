@@ -1,7 +1,4 @@
-echo -n "salut" && wc -l
-..
-salut" && cd ..
-sult.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
 OP
  )
  "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'dc

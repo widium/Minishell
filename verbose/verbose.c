@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 18:34:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 18:02:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 void print_token(t_token *token)
 {
-    if (token->id == TOKEN_BOOLEAN)
+    if (is_token_boolean(token))
     {
-       printf("[%d][%s] : [%s] --> {in [%s] : out [%s]}\n", token->index, 
+       printf("[%d][%s] : [%s] --> {in [%s] : out [%s]}\n\n", token->index, 
         convert_id(token->id), ((t_boolean *)token->class)->content, ((t_boolean *)token->class)->first, ((t_boolean *)token->class)->second); 
     }
-    else if (token->id == TOKEN_REDIRECTION)
+    else if (is_token_redirection(token))
     {
-        printf("[%d][%s] : [%s] -> fd_in[%d] fd_out[%d]\n", token->index, 
+        printf("[%d][%s] : [%s] -> fd_in[%d] fd_out[%d]\n\n", token->index, 
         convert_id( ((t_redirection *)token->class)->type), ((t_redirection *)token->class)->content,
          ((t_redirection *)token->class)->fd_in, ((t_redirection *)token->class)->fd_out); 
     }
-    else if (token->id == TOKEN_VARIABLE)
+    else if (is_token_cmd(token))
     {
-        printf("[%d][%s] : [%s]\n", token->index, convert_id(TOKEN_VARIABLE),
-        ((t_variable *)token->class)->content);
-    }
-    else if (token->id == TOKEN_BUILT_IN)
-    {
-        printf("[%d][%s] : [%s]\n   [%s]: [%s]\n   [%s]: [%s]\n", token->index, convert_id(TOKEN_BUILT_IN),
-        ((t_cmd *)token->class)->content, 
-        "FLAGS",((t_cmd *)token->class)->flags, 
-        "ARGUMENT",((t_cmd *)token->class)->arg);
+        print_cmd(token);
     }
     else
-        printf("[%d][%s] : [%s]\n", token->index, convert_id(token->id), get_content(token));
+        printf("[%d][%s] : [%s]\n\n", token->index, convert_id(TOKEN_NULL), get_content(token));
+}
+
+void print_cmd(t_token *token)
+{
+    printf("[%d][%s] : [%s]\n   [%s]: [%s]\n   [%s][%s]: [%s]\n\n", token->index, convert_id(token->id),
+        ((t_cmd *)token->class)->content, 
+        "FLAGS",((t_cmd *)token->class)->flags,
+        "ARGUMENT",convert_id(((t_cmd *)token->class)->id_arg), ((t_cmd *)token->class)->arg);
 }
 
 void print_chained_list(t_env *env)
@@ -81,6 +81,8 @@ void print_str_index(char *str, int i)
 
 char *convert_id(int id)
 {
+    if (id == TOKEN_NULL)
+        return ("TOKEN_NULL");
     if (id == TOKEN_BLANK)
         return ("TOKEN_BLANK");
     if (id == TOKEN_WORD)

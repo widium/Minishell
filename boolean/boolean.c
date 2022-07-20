@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   boolean.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 11:55:24 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 13:52:53 by ebennace         ###   ########.fr       */
+/*   Created: 2022/07/20 17:21:42 by ebennace          #+#    #+#             */
+/*   Updated: 2022/07/20 17:50:03 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft/libft.h"
+# include "../minishell.h"
 
-int main(int argc, char **argv, char **env)
+int type_of_boolean(char *content)
 {
-    int fd = access("/bin/wc", R_OK & W_OK & X_OK & F_OK);
-    printf("%d\n",fd);
+    if (is_and_operator(content, 0))
+        return (TOKEN_AND);
+    else if (is_or_operator(content, 0))
+        return (TOKEN_OR);
+    return (TOKEN_NULL);
 }

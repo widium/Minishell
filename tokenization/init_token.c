@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 18:10:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:16:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ t_variable	*init_variable(char *content)
 	return (variable);
 }
 
-t_redirection	*init_redirection(int type, int fd_in, int fd_out, char *content)
+t_redirection	*init_redirection(int type, char *content)
 {
 	t_redirection	*redir;
 
@@ -125,8 +125,8 @@ t_redirection	*init_redirection(int type, int fd_in, int fd_out, char *content)
 	if (!redir)
 		return (NULL);
 	redir->type = type;
-	redir->fd_in = fd_in;
-	redir->fd_out = fd_out;
+	redir->fd_in = STDIN_FILENO;
+	redir->fd_out = STDOUT_FILENO;
 	redir->content = content;
 	return (redir);
 }

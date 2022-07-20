@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 18:59:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 17:20:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,15 @@ int is_argument(char *line, int i);
 int is_bin(char *word);
 
 int type_of_redirect(char *content);
+int type_of_boolean(char *content);
 
 int is_built_in_index(char *line, int index);
 int is_built_in(char *content);
 char *return_built_in(char *content);
 int command_information(t_token *token, char *line, int index);
+int argument_extraction(t_token *token, char *line, int index);
+int flags_extraction(t_token *token, char *line, int index);
+
 
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);

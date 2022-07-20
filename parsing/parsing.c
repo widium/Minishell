@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 19:01:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/20 19:24:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,31 @@ void parsing(t_env *env, char *line)
         if (is_word(line, index))
         {
             new_index = word_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_WORD);
+            content = ft_substr(line, index, (new_index - index) + 1);
+            if (is_bin(content))
+            {
+                token = tokenizer_command(line, index, new_index, TOKEN_BINARY);
+                new_index = command_information(token, line, ++new_index);
+            }
+            else
+            {
+                token = tokenizer(line, index, new_index, TOKEN_WORD);
+            }
             add_chained_list(env, token);
-
             index = new_index;
         }
         // if (is_paranthesis(line, index))
         // {
         //     new_index = paranthesis_detection(line, index);
         //     token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
+        //     add_chained_list(env, token);
+
+        //     index = new_index;
+        // }
+        // if (is_variable(line, index))
+        // {
+        //     new_index = variables_detection(line, index);
+        //     token = tokenizer_variable(line, index, new_index, TOKEN_VARIABLE);
         //     add_chained_list(env, token);
 
         //     index = new_index;
@@ -82,26 +98,18 @@ void parsing(t_env *env, char *line)
 
             index = new_index;
         }
-        // // printf("%d , [%c] : is variable -> %d\n", index, line[index], is_variable(line, index));
-        if (is_variable(line, index))
-        {
-            new_index = variables_detection(line, index);
-            token = tokenizer_variable(line, index, new_index, TOKEN_VARIABLE);
-            add_chained_list(env, token);
-
-            index = new_index;
-        }
         if (is_built_in_index(line, index))
         {
             new_index = word_detection(line, index);
             token = tokenizer_command(line, index, new_index, TOKEN_BUILT_IN);
             new_index = command_information(token, line, ++new_index);
             add_chained_list(env, token);
-            
-            index = new_index; 
+
+            index = new_index;
         }
         index++;
     }
     print_chained_list(env);
+    
      
 }
