@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 19:21:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 18:12:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,27 @@ void add_chained_list(t_env *env, t_token *token)
     }
 }
 
-t_token *word_classfication(char *line, char *content, int index)
+void add_arg_list(t_cmd *cmd, t_arg *arg)
 {
-    t_token *token;
+    t_arg *iter;
+    int i;
     
-    if (is_built_in(content))
+    i = 1;
+    if (!(cmd->first_arg))
     {
-        token = create_token(content, TOKEN_BUILT_IN);
-        command_information(token, line, index);
-    }  
-    else
-        token = create_token(content, TOKEN_WORD);
-    return (token);
+        cmd->first_arg = arg;
+        arg->index = i;
+    } 
+    else 
+    {
+        iter = cmd->first_arg;
+        i++;
+        while (iter->next)
+        {
+            i++;
+            iter = iter->next;  
+        }
+        arg->index = i; 
+        connect_arg(iter, arg);
+    }
 }

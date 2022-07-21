@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 17:20:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:37:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_env
 }   t_env;
 
 t_err	*init_err(void);
-t_file	*init_file(void);
 t_env	*init_env(void);
 
 void open_files(t_env    *env);
@@ -86,12 +85,14 @@ int is_blank(char c);
 int is_back_slash(char c);
 int is_double_quote(char c);
 int is_single_quote(char c);
+int is_quote(char c);
 int is_not_NULL(char c, char d);
 int is_input_chevrons(char *line, int i);
 int is_output_chevrons(char *line, int i);
 int is_pipe(char *line, int index);
 int is_append_chevrons(char *line, int i);
 int is_heredoc(char *line, int i);
+int is_file_redirection(char *line, int i);
 int is_redirection(char *line, int i);
 int is_boolean_operator(char *line, int i);
 int is_and_operator(char *line, int i);
@@ -106,6 +107,10 @@ int is_in_single_quote(char *line, int index);
 int is_in_quote(char *line, int index);
 int is_argument(char *line, int i);
 int is_bin(char *word);
+int is_cmd(char *word);
+int is_flags(char *line, int i);
+int is_file(char *line, int i);
+int is_after_redirect(char *line, int index);
 
 int type_of_redirect(char *content);
 int type_of_boolean(char *content);
@@ -113,7 +118,7 @@ int type_of_boolean(char *content);
 int is_built_in_index(char *line, int index);
 int is_built_in(char *content);
 char *return_built_in(char *content);
-int command_information(t_token *token, char *line, int index);
+int command_information(t_cmd *cmd, char *line, int index);
 int argument_extraction(t_token *token, char *line, int index);
 int flags_extraction(t_token *token, char *line, int index);
 

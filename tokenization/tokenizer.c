@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 17:26:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:40:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ t_token *tokenizer(char *line, int start, int end, int id)
     // printf("%s : is_bin -> %d\n", content, is_bin(content));
     token = create_token(content, id);
     return (token);
+}
+
+t_arg *tokenizer_arg(char *line, int start, int end, int id)
+{
+    t_arg *arg;
+    char *content;
+    
+    content = ft_substr(line, start, (end - start) + 1);
+    arg = create_arg(content, id);
+    return (arg);
 }
 
 t_token *tokenizer_bool(char *line, int start, int end, int id)
@@ -71,12 +81,23 @@ t_token *tokenizer_variable(char *line, int start, int end, int id)
     return (token);
 }
 
-t_token *tokenizer_command(char *line, int start, int end, int id)
+t_token *tokenizer_command(char *word, int id)
 {
     t_token *token;
-    char *content;
 
-    content = ft_substr(line, start, (end - start) + 1);
-    token = create_token_command(id, content);
+    token = create_token_command(id, word);
+    return (token);
+}
+
+t_token *tokenizer_file(char *name, int id)
+{
+    t_token *token;
+    int fd;
+
+    fd = open(name, O_RDONLY | O_WRONLY | O_CREAT, 0777);
+    if (fd < 0)
+        printf("%s : so such file or directory\n", name);
+
+    token = create_token_file(name, fd, id);
     return (token);
 }

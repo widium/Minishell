@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 17:26:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:50:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ t_token *create_token(char *content, int id)
 	token->class = choose_class(content, id);
 	
 	return (token);
+}
+
+t_arg *create_arg(char *content, int id)
+{
+	t_arg *arg;
+
+	arg = init_arg(content, id);
+	return (arg);
 }
 
 void *choose_class(char *content, int id)
@@ -49,12 +57,22 @@ char *get_content(t_token *token)
 	return (NULL);
 }
 
+char *get_file_name(t_token *token)
+{
+    return (((t_file *)token->class)->name);
+}
+
 void connect_token(t_token *curr_token, t_token *next_token)
 {
 	curr_token->next = next_token;
 	next_token->prev = curr_token;
 }
 
+void connect_arg(t_arg *curr_arg, t_arg *next_arg)
+{
+	curr_arg->next = next_arg;
+	next_arg->prev = curr_arg;
+}
 
 t_token *create_token_bool(char *content, char *first, char *second, int id)
 {
@@ -95,7 +113,17 @@ t_token *create_token_command(int id, char *content)
 
 	token = init_token();
 	token->id = id;
-	token->class = init_cmd(content);
+	token->class = init_cmd(content, id);
 	
+	return (token);
+}
+
+t_token *create_token_file(char *name, int fd, int id)
+{
+	t_token *token;
+
+	token = init_token();
+	token->id = id;
+	token->class = init_file(name, fd);
 	return (token);
 }

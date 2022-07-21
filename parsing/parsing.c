@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 19:24:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 21:19:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,38 +26,28 @@ void parsing(t_env *env, char *line)
     
     while (line[index])
     {
-        // if (is_blank(line[index]))
-        // {
-        //     new_index = blank_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_BLANK);
-        //     add_chained_list(env, token);
-            
-        //     index = new_index;
-        // }
-        if (is_double_quote(line[index]))
-        {
-           new_index = double_quotes_detection(line, index);
-           token = tokenizer(line, index, new_index, TOKEN_DOUBLE_QUOTE);
-           add_chained_list(env, token);
-           
-           index = new_index;
-        }
-        if (is_single_quote(line[index]))
-        {
-            new_index = single_quotes_detection(line, index);
-            token = tokenizer(line, index, new_index, TOKEN_SINGLE_QUOTE);
-            add_chained_list(env, token);
-            
-            index = new_index;
-        }
         if (is_word(line, index))
         {
             new_index = word_detection(line, index);
             content = ft_substr(line, index, (new_index - index) + 1);
-            if (is_bin(content))
+            if (is_cmd(content))
             {
-                token = tokenizer_command(line, index, new_index, TOKEN_BINARY);
-                new_index = command_information(token, line, ++new_index);
+                if (is_bin(content))
+                {
+                    token = tokenizer_command(content, TOKEN_BINARY);
+                    new_index = command_information((t_cmd *)token->class, line, ++new_index);
+                }
+                else if (is_built_in(content))
+                {
+                    token = tokenizer_command(content, TOKEN_BUILT_IN);
+                    new_index = command_information((t_cmd *)token->class, line, ++new_index);
+                } 
+            }
+            else if (is_file(line, index))
+            {
+                printf("[%d][%c] Result : is_after_redirect %d\n",index, line[index], is_after_redirect(line, index));
+                printf("[%d][%c] Result : is_file %d\n",index, line[index], is_file(line, index));
+                token = tokenizer_file(content, TOKEN_FILE);
             }
             else
             {
@@ -66,22 +56,6 @@ void parsing(t_env *env, char *line)
             add_chained_list(env, token);
             index = new_index;
         }
-        // if (is_paranthesis(line, index))
-        // {
-        //     new_index = paranthesis_detection(line, index);
-        //     token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
-        //     add_chained_list(env, token);
-
-        //     index = new_index;
-        // }
-        // if (is_variable(line, index))
-        // {
-        //     new_index = variables_detection(line, index);
-        //     token = tokenizer_variable(line, index, new_index, TOKEN_VARIABLE);
-        //     add_chained_list(env, token);
-
-        //     index = new_index;
-        // }
         if (is_redirection(line, index))
         {
             new_index = redirection_detection(line, index);
@@ -98,15 +72,14 @@ void parsing(t_env *env, char *line)
 
             index = new_index;
         }
-        if (is_built_in_index(line, index))
-        {
-            new_index = word_detection(line, index);
-            token = tokenizer_command(line, index, new_index, TOKEN_BUILT_IN);
-            new_index = command_information(token, line, ++new_index);
-            add_chained_list(env, token);
+        // if (is_paranthesis(line, index))
+        // {
+        //     new_index = paranthesis_detection(line, index);
+        //     token = tokenizer(line, index, new_index, TOKEN_PARANTHESIS);
+        //     add_chained_list(env, token);
 
-            index = new_index;
-        }
+        //     index = new_index;
+        // }
         index++;
     }
     print_chained_list(env);

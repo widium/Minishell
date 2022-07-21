@@ -1,8 +1,6 @@
 cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
-OP
- )
- "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'dc
-echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'e
+cd .. && echo $HOME -e | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+'lap'e
 echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es
 echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es
 echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:52:44 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 18:00:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:48:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ int is_token_boolean(t_token *token)
 int is_token_cmd(t_token *token)
 {
     if (token->id == TOKEN_BUILT_IN || token->id == TOKEN_BINARY || token->id == TOKEN_COMMAND)
+        return (1);
+    return (0);
+}
+
+int is_token_file(t_token *token)
+{
+    if (token->id == TOKEN_FILE)
         return (1);
     return (0);
 }

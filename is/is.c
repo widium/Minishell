@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 19:23:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:01:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ int is_back_slash(char c)
 
 int is_word(char *line, int i)
 {
-    if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])) &&
-     !(is_paranthesis(line, i)) && !(is_redirection(line, i)) && !(is_boolean_operator(line, i)) &&
-     !(is_variable(line, i)) && !(is_built_in_index(line, i)))
+    if (!(is_quote(line[i])) && !(is_blank(line[i])) &&
+     !(is_paranthesis(line, i)) && !(is_separator(line, i)) &&
+     !(is_variable(line, i)))
         return (1);
     return (0);
 }
@@ -91,15 +91,6 @@ int is_variable(char *line, int i)
     return (0);
 }
 
-int is_file(char *line, int i)
-{
-    if (!(is_single_quote(line[i])) && !(is_double_quote(line[i])) && !(is_blank(line[i])) &&
-     !(is_paranthesis(line, i)) && !(is_redirection(line, i)) && !(is_boolean_operator(line, i)) &&
-     !(is_variable(line, i)) && !(is_built_in_index(line, i)))
-        return (1);
-    return (0);
-}
-
 int is_bin(char *word)
 {
     char *path;
@@ -111,5 +102,19 @@ int is_bin(char *word)
         return (1); 
     }
     free(path);
+    return (0);
+}
+
+int is_cmd(char *word)
+{
+    if (is_bin(word) || is_built_in(word))
+        return (1);
+    return (0);
+}
+
+int is_flags(char *line, int i)
+{
+    if (line[i] == '-' && !(is_blank(line[i+1])))
+        return (1);
     return (0);
 }

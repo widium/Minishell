@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:27:11 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/14 11:28:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 19:46:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ int is_double_quote(char c)
 int is_single_quote(char c)
 {
     if (c == '\'')
+        return (1);
+    return (0);
+}
+
+int is_quote(char c)
+{
+    if (is_double_quote(c) || is_single_quote(c))
         return (1);
     return (0);
 }

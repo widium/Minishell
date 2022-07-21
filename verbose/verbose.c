@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 18:02:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:51:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,38 @@ void print_token(t_token *token)
     }
     else if (is_token_cmd(token))
     {
-        print_cmd(token);
+        print_cmd((t_cmd *)token->class, token->index);
+    }
+    else if (is_token_file(token))
+    {
+         printf("[%d][%s] : [%s]\n\n", token->index, convert_id(token->id), get_file_name(token));
     }
     else
         printf("[%d][%s] : [%s]\n\n", token->index, convert_id(TOKEN_NULL), get_content(token));
 }
 
-void print_cmd(t_token *token)
+void print_cmd(t_cmd *cmd, int index)
 {
-    printf("[%d][%s] : [%s]\n   [%s]: [%s]\n   [%s][%s]: [%s]\n\n", token->index, convert_id(token->id),
-        ((t_cmd *)token->class)->content, 
-        "FLAGS",((t_cmd *)token->class)->flags,
-        "ARGUMENT",convert_id(((t_cmd *)token->class)->id_arg), ((t_cmd *)token->class)->arg);
+    printf("[%d][%s] : [%s]\n", index, convert_id(cmd->id), cmd->content);
+    print_args(cmd);
+}
+
+void print_args(t_cmd *cmd)
+{
+    t_arg *iter;
+    int i;
+
+    i = 1;
+    iter = cmd->first_arg;
+    if (!iter)
+        return;
+    while (iter->next)
+    {
+        printf("   [%d][%s] : [%s]\n", i, convert_id(iter->id), iter->content);
+        i++;
+        iter = iter->next;
+    }
+    printf("   [%d][%s] : [%s]\n\n", i, convert_id(iter->id), iter->content);
 }
 
 void print_chained_list(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 17:16:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/21 20:46:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ t_token *init_token(void)
 	token->prev = NULL;
     token->next = NULL;
 	return (token);
+}
+
+t_arg *init_arg(char *content, int id)
+{
+    t_arg	*arg;
+
+	arg = (t_arg *)malloc(sizeof(t_arg));
+	if (!arg)
+		return (NULL);
+	arg->id = id;
+    arg->content = content;
+	arg->prev = NULL;
+    arg->next = NULL;
+	return (arg);
 }
 
 t_blank	*init_blank(char *content, int id)
@@ -53,13 +67,14 @@ t_word	*init_word(char *content, int id)
 }
 
 
-t_cmd   *init_cmd(char *content)
+t_cmd   *init_cmd(char *content, int id)
 {
 	t_cmd	*cmd;
 
 	cmd = (t_cmd *)malloc(sizeof(t_cmd));
 	if (!cmd)
         return (NULL);
+	cmd->id = id;
 	cmd->content = content;
 	cmd->bin = NULL;
 	cmd->flags = NULL;
@@ -70,15 +85,15 @@ t_cmd   *init_cmd(char *content)
 	return (cmd);
 }
 
-t_file	*init_file(void)
+t_file	*init_file(char *name, int fd)
 {
 	t_file	*file;
 
 	file = (t_file *)malloc(sizeof(t_file));
 	if (!file)
 		return (NULL);
-	file->name = NULL;
-	file->fd = -1;
+	file->name = name;
+	file->fd = fd;
 	return (file);
 }
 
@@ -127,6 +142,7 @@ t_redirection	*init_redirection(int type, char *content)
 	redir->type = type;
 	redir->fd_in = STDIN_FILENO;
 	redir->fd_out = STDOUT_FILENO;
+	redir->limiter = NULL;
 	redir->content = content;
 	return (redir);
 }

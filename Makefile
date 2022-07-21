@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/20 19:10:22 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/21 19:50:30 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,10 @@ SRCS		= 	main.c \
 				parsing/detect4.c \
 				parsing/detect5.c \
 				parsing/detect_cmd.c \
-				parsing/is.c \
-				parsing/is_redirection.c \
-				parsing/is_quote.c \
+				is/is.c \
+				is/is_redirection.c \
+				is/is_quote.c \
+				is/is_file.c \
 				parsing/parsing.c \
 				parsing/casting.c \
 				verbose/verbose.c \

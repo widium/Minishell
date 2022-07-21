@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   is_file.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 21:15:35 by ebennace         ###   ########.fr       */
+/*   Created: 2022/07/21 19:50:12 by ebennace          #+#    #+#             */
+/*   Updated: 2022/07/21 20:14:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-
-t_err *init_err(void)
+int is_file(char *line, int i)
 {
-	t_err	*error;
-
-	error = (t_err *)malloc(sizeof(t_err));
-	if (!error)
-		return (NULL);
-	error->exit = -1;
-	return (error);
+    if (!(is_quote(line[i])) && !(is_blank(line[i])) &&
+        !(is_paranthesis(line, i)) && !(is_separator(line, i))
+        && is_after_redirect(line, i))
+        return (1);
+    return (0);
 }
 
-t_env	*init_env(void)
+int is_after_redirect(char *line, int index)
 {
-	t_env	*env;
-
-	env = (t_env *)malloc(sizeof(t_env));
-	if (!env)
-		return (NULL);
-	env->error = init_err();
-    env->history = NULL;
-	env->first_cmd = NULL;
-    env->line = NULL;
-	env->first_token = NULL;
-	env->nbr_cmd = 0;
-	return (env);
+    while (line[index])
+    {
+        if (is_file_redirection(line , index))
+            return (1);
+        index--;
+    }
+    return (0);
 }
-
