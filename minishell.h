@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:37:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:51:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,10 @@ int is_cmd(char *word);
 int is_flags(char *line, int i);
 int is_file(char *line, int i);
 int is_after_redirect(char *line, int index);
+int is_after_heredoc(char *line, int index);
+int is_limiter(char *line, int i);
+
+int recover_limiter(t_redirection *redir, char *line, int index);
 
 int type_of_redirect(char *content);
 int type_of_boolean(char *content);

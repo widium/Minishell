@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:50:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 15:02:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,17 @@ t_token *create_token_redir(int type, char *content)
 	token = init_token();
 	token->id = type;
 	token->class = init_redirection(type, content);
+	
+	return (token);
+}
+
+t_token *create_token_heredoc(int type, char *content, char *limiter)
+{
+	t_token *token;
+
+	token = init_token();
+	token->id = type;
+	token->class = init_heredoc(type, content, limiter);
 	
 	return (token);
 }

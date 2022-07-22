@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:46:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:36:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,21 @@ t_redirection	*init_redirection(int type, char *content)
 	redir->fd_in = STDIN_FILENO;
 	redir->fd_out = STDOUT_FILENO;
 	redir->limiter = NULL;
+	redir->content = content;
+	return (redir);
+}
+
+t_redirection	*init_heredoc(int type, char *content, char *limiter)
+{
+	t_redirection	*redir;
+
+	redir = (t_redirection *)malloc(sizeof(t_redirection));
+	if (!redir)
+		return (NULL);
+	redir->type = type;
+	redir->fd_in = STDIN_FILENO;
+	redir->fd_out = STDOUT_FILENO;
+	redir->limiter = limiter;
 	redir->content = content;
 	return (redir);
 }

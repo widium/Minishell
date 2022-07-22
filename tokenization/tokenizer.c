@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:40:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:49:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_token *tokenizer_redir(char *line, int start, int end, int id)
 {
     t_token *token;
     char *content;
+    char *limiter;
     int type;
     int i;
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:51:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 15:06:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ void print_token(t_token *token)
     }
     else if (is_token_redirection(token))
     {
-        printf("[%d][%s] : [%s] -> fd_in[%d] fd_out[%d]\n\n", token->index, 
-        convert_id( ((t_redirection *)token->class)->type), ((t_redirection *)token->class)->content,
-         ((t_redirection *)token->class)->fd_in, ((t_redirection *)token->class)->fd_out); 
+        print_redirection(token, (t_redirection *)token->class);
     }
     else if (is_token_cmd(token))
     {
@@ -34,7 +32,7 @@ void print_token(t_token *token)
          printf("[%d][%s] : [%s]\n\n", token->index, convert_id(token->id), get_file_name(token));
     }
     else
-        printf("[%d][%s] : [%s]\n\n", token->index, convert_id(TOKEN_NULL), get_content(token));
+        printf("[%d][%s] : [%s]\n\n", token->index, convert_id(token->id), get_content(token));
 }
 
 void print_cmd(t_cmd *cmd, int index)
@@ -59,6 +57,21 @@ void print_args(t_cmd *cmd)
         iter = iter->next;
     }
     printf("   [%d][%s] : [%s]\n\n", i, convert_id(iter->id), iter->content);
+}
+
+void print_redirection(t_token *token, t_redirection *redir)
+{
+    printf("[%d][%s] : [%s]\n", token->index, convert_id(redir->type), redir->content);
+    if (redir->type == TOKEN_HERE_DOC)
+    {
+        printf("    [%s][%s]\n", convert_id(TOKEN_LIMITER), redir->limiter);
+    }
+    else 
+    {
+       printf("    [FD_IN %d]\n", redir->fd_in);
+       printf("    [FD_OUT %d]\n", redir->fd_out);
+    }
+    printf("\n");
 }
 
 void print_chained_list(t_env *env)
@@ -147,6 +160,8 @@ char *convert_id(int id)
         return ("TOKEN_HERE_DOC");
     if (id == TOKEN_BOOLEAN)
         return ("TOKEN_BOOLEAN"); 
+    if (id == TOKEN_LIMITER)
+        return ("TOKEN_LIMITER");
     return ("NULL");
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 21:19:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 15:03:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void parsing(t_env *env, char *line)
 {
     int index;
+    int type;
     int new_index;
     int count;
     t_token *token;
@@ -45,8 +46,6 @@ void parsing(t_env *env, char *line)
             }
             else if (is_file(line, index))
             {
-                printf("[%d][%c] Result : is_after_redirect %d\n",index, line[index], is_after_redirect(line, index));
-                printf("[%d][%c] Result : is_file %d\n",index, line[index], is_file(line, index));
                 token = tokenizer_file(content, TOKEN_FILE);
             }
             else
@@ -59,7 +58,16 @@ void parsing(t_env *env, char *line)
         if (is_redirection(line, index))
         {
             new_index = redirection_detection(line, index);
-            token = tokenizer_redir(line, index, new_index, TOKEN_REDIRECTION);
+            content = ft_substr(line, index, (new_index - index) + 1);
+            type = type_of_redirect(content);
+            if (type == TOKEN_HERE_DOC)
+            {
+                token = create_token_redir(type, content);
+                new_index = recover_limiter((t_redirection *)token->class, line, new_index);
+            }
+            else
+                token = create_token_redir(type, content);
+
             add_chained_list(env, token);
 
             index = new_index;

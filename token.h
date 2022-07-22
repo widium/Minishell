@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:50:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:44:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define TOKEN_APPEND_CHEVRON 20
 # define TOKEN_HERE_DOC 21
 # define TOKEN_BOOLEAN 22
+# define TOKEN_LIMITER 23
 
 # include "minishell.h"
 
@@ -150,6 +151,7 @@ t_single	*init_single(char *content, int id);
 t_double	*init_double(char *content, int id);
 t_variable	*init_variable(char *content);
 t_redirection	*init_redirection(int type, char *content);
+t_redirection	*init_heredoc(int type, char *content, char *limiter);
 t_boolean	*init_boolean_operator(char * content, char *first, char *second, int id);
 t_wildcard	*init_wildcard(void);
 t_arg *init_arg(char *content, int id);
@@ -158,6 +160,7 @@ t_arg *init_arg(char *content, int id);
 t_token *create_token(char *content, int id);
 t_token *create_token_bool(char *content, char *first, char *second, int id);
 t_token *create_token_redir(int type, char *content);
+t_token *create_token_heredoc(int type, char *content, char *limiter);
 t_token *create_token_variable(int id, char *content);
 t_token *create_token_command(int id, char *content);
 t_arg *create_arg(char *content, int id);
@@ -189,6 +192,8 @@ int is_token_file(t_token *token);
 void print_token(t_token *token);
 void print_cmd(t_cmd *cmd, int index);
 void print_args(t_cmd *cmd);
+void print_redirection(t_token *token, t_redirection *redir);
+
 char *convert_id(int id);
 
 # endif
