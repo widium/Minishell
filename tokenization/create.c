@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/22 15:02:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:00:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,12 @@ char *get_file_name(t_token *token)
 {
     return (((t_file *)token->class)->name);
 }
+
+int get_file_fd(t_token *token)
+{
+    return (((t_file *)token->class)->fd);
+}
+
 
 void connect_token(t_token *curr_token, t_token *next_token)
 {

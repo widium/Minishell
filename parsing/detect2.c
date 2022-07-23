@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/14 21:31:38 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:27:07 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int word_detection(char *line, int index)
     start = index;
     while (line[index])
     {
-        if (is_blank(line[index]) || is_variable(line, index))
+        if (is_delimiter(line, index))
         {
             return (index - 1);
         }
@@ -69,7 +69,6 @@ int word_detection(char *line, int index)
     }
     return (index);
 }
-
 
 int blank_detection(char *line, int index)
 {

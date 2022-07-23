@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/22 15:06:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:04:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void print_token(t_token *token)
 {
     if (is_token_boolean(token))
     {
-       printf("[%d][%s] : [%s] --> {in [%s] : out [%s]}\n\n", token->index, 
-        convert_id(token->id), ((t_boolean *)token->class)->content, ((t_boolean *)token->class)->first, ((t_boolean *)token->class)->second); 
+       printf("[%d][%s] : [%s]\n", token->index, convert_id(token->id), ((t_boolean *)token->class)->content);
+       printf("    [IN][%s]\n", ((t_boolean *)token->class)->first); 
+       printf("    [OUT][%s]\n\n", ((t_boolean *)token->class)->second);
     }
     else if (is_token_redirection(token))
     {
@@ -29,7 +30,8 @@ void print_token(t_token *token)
     }
     else if (is_token_file(token))
     {
-         printf("[%d][%s] : [%s]\n\n", token->index, convert_id(token->id), get_file_name(token));
+        printf("[%d][%s] : [%s]\n", token->index, convert_id(token->id), get_file_name(token));
+        printf("    [FD : %d]\n\n", get_file_fd(token));
     }
     else
         printf("[%d][%s] : [%s]\n\n", token->index, convert_id(token->id), get_content(token));
@@ -68,8 +70,8 @@ void print_redirection(t_token *token, t_redirection *redir)
     }
     else 
     {
-       printf("    [FD_IN %d]\n", redir->fd_in);
-       printf("    [FD_OUT %d]\n", redir->fd_out);
+       printf("    [FD_IN : %d]\n", redir->fd_in);
+       printf("    [FD_OUT : %d]\n", redir->fd_out);
     }
     printf("\n");
 }

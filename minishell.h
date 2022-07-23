@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/22 14:51:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/23 19:20:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,13 @@ void free_all(t_env *env);
 
 int blank_detection(char *line, int index);
 int double_quotes_detection(char *string, int i);
+int double_quotes_extraction(t_cmd * cmd, char *line, int index);
 int single_quotes_detection(char *line, int index);
+int single_quotes_extraction(t_cmd *cmd, char *line, int index);
 int word_detection(char *line, int index);
+int word_argument_extraction(t_cmd *cmd, char *line, int index);
 int redirection_detection(char *line, int index);
-int variables_detection(char *line, int index);
+int variables_extraction(t_cmd *cmd, char *line, int index);
 int paranthesis_detection(char *line, int index);
 
 int boolean_detection(char *line, int index);
@@ -98,6 +101,7 @@ int is_boolean_operator(char *line, int i);
 int is_and_operator(char *line, int i);
 int is_or_operator(char *line, int i);
 int is_doublons(char *str, int i, int c);
+int is_delimiter(char *line, int i);
 int is_separator(char *line, int i);
 int is_word(char *line, int i);
 int is_variable(char *line, int index);
@@ -122,9 +126,9 @@ int type_of_boolean(char *content);
 int is_built_in_index(char *line, int index);
 int is_built_in(char *content);
 char *return_built_in(char *content);
-int command_information(t_cmd *cmd, char *line, int index);
-int argument_extraction(t_token *token, char *line, int index);
-int flags_extraction(t_token *token, char *line, int index);
+int argument_detection(t_cmd *cmd, char *line, int index);
+int argument_classification(t_cmd *cmd, char *line, int index);
+int flags_extraction(t_cmd *cmd, char *line, int index);
 
 
 void print_str_index(char *str, int i);
@@ -132,5 +136,8 @@ void print_detection(char *line, int start, int end, int token);
 void print_chained_list(t_env *env);
 
 void parsing(t_env *env, char *line);
+int word_classification(t_env *env, char *line, int index);
+int redirection_classification(t_env *env, char *line, int index);
 void add_chained_list(t_env *env, t_token *token);
+
 #endif

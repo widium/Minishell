@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/22 14:44:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:00:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,6 @@ t_token *create_token_command(int id, char *content);
 t_arg *create_arg(char *content, int id);
 t_token *create_token_file(char *name, int fd, int id);
 
-t_token *word_classfication(char *line, char *content, int index);
 void *choose_class(char *content, int id);
 void choose_arg_class(t_token *token, char *arg);
 void connect_token(t_token *curr_token, t_token *next_token);
@@ -175,6 +174,7 @@ void add_arg_list(t_cmd *cmd, t_arg *arg);
 
 char *get_content(t_token *token);
 char *get_file_name(t_token *token);
+int get_file_fd(t_token *token);
 
 t_token *tokenizer(char *line, int start, int end, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
@@ -194,6 +194,9 @@ void print_cmd(t_cmd *cmd, int index);
 void print_args(t_cmd *cmd);
 void print_redirection(t_token *token, t_redirection *redir);
 
+
+
+t_token *command_classification(char *content, char *line, int index);
 char *convert_id(int id);
 
 # endif

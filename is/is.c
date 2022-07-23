@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 20:01:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/23 18:14:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,14 @@ int is_doublons(char *str, int i, int c)
 int is_separator(char *line, int i)
 {
     if (is_redirection(line, i) || is_boolean_operator(line, i))
+        return (1);
+    return (0);    
+}
+
+int is_delimiter(char *line, int index)
+{
+    if (is_blank(line[index]) || is_paranthesis(line, index) ||
+     is_separator(line, index) || is_variable(line, index))
         return (1);
     return (0);    
 }

@@ -1,5 +1,10 @@
-cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
-cd .. && echo $HOME -e | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+echo -n "$HOME"
+&& echo sa'lu't && echo sa"$HOME"lut
+&& cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+ STOP
+TOP
+
+ho $HOME -e | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
 'lap'e
 echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es
 echo "bonjour" && echo bon$HOME$PWD |  ta mere d'lap'es

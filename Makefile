@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/21 19:50:30 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/23 19:33:12 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRCS		= 	main.c \
 				parsing/detect4.c \
 				parsing/detect5.c \
 				parsing/detect_cmd.c \
+				detection/extraction.c \
 				is/is.c \
 				is/is_redirection.c \
 				is/is_quote.c \
@@ -52,6 +53,7 @@ CC				= clang
 FLAGS			= -g3 -lreadline
 SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
+DEBUGGER		= lldb
 
 %.o : %.c
 			$(CC) $(FLAGS) -c $< -o $@
@@ -72,7 +74,7 @@ fclean : clean
 
 debug : 		$(OBJS)
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
-				gdb $(NAME)
+				$(DEBUGGER) $(NAME)
 				
 sanitize :		$(OBJS)
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
