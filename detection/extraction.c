@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 20:34:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:57:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,15 +123,11 @@ int word_argument_extraction(t_cmd *cmd, char *line, int index)
     end = index;
     while (line[index])
     {
-        if (is_delimiter(line, index))
+        if (is_delimiter(line, index) || is_quote(line[index]))
         {
             end = index - 1;
             break;
         }
-        if (is_double_quote(line[index]))
-            index = double_quotes_detection(line, index);
-        if (is_single_quote(line[index]))
-            index = single_quotes_detection(line, index);
         index++;
     }
     if (!(is_delimiter(line, index - 1)))
