@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/21 18:12:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:41:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void add_arg_list(t_cmd *cmd, t_arg *arg)
     {
         cmd->first_arg = arg;
         arg->index = i;
-    } 
+    }
     else 
     {
         iter = cmd->first_arg;
@@ -55,9 +55,9 @@ void add_arg_list(t_cmd *cmd, t_arg *arg)
         while (iter->next)
         {
             i++;
-            iter = iter->next;  
+            iter = iter->next;
         }
-        arg->index = i; 
+        arg->index = i;
         connect_arg(iter, arg);
     }
 }

@@ -14,6 +14,7 @@ clang -g3 -lreadline -c parsing/detect3.c -o parsing/detect3.o
 clang -g3 -lreadline -c parsing/detect4.c -o parsing/detect4.o
 clang -g3 -lreadline -c parsing/detect5.c -o parsing/detect5.o
 clang -g3 -lreadline -c parsing/detect_cmd.c -o parsing/detect_cmd.o
+clang -g3 -lreadline -c detection/extraction.c -o detection/extraction.o
 clang -g3 -lreadline -c is/is.c -o is/is.o
 clang -g3 -lreadline -c is/is_redirection.c -o is/is_redirection.o
 clang -g3 -lreadline -c is/is_quote.c -o is/is_quote.o
@@ -30,6 +31,6 @@ clang -g3 -lreadline -c redirection/redirect.c -o redirection/redirect.o
 clang -g3 -lreadline -c boolean/boolean.c -o boolean/boolean.o
 clang -g3 -lreadline -c boolean/is_boolean.c -o boolean/is_boolean.o
 make -C libft
-clang main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o -g3 -lreadline libft/libft.a -o minishell		
+clang main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o -g3 -lreadline libft/libft.a -o minishell		
 make: Leaving directory '/home/widium/Programming/42_cursus/Minishell'
  

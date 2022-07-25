@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 19:38:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:02:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int argument_classification(t_cmd *cmd, char *line, int index)
     new_index = index;
     if (is_flags(line, index))
     {
-        new_index = flags_extraction(cmd, line, index);  
+        new_index = flags_extraction(cmd, line, index);
     }  
     else if (is_single_quote(line[index]))
     {
@@ -56,17 +56,17 @@ int argument_classification(t_cmd *cmd, char *line, int index)
     return (new_index);
 }
 
-void choose_arg_class(t_token *token, char *arg)
-{
-    // printf("[%s] is_single_quote -> %d\n", arg, is_single_quote(arg[0]));
-    // printf("[%s] is_double_quote -> %d\n", arg, is_double_quote(arg[0]));
-    // printf("[%s] is_variable -> %d\n", arg, is_variable(arg, 0));
-    if (is_single_quote(arg[0]))
-        ((t_cmd *)token->class)->id_arg = TOKEN_SINGLE_QUOTE;
-    else if (is_double_quote(arg[0]))
-        ((t_cmd *)token->class)->id_arg = TOKEN_DOUBLE_QUOTE;
-    else if (is_variable(arg, 0))
-        ((t_cmd *)token->class)->id_arg = TOKEN_VARIABLE;
-    else
-        ((t_cmd *)token->class)->id_arg = TOKEN_NULL;
-}
+// void choose_arg_class(t_token *token, char *arg)
+// {
+//     // printf("[%s] is_single_quote -> %d\n", arg, is_single_quote(arg[0]));
+//     // printf("[%s] is_double_quote -> %d\n", arg, is_double_quote(arg[0]));
+//     // printf("[%s] is_variable -> %d\n", arg, is_variable(arg, 0));
+//     if (is_single_quote(arg[0]))
+//         ((t_cmd *)token->class)->id_arg = TOKEN_SINGLE_QUOTE;
+//     else if (is_double_quote(arg[0]))
+//         ((t_cmd *)token->class)->id_arg = TOKEN_DOUBLE_QUOTE;
+//     else if (is_variable(arg, 0))
+//         ((t_cmd *)token->class)->id_arg = TOKEN_VARIABLE;
+//     else
+//         ((t_cmd *)token->class)->id_arg = TOKEN_NULL;
+// }

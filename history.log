@@ -1,6 +1,5 @@
-echo -n "$HOME"
-&& echo sa'lu't && echo sa"$HOME"lut
-&& cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+echo -n "$HOME" && echo sa'lu't && echo sa"$HOME"lut 
+& cat ft_*.c | wc -l >> result.txt && wc -l << STOP
  STOP
 TOP
 

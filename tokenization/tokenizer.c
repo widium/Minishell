@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 15:23:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:02:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_token *tokenizer(char *line, int start, int end, int id)
     char *content;
     
     content = ft_substr(line, start, (end - start) + 1);
-    // printf("%s : is_bin -> %d\n", content, is_bin(content));
     token = create_token(content, id);
     return (token);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 15:00:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/25 21:01:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,9 @@ typedef struct s_arg
 typedef struct s_cmd
 {
     int             id;
-    int             id_arg;
     char            *content;
 	char			*bin;
 	char			*flags;
-    char            *arg;
 	char			**complete;
     int             fd_in;
     int             fd_out;
