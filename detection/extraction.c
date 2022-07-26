@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/25 21:57:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:39:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,56 +36,6 @@ int flags_extraction(t_cmd *cmd, char *line, int index)
     return (end);
 }
 
-int single_quotes_extraction(t_cmd *cmd, char *line, int index)
-{
-    t_arg *arg;
-    int start;
-    int end;
-
-    start = index;
-    end = index;
-    index++;
-    while (line[index])
-    {
-        while (line[index] && is_back_slash(line[index]))
-            index++;
-        if (is_single_quote(line[index]))
-        {
-           end = index;
-           break; 
-        } 
-        index++;
-    }
-    arg = tokenizer_arg(line, start, end, TOKEN_SINGLE_QUOTE);
-    add_arg_list(cmd, arg);
-    return (end);
-}
-
-int double_quotes_extraction(t_cmd * cmd, char *line, int index)
-{
-    t_arg *arg;
-    int start;
-    int end;
-
-    start = index;
-    end = index;
-    index++;
-    while (line[index])
-    {
-        while (line[index] && is_back_slash(line[index]))
-            index++;
-        if (is_double_quote(line[index]))
-        {
-            end = index;
-            break;
-        }
-        index++;
-    }
-    arg = tokenizer_arg(line, start, end, TOKEN_DOUBLE_QUOTE);
-    add_arg_list(cmd, arg);
-    return (end);
-}
-
 int variables_extraction(t_cmd *cmd, char *line, int index)
 {
     t_arg *arg;
@@ -108,7 +58,7 @@ int variables_extraction(t_cmd *cmd, char *line, int index)
     }
     if (!(is_delimiter(line, index - 1)))
         end = index - 1;
-    arg = tokenizer_arg(line, start, end, TOKEN_VARIABLE);
+    arg = tokenizer_arg(line, start + 1, end, TOKEN_VARIABLE);
     add_arg_list(cmd, arg);
     return (end);
 }
@@ -133,6 +83,30 @@ int word_argument_extraction(t_cmd *cmd, char *line, int index)
     if (!(is_delimiter(line, index - 1)))
         end = index - 1;
     arg = tokenizer_arg(line, start, end, TOKEN_WORD);
+    add_arg_list(cmd, arg);
+    return (end);
+}
+
+int string_extraction(t_cmd *cmd, char *line, int index)
+{
+    t_arg *arg;
+    int start;
+    int end;
+
+    start = index;
+    end = index;
+    while (line[index])
+    {
+        if (is_double_quote(line[index]) || is_variable(line, index))
+        {
+            end = index - 1;
+            break;
+        }
+        index++;
+    }
+    if (!(is_double_quote(line[index])) || !(is_variable(line, index)))
+        end = index - 1;
+    arg = tokenizer_arg(line, start, end, TOKEN_STRING);
     add_arg_list(cmd, arg);
     return (end);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/25 21:01:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:30:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define TOKEN_HERE_DOC 21
 # define TOKEN_BOOLEAN 22
 # define TOKEN_LIMITER 23
+# define TOKEN_STRING 24
 
 # include "minishell.h"
 
@@ -186,15 +187,23 @@ int is_token_redirection(t_token *token);
 int is_token_boolean(t_token *token);
 int is_token_cmd(t_token *token);
 int is_token_file(t_token *token);
+int is_arg_variable(t_arg *arg);
+int have_args(t_cmd *cmd);
+int token_have_args(t_token *token);
 
 void print_token(t_token *token);
 void print_cmd(t_cmd *cmd, int index);
 void print_args(t_cmd *cmd);
 void print_redirection(t_token *token, t_redirection *redir);
 
+t_arg *get_first_arg(t_cmd *cmd);
 
+
+char *concatenate(t_cmd *cmd);
+void remove_arg(t_cmd *cmd, t_arg *arg);
 
 t_token *command_classification(char *content, char *line, int index);
 char *convert_id(int id);
+
 
 # endif

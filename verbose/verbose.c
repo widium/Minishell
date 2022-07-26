@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/25 21:47:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:57:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void print_token(t_token *token)
     else if (is_token_file(token))
     {
         printf("[%d][%s] : [%s]\n", token->index, convert_id(token->id), get_file_name(token));
-        printf("    [FD : %d]\n\n", get_file_fd(token));
+        printf("   [FD : %d]\n\n", get_file_fd(token));
     }
     else
         printf("[%d][%s] : [%s]\n\n", token->index, convert_id(token->id), get_content(token));
@@ -52,13 +52,13 @@ void print_args(t_cmd *cmd)
     iter = cmd->first_arg;
     if (!iter)
         return;
-    while (iter->next)
+    while (iter)
     {
         printf("   [%d][%s] : [%s]\n", i, convert_id(iter->id), iter->content);
         i++;
         iter = iter->next;
     }
-    printf("   [%d][%s] : [%s]\n\n", i, convert_id(iter->id), iter->content);
+    printf("\n");
 }
 
 void print_redirection(t_token *token, t_redirection *redir)
@@ -70,8 +70,8 @@ void print_redirection(t_token *token, t_redirection *redir)
     }
     else 
     {
-       printf("    [FD_IN : %d]\n", redir->fd_in);
-       printf("    [FD_OUT : %d]\n", redir->fd_out);
+       printf("   [FD_IN : %d]\n", redir->fd_in);
+       printf("   [FD_OUT : %d]\n", redir->fd_out);
     }
     printf("\n");
 }
@@ -82,12 +82,12 @@ void print_chained_list(t_env *env)
     
     iter = env->first_token; 
     printf("==== LIST ====\n");
-    while (iter->next)
+    while (iter)
     {
         print_token(iter);
         iter = iter->next;
     }
-    print_token(iter);
+    //print_token(iter);
     printf("==== ==== ====\n");
 }
 
@@ -164,6 +164,8 @@ char *convert_id(int id)
         return ("TOKEN_BOOLEAN"); 
     if (id == TOKEN_LIMITER)
         return ("TOKEN_LIMITER");
+    if (id == TOKEN_STRING)
+        return ("TOKEN_STRING");
     return ("NULL");
 }
 

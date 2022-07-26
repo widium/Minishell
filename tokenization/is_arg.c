@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   is_arg.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:23:04 by ebennace         ###   ########.fr       */
+/*   Created: 2022/07/26 16:58:36 by ebennace          #+#    #+#             */
+/*   Updated: 2022/07/26 17:10:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include "../minishell.h"
 
-int	main(int argc, char **argv, char **variables)
+
+int is_arg_variable(t_arg *arg)
 {
-	t_env	*env;
-	
-	env = init_env(variables);
-	open_files(env);
-	prompt(env);
-
+    if (arg->id == TOKEN_VARIABLE)
+        return (1);
+    return (0);
 }
 
+int have_args(t_cmd *cmd)
+{
+    if (cmd->first_arg)
+        return (1);
+    return (0);
+}
 
-// int main(int argc, char **argv, char **env)
-// {
-// 	get_value_variable(env, "HOME");
-// }
+int token_have_args(t_token *token)
+{
+    if (((t_cmd *)token->class)->first_arg)
+        return (1);
+    return (0);
+}

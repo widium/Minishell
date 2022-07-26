@@ -1,36 +1,14 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/widium/Programming/42_cursus/Minishell'
-clang -g3 -lreadline -c main.c -o main.o
 clang -g3 -lreadline -c utils/init.c -o utils/init.o
-clang -g3 -lreadline -c utils/string_utils.c -o utils/string_utils.o
-clang -g3 -lreadline -c env/prompt.c -o env/prompt.o
-clang -g3 -lreadline -c env/signal.c -o env/signal.o
-clang -g3 -lreadline -c exit_free/exit.c -o exit_free/exit.o
-clang -g3 -lreadline -c exit_free/free.c -o exit_free/free.o
-clang -g3 -lreadline -c history/file.c -o history/file.o
-clang -g3 -lreadline -c parsing/detect.c -o parsing/detect.o
-clang -g3 -lreadline -c parsing/detect2.c -o parsing/detect2.o
-clang -g3 -lreadline -c parsing/detect3.c -o parsing/detect3.o
-clang -g3 -lreadline -c parsing/detect4.c -o parsing/detect4.o
-clang -g3 -lreadline -c parsing/detect5.c -o parsing/detect5.o
-clang -g3 -lreadline -c parsing/detect_cmd.c -o parsing/detect_cmd.o
-clang -g3 -lreadline -c detection/extraction.c -o detection/extraction.o
-clang -g3 -lreadline -c is/is.c -o is/is.o
-clang -g3 -lreadline -c is/is_redirection.c -o is/is_redirection.o
-clang -g3 -lreadline -c is/is_quote.c -o is/is_quote.o
-clang -g3 -lreadline -c is/is_file.c -o is/is_file.o
+clang -g3 -lreadline -c env/env.c -o env/env.o
+ 
 clang -g3 -lreadline -c parsing/parsing.c -o parsing/parsing.o
-clang -g3 -lreadline -c parsing/casting.c -o parsing/casting.o
-clang -g3 -lreadline -c verbose/verbose.c -o verbose/verbose.o
-clang -g3 -lreadline -c tokenization/init_token.c -o tokenization/init_token.o
-clang -g3 -lreadline -c tokenization/tokenizer.c -o tokenization/tokenizer.o
-clang -g3 -lreadline -c tokenization/chained.c -o tokenization/chained.o
-clang -g3 -lreadline -c tokenization/create.c -o tokenization/create.o
-clang -g3 -lreadline -c tokenization/is_token.c -o tokenization/is_token.o
-clang -g3 -lreadline -c redirection/redirect.c -o redirection/redirect.o
-clang -g3 -lreadline -c boolean/boolean.c -o boolean/boolean.o
-clang -g3 -lreadline -c boolean/is_boolean.c -o boolean/is_boolean.o
+ 
+clang -g3 -lreadline -c tokenization/is_arg.c -o tokenization/is_arg.o
+clang -g3 -lreadline -c tokenization/get.c -o tokenization/get.o
+ 
 make -C libft
-clang main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o -g3 -lreadline libft/libft.a -o minishell		
+clang main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o exit_free/exit.o exit_free/free.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o -g3 -lreadline libft/libft.a -o minishell		
 make: Leaving directory '/home/widium/Programming/42_cursus/Minishell'
  

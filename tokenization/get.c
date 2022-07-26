@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:23:04 by ebennace         ###   ########.fr       */
+/*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
+/*   Updated: 2022/07/26 17:34:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include "../minishell.h"
 
-int	main(int argc, char **argv, char **variables)
+t_arg *get_first_arg(t_cmd *cmd)
 {
-	t_env	*env;
-	
-	env = init_env(variables);
-	open_files(env);
-	prompt(env);
-
+    if (cmd->first_arg)
+        return (cmd->first_arg);
+    return (0);
 }
 
-
-// int main(int argc, char **argv, char **env)
-// {
-// 	get_value_variable(env, "HOME");
-// }
+t_token *get_first_token(t_env *env)
+{   
+    if (env->first_token)
+        return (env->first_token);
+    return (0);
+}

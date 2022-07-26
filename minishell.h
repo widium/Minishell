@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 19:20:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/26 18:01:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,19 @@ typedef struct s_env
 {
 	int		nbr_cmd;
 	char	*line;
+	char	**variables;
+	char	**path;
 	t_err	*error;
 	t_file	*history;
-	t_cmd	*first_cmd;
 	t_token *first_token;
 }   t_env;
 
 t_err	*init_err(void);
-t_env	*init_env(void);
+t_env	*init_env(char **varaibles);
 
 void open_files(t_env    *env);
+char *get_value_variable(char **env, char *variable);
+char *extract_variable(char *env, char *variable);
 
 void    prompt(t_env	*env);
 void	create_history(t_env	*env);
@@ -71,9 +74,13 @@ int word_detection(char *line, int index);
 int word_argument_extraction(t_cmd *cmd, char *line, int index);
 int redirection_detection(char *line, int index);
 int variables_extraction(t_cmd *cmd, char *line, int index);
+int string_extraction(t_cmd *cmd, char *line, int index);
 int paranthesis_detection(char *line, int index);
+void parse_double_quote(t_cmd *cmd, char *content);
 
 int boolean_detection(char *line, int index);
+int boolean_classification(t_env *env, char *line, int index);
+
 void wildcard_detection(char *str);
 void prefixe_wildcard_detection(char *line, int i);
 void suffix_wildcard_detection(char *line, int i);
@@ -139,5 +146,12 @@ void parsing(t_env *env, char *line);
 int word_classification(t_env *env, char *line, int index);
 int redirection_classification(t_env *env, char *line, int index);
 void add_chained_list(t_env *env, t_token *token);
+
+void concatenate_args(t_env *env);
+void change_variable_token(t_env *env);
+
+
+t_token *get_first_token(t_env *env);
+int tokenization(t_env *env, char *line, int index);
 
 #endif
