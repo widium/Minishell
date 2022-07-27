@@ -6,14 +6,16 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/19 14:40:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:28:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
 void    prompt(t_env	*env)
-{	
+{
+	char *line;
+	
 	use_signal(env, 0);
 	while (1)
 	{

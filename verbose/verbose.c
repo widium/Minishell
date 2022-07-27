@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:57:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:18:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void print_token(t_token *token)
     }
     else if (is_token_redirection(token))
     {
-        print_redirection(token, (t_redirection *)token->class);
+        print_redirection(token, get_class(token));
     }
     else if (is_token_cmd(token))
     {
-        print_cmd((t_cmd *)token->class, token->index);
+        print_cmd(get_class(token), token->index);
     }
     else if (is_token_file(token))
     {

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:30:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:08:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ void connect_token(t_token *curr_token, t_token *next_token);
 void connect_arg(t_arg *curr_arg, t_arg *next_arg);
 void add_arg_list(t_cmd *cmd, t_arg *arg);
 
+void *get_class(t_token *token);
 char *get_content(t_token *token);
 char *get_file_name(t_token *token);
 int get_file_fd(t_token *token);
@@ -200,7 +201,18 @@ t_arg *get_first_arg(t_cmd *cmd);
 
 
 char *concatenate(t_cmd *cmd);
-void remove_arg(t_cmd *cmd, t_arg *arg);
+
+void free_arg(t_arg *arg);
+void disconect_arg(t_arg *arg);
+void remove_all_arg(t_cmd *cmd);
+void remove_arg_index(t_cmd *cmd, t_arg *arg);
+void disconect_token(t_token *token);
+void remove_token(t_token *token);
+void remove_token_cmd(t_cmd *cmd);
+void remove_token_redir(t_redirection *redir);
+void remove_token_bool(t_boolean *boolean);
+void remove_token_file(t_file *file);
+
 
 t_token *command_classification(char *content, char *line, int index);
 char *convert_id(int id);

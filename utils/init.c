@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 16:51:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:28:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ t_env	*init_env(char **varaibles)
 	env = (t_env *)malloc(sizeof(t_env));
 	if (!env)
 		return (NULL);
+	env->line = NULL;
 	env->variables = varaibles;
 	env->error = init_err();
     env->history = NULL;
-    env->line = NULL;
 	env->first_token = NULL;
 	env->nbr_cmd = 0;
 	return (env);

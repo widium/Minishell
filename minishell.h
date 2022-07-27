@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 18:01:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:36:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_env
 	int		nbr_cmd;
 	char	*line;
 	char	**variables;
-	char	**path;
 	t_err	*error;
 	t_file	*history;
 	t_token *first_token;
@@ -48,8 +47,8 @@ t_err	*init_err(void);
 t_env	*init_env(char **varaibles);
 
 void open_files(t_env    *env);
-char *get_value_variable(char **env, char *variable);
-char *extract_variable(char *env, char *variable);
+char *get_variable(char **env, char *variable);
+char *extract_value_variable(char *env, char *variable);
 
 void    prompt(t_env	*env);
 void	create_history(t_env	*env);
@@ -62,8 +61,10 @@ void	write_line(char *line, int fd);
 
 void ft_exit(t_env *env);
 
+void remove_all(t_env *env);
+void remove_all_token(t_env *env);
 void free_all(t_env *env);
-
+void my_free(void **ptr);
 
 int blank_detection(char *line, int index);
 int double_quotes_detection(char *string, int i);

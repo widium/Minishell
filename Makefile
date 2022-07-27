@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/26 18:02:24 by ebennace         ###   ########.fr        #
+#    Updated: 2022/07/27 17:35:20 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ SRCS		= 	main.c \
 				env/env.c \
 				exit_free/exit.c \
 				exit_free/free.c \
+				exit_free/remove_arg.c \
+				exit_free/remove_token.c \
+				exit_free/remove.c \
 				history/file.c \
 				parsing/detect.c \
 				parsing/detect2.c \

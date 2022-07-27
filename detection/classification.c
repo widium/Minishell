@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 18:45:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:14:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int redirection_classification(t_env *env, char *line, int index)
     if (type == TOKEN_HERE_DOC)
     {
         token = create_token_redir(type, content);
-        new_index = recover_limiter((t_redirection *)token->class, line, ++new_index);
+        new_index = recover_limiter(get_class(token), line, ++new_index);
     }
     else
         token = create_token_redir(type, content);
@@ -45,7 +45,7 @@ int word_classification(t_env *env, char *line, int index)
     if (is_cmd(content))
     {
         token = command_classification(content, line, index);
-        new_index = argument_detection((t_cmd *)token->class, line, ++new_index);
+        new_index = argument_detection(get_class(token), line, ++new_index);
     }
     else if (is_file(line, index))
     {

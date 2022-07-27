@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:44:46 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 19:02:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 14:21:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void change_variable_token(t_env *env)
                     if (is_arg_variable(arg))
                     {
                         content = arg->content;
-                        arg->content = get_value_variable(env->variables, content);
+                        arg->content = get_variable(env->variables, content);
                         free(content);
                     }
                     arg = arg->next;
@@ -42,7 +42,7 @@ void change_variable_token(t_env *env)
         iter = iter->next;
     }
 }
-char *get_value_variable(char **env, char *variable)
+char *get_variable(char **env, char *variable)
 {
     int i;
 
@@ -51,14 +51,14 @@ char *get_value_variable(char **env, char *variable)
     {
         if (same_str(env[i], variable, ft_strlen(variable)))
         {
-            return (extract_variable(env[i], variable));
+            return (extract_value_variable(env[i], variable));
         }
         i++;
     }
     return (0);
 }
 
-char *extract_variable(char *env, char *variable)
+char *extract_value_variable(char *env, char *variable)
 {
     int start;
     int end;

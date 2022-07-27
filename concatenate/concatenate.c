@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:52:09 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/07/27 15:14:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,7 @@ char *concatenate(t_cmd *cmd)
             iter = iter->next;
             string = ft_strjoin(string, iter->content);        
         }
-        // remove_arg(cmd, iter);
+        // remove_arg_index(cmd, iter);
         return (string);
     }
 }
-// void remove_arg(t_cmd *cmd, t_arg *arg)
-// {
-//     t_arg *iter;
-//     int i;
-
-//     i = 1;
-//     iter = cmd->first_arg;
-//     while (iter->next && i < arg->index)
-//     {
-//         iter = iter->next;
-//     }
-//     iter->next = NULL;
-//     iter->prev = NULL;
-//     free(iter->content);
-//     free(iter);
-// }

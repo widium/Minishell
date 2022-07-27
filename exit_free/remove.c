@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   remove.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:52:34 by ebennace         ###   ########.fr       */
+/*   Created: 2022/07/27 17:20:16 by ebennace          #+#    #+#             */
+/*   Updated: 2022/07/27 17:29:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include "../minishell.h"
 
-int	main(int argc, char **argv, char **env_path)
+void remove_all(t_env *env)
 {
-	t_env	*env;
-	char **variables;
-
-	variables = malloc_strcpy_array(env_path);
-	env = init_env(variables);
-	open_files(env);
-	prompt(env);
-
+    remove_all_token(env);
+    free(env->error);
+    free(env->history);
+    free_array(env->variables);
+    free(env->line);
+    free(env);
 }
-
-
-// int main(int argc, char **argv, char **env)
-// {
-// 	int *c = malloc(10000);
-// 	my_free(c);
-// 	my_free(c);
-// }
