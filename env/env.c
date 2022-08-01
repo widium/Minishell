@@ -6,14 +6,14 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:44:46 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 14:21:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 13:02:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
 
-void change_variable_token(t_env *env)
+void get_variables_value(t_env *env)
 {
     t_token *iter;
     t_arg   *arg;
@@ -22,27 +22,31 @@ void change_variable_token(t_env *env)
     iter = get_first_token(env);
     while (iter)
     {
-        if (is_token_cmd(iter))
+        if (is_token_cmd(iter) && token_have_args(iter))
         {
-            if (token_have_args(iter))
+            arg = get_first_arg(get_class(iter));
+            while (arg)
             {
-                arg = get_first_arg((t_cmd *)iter->class);
-                while (arg)
-                {
-                    if (is_arg_variable(arg))
-                    {
-                        content = arg->content;
-                        arg->content = get_variable(env->variables, content);
-                        free(content);
-                    }
-                    arg = arg->next;
-                }
+                if (is_arg_variable(arg))
+                    change_arg_content(env, arg);
+                arg = arg->next;
             }
         }
         iter = iter->next;
     }
 }
-char *get_variable(char **env, char *variable)
+
+void change_arg_content(t_env *env, t_arg *arg)
+{
+    char *duplicate;
+    
+    duplicate = malloc_strcpy(arg->content);
+    free(arg->content);
+    arg->content = get_variable_value(env->variables, duplicate);
+    free(duplicate);
+}
+
+char *get_variable_value(char **env, char *variable)
 {
     int i;
 

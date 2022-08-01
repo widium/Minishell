@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:36:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:24:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_err	*init_err(void);
 t_env	*init_env(char **varaibles);
 
 void open_files(t_env    *env);
-char *get_variable(char **env, char *variable);
+char *get_variable_value(char **env, char *variable);
 char *extract_value_variable(char *env, char *variable);
 
 void    prompt(t_env	*env);
@@ -138,7 +138,7 @@ int argument_detection(t_cmd *cmd, char *line, int index);
 int argument_classification(t_cmd *cmd, char *line, int index);
 int flags_extraction(t_cmd *cmd, char *line, int index);
 
-
+void print_array(char **str);
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);
 void print_chained_list(t_env *env);
@@ -149,7 +149,8 @@ int redirection_classification(t_env *env, char *line, int index);
 void add_chained_list(t_env *env, t_token *token);
 
 void concatenate_args(t_env *env);
-void change_variable_token(t_env *env);
+void change_arg_content(t_env *env, t_arg *arg);
+void get_variables_value(t_env *env);
 
 
 t_token *get_first_token(t_env *env);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:18:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:59:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void print_token(t_token *token)
 void print_cmd(t_cmd *cmd, int index)
 {
     printf("[%d][%s] : [%s]\n", index, convert_id(cmd->id), cmd->content);
-    print_args(cmd);
+    if (have_args(cmd))
+        print_args(cmd);
+    else
+        print_array(cmd->args);
 }
 
 void print_args(t_cmd *cmd)
@@ -101,6 +104,20 @@ void print_detection(char *line, int start, int end, int token)
     }
     printf("]\n");
     
+}
+
+void print_array(char **str)
+{
+    int i;
+
+    if (!str)
+        return;
+    i = 0;
+    while(str)
+    {
+        printf("%s\n", str[i]);
+        i++;
+    }
 }
 
 void print_str_index(char *str, int i)

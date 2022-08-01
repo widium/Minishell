@@ -1,5 +1,8 @@
-echo -n "$HOME" && echo sa'lu't && echo sa"$HOME"lut 
-& cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+echo salut moi cest eddie
+echo salut moi cest eddie
+ c'est eddi 
+salut moi c'est eddi    
+& wc -l << STOP
  STOP
 TOP
 

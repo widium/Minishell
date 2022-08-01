@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:06:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 13:35:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void remove_all_arg(t_cmd *cmd)
     while (arg)
     {
         iter = arg->next;
-        free_arg(arg);
+        remove_arg(arg);
         arg = iter;
     }
 }
@@ -45,10 +45,10 @@ void remove_arg_index(t_cmd *cmd, t_arg *arg)
     {
         iter = iter->next;
     }
-    free_arg(iter);
+    remove_arg(iter);
 }
 
-void free_arg(t_arg *arg)
+void remove_arg(t_arg *arg)
 {
     disconect_arg(arg);
     free(arg->content);

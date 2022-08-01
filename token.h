@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:08:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:20:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,7 @@ typedef struct s_cmd
     int             id;
     char            *content;
 	char			*bin;
-	char			*flags;
-	char			**complete;
+	char			**args;
     int             fd_in;
     int             fd_out;
     t_arg           *first_arg;
@@ -199,10 +198,9 @@ void print_redirection(t_token *token, t_redirection *redir);
 
 t_arg *get_first_arg(t_cmd *cmd);
 
+char **concatenate(t_cmd *cmd);
 
-char *concatenate(t_cmd *cmd);
-
-void free_arg(t_arg *arg);
+void remove_arg(t_arg *arg);
 void disconect_arg(t_arg *arg);
 void remove_all_arg(t_cmd *cmd);
 void remove_arg_index(t_cmd *cmd, t_arg *arg);

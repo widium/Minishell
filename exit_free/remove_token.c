@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:19:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:00:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void remove_all_token(t_env *env)
 
     if (!(env->first_token))
         return;
-    token = env->first_token;
+    token = get_first_token(env);
     while (token)
     {
         iter = token->next;
@@ -27,6 +27,7 @@ void remove_all_token(t_env *env)
         remove_token(token);
         token = iter;
     }
+    env->first_token = NULL;
 }
 
 void disconect_token(t_token *token)
@@ -58,8 +59,7 @@ void remove_token(t_token *token)
 void remove_token_cmd(t_cmd *cmd)
 {
     free(cmd->bin);
-    free_array(cmd->complete);
-    free(cmd->flags);
+    free_array(cmd->args);
     free(cmd->content);
     remove_all_arg(cmd);
     free(cmd);

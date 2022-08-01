@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:52:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:15:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ int	main(int argc, char **argv, char **env_path)
 	env = init_env(variables);
 	open_files(env);
 	prompt(env);
-
 }
 
 
 // int main(int argc, char **argv, char **env)
 // {
-// 	int *c = malloc(10000);
-// 	my_free(c);
-// 	my_free(c);
+// 	char *ret = ft_strjoin_space(argv[1], argv[2]);
+// 	printf("%s\n", ret);
 // }
