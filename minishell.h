@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 15:24:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:23:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ int argument_classification(t_cmd *cmd, char *line, int index);
 int flags_extraction(t_cmd *cmd, char *line, int index);
 
 void print_array(char **str);
+void print_args_array(char **args);
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);
 void print_chained_list(t_env *env);

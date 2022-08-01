@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 15:59:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:23:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void print_cmd(t_cmd *cmd, int index)
     if (have_args(cmd))
         print_args(cmd);
     else
-        print_array(cmd->args);
+        print_args_array(cmd->args);
 }
 
 void print_args(t_cmd *cmd)
@@ -106,6 +106,22 @@ void print_detection(char *line, int start, int end, int token)
     
 }
 
+void print_args_array(char **args)
+{
+    int i;
+
+    if (!args)
+        return;
+    i = 0;
+    printf("    [");
+    while(args[i])
+    {
+        printf("%s ", args[i]);
+        i++;
+    }
+    printf("]\n");
+}
+
 void print_array(char **str)
 {
     int i;
@@ -113,7 +129,7 @@ void print_array(char **str)
     if (!str)
         return;
     i = 0;
-    while(str)
+    while(str[i])
     {
         printf("%s\n", str[i]);
         i++;

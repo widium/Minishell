@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 16:00:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:19:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ char **concatenate(t_cmd *cmd)
         free(first);
         printf("CONCAT : %s\n", concat);
         complete = ft_split(concat, ' ');
+        cmd->first_arg = NULL;
     }
     return (complete);
 }
