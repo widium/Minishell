@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 14:32:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:53:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,6 @@ t_double	*init_double(char *content, int id)
 	double_q->id = id;
 	double_q->content = content;
 	return (double_q);
-}
-
-t_variable	*init_variable(char *content)
-{
-	t_variable	*variable;
-
-	variable = (t_variable *)malloc(sizeof(t_variable));
-	if (!variable)
-		return (NULL);
-	variable->content = content;
-	return (variable);
 }
 
 t_redirection	*init_redirection(int type, char *content)

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 16:37:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:53:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,6 @@ t_token *tokenizer_redir(char *line, int start, int end, int id)
     content = ft_substr(line, start, (end - start) + 1);
     type = type_of_redirect(content);
     token = create_token_redir(type, content);
-    return (token);
-}
-
-t_token *tokenizer_variable(char *line, int start, int end, int id)
-{
-    t_token *token;
-    char *content;
-
-    content = ft_substr(line, start, (end - start) + 1);
-    token = create_token_variable(id, content);
     return (token);
 }
 

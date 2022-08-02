@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/27 17:35:20 by ebennace         ###   ########.fr        #
+#    Updated: 2022/08/02 20:47:34 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS		= 	main.c \
 				env/prompt.c \
 				env/signal.c \
 				env/env.c \
+				env/variable.c \
 				exit_free/exit.c \
 				exit_free/free.c \
 				exit_free/remove_arg.c \
@@ -40,6 +41,9 @@ SRCS		= 	main.c \
 				parsing/parsing.c \
 				parsing/casting.c \
 				verbose/verbose.c \
+				verbose/verbose_token.c \
+				verbose/verbose_class.c \
+				verbose/verbose_env.c \
 				tokenization/init_token.c \
 				tokenization/tokenizer.c \
 				tokenization/chained.c \
@@ -49,10 +53,13 @@ SRCS		= 	main.c \
 				tokenization/token.c \
 				tokenization/get.c \
 				tokenization/tokenization.c \
+				tokenization/argument.c \
 				redirection/redirect.c \
 				boolean/boolean.c \
 				boolean/is_boolean.c \
 				concatenate/concatenate.c \
+				execution/execution.c \
+				execution/access.c \
 				
 				 
 

@@ -1,7 +1,5 @@
-echo sault moi cest
-eddie
-echo salut moi cest eddie
- c'est eddi 
+echo -n "$HOME" && echo sa'lu't && echo sa"$HOME"lut 
+'est eddi 
 salut moi c'est eddi    
 & wc -l << STOP
  STOP

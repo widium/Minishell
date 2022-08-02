@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 15:20:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:36:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,6 @@ typedef struct s_double
 
 }   t_double;
 
-typedef struct s_variable
-{
-	char			*content;
-
-}   t_variable;
 
 typedef struct s_redirection
 {
@@ -147,7 +142,6 @@ t_cmd   *init_cmd(char *content, int id);
 t_file	*init_file(char *name, int fd);
 t_single	*init_single(char *content, int id);
 t_double	*init_double(char *content, int id);
-t_variable	*init_variable(char *content);
 t_redirection	*init_redirection(int type, char *content);
 t_redirection	*init_heredoc(int type, char *content, char *limiter);
 t_boolean	*init_boolean_operator(char * content, char *first, char *second, int id);
@@ -178,7 +172,6 @@ int get_file_fd(t_token *token);
 t_token *tokenizer(char *line, int start, int end, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
 t_token *tokenizer_redir(char *line, int start, int end, int id);
-t_token *tokenizer_variable(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *word, int id);
 t_arg *tokenizer_arg(char *line, int start, int end, int id);
 t_token *tokenizer_file(char *name, int id);
@@ -186,6 +179,8 @@ t_token *tokenizer_file(char *name, int id);
 int is_token_redirection(t_token *token);
 int is_token_boolean(t_token *token);
 int is_token_cmd(t_token *token);
+int is_cmd_bin(t_cmd *cmd);
+int is_cmd_built_in(t_cmd *cmd);
 int is_token_file(t_token *token);
 int is_arg_variable(t_arg *arg);
 int have_args(t_cmd *cmd);
@@ -197,8 +192,10 @@ void print_args(t_cmd *cmd);
 void print_redirection(t_token *token, t_redirection *redir);
 
 t_arg *get_first_arg(t_cmd *cmd);
+int size_of_list(t_cmd *cmd);
 
-char **concatenate(t_cmd *cmd);
+char **list_to_array(t_cmd *cmd);
+// char *list_to_string(t_cmd *cmd);
 
 void remove_arg(t_arg *arg);
 void disconect_arg(t_arg *arg);
@@ -211,9 +208,6 @@ void remove_token_redir(t_redirection *redir);
 void remove_token_bool(t_boolean *boolean);
 void remove_token_file(t_file *file);
 
-
-t_token *command_classification(char *content, char *line, int index);
 char *convert_id(int id);
-
 
 # endif

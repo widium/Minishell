@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 13:35:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:26:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void remove_all_arg(t_cmd *cmd)
         remove_arg(arg);
         arg = iter;
     }
+    cmd->first_arg = NULL;
 }
 
 void disconect_arg(t_arg *arg)

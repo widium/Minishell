@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 16:23:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:44:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+typedef struct s_varaible
+{
+	char **variables;
+	char *path;
+	char **list_of_bin;
+} 		t_variable;
+
 typedef struct s_err
 {
 	int	exit;
@@ -37,7 +44,7 @@ typedef struct s_env
 {
 	int		nbr_cmd;
 	char	*line;
-	char	**variables;
+	t_variable *variable;
 	t_err	*error;
 	t_file	*history;
 	t_token *first_token;
@@ -45,9 +52,12 @@ typedef struct s_env
 
 t_err	*init_err(void);
 t_env	*init_env(char **varaibles);
+t_variable *init_variable(char **variables);
+void recover_path_variable(t_variable *var, char **env_variable);
+
 
 void open_files(t_env    *env);
-char *get_variable_value(char **env, char *variable);
+char *get_variable_value(char **variables, char *var);
 char *extract_value_variable(char *env, char *variable);
 
 void    prompt(t_env	*env);
@@ -118,8 +128,8 @@ int is_in_double_quote(char *line, int index);
 int is_in_single_quote(char *line, int index);
 int is_in_quote(char *line, int index);
 int is_argument(char *line, int i);
-int is_bin(char *word);
-int is_cmd(char *word);
+int is_bin(t_env *env, char *word);
+int is_cmd(t_env *env, char *word);
 int is_flags(char *line, int i);
 int is_file(char *line, int i);
 int is_after_redirect(char *line, int index);
@@ -136,6 +146,7 @@ int is_built_in(char *content);
 char *return_built_in(char *content);
 int argument_detection(t_cmd *cmd, char *line, int index);
 int argument_classification(t_cmd *cmd, char *line, int index);
+t_token *command_classification(t_env *env, char *content, char *line, int index);
 int flags_extraction(t_cmd *cmd, char *line, int index);
 
 void print_array(char **str);
@@ -143,6 +154,7 @@ void print_args_array(char **args);
 void print_str_index(char *str, int i);
 void print_detection(char *line, int start, int end, int token);
 void print_chained_list(t_env *env);
+void print_variables(t_variable *var);
 
 void parsing(t_env *env, char *line);
 int word_classification(t_env *env, char *line, int index);
@@ -150,11 +162,17 @@ int redirection_classification(t_env *env, char *line, int index);
 void add_chained_list(t_env *env, t_token *token);
 
 void concatenate_args(t_env *env);
+char **concatenate_2(char **input);
 void change_arg_content(t_env *env, t_arg *arg);
-void get_variables_value(t_env *env);
+void get_arg_variables_value(t_env *env);
 
 
 t_token *get_first_token(t_env *env);
-int tokenization(t_env *env, char *line, int index);
+t_cmd *get_first_cmd(t_env *env);
+void tokenization(t_env *env, char *line);
+
+
+
+void execution(t_env *env);
 
 #endif

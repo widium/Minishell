@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 18:14:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:59:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int is_variable(char *line, int i)
     return (0);
 }
 
-int is_bin(char *word)
+int is_bin(t_env *env, char *word)
 {
     char *path;
 
@@ -113,9 +113,9 @@ int is_bin(char *word)
     return (0);
 }
 
-int is_cmd(char *word)
+int is_cmd(t_env *env, char *word)
 {
-    if (is_bin(word) || is_built_in(word))
+    if (is_bin(env, word) || is_built_in(word))
         return (1);
     return (0);
 }

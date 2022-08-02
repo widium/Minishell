@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   execution.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 20:30:00 by ebennace         ###   ########.fr       */
+/*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
+/*   Updated: 2022/08/02 17:36:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+# include "../minishell.h"
 
-int	main(int argc, char **argv, char **env_var)
+void execution(t_env *env)
 {
-	t_env	*env;
-	char **env_variable;
+    t_cmd *cmd;
 
-	env_variable = malloc_strcpy_array(env_var);
-	env = init_env(env_variable);
-	open_files(env);
-	prompt(env);
+    cmd = get_first_cmd(env);
+    if (is_cmd_bin(cmd))
+    {
+       printf("c'est un bin\n");
+    }
+    else if (is_cmd_built_in(cmd))
+    {
+        printf("c'est un built-in\n");
+    }
 }
 
+void bin_execution(t_env *env, t_cmd *cmd)
+{
+    
+}
 
-// int main(int argc, char **argv, char **env)
-// {
-// 	concatenate_2(argv);
-// 	// printf("%s\n", ret);
-// }
+void built_in_execution(t_env *env, t_cmd *cmd)
+{
+    
+}
