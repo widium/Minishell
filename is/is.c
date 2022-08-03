@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 20:59:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/03 11:29:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,13 @@ int is_variable(char *line, int i)
 
 int is_bin(t_env *env, char *word)
 {
-    char *path;
+    char **bins;
 
-    path = ft_strjoin("/bin/", word);
-    if (access(path, X_OK & F_OK) == 0)
-    {
-        free(path);
-        return (1); 
-    }
-    free(path);
+    bins = env->variable->bins;
+    if (test_absolute_bin_access(word))
+        return (1);
+    else if (test_bin_access(bins, word))
+        return (1);
     return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 20:36:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/03 16:46:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,101 +39,7 @@
 # define TOKEN_LIMITER 23
 # define TOKEN_STRING 24
 
-# include "minishell.h"
-
-typedef struct s_token
-{
-    void *class;
-    int id;
-    int index;
-    struct s_token *next;
-    struct s_token *prev;
-
-}   t_token;
-
-typedef struct s_blank
-{
-    int             id;
-	char			*content;
-
-}   t_blank;
-
-typedef struct s_word
-{
-    int             id;
-	char			*content;
-
-}   t_word;
-
-typedef struct s_single
-{
-    int             id;
-	char			*content;
-
-}   t_single;
-
-typedef struct s_double
-{
-    int             id;
-	char			*content;
-
-}   t_double;
-
-
-typedef struct s_redirection
-{
-    int fd_in;
-    int fd_out;
-    int type;
-    char *limiter;
-    char *content;
-
-}   t_redirection;
-
-typedef struct s_boolean
-{
-    char *content;
-    char *first;
-    char *second;
-    int     id;
-
-}   t_boolean;
-
-typedef struct s_file
-{
-    char *name;
-    int fd;
-
-}   t_file;
-
-typedef struct s_wildcard
-{
-    char *suffix;
-    char *prefixe;
-
-}   t_wildcard;
-
-typedef struct s_arg
-{
-    char *content;
-    int  id;
-    int index;
-    struct s_arg *next;
-    struct s_arg *prev;
-}   t_arg;
-
-typedef struct s_cmd
-{
-    int             id;
-    char            *content;
-	char			*bin;
-	char			**args;
-    int             fd_in;
-    int             fd_out;
-    t_arg           *first_arg;
-
-}   t_cmd;
-
+# include "class.h"
 
 t_token *init_token(void);
 t_blank	*init_blank(char *content, int id);
@@ -164,11 +70,7 @@ void connect_token(t_token *curr_token, t_token *next_token);
 void connect_arg(t_arg *curr_arg, t_arg *next_arg);
 void add_arg_list(t_cmd *cmd, t_arg *arg);
 
-void *get_class(t_token *token);
-char *get_content(t_token *token);
-char *get_file_name(t_token *token);
-int get_file_fd(t_token *token);
-
+void tokenization(t_env *env, char *line);
 t_token *tokenizer(char *line, int start, int end, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
 t_token *tokenizer_redir(char *line, int start, int end, int id);
@@ -176,37 +78,11 @@ t_token *tokenizer_command(char *word, int id);
 t_arg *tokenizer_arg(char *line, int start, int end, int id);
 t_token *tokenizer_file(char *name, int id);
 
-int is_token_redirection(t_token *token);
-int is_token_boolean(t_token *token);
-int is_token_cmd(t_token *token);
-int is_cmd_bin(t_cmd *cmd);
-int is_cmd_built_in(t_cmd *cmd);
-int is_token_file(t_token *token);
-int is_arg_variable(t_arg *arg);
-int have_args(t_cmd *cmd);
-int token_have_args(t_token *token);
-
-void print_token(t_token *token);
-void print_cmd(t_cmd *cmd, int index);
-void print_args(t_cmd *cmd);
-void print_redirection(t_token *token, t_redirection *redir);
-
-t_arg *get_first_arg(t_cmd *cmd);
 int size_of_list(t_cmd *cmd);
 
 char **list_to_array(t_cmd *cmd);
 // char *list_to_string(t_cmd *cmd);
 
-void remove_arg(t_arg *arg);
-void disconect_arg(t_arg *arg);
-void remove_all_arg(t_cmd *cmd);
-void remove_arg_index(t_cmd *cmd, t_arg *arg);
-void disconect_token(t_token *token);
-void remove_token(t_token *token);
-void remove_token_cmd(t_cmd *cmd);
-void remove_token_redir(t_redirection *redir);
-void remove_token_bool(t_boolean *boolean);
-void remove_token_file(t_file *file);
 
 char *convert_id(int id);
 

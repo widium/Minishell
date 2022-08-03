@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 14:24:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:15:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void print_detection(char *line, int start, int end, int token)
     
 }
 
-void print_array(char **str)
+void print_array_back_slash(char **str)
 {
     int i;
 
@@ -34,6 +34,20 @@ void print_array(char **str)
     while(str[i])
     {
         printf("%s\n", str[i]);
+        i++;
+    }
+}
+
+void print_array(char **str)
+{
+    int i;
+
+    if (!str)
+        return;
+    i = 0;
+    while(str[i])
+    {
+        printf("%s ", str[i]);
         i++;
     }
 }

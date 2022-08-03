@@ -1,4 +1,5 @@
-echo -n "$HOME" && echo sa'lu't && echo sa"$HOME"lut 
+ls -la
+ "$HOME" && echo sa'lu't && echo sa"$HOME"lut 
 'est eddi 
 salut moi c'est eddi    
 & wc -l << STOP

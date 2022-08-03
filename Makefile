@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/08/02 20:47:34 by ebennace         ###   ########.fr        #
+#    Updated: 2022/08/03 12:19:16 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRCS		= 	main.c \
 				verbose/verbose_token.c \
 				verbose/verbose_class.c \
 				verbose/verbose_env.c \
+				verbose/verbose_cmd.c \
 				tokenization/init_token.c \
 				tokenization/tokenizer.c \
 				tokenization/chained.c \
@@ -60,6 +61,7 @@ SRCS		= 	main.c \
 				concatenate/concatenate.c \
 				execution/execution.c \
 				execution/access.c \
+				execution/bin.c \
 				
 				 
 

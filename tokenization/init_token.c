@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 19:53:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/03 12:43:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ t_cmd   *init_cmd(char *content, int id)
 	cmd->content = content;
 	cmd->bin = NULL;
 	cmd->args = NULL;
-	cmd->fd_in = -1;
-	cmd->fd_out = -1;
+	cmd->fd_in = STDIN_FILENO;
+	cmd->fd_out = STDOUT_FILENO;
 	cmd->first_arg = NULL;
 	return (cmd);
 }

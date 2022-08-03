@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verbose_env.c                                      :+:      :+:    :+:   */
+/*   verbose_cmd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 20:22:28 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 12:08:47 by ebennace         ###   ########.fr       */
+/*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
+/*   Updated: 2022/08/03 12:42:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void print_variables(t_variable *var)
+void print_cmd_info(t_cmd *cmd)
 {
-    printf("\n======= VAR =====\n");
-    print_array_back_slash(var->variables);
-    printf("\n======= PATH =====\n");
-    printf("%s\n", var->path);
-    printf("\n======= BINS =====\n");
-    print_array_back_slash(var->bins);
+    printf(" ---[%s]---\n", cmd->content);
+    printf(" | type : [%s]\n",convert_id(cmd->id));
+    printf(" | path : [%s]\n",cmd->bin);
+    printf(" | args : [");
+    print_array(cmd->args);
+    printf("]\n");
+    printf(" | fd_in : [%d]\n",cmd->fd_in);
+    printf(" | fd_out : [%d]\n",cmd->fd_out);
+    printf(" --------\n");
 }
+
