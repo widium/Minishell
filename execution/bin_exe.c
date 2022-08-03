@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   bin_exe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 18:37:21 by ebennace         ###   ########.fr       */
+/*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
+/*   Updated: 2022/08/03 18:37:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void execution(t_env *env)
+void bin_execution(t_env *env, t_cmd *cmd)
 {
-    t_cmd *cmd;
-    char **bins;
+    int id;
+    char *path;
+    char **args;
+    char **variables;
 
-    cmd = get_first_cmd(env);
-    bins = get_bins(env);
-    if (is_cmd_bin(cmd))
+    path = get_cmd_path(cmd);
+    args = get_cmd_args(cmd);
+    variables = get_env_variables(env);
+    id = fork();
+    if (id == 0)
     {
-        setup_bin_path(cmd, bins);
-        print_cmd_info(cmd);
-        bin_execution(env, cmd);       
+        printf("Child Process {%d}\n", id);  
+        execve(path, args, variables);
+        perror("In command failure : "); 
     }
-    else if (is_cmd_built_in(cmd))
+    else
     {
-        printf("c'est un built-in\n");
+        return ;
     }
 }

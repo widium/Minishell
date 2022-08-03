@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 16:57:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/03 18:41:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # include <signal.h>
 
 # include "libft/libft.h"
-# include "token.h"
-# include "class.h"
-# include "free.h"
-# include "get.h"
-# include "execution.h"
-# include "is.h"
-# include "verbose.h"
+# include "header/token.h"
+# include "header/class.h"
+# include "header/free.h"
+# include "header/get.h"
+# include "header/execution.h"
+# include "header/is.h"
+# include "header/verbose.h"
 
 # include <readline/readline.h>
 # include <readline/history.h>

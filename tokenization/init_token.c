@@ -6,12 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 12:43:38 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/03 18:42:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
-# include "../token.h"
 
 
 t_token *init_token(void)

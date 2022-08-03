@@ -83,6 +83,12 @@
         "semaphore": "c",
         "stdexcept": "c",
         "thread": "c",
-        "cinttypes": "c"
+        "cinttypes": "c",
+        "class.h": "c",
+        "verbose.h": "c",
+        "execution.h": "c",
+        "get.h": "c",
+        "free.h": "c",
+        "is.h": "c"
     }
 }

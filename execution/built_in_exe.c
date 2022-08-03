@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   built_in_exe.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 11:55:24 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 13:52:53 by ebennace         ###   ########.fr       */
+/*   Created: 2022/08/03 18:36:15 by ebennace          #+#    #+#             */
+/*   Updated: 2022/08/03 18:37:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft/libft.h"
+# include "../minishell.h"
 
-int main(int argc, char **argv, char **env)
-{
-    int fd = access("/bin/wc", R_OK & W_OK & X_OK & F_OK);
-    printf("%d\n",fd);
-}
+// void built_in_execution(t_env *env, t_cmd *cmd)
+// {
+    
+// }
