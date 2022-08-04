@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:18:31 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 12:19:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 16:42:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,37 @@ void setup_bin_path(t_cmd *cmd, char **bins)
 {
     char *command;
     char *path;
-    int i;
 
     command = cmd->content;
     if (test_absolute_bin_access(command))
     {
-        path = command;
-        cmd->bin = path;
+        cmd->bin = malloc_strcpy(command);
         return ;
     }
     else if (test_bin_access(bins, command))
     {
         path = create_path_bin(bins, command);
         cmd->bin = path;
+        return ;
+    }
+}
+
+void setup_bin_args(t_cmd *cmd, char **bins)
+{
+    char *command;
+
+    command = cmd->content;
+    if (test_absolute_bin_access(command))
+    {
+        command = extract_bin_name_in_path(command);
+        free(cmd->content);
+        cmd->content = command;
+        cmd->args = append_bin_name_in_args(cmd->args, cmd->content);
+        return ;
+    }
+    else if (test_bin_access(bins, command))
+    {
+        cmd->args = append_bin_name_in_args(cmd->args, cmd->content);
         return;
     }
 }

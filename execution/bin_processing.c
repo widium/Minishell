@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution.c                                        :+:      :+:    :+:   */
+/*   bin_processing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/04 17:40:59 by ebennace         ###   ########.fr       */
+/*   Created: 2022/08/04 16:02:58 by ebennace          #+#    #+#             */
+/*   Updated: 2022/08/04 17:40:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void execution(t_env *env)
+char **append_bin_name_in_args(char **args, char *name)
 {
-    t_cmd *cmd;
-    char **bins;
+    char **new_args;
+    
+    new_args = ft_arrayjoin_str(args, name, 0);
+    free(args);
+    return (new_args);
+}
 
-    cmd = get_first_cmd(env);
-    bins = get_bins(env);
-    if (is_cmd_bin(cmd))
+char *extract_bin_name_in_path(char *path)
+{
+    int index;
+    char *name;
+    
+    index = ft_strlen(path);
+    while (index > 0)
     {
-        setup_bin_path(cmd, bins);
-        setup_bin_args(cmd, bins);
-        print_cmd_info(cmd);
-        bin_execution(env, cmd);
+        if (path[index] == '/')
+            break;
+        index--;
     }
-    else if (is_cmd_built_in(cmd))
-    {
-        printf("c'est un built-in\n");
-    }
+    name = malloc_strcpy_after_index(path, index + 1);
+    return (name);
 }

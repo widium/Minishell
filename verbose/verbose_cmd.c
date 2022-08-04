@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 12:42:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:49:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,22 @@ void print_cmd_info(t_cmd *cmd)
     printf(" | type : [%s]\n",convert_id(cmd->id));
     printf(" | path : [%s]\n",cmd->bin);
     printf(" | args : [");
-    print_array(cmd->args);
+    print_array_index(cmd->args, 1);
     printf("]\n");
-    printf(" | fd_in : [%d]\n",cmd->fd_in);
-    printf(" | fd_out : [%d]\n",cmd->fd_out);
-    printf(" --------\n");
+    printf(" | fd_in : [%s]\n",convert_fd(cmd->fd_in));
+    printf(" | fd_out : [%s]\n",convert_fd(cmd->fd_out));
+    printf(" ----------------\n");
+}
+
+char *convert_fd(int fd)
+{
+    if (fd == STDIN_FILENO)
+        return ("STDIN");
+    else if (fd == STDOUT_FILENO)
+        return ("STDOUT");
+    else if (fd == STDERR_FILENO)
+        return ("STDERR");
+    else 
+        return (ft_itoa(fd));
 }
 

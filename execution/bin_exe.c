@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 18:37:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:22:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ void bin_execution(t_env *env, t_cmd *cmd)
     id = fork();
     if (id == 0)
     {
-        printf("Child Process {%d}\n", id);  
+        printf("---- Execution -----\n");
         execve(path, args, variables);
-        perror("In command failure : "); 
+        perror("Command failure : "); 
     }
     else
     {
+        wait(&id);
         return ;
     }
 }

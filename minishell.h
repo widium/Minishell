@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 18:41:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:47:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 
 t_err	*init_err(void);
 t_env	*init_env(char **varaibles);
@@ -44,6 +46,7 @@ void recover_keyword(char *str, int i);
 int recover_limiter(t_redirection *redir, char *line, int index);
 
 void open_files(t_env    *env);
+char *convert_fd(int fd);
 
 void    prompt(t_env	*env);
 void	create_history(t_env	*env);

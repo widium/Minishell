@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 12:15:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:49:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,18 @@ void print_array(char **str)
     {
         printf("%s ", str[i]);
         i++;
+    }
+}
+
+void print_array_index(char **str, int index)
+{
+
+    if (!str)
+        return;
+    while(str[index])
+    {
+        printf("%s ", str[index]);
+        index++;
     }
 }
 

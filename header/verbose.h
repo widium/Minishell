@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:34:03 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 16:51:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:49:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 void print_array_back_slash(char **str);
 void print_array(char **str);
+void print_array_index(char **str, int index);
 void print_args_array(char **args);
 
 void print_str_index(char *str, int i);

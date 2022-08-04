@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 20:30:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:22:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,24 @@ int	main(int argc, char **argv, char **env_var)
 	prompt(env);
 }
 
+// int main()
+// {
+// 	int id;
+
+// 	id = fork();
+
+// 	if (id == 0)
+// 	{
+// 		printf("nike\n");
+// 	}
+// 	else
+// 	{
+// 		wait(&id);
+// 		printf("zeubi\n");
+// 	}
+// }
 
 // int main(int argc, char **argv, char **env)
 // {
-// 	concatenate_2(argv);
-// 	// printf("%s\n", ret);
+//     execve("/bin/ls", argv, env);
 // }
