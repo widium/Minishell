@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/23 19:27:07 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:25:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,22 @@ int word_detection(char *line, int index)
         if (is_single_quote(line[index]))
         {
             index = single_quotes_detection(line, index);
+        }
+        index++;
+    }
+    return (index);
+}
+
+int file_detection(char *line, int index)
+{
+    int start;
+
+    start = index;
+    while (line[index])
+    {
+        if (is_delimiter(line, index))
+        {
+            return (index - 1);
         }
         index++;
     }

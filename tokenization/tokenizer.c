@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 19:53:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:41:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_token *tokenizer_file(char *name, int id)
     t_token *token;
     int fd;
 
-    fd = open(name, O_RDONLY | O_WRONLY | O_CREAT | O_TRUNC, 0777);
+    fd = open(name, O_RDONLY | O_WRONLY |  O_CREAT | O_TRUNC , 0777);
     if (fd < 0)
         printf("%s : so such file or directory\n", name);
 

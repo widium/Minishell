@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/04 17:47:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:25:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int blank_detection(char *line, int index);
 int double_quotes_detection(char *string, int i);
 int single_quotes_detection(char *line, int index);
 int word_detection(char *line, int index);
+int file_detection(char *line, int index);
 int redirection_detection(char *line, int index);
 int paranthesis_detection(char *line, int index);
 void wildcard_detection(char *str);
@@ -92,6 +93,7 @@ int type_of_boolean(char *content);
 char *return_built_in(char *content);
 
 void parsing(t_env *env, char *line);
+void redirection(t_env *env);
 
 void add_chained_list(t_env *env, t_token *token);
 

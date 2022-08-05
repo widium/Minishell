@@ -1,9 +1,7 @@
-ls -la
-pwd
- -la
-ls
--la
- sa'lu't && echo sa"$HOME"lut 
+echo salut >> bonjo.txt
+t
+echo salut >> bonjour.txt
+ 
 'est eddi 
 salut moi c'est eddi    
 & wc -l << STOP

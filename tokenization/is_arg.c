@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:58:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:10:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:22:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,16 @@ int is_arg_variable(t_arg *arg)
     return (0);
 }
 
-int have_args(t_cmd *cmd)
+int cmd_have_args(t_cmd *cmd)
 {
     if (cmd->first_arg)
+        return (1);
+    return (0);
+}
+
+int have_token(t_env *env)
+{
+    if (env->first_token)
         return (1);
     return (0);
 }

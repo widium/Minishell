@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:52:44 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 17:29:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:29:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,48 @@ int is_token_redirection(t_token *token)
 {
     if (token->id == TOKEN_INPUT_CHEVRON || token->id == TOKEN_OUTPUT_CHEVRON || token->id == TOKEN_REDIRECTION ||
      token->id == TOKEN_APPEND_CHEVRON || token->id == TOKEN_HERE_DOC || token->id == TOKEN_PIPE)
+        return (1);
+    return (0);
+}
+
+int is_token_pipe(t_token *token)
+{
+    if (token->id == TOKEN_PIPE)
+        return (1);
+    return (0);
+}
+
+int is_token_heredoc(t_token *token)
+{
+    if (token->id == TOKEN_HERE_DOC)
+        return (1);
+    return (0);
+}
+
+int is_token_input_chevron(t_token *token)
+{
+    if (token->id == TOKEN_INPUT_CHEVRON)
+        return (1);
+    return (0);
+}
+
+int is_token_append_chevron(t_token *token)
+{
+    if (token->id == TOKEN_APPEND_CHEVRON)
+        return (1);
+    return (0);
+}
+
+int is_token_output_chevron(t_token *token)
+{
+    if (token->id == TOKEN_OUTPUT_CHEVRON)
+        return (1);
+    return (0);
+}
+
+int is_redir_heredoc(t_redirection *redir)
+{
+    if (redir->type == TOKEN_HERE_DOC)
         return (1);
     return (0);
 }

@@ -5,8 +5,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu Aug  4 16:45:09 2022
+# Make data base, printed on Fri Aug  5 15:19:30 2022
 
 # Variables
 
@@ -19,7 +20,7 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/widium/.gtkrc:/home/widium/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5e7dd116-86c1-49d6-b1c7-49f0e01cc7c9.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1ea33c4f-8ef0-4f33-a685-b243fb15a104.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -52,7 +53,6 @@ XDG_DATA_DIRS = /home/widium/.local/share/flatpak/exports/share:/var/lib/flatpak
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
 VSCODE_LOG_STACK = false
- 
 # automatic
 %F = $(notdir $%)
 # environment
@@ -76,7 +76,7 @@ VSCODE_PIPE_LOGGING = true
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 15)
-SRCS = main.c utils/init.c utils/string_utils.c env/prompt.c env/signal.c env/env.c env/variable.c exit_free/exit.c exit_free/free.c exit_free/remove_arg.c exit_free/remove_token.c exit_free/remove.c history/file.c parsing/detect.c parsing/detect2.c parsing/detect3.c parsing/detect4.c parsing/detect5.c parsing/detect_cmd.c detection/extraction.c detection/quote_extraction.c detection/classification.c is/is.c is/is_redirection.c is/is_quote.c is/is_file.c parsing/parsing.c parsing/casting.c verbose/verbose.c verbose/verbose_token.c verbose/verbose_class.c verbose/verbose_env.c verbose/verbose_cmd.c tokenization/init_token.c tokenization/tokenizer.c tokenization/chained.c tokenization/create.c tokenization/is_token.c tokenization/is_arg.c tokenization/token.c tokenization/get.c tokenization/tokenization.c tokenization/argument.c redirection/redirect.c boolean/boolean.c boolean/is_boolean.c concatenate/concatenate.c execution/execution.c execution/access.c execution/bin.c execution/bin_processing.c execution/bin_exe.c execution/built_in_exe.c 
+SRCS = main.c utils/init.c utils/string_utils.c env/prompt.c env/signal.c env/env.c env/variable.c exit_free/exit.c exit_free/free.c exit_free/remove_arg.c exit_free/remove_token.c exit_free/remove.c history/file.c parsing/detect.c parsing/detect2.c parsing/detect3.c parsing/detect4.c parsing/detect5.c parsing/detect_cmd.c detection/extraction.c detection/quote_extraction.c detection/classification.c is/is.c is/is_redirection.c is/is_quote.c is/is_file.c parsing/parsing.c parsing/casting.c verbose/verbose.c verbose/verbose_token.c verbose/verbose_class.c verbose/verbose_env.c verbose/verbose_cmd.c verbose/verbose_redirect.c tokenization/init_token.c tokenization/tokenizer.c tokenization/chained.c tokenization/create.c tokenization/is_token.c tokenization/is_arg.c tokenization/token.c tokenization/get.c tokenization/tokenization.c tokenization/argument.c redirection/redirect.c redirection/redirection.c boolean/boolean.c boolean/is_boolean.c concatenate/concatenate.c execution/execution.c execution/access.c execution/bin.c execution/bin_processing.c execution/bin_exe.c execution/built_in_exe.c 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -104,15 +104,15 @@ CONDA_SHLVL = 0
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 3738
+VSCODE_PID = 4025
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# makefile (from 'Makefile', line 76)
+# makefile (from 'Makefile', line 78)
 FLAGS = -g3 -lreadline
 # environment
-SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1098,unix/manjaro:/tmp/.ICE-unix/1098
+SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1094,unix/manjaro:/tmp/.ICE-unix/1094
 # automatic
 *F = $(notdir $*)
 # environment
@@ -125,7 +125,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'Makefile', line 73)
+# makefile (from 'Makefile', line 75)
 OBJS = $(SRCS:.c=.o)
 # makefile
 SHELL = /bin/sh
@@ -141,9 +141,9 @@ MAKE = $(MAKE_COMMAND)
 PATH = /home/widium/.local/bin:/usr/condabin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/widium/.local/share/JetBrains/Toolbox/scripts
 # default
 MAKEFILES := 
-# makefile (from 'Makefile', line 78)
+# makefile (from 'Makefile', line 80)
 LEAKS = -fsanitize=leak
-# makefile (from 'Makefile', line 77)
+# makefile (from 'Makefile', line 79)
 SANITIZE = -fsanitize=address
 # environment
 LC_MONETARY = fr_FR.UTF-8
@@ -167,7 +167,7 @@ KDE_APPLICATIONS_AS_SCOPE = 1
 NAME = minishell
 # environment
 XDG_SEAT = seat0
-# makefile (from 'Makefile', line 79)
+# makefile (from 'Makefile', line 81)
 DEBUGGER = lldb
 # environment
 XDG_CURRENT_DESKTOP = KDE
@@ -190,7 +190,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := minishell
 # environment
-SYSTEMD_EXEC_PID = 965
+SYSTEMD_EXEC_PID = 962
 # environment
 DISPLAY = :0
 # environment
@@ -226,6 +226,7 @@ VSCODE_IPC_HOOK = /run/user/1000/vscode-f0a1c65d-1.68.1-main.sock
 # environment
 XDG_SESSION_ID = 2
 # environment
+ 
 XCURSOR_SIZE = 48
 # default
 .RECIPEPREFIX := 
@@ -243,7 +244,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 KDE_SESSION_VERSION = 5
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# makefile (from 'Makefile', line 74)
+# makefile (from 'Makefile', line 76)
 CC = clang
 # environment
 KDE_FULL_SESSION = true
@@ -252,7 +253,7 @@ CONDA_EXE = /usr/bin/conda
 # environment
 LC_IDENTIFICATION = fr_FR.UTF-8
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=12/160=8%
+# Load=120/1024=12%, Rehash=0, Collisions=12/165=7%
 
 # Pattern-specific Variable Values
 
@@ -261,26 +262,21 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # Directories
 
 # history (device 66306, inode 9832495): 4 files, no impossibilities so far.
-# boolean (device 66306, inode 9832485): 6 files, no impossibilities.
-# concatenate (device 66306, inode 9964729): 4 files, no impossibilities.
-# execution (device 66306, inode 10093411): 14 files, no impossibilities.
-# verbose (device 66306, inode 9832550): 11 files, no impossibilities so far.
+# verbose (device 66306, inode 9832550): 13 files, no impossibilities so far.
 # utils (device 66306, inode 9832547): 6 files, no impossibilities so far.
 # . (device 66306, inode 9832406): 27 files, no impossibilities.
-# redirection (device 66306, inode 9832534): 5 files, no impossibilities.
-# tokenization (device 66306, inode 9832539): 22 files, no impossibilities so far.
 # parsing (device 66306, inode 9832523): 18 files, no impossibilities so far.
 # detection (device 66306, inode 9833253): 8 files, no impossibilities so far.
 # exit_free (device 66306, inode 9832491): 11 files, no impossibilities so far.
 # env (device 66306, inode 9832488): 10 files, no impossibilities so far.
 # is (device 66306, inode 9832497): 10 files, no impossibilities so far.
 
-# 156 files, no impossibilities in 14 directories.
+# 107 files, no impossibilities in 9 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -290,57 +286,38 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 verbose/verbose.o: verbose/verbose.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'verbose/verbose'
-#  Last modified 2022-08-04 16:42:59.283335503
+#  Last modified 2022-08-05 14:44:22.180000531
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 is/is_quote.o: is/is_quote.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'is/is_quote'
-#  Last modified 2022-08-04 16:42:59.156668837
+#  Last modified 2022-08-05 14:44:22.06000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-execution/bin_processing.o: execution/bin_processing.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'execution/bin_processing'
-#  Last modified 2022-08-04 16:42:59.933335503
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+execution/bin_processing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 detection/classification.o: detection/classification.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'detection/classification'
-#  Last modified 2022-08-04 16:42:59.056668837
+#  Last modified 2022-08-05 14:44:21.973333863
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
-
-# Not a target:
-execution/bin_exe.c:
- 
-#  Implicit rule search has been done.
-#  Last modified 2022-08-04 14:29:44.526666993
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-execution/bin_processing.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:05:09.66000188
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 utils/init.c:
@@ -359,19 +336,12 @@ detection/extraction.c:
 exit_free/remove.o: exit_free/remove.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'exit_free/remove'
-#  Last modified 2022-08-04 16:42:58.73000217
+#  Last modified 2022-08-05 14:44:21.66000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
-
-# Not a target:
-tokenization/init_token.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-03 18:42:53.309996157
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 env/env.c:
@@ -383,22 +353,18 @@ env/env.c:
 history/file.o: history/file.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'history/file'
-#  Last modified 2022-08-04 16:42:58.76000217
+#  Last modified 2022-08-05 14:44:21.690000531
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-execution/bin.o: execution/bin.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'execution/bin'
-#  Last modified 2022-08-04 16:42:59.903335504
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+execution/bin.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 parsing/detect3.c:
@@ -406,23 +372,13 @@ parsing/detect3.c:
 #  Last modified 2022-07-23 19:26:48.440004468
 #  File has been updated.
 #  Successfully updated.
-
-tokenization/create.o: tokenization/create.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/create'
-#  Last modified 2022-08-04 16:42:59.516668837
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+ 
 
 # Not a target:
-tokenization/token.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-26 15:40:23.476669784
-#  File has been updated.
-#  Successfully updated.
+tokenization/create.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 parsing/parsing.c:
@@ -432,131 +388,126 @@ parsing/parsing.c:
 #  Successfully updated.
 
 # Not a target:
-tokenization/get.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:03:48.55333519
-#  File has been updated.
-#  Successfully updated.
-
-tokenization/get.o: tokenization/get.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/get'
-#  Last modified 2022-08-04 16:42:59.64000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+tokenization/get.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 env/prompt.o: env/prompt.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'env/prompt'
-#  Last modified 2022-08-04 16:42:58.48000217
+#  Last modified 2022-08-05 14:44:21.42000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 parsing/detect_cmd.o: parsing/detect_cmd.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/detect_cmd'
-#  Last modified 2022-08-04 16:42:58.946668837
+#  Last modified 2022-08-05 14:44:21.873333864
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 is/is.o: is/is.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'is/is'
-#  Last modified 2022-08-04 16:42:59.086668836
+#  Last modified 2022-08-05 14:44:22.00000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-minishell: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
+minishell: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-04 16:43:34.853335516
+#  Last modified 2022-08-05 14:44:24.136667197
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 85):
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  recipe to execute (from 'Makefile', line 87):
 				make -C libft
 				$(CC) $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
 
 exit_free/exit.o: exit_free/exit.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'exit_free/exit'
-#  Last modified 2022-08-04 16:42:58.596668836
+#  Last modified 2022-08-05 14:44:21.536667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-boolean/is_boolean.o: boolean/is_boolean.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'boolean/is_boolean'
-#  Last modified 2022-08-04 16:42:59.786668837
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+boolean/is_boolean.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 verbose/verbose_env.o: verbose/verbose_env.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'verbose/verbose_env'
-#  Last modified 2022-08-04 16:42:59.366668837
+#  Last modified 2022-08-05 14:44:22.266667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 # Not a target:
 parsing/detect_cmd.c:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-07-25 21:02:33.946667198
 #  File has been updated.
 #  Successfully updated.
 
-debug: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
+debug: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 99):
+#  recipe to execute (from 'Makefile', line 101):
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
 				$(DEBUGGER) $(NAME)
 				
 
 # Not a target:
+verbose/verbose_redirect.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-05 15:18:47.72000013
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:03:28.683335184
+#  Last modified 2022-08-05 14:44:14.656667195
 #  File has been updated.
 #  Successfully updated.
 
 verbose/verbose_class.o: verbose/verbose_class.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'verbose/verbose_class'
-#  Last modified 2022-08-04 16:42:59.343335503
+#  Last modified 2022-08-05 14:44:22.240000531
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 parsing/detect.o: parsing/detect.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/detect'
-#  Last modified 2022-08-04 16:42:58.79000217
+#  Last modified 2022-08-05 14:44:21.726667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -575,44 +526,26 @@ detection/classification.c:
 #  Successfully updated.
 
 # Not a target:
-concatenate/concatenate.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 16:56:46.933336381
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-redirection/redirect.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-23 14:46:40.216667655
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 verbose/verbose_token.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-02 16:22:02.2933359
 #  File has been updated.
 #  Successfully updated.
 
-execution/access.o: execution/access.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'execution/access'
- 
-#  Last modified 2022-08-04 16:42:59.873335503
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+execution/access.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 env/variable.o: env/variable.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'env/variable'
-#  Last modified 2022-08-04 16:42:58.57000217
+#  Last modified 2022-08-05 14:44:21.51000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+ 
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -621,7 +554,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 91):
+#  recipe to execute (from 'Makefile', line 93):
 				make clean -C libft
 				/bin/rm -rf $(OBJS)
 
@@ -632,15 +565,11 @@ parsing/detect4.c:
 #  File has been updated.
 #  Successfully updated.
 
-redirection/redirect.o: redirection/redirect.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'redirection/redirect'
-#  Last modified 2022-08-04 16:42:59.733335504
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+redirection/redirect.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 env/variable.c:
@@ -652,10 +581,10 @@ env/variable.c:
 is/is_redirection.o: is/is_redirection.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'is/is_redirection'
-#  Last modified 2022-08-04 16:42:59.12000217
+#  Last modified 2022-08-05 14:44:22.03000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -669,7 +598,7 @@ parsing/detect2.c:
 # Not a target:
 verbose/verbose_class.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-02 17:06:45.720002932
+#  Last modified 2022-08-05 14:22:11.546666872
 #  File has been updated.
 #  Successfully updated.
 
@@ -688,44 +617,27 @@ history/file.c:
 #  Successfully updated.
 
 # Not a target:
-tokenization/tokenization.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 17:00:37.803336216
-#  File has been updated.
-#  Successfully updated.
-
-tokenization/token.o: tokenization/token.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/token'
-#  Last modified 2022-08-04 16:42:59.60000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+tokenization/token.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 verbose/verbose_cmd.o: verbose/verbose_cmd.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'verbose/verbose_cmd'
-#  Last modified 2022-08-04 16:42:59.396668837
+#  Last modified 2022-08-05 14:44:22.296667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
+ 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-
-# Not a target:
-execution/built_in_exe.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-03 18:37:32.236662719
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 exit_free/free.c:
@@ -737,59 +649,48 @@ exit_free/free.c:
 utils/string_utils.o: utils/string_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'utils/string_utils'
-#  Last modified 2022-08-04 16:42:58.45000217
+#  Last modified 2022-08-05 14:44:21.383333864
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 parsing/detect3.o: parsing/detect3.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/detect3'
-#  Last modified 2022-08-04 16:42:58.846668837
+#  Last modified 2022-08-05 14:44:21.786667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
-
-# Not a target:
-tokenization/argument.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 20:47:46.496666549
-#  File has been updated.
-#  Successfully updated.
 
 exit_free/free.o: exit_free/free.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'exit_free/free'
-#  Last modified 2022-08-04 16:42:58.626668836
+#  Last modified 2022-08-05 14:44:21.566667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 parsing/detect4.o: parsing/detect4.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/detect4'
-#  Last modified 2022-08-04 16:42:58.876668836
+#  Last modified 2022-08-05 14:44:21.813333864
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-execution/built_in_exe.o: execution/built_in_exe.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'execution/built_in_exe'
-#  Last modified 2022-08-04 16:42:59.99000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+execution/built_in_exe.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 exit_free/remove_token.c:
@@ -798,60 +699,37 @@ exit_free/remove_token.c:
 #  File has been updated.
 #  Successfully updated.
 
-tokenization/init_token.o: tokenization/init_token.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/init_token'
-#  Last modified 2022-08-04 16:42:59.43000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
-
-tokenization/tokenization.o: tokenization/tokenization.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/tokenization'
-#  Last modified 2022-08-04 16:42:59.67000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
-
-execution/execution.o: execution/execution.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'execution/execution'
-#  Last modified 2022-08-04 16:43:34.816668849
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+tokenization/init_token.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-tokenization/is_token.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 17:29:50.056669746
-#  File has been updated.
-#  Successfully updated.
+tokenization/tokenization.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-tokenization/tokenizer.o: tokenization/tokenizer.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/tokenizer'
-#  Last modified 2022-08-04 16:42:59.46000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+execution/execution.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tokenization/tokenizer.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 verbose/verbose_token.o: verbose/verbose_token.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'verbose/verbose_token'
-#  Last modified 2022-08-04 16:42:59.313335503
+#  Last modified 2022-08-05 14:44:22.21000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -862,25 +740,10 @@ verbose/verbose_token.o: verbose/verbose_token.c
 #  File has not been updated.
 
 # Not a target:
-execution/access.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-03 12:01:02.820000188
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 is/is.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-08-03 11:29:51.066667253
 #  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-execution/bin.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:42:54.210002169
-#  File has been updated.
- 
 #  Successfully updated.
 
 all: minishell
@@ -889,63 +752,58 @@ all: minishell
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 95):
+#  recipe to execute (from 'Makefile', line 97):
 				make fclean -C libft
 				/bin/rm -rf $(NAME)
 
 detection/quote_extraction.o: detection/quote_extraction.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'detection/quote_extraction'
-#  Last modified 2022-08-04 16:42:59.026668836
+#  Last modified 2022-08-05 14:44:21.94000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 is/is_file.o: is/is_file.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'is/is_file'
-#  Last modified 2022-08-04 16:42:59.196668836
+#  Last modified 2022-08-05 14:44:22.086667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
-
-tokenization/is_token.o: tokenization/is_token.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/is_token'
-#  Last modified 2022-08-04 16:42:59.543335503
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 # Not a target:
+tokenization/is_token.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:05:24.810001885
+ 
+#  Last modified 2022-08-04 19:22:24.220006314
 #  File has been updated.
 #  Successfully updated.
 
-concatenate/concatenate.o: concatenate/concatenate.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'concatenate/concatenate'
-#  Last modified 2022-08-04 16:42:59.816668837
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+concatenate/concatenate.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 is/is_quote.c:
@@ -954,21 +812,49 @@ is/is_quote.c:
 #  File has been updated.
 #  Successfully updated.
 
-leak: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
+verbose/verbose_redirect.o: verbose/verbose_redirect.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'verbose/verbose_redirect'
+#  Last modified 2022-08-05 14:44:22.333333864
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := verbose/verbose_redirect.o
+# automatic
+# * := verbose/verbose_redirect
+# automatic
+# < := verbose/verbose_redirect.c
+# automatic
+# + := verbose/verbose_redirect.c
+# automatic
+# % := 
+# automatic
+# ^ := verbose/verbose_redirect.c
+# automatic
+# ? := verbose/verbose_redirect.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
+#  recipe to execute (from 'Makefile', line 84):
+			$(CC) $(FLAGS) -c $< -o $@
+	
+
+leak: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 106):
+#  recipe to execute (from 'Makefile', line 108):
 				$(CC) $(OBJS) $(FLAGS) $(LEAKS) libft/libft.a  -o $(NAME)
 
 detection/extraction.o: detection/extraction.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'detection/extraction'
-#  Last modified 2022-08-04 16:42:58.993335503
+#  Last modified 2022-08-05 14:44:21.903333863
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -982,64 +868,50 @@ detection/quote_extraction.c:
 main.o: main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-08-04 16:42:58.393335503
+#  Last modified 2022-08-05 14:44:21.326667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-tokenization/is_arg.o: tokenization/is_arg.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/is_arg'
-#  Last modified 2022-08-04 16:42:59.573335504
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+tokenization/is_arg.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 parsing/detect2.o: parsing/detect2.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/detect2'
-#  Last modified 2022-08-04 16:42:58.816668836
+#  Last modified 2022-08-05 14:44:21.756667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
-execution/bin_exe.o: execution/bin_exe.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'execution/bin_exe'
-#  Last modified 2022-08-04 16:42:59.96000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+execution/bin_exe.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 env/signal.o: env/signal.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'env/signal'
-#  Last modified 2022-08-04 16:42:58.513335503
+#  Last modified 2022-08-05 14:44:21.453333863
 #  File has been updated.
+ 
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 # Not a target:
-tokenization/create.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 19:54:55.73999904
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 env/prompt.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 17:22:42.349995494
+#  Last modified 2022-08-05 14:42:03.880000491
 #  File has been updated.
 #  Successfully updated.
 
@@ -1053,10 +925,10 @@ exit_free/remove_arg.c:
 parsing/detect5.o: parsing/detect5.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/detect5'
-#  Last modified 2022-08-04 16:42:58.91000217
+#  Last modified 2022-08-05 14:44:21.843333863
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -1077,10 +949,10 @@ parsing/detect5.c:
 parsing/casting.o: parsing/casting.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/casting'
-#  Last modified 2022-08-04 16:42:59.256668836
+#  Last modified 2022-08-05 14:44:22.146667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -1094,7 +966,7 @@ exit_free/exit.c:
 # Not a target:
 verbose/verbose_cmd.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:39:05.743335435
+#  Last modified 2022-08-04 17:49:32.233336857
 #  File has been updated.
 #  Successfully updated.
 
@@ -1108,35 +980,28 @@ exit_free/remove.c:
 # Not a target:
 verbose/verbose.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 12:15:10.826666965
-#  File has been updated.
-#  Successfully updated.
-
- 
-# Not a target:
-tokenization/is_arg.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-26 17:10:55.930003033
+#  Last modified 2022-08-04 17:49:21.846670187
 #  File has been updated.
 #  Successfully updated.
 
 env/env.o: env/env.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'env/env'
-#  Last modified 2022-08-04 16:42:58.543335503
+ 
+#  Last modified 2022-08-05 14:44:21.48000053
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 utils/init.o: utils/init.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'utils/init'
-#  Last modified 2022-08-04 16:42:58.423335503
+#  Last modified 2022-08-05 14:44:21.353333863
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -1147,32 +1012,21 @@ is/is_file.c:
 #  File has been updated.
 #  Successfully updated.
 
-boolean/boolean.o: boolean/boolean.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'boolean/boolean'
-#  Last modified 2022-08-04 16:42:59.76000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+boolean/boolean.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 parsing/parsing.o: parsing/parsing.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing/parsing'
-#  Last modified 2022-08-04 16:42:59.226668837
+#  Last modified 2022-08-05 14:44:22.113333863
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
-
-# Not a target:
-boolean/is_boolean.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-22 14:13:09.729999463
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 parsing/detect.c:
@@ -1184,26 +1038,19 @@ parsing/detect.c:
 exit_free/remove_arg.o: exit_free/remove_arg.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'exit_free/remove_arg'
-#  Last modified 2022-08-04 16:42:58.663335503
+#  Last modified 2022-08-05 14:44:21.596667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 # Not a target:
-tokenization/chained.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-26 17:55:11.820003272
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-boolean/boolean.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-22 14:13:09.729999463
-#  File has been updated.
-#  Successfully updated.
+redirection/redirection.o:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 utils/string_utils.c:
@@ -1212,25 +1059,18 @@ utils/string_utils.c:
 #  File has been updated.
 #  Successfully updated.
 
-sanitize: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
+sanitize: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 103):
+#  recipe to execute (from 'Makefile', line 105):
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
 
 .PHONY: all clean fclean re leak sanitize
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-execution/execution.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-04 16:43:32.080002181
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 env/signal.c:
@@ -1242,54 +1082,40 @@ env/signal.c:
 exit_free/remove_token.o: exit_free/remove_token.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'exit_free/remove_token'
-#  Last modified 2022-08-04 16:42:58.703335503
+#  Last modified 2022-08-05 14:44:21.626667197
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
+#  recipe to execute (from 'Makefile', line 84):
 			$(CC) $(FLAGS) -c $< -o $@
 	
 
 # Not a target:
-tokenization/tokenizer.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 19:53:58.133332355
-#  File has been updated.
-#  Successfully updated.
+tokenization/chained.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-tokenization/chained.o: tokenization/chained.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/chained'
-#  Last modified 2022-08-04 16:42:59.49000217
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
-
-tokenization/argument.o: tokenization/argument.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tokenization/argument'
-#  Last modified 2022-08-04 16:42:59.703335503
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 82):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+tokenization/argument.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=118/1024=12%, Rehash=0, Collisions=14/510=3%
+# Load=101/1024=10%, Rehash=0, Collisions=11/444=2%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
+ 
 
-# strcache buffers: 1 (0) / strings = 301 / storage = 4494 B / avg = 14 B
-# current buf: size = 8162 B / used = 4494 B / count = 301 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 226 / storage = 3325 B / avg = 14 B
+# current buf: size = 8162 B / used = 3325 B / count = 226 / avg = 14 B
 
-# strcache performance: lookups = 579 / hit rate = 48%
+# strcache performance: lookups = 476 / hit rate = 52%
 # hash-table stats:
-# Load=301/8192=4%, Rehash=0, Collisions=6/579=1%
-# Finished Make data base on Thu Aug  4 16:45:09 2022
+# Load=226/8192=3%, Rehash=0, Collisions=6/476=1%
+# Finished Make data base on Fri Aug  5 15:19:30 2022
 
  

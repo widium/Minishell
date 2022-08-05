@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/08/04 16:03:28 by ebennace         ###   ########.fr        #
+#    Updated: 2022/08/05 14:44:14 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS		= 	main.c \
 				verbose/verbose_class.c \
 				verbose/verbose_env.c \
 				verbose/verbose_cmd.c \
+				verbose/verbose_redirect.c \
 				tokenization/init_token.c \
 				tokenization/tokenizer.c \
 				tokenization/chained.c \
@@ -56,6 +57,7 @@ SRCS		= 	main.c \
 				tokenization/tokenization.c \
 				tokenization/argument.c \
 				redirection/redirect.c \
+				redirection/redirection.c \
 				boolean/boolean.c \
 				boolean/is_boolean.c \
 				concatenate/concatenate.c \

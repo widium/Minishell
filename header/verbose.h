@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:34:03 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/04 17:49:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:40:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ void print_cmd_info(t_cmd *cmd);
 void print_args(t_cmd *cmd);
 
 void print_redirection(t_token *token, t_redirection *redir);
+void print_redirect_info(t_token *token, t_cmd *prev_cmd, t_cmd *next_cmd, t_file *next_file);
+void print_pipe_info(t_redirection *redir, t_cmd *prev_cmd, t_cmd *next_cmd);
+void print_heredoc_info(t_redirection *redir, t_cmd *prev_cmd);
+void print_input_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *next_file);
+void print_output_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *next_file);
+void print_append_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *next_file);
+
 
 # endif

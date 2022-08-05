@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 16:50:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:29:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ int is_built_in_index(char *line, int index);
 int is_built_in(char *content);
 
 int is_token_redirection(t_token *token);
+int is_token_pipe(t_token *token);
+int is_token_heredoc(t_token *token);
+int is_token_input_chevron(t_token *token);
+int is_token_append_chevron(t_token *token);
+int is_token_output_chevron(t_token *token);
+int is_redir_heredoc(t_redirection *redir);
 int is_token_boolean(t_token *token);
 int is_token_cmd(t_token *token);
 int is_cmd_bin(t_cmd *cmd);
@@ -62,7 +68,9 @@ int is_cmd_built_in(t_cmd *cmd);
 int is_token_file(t_token *token);
 int is_arg_variable(t_arg *arg);
 
-int have_args(t_cmd *cmd);
+int cmd_have_args(t_cmd *cmd);
+int have_token_redirection(t_env *env);
+int have_token(t_env *env);
 int token_have_args(t_token *token);
 
 # endif

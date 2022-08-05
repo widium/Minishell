@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 16:56:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:22:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void concatenate_args(t_env *env)
     token = env->first_token; 
     while (token)
     {
-        if (is_token_cmd(token) && have_args((t_cmd *)token->class))
+        if (is_token_cmd(token) && cmd_have_args((t_cmd *)token->class))
         {
             ((t_cmd *)token->class)->args = list_to_array(get_class(token));
         }
