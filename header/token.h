@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:46:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:44:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,13 @@ t_arg *init_arg(char *content, int id);
 
 t_token *create_token_word(char *content, int id);
 t_token *create_token_bool(char *content, char *first, char *second, int id);
-t_token *create_token_redir(int type, char *content);
+t_token *create_token_redir(char *line, int index, int new_index);
 t_token *create_token_heredoc(int type, char *content, char *limiter);
 t_token *create_token_variable(int id, char *content);
 t_token *create_token_command(int id, char *content);
 t_arg *create_arg(char *content, int id);
 t_token *create_token_file(char *name, int fd, int id);
+int next_file_tokenization(t_env *env, char *line, int index);
 
 void *choose_class(char *content, int id);
 void choose_arg_class(t_token *token, char *arg);
@@ -73,7 +74,6 @@ void add_arg_list(t_cmd *cmd, t_arg *arg);
 void tokenization(t_env *env, char *line);
 t_token *tokenizer_word(char *content, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
-t_token *tokenizer_redir(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *word, int id);
 t_arg *tokenizer_arg(char *line, int start, int end, int id);
 t_token *tokenizer_file(char *name, int id);

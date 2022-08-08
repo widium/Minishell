@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 12:08:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 17:21:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int double_quotes_detection(char *string, int i);
 int single_quotes_detection(char *line, int index);
 int word_detection(char *line, int index);
 int file_detection(char *line, int index);
-int next_file_detection(char *line, int index);
+;
 int redirection_detection(char *line, int index);
 int paranthesis_detection(char *line, int index);
 void wildcard_detection(char *str);
@@ -98,10 +98,15 @@ void redirection(t_env *env);
 
 void add_chained_list(t_env *env, t_token *token);
 
+void processing_cmd_args(t_env *env);
 void concatenate_args(t_env *env);
 void change_arg_content(t_env *env, t_arg *arg);
 
-
+void change_fd_cmd(t_cmd *cmd, int fd_in, int fd_out);
+int is_standart_fd(int fd);
+int cmd_have_standart_fd(t_cmd *cmd);
+void redirect_cmd(t_cmd *cmd);
+void open_file_with_good_flags(t_token *token, t_file *file);
 
 
 

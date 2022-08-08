@@ -6,44 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 12:13:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:57:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
-// int redirection_classification(t_env *env, char *line, int index)
-// {
-//     t_token *token;
-//     int new_index;
-//     int type;
-//     char *content;
-
-//     new_index = redirection_detection(line, index);
-//     content = malloc_substrcpy(line, index, (new_index - index) + 1);
-//     type = type_of_redirect(content);
-//     if (type == TOKEN_HERE_DOC)
-//     {
-//         token = create_token_redir(type, content);
-//         new_index = recover_limiter(get_class(token), line, ++new_index);
-//     }
-//     else //if(type == TOKEN_PIPE)
-//     {
-//         token = create_token_redir(type, content);
-//     }  
-//     add_chained_list(env, token);
-//     return (new_index);
-//     // else
-//     // {
-//     //    token = create_token_redir(type, content);
-//     //    add_chained_list(env, token);
-       
-//     //    new_index = file_detection(line, index);
-//     //    content = malloc_substrcpy(line, index, (new_index - index) + 1);
-//     //    token = tokenizer_file(content, TOKEN_FILE);
-//     // }
-
-// }
 
 int redirection_classification(t_env *env, char *line, int index)
 {
@@ -53,44 +20,20 @@ int redirection_classification(t_env *env, char *line, int index)
     char *content;
 
     new_index = redirection_detection(line, index);
-    content = malloc_substrcpy(line, index, (new_index - index) + 1);
+    token = create_token_redir(line, index, new_index);
+    add_chained_list(env, token);
     index = new_index;
-    
-    type = type_of_redirect(content);
-    
-    if (type == TOKEN_HERE_DOC)
+    if (is_token_heredoc(token))
     {
-        token = create_token_redir(type, content);
         index = recover_limiter(get_class(token), line, ++index);
     }
-    else if (type == TOKEN_PIPE)
+    else if (is_token_simple_redirection(token))
     {
-       token = create_token_redir(type, content);
+        index = next_file_tokenization(env, line, ++index);
     }
-    else
-    {
-        token = create_token_redir(type, content);
-        add_chained_list(env, token);
-
-        // index = next_file_detection(line, ++index);
-        new_index = file_detection(line, ++index);
-        content = malloc_substrcpy(line, index, (new_index - index) + 1);
-        token = tokenizer_file(content, TOKEN_FILE);
-        index = new_index;
-    }
-    add_chained_list(env, token);
     return (index);
 }
 
-int next_file_detection(char *line, int index)
-{
-    int new_index;
-    char *content;
-    t_token *token;
-    
-    
-    return (new_index);
-}
 int word_classification(t_env *env, char *line, int index)
 {
     char *content;
@@ -111,11 +54,6 @@ int word_classification(t_env *env, char *line, int index)
     add_chained_list(env, token);
     return (new_index);
 }
-
-    // else if (is_file(line, index))
-    // {
-    //     token = tokenizer_file(content, TOKEN_FILE);
-    // }
 
 t_token *command_classification(t_env *env, char *content, char *line, int index)
 {

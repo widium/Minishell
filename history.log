@@ -1,7 +1,10 @@
-echo salut > test.txt
-echo salut > test.txt
-echo salut > test.txt
- | wc -l >> result.txt && wc -l << STOP
+ls -la > test.txt
+
+ls -l >> test.txt
+ls -l > test.txt
+t < test.txt
+echo salut | test.txt
+&& wc -l << STOP
  STOP
 TOP
 

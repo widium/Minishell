@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:20:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:45:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,15 +93,18 @@ t_token *create_token_bool(char *content, char *first, char *second, int id)
 	return (token);
 }
 
-t_token *create_token_redir(int type, char *content)
+t_token *create_token_redir(char *line, int index, int new_index)
 {
-	t_token *token;
-
+    char *content;
+    int type;
+    t_token *token;
+    
+    content = malloc_substrcpy(line, index, (new_index - index) + 1);
+    type = type_of_redirect(content);
 	token = init_token();
 	token->id = type;
 	token->class = init_redirection(type, content);
-	
-	return (token);
+    return (token);
 }
 
 t_token *create_token_heredoc(int type, char *content, char *limiter)

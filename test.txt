@@ -1,0 +1,29 @@
+total 232
+drwxr-xr-x 18 widium widium   4096  8 août  17:37 .
+drwxr-xr-x 10 widium widium   4096 22 juil. 14:19 ..
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 boolean
+-rwxr-xr-x  1 widium widium      0  8 août  14:57  cat
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 concatenate
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 detection
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 env
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 execution
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 exit_free
+drwxr-xr-x  8 widium widium   4096  8 août  17:29 .git
+drwxr-xr-x  2 widium widium   4096  3 août  18:40 header
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 history
+-rwxr-xr-x  1 widium widium    832  8 août  17:37 history.log
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 is
+lrwxrwxrwx  1 widium widium     40 22 juil. 14:13 libft -> /home/widium/Programming/42_cursus/libft
+-rw-r--r--  1 widium widium   1446  8 août  17:21 main.c
+-rw-r--r--  1 widium widium   4664  8 août  17:37 main.o
+-rw-r--r--  1 widium widium   3148  5 août  14:44 Makefile
+-rwxr-xr-x  1 widium widium 133272  8 août  17:37 minishell
+-rw-r--r--  1 widium widium   3998  8 août  17:21 minishell.h
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 parsing
+-rw-r--r--  1 widium widium    151 22 juil. 14:13 README.md
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 redirection
+-rwxr-xr-x  1 widium widium      0  8 août  17:37 test.txt
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 tokenization
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 utils
+drwxr-xr-x  2 widium widium   4096  8 août  17:37 verbose
+drwxr-xr-x  2 widium widium   4096 22 juil. 14:13 .vscode
