@@ -1,10 +1,5 @@
-ls -la > test.txt
-
-ls -l >> test.txt
-ls -l > test.txt
-t < test.txt
-echo salut | test.txt
-&& wc -l << STOP
+ls -la > result.txt
+ME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
  STOP
 TOP
 

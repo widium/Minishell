@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 17:33:07 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 17:49:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ t_token *get_first_token_redirection(t_env *env)
 
 t_token *get_next_token_redirection(t_env *env, t_token *token)
 {
+    token = token->next;
     while (token)
     {
         if (is_token_redirection(token))
