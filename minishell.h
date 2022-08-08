@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 17:21:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 18:25:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int is_standart_fd(int fd);
 int cmd_have_standart_fd(t_cmd *cmd);
 void redirect_cmd(t_cmd *cmd);
 void open_file_with_good_flags(t_token *token, t_file *file);
+void create_fd_for_redirection(t_token *token);
 
 
 
