@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:47:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:52:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ int redirection_classification(t_env *env, char *line, int index)
     else
     {
         token = create_token_redir(type, content);
-        // add_chained_list(env, token);
+        add_chained_list(env, token);
         
-        // new_index = file_detection(line, index);
-        // content = malloc_substrcpy(line, index, (new_index - index) + 1);
-        // token = tokenizer_file(content, TOKEN_FILE);
-        // index = new_index;
+        new_index = file_detection(line, index);
+        content = malloc_substrcpy(line, index, (new_index - index) + 1);
+        token = tokenizer_file(content, TOKEN_FILE);
+        index = new_index;
     } 
     add_chained_list(env, token);
     return (index);
