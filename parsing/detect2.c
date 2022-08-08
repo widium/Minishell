@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/05 17:25:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:03:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,10 @@ int file_detection(char *line, int index)
     int start;
 
     start = index;
+    index = blank_detection(line, ++index);
     while (line[index])
     {
-        if (is_delimiter(line, index))
+        if (is_separator(line, index))
         {
             return (index - 1);
         }

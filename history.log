@@ -1,4 +1,7 @@
-cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+echo salut > test.txt
+echo salut > test.txt
+echo salut > test.txt
+ | wc -l >> result.txt && wc -l << STOP
  STOP
 TOP
 

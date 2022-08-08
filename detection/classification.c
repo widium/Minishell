@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:52:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:13:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,34 @@ int redirection_classification(t_env *env, char *line, int index)
         token = create_token_redir(type, content);
         index = recover_limiter(get_class(token), line, ++index);
     }
+    else if (type == TOKEN_PIPE)
+    {
+       token = create_token_redir(type, content);
+    }
     else
     {
         token = create_token_redir(type, content);
         add_chained_list(env, token);
-        
-        new_index = file_detection(line, index);
+
+        // index = next_file_detection(line, ++index);
+        new_index = file_detection(line, ++index);
         content = malloc_substrcpy(line, index, (new_index - index) + 1);
         token = tokenizer_file(content, TOKEN_FILE);
         index = new_index;
-    } 
+    }
     add_chained_list(env, token);
     return (index);
 }
 
-    // else if (type == TOKEN_PIPE)
-    // {
-    //    token = create_token_redir(type, content);
-    // }
-
+int next_file_detection(char *line, int index)
+{
+    int new_index;
+    char *content;
+    t_token *token;
+    
+    
+    return (new_index);
+}
 int word_classification(t_env *env, char *line, int index)
 {
     char *content;
