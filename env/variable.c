@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 20:46:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:35:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ char *extract_value_variable(char *env, char *variable)
 
     start = index_diff(env, variable, ft_strlen(variable)) + 1;
     end = ft_strlen(env);
-    content = ft_substr(env, start, (end - start) + 1);
+    content = malloc_substrcpy(env, start, (end - start) + 1);
     return (content);
 }

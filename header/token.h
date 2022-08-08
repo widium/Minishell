@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 16:46:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:46:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_wildcard	*init_wildcard(void);
 t_arg *init_arg(char *content, int id);
 
 
-t_token *create_token(char *content, int id);
+t_token *create_token_word(char *content, int id);
 t_token *create_token_bool(char *content, char *first, char *second, int id);
 t_token *create_token_redir(int type, char *content);
 t_token *create_token_heredoc(int type, char *content, char *limiter);
@@ -71,7 +71,7 @@ void connect_arg(t_arg *curr_arg, t_arg *next_arg);
 void add_arg_list(t_cmd *cmd, t_arg *arg);
 
 void tokenization(t_env *env, char *line);
-t_token *tokenizer(char *line, int start, int end, int id);
+t_token *tokenizer_word(char *content, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
 t_token *tokenizer_redir(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *word, int id);

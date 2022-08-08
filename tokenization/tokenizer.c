@@ -6,19 +6,17 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/05 17:41:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:49:08 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-t_token *tokenizer(char *line, int start, int end, int id)
+t_token *tokenizer_word(char *content, int id)
 {
     t_token *token;
-    char *content;
-    
-    content = ft_substr(line, start, (end - start) + 1);
-    token = create_token(content, id);
+
+    token = create_token_word(content, id);
     return (token);
 }
 
@@ -27,7 +25,7 @@ t_arg *tokenizer_arg(char *line, int start, int end, int id)
     t_arg *arg;
     char *content;
     
-    content = ft_substr(line, start, (end - start) + 1);
+    content = malloc_substrcpy(line, start, (end - start) + 1);
     arg = create_arg(content, id);
     return (arg);
 }
@@ -44,14 +42,14 @@ t_token *tokenizer_bool(char *line, int start, int end, int id)
     while (line[i] && !(is_boolean_operator(line, i)))
         i--;
     i++;
-    first = ft_substr(line, i, (start - i));
+    first = malloc_substrcpy(line, i, (start - i));
     i = end + 1;
     while (line[i] && !(is_boolean_operator(line, i)))
         i++;
     i--;
-    second = ft_substr(line, end + 1, (i - end));
+    second = malloc_substrcpy(line, end + 1, (i - end));
 
-    content = ft_substr(line, start, (end - start)+1);
+    content = malloc_substrcpy(line, start, (end - start)+1);
     id = type_of_boolean(content);
     token = create_token_bool(content, first, second, id);
     return (token);
@@ -65,7 +63,7 @@ t_token *tokenizer_redir(char *line, int start, int end, int id)
     int type;
     int i;
 
-    content = ft_substr(line, start, (end - start) + 1);
+    content = malloc_substrcpy(line, start, (end - start) + 1);
     type = type_of_redirect(content);
     token = create_token_redir(type, content);
     return (token);
@@ -84,7 +82,7 @@ t_token *tokenizer_file(char *name, int id)
     t_token *token;
     int fd;
 
-    fd = open(name, O_RDONLY | O_WRONLY |  O_CREAT | O_TRUNC , 0777);
+    fd = open(name, O_RDONLY | O_WRONLY |  O_CREAT, 0777);
     if (fd < 0)
         printf("%s : so such file or directory\n", name);
 

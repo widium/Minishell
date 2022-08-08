@@ -6,19 +6,19 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 19:54:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:20:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-t_token *create_token(char *content, int id)
+t_token *create_token_word(char *content, int id)
 {
 	t_token *token;
 
 	token = init_token();
 	token->id = id;
-	token->class = choose_class(content, id);
+	token->class = init_word(content, id);
 	
 	return (token);
 }
@@ -31,18 +31,20 @@ t_arg *create_arg(char *content, int id)
 	return (arg);
 }
 
-void *choose_class(char *content, int id)
-{
-    if (id == TOKEN_BLANK)
-		return (init_blank(content, id));
-    else if (id == TOKEN_WORD)
-        return (init_word(content, id));
-	else if (id == TOKEN_DOUBLE_QUOTE)
-		return (init_double(content, id));
-	else if (id == TOKEN_SINGLE_QUOTE)
-		return (init_single(content, id));
-	return (NULL);
-}
+// void *choose_class(char *content, int id)
+// {
+// 	ft_putstr_fd("choose_class in\n", 1);
+//     if (id == TOKEN_BLANK)
+// 		return (init_blank(content, id));
+//     else if (id == TOKEN_WORD)
+//         return (init_word(content, id));
+// 	else if (id == TOKEN_DOUBLE_QUOTE)
+// 		return (init_double(content, id));
+// 	else if (id == TOKEN_SINGLE_QUOTE)
+// 		return (init_single(content, id));
+// 	ft_putstr_fd("choose_class out\n", 1);
+// 	return (NULL);
+// }
 
 char *get_content(t_token *token)
 {

@@ -1,10 +1,4 @@
-echo salut >> bonjo.txt
-t
-echo salut >> bonjour.txt
- 
-'est eddi 
-salut moi c'est eddi    
-& wc -l << STOP
+cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
  STOP
 TOP
 

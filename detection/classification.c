@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/05 17:57:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/08 10:47:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 //     char *content;
 
 //     new_index = redirection_detection(line, index);
-//     content = ft_substr(line, index, (new_index - index) + 1);
+//     content = malloc_substrcpy(line, index, (new_index - index) + 1);
 //     type = type_of_redirect(content);
 //     if (type == TOKEN_HERE_DOC)
 //     {
@@ -39,7 +39,7 @@
 //     //    add_chained_list(env, token);
        
 //     //    new_index = file_detection(line, index);
-//     //    content = ft_substr(line, index, (new_index - index) + 1);
+//     //    content = malloc_substrcpy(line, index, (new_index - index) + 1);
 //     //    token = tokenizer_file(content, TOKEN_FILE);
 //     // }
 
@@ -53,19 +53,34 @@ int redirection_classification(t_env *env, char *line, int index)
     char *content;
 
     new_index = redirection_detection(line, index);
-    content = ft_substr(line, index, (new_index - index) + 1);
+    content = malloc_substrcpy(line, index, (new_index - index) + 1);
+    index = new_index;
+    
     type = type_of_redirect(content);
+    
     if (type == TOKEN_HERE_DOC)
     {
         token = create_token_redir(type, content);
-        new_index = recover_limiter(get_class(token), line, ++new_index);
+        index = recover_limiter(get_class(token), line, ++index);
     }
     else
+    {
         token = create_token_redir(type, content);
-
+        // add_chained_list(env, token);
+        
+        // new_index = file_detection(line, index);
+        // content = malloc_substrcpy(line, index, (new_index - index) + 1);
+        // token = tokenizer_file(content, TOKEN_FILE);
+        // index = new_index;
+    } 
     add_chained_list(env, token);
-    return (new_index);
+    return (index);
 }
+
+    // else if (type == TOKEN_PIPE)
+    // {
+    //    token = create_token_redir(type, content);
+    // }
 
 int word_classification(t_env *env, char *line, int index)
 {
@@ -74,23 +89,24 @@ int word_classification(t_env *env, char *line, int index)
     t_token *token;
 
     new_index = word_detection(line, index);
-    content = ft_substr(line, index, (new_index - index) + 1);
+    content = malloc_substrcpy(line, index, (new_index - index) + 1);
     if (is_cmd(env, content))
     {
         token = command_classification(env, content, line, index);
         new_index = argument_detection(get_class(token), line, ++new_index);
     }
-    else if (is_file(line, index))
-    {
-        token = tokenizer_file(content, TOKEN_FILE);
-    }
     else
     {
-        token = tokenizer(line, index, new_index, TOKEN_WORD);
+        token = tokenizer_word(content, TOKEN_WORD);
     }
     add_chained_list(env, token);
     return (new_index);
 }
+
+    // else if (is_file(line, index))
+    // {
+    //     token = tokenizer_file(content, TOKEN_FILE);
+    // }
 
 t_token *command_classification(t_env *env, char *content, char *line, int index)
 {
