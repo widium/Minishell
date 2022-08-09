@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 14:57:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:12:42 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int redirection_classification(t_env *env, char *line, int index)
     {
         index = recover_limiter(get_class(token), line, ++index);
     }
-    else if (is_token_simple_redirection(token))
+    else if (is_token_basic_redirection(token))
     {
         index = next_file_tokenization(env, line, ++index);
     }

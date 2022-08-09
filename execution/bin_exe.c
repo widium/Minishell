@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 16:27:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:12:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void bin_execution(t_env *env, t_cmd *cmd)
     id = fork();
     if (id == 0)
     {
-        printf("---- Execution -----\n");
+        printf("------- Execution --------\n");
         if (cmd_have_standart_fd(cmd))
         {
             execve(path, args, variables);
@@ -45,9 +45,12 @@ void bin_execution(t_env *env, t_cmd *cmd)
     }
 }
 
-void close_all_fd(t_cmd *cmd)
+void close_fd_cmd(t_cmd *cmd)
 {
-    
+    if(!(is_standart_fd(cmd->fd_in)))
+        close(cmd->fd_in);
+    if(!(is_standart_fd(cmd->fd_out)))
+        close(cmd->fd_out);
 }
 
 int is_standart_fd(int fd)
@@ -80,4 +83,5 @@ void redirect_cmd(t_cmd *cmd)
     {
        dup2(fd_out, STDOUT_FILENO); 
     }
+    close_fd_cmd(cmd);
 }

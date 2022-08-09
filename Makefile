@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/08/05 14:44:14 by ebennace         ###   ########.fr        #
+#    Updated: 2022/08/09 16:56:48 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,8 @@ SRCS		= 	main.c \
 				tokenization/argument.c \
 				redirection/redirect.c \
 				redirection/redirection.c \
+				redirection/manage_redirection.c\
+				redirection/heredoc.c \
 				boolean/boolean.c \
 				boolean/is_boolean.c \
 				concatenate/concatenate.c \

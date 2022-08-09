@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 18:25:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:11:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int type_of_boolean(char *content);
 char *return_built_in(char *content);
 
 void parsing(t_env *env, char *line);
-void redirection(t_env *env);
+void processing_redirection(t_env *env);
 
 void add_chained_list(t_env *env, t_token *token);
 
@@ -106,9 +106,14 @@ void change_fd_cmd(t_cmd *cmd, int fd_in, int fd_out);
 int is_standart_fd(int fd);
 int cmd_have_standart_fd(t_cmd *cmd);
 void redirect_cmd(t_cmd *cmd);
-void open_file_with_good_flags(t_token *token, t_file *file);
-void create_fd_for_redirection(t_token *token);
+void open_next_file_with_flags(t_token *token, t_file *file);
+void manage_fd_for_redirection(t_token *token);
+void manage_fd_basic_redirection(t_token *token);
+void manage_fd_pipe(t_token *token);
+void manage_fd_heredoc(t_token *token);
+char *heredoc_prompt(char *limiter);
 
+void close_fd_cmd(t_cmd *cmd);
 
 
 
