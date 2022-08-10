@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 15:50:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:47:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void processing_cmd_args(t_env *env)
 }
 
 // if (is_paranthesis(line, index))
-        // {
-        //     new_index = paranthesis_detection(line, index);
-        //     token = tokenizer_word(line, index, new_index, TOKEN_PARANTHESIS);
-        //     add_chained_list(env, token);
+// {
+//     new_index = paranthesis_detection(line, index);
+//     token = tokenizer_word(line, index, new_index, TOKEN_PARANTHESIS);
+//     add_chained_list(env, token);
 
-        //     index = new_index;
-        // }
+//     index = new_index;
+// }

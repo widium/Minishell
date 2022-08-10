@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 17:12:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/09 18:03:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void bin_execution(t_env *env, t_cmd *cmd)
         else
         {
             redirect_cmd(cmd);
+            close_fd_cmd(cmd);
             execve(path, args, variables);
             perror("Command failure : "); 
         }
@@ -81,7 +82,6 @@ void redirect_cmd(t_cmd *cmd)
     }
     if (!(is_standart_fd(cmd->fd_out)))
     {
-       dup2(fd_out, STDOUT_FILENO); 
+       dup2(fd_out, STDOUT_FILENO);
     }
-    close_fd_cmd(cmd);
 }

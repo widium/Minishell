@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:18:31 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/04 16:42:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:45:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,23 @@ void setup_bin_path(t_cmd *cmd, char **bins)
 void setup_bin_args(t_cmd *cmd, char **bins)
 {
     char *command;
-
-    command = cmd->content;
-    if (test_absolute_bin_access(command))
+    
+    if (cmd_have_args_array(cmd))
     {
-        command = extract_bin_name_in_path(command);
-        free(cmd->content);
-        cmd->content = command;
-        cmd->args = append_bin_name_in_args(cmd->args, cmd->content);
-        return ;
-    }
-    else if (test_bin_access(bins, command))
-    {
-        cmd->args = append_bin_name_in_args(cmd->args, cmd->content);
-        return;
+        command = cmd->content;
+        if (test_absolute_bin_access(command))
+        {
+            command = extract_bin_name_in_path(command);
+            free(cmd->content);
+            cmd->content = command;
+            cmd->args = append_bin_name_in_args(cmd->args, cmd->content);
+            return ;
+        }
+        else if (test_bin_access(bins, command))
+        {
+            cmd->args = append_bin_name_in_args(cmd->args, cmd->content);
+            return;
+        }
     }
 }
 

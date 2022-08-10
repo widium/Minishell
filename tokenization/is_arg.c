@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:58:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/05 14:22:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 09:09:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ int is_arg_variable(t_arg *arg)
 int cmd_have_args(t_cmd *cmd)
 {
     if (cmd->first_arg)
+        return (1);
+    return (0);
+}
+
+int cmd_have_args_array(t_cmd *cmd)
+{
+    if (cmd->args)
         return (1);
     return (0);
 }

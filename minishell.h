@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 17:11:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:48:08 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char *convert_fd(int fd);
 void    prompt(t_env	*env);
 void	create_history(t_env	*env);
 int	line_is_empty(char	*line);
+int	line_is_not_empty(char	*line);
 
 void use_signal(t_env *env, int key);
 void exit_prompt(int key);
@@ -84,7 +85,7 @@ int flags_extraction(t_cmd *cmd, char *line, int index);
 
 int boolean_classification(t_env *env, char *line, int index);
 int argument_classification(t_cmd *cmd, char *line, int index);
-t_token *command_classification(t_env *env, char *content, char *line, int index);
+t_token *command_classification(t_env *env, char *content);
 int word_classification(t_env *env, char *line, int index);
 int redirection_classification(t_env *env, char *line, int index);
 

@@ -1,4 +1,7 @@
-ls -la | wc -l
+ls -la
+la
+c
+-l
 st.txt
  | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
  STOP

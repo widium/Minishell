@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 16:12:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:36:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 int	is_in_str(char *first, int i, char *second);
 int is_finish(char c);
+int is_not_finish(char c);
+int line_is_finish(char *line, int index);
+int line_is_not_finish(char *line, int index);
 int is_blank(char c);
 int is_back_slash(char c);
 int is_double_quote(char c);
@@ -70,6 +73,7 @@ int is_token_file(t_token *token);
 int is_arg_variable(t_arg *arg);
 
 int cmd_have_args(t_cmd *cmd);
+int cmd_have_args_array(t_cmd *cmd);
 int have_token_redirection(t_env *env);
 int have_token(t_env *env);
 int token_have_args(t_token *token);

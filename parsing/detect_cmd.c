@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/25 21:02:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:01:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int argument_detection(t_cmd *cmd, char *line, int index)
 {
-    t_arg *arg;
     int new_index;
 
     new_index = index;
-    
+
     while (line[index] && !(is_separator(line, index)))
     {
         new_index = argument_classification(cmd, line, index);
         index = new_index;
         index++;
     }
+    printf("after argument detection : %d\n", cmd_have_args(cmd));
     return (new_index);
 }
 
@@ -51,7 +51,7 @@ int argument_classification(t_cmd *cmd, char *line, int index)
     } 
     else if (is_word(line, index))
     {
-        new_index = word_argument_extraction(cmd, line, index);    
+        new_index = word_argument_extraction(cmd, line, index);
     }
     return (new_index);
 }

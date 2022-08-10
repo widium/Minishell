@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:21:59 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/05 14:22:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 09:11:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void print_cmd(t_cmd *cmd, int index)
     printf("[%d][%s] : [%s]\n", index, convert_id(cmd->id), cmd->content);
     if (cmd_have_args(cmd))
         print_args(cmd);
-    else
+    else if (cmd_have_args_array(cmd))
         print_args_array(cmd->args);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:59:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:31:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:40:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void tokenization(t_env *env, char *line)
     int index;
 
     index = 0;
-    while (line[index])
+    while (line_is_not_finish(line, index))
     {
         if (is_word(line, index))
         { 
