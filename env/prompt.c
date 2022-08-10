@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/10 10:54:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:55:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void    prompt(t_env	*env)
 		env->line = readline("$> ");
 		create_history(env);
 		
-		// if (line_is_not_empty(line))
-		// {
-		parsing(env, env->line);
-		processing_redirection(env);
-		execution(env);
-		remove_all_token(env);
-		// }
+		if (line_is_not_empty(env->line))
+		{
+			parsing(env, env->line);
+			processing_redirection(env);
+			execution(env);
+			remove_all_token(env);
+		}
 	}
 
 }
@@ -40,22 +40,6 @@ void	create_history(t_env	*env)
 		add_history(env->line);
 		write_line(env->line, env->history->fd);
 	}
-}
-
-int	line_is_empty(char	*line)
-{
-	if (ft_strlen(line) == 0)
-		return (1);
-	else 
-		return (0);
-}
-
-int	line_is_not_empty(char	*line)
-{
-	if (ft_strlen(line) > 0)
-		return (1);
-	else 
-		return (0);
 }
 
 void	write_line(char *line, int fd)

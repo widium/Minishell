@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Tue Aug  9 16:56:55 2022
+# Make data base, printed on Wed Aug 10 15:28:03 2022
 
 # Variables
 
@@ -20,7 +19,7 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/widium/.gtkrc:/home/widium/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e3dfd81f-feff-4311-b30c-6a8d623c98ce.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4fe49d35-8e10-4dfc-aef9-e27b6c40b994.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -67,6 +66,7 @@ XAUTHORITY = /home/widium/.Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+ 
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -104,7 +104,7 @@ CONDA_SHLVL = 0
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4157
+VSCODE_PID = 3210
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -112,7 +112,7 @@ XDG_SESSION_TYPE = x11
 # makefile (from 'Makefile', line 80)
 FLAGS = -g3 -lreadline
 # environment
-SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1116,unix/manjaro:/tmp/.ICE-unix/1116
+SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1090,unix/manjaro:/tmp/.ICE-unix/1090
 # automatic
 *F = $(notdir $*)
 # environment
@@ -190,7 +190,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := minishell
 # environment
-SYSTEMD_EXEC_PID = 984
+SYSTEMD_EXEC_PID = 961
 # environment
 DISPLAY = :0
 # environment
@@ -260,11 +260,9 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 
 # Directories
 
-# utils (device 66306, inode 9832547): 6 files, no impossibilities so far.
-# . (device 66306, inode 9832406): 31 files, no impossibilities.
-# env (device 66306, inode 9832488): 3 files, no impossibilities so far.
+# . (device 66306, inode 9832406): 29 files, no impossibilities.
 
-# 40 files, no impossibilities in 3 directories.
+# 29 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -296,17 +294,9 @@ execution/bin_processing.o:
 
 # Not a target:
 detection/classification.o:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-utils/init.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-02 20:42:41.326666462
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 exit_free/remove.o:
@@ -344,33 +334,11 @@ tokenization/get.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-env/prompt.o: env/prompt.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'env/prompt'
-#  Last modified 2022-08-09 16:02:16.033333367
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := env/prompt.o
-# automatic
-# * := env/prompt
-# automatic
-# < := env/prompt.c
-# automatic
-# + := env/prompt.c
-# automatic
-# % := 
-# automatic
-# ^ := env/prompt.c
-# automatic
-# ? := env/prompt.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
-#  recipe to execute (from 'Makefile', line 86):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+env/prompt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 parsing/detect_cmd.o:
@@ -386,7 +354,7 @@ is/is.o:
 
 minishell: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-09 16:02:20.466666701
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -409,6 +377,7 @@ boolean/is_boolean.o:
 
 # Not a target:
 verbose/verbose_env.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -492,21 +461,16 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
-utils/string_utils.o: utils/string_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'utils/string_utils'
-#  Last modified 2022-08-09 16:02:15.983333367
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 86):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+utils/string_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 parsing/detect3.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -636,9 +600,27 @@ detection/extraction.o:
 main.o: main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-08-09 16:02:15.890000033
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := main.o
+# automatic
+# * := main
+# automatic
+# < := main.c
+# automatic
+# + := main.c
+# automatic
+# % := 
+# automatic
+# ^ := main.c
+# automatic
+# ? := main.c
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
 #  recipe to execute (from 'Makefile', line 86):
 			$(CC) $(FLAGS) -c $< -o $@
 	
@@ -668,14 +650,6 @@ env/signal.o:
 #  File has not been updated.
 
 # Not a target:
-env/prompt.c:
-#  Implicit rule search has been done.
- 
-#  Last modified 2022-08-09 16:16:10.266666813
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
 parsing/detect5.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -690,18 +664,15 @@ parsing/casting.o:
 # Not a target:
 env/env.o:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
-utils/init.o: utils/init.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'utils/init'
-#  Last modified 2022-08-09 16:02:15.936666699
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 86):
-			$(CC) $(FLAGS) -c $< -o $@
-	
+# Not a target:
+utils/init.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 boolean/boolean.o:
@@ -732,13 +703,6 @@ redirection/redirection.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-utils/string_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-22 14:13:09.733332797
-#  File has been updated.
-#  Successfully updated.
 
 sanitize: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o
 #  Phony target (prerequisite of .PHONY).
@@ -772,19 +736,19 @@ tokenization/argument.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=2/334=1%
+# Load=70/1024=7%, Rehash=0, Collisions=2/322=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 115 / storage = 1677 B / avg = 14 B
-# current buf: size = 8162 B / used = 1677 B / count = 115 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 102 / storage = 1514 B / avg = 14 B
+# current buf: size = 8162 B / used = 1514 B / count = 102 / avg = 14 B
 
-# strcache performance: lookups = 321 / hit rate = 64%
+# strcache performance: lookups = 299 / hit rate = 65%
 # hash-table stats:
-# Load=115/8192=1%, Rehash=0, Collisions=5/321=2%
-# Finished Make data base on Tue Aug  9 16:56:55 2022
+# Load=102/8192=1%, Rehash=0, Collisions=5/299=2%
+# Finished Make data base on Wed Aug 10 15:28:03 2022
 
  

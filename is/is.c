@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/10 10:38:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/10 15:47:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ int line_is_not_finish(char *line, int index)
     if (is_not_finish(line[index]) && index < ft_strlen(line))
         return (1);
     return (0);
+}
+
+int	line_is_empty(char	*line)
+{
+	if (ft_strlen(line) == 0)
+		return (1);
+	else 
+		return (0);
+}
+
+int	line_is_not_empty(char	*line)
+{
+	if (ft_strlen(line) > 0)
+		return (1);
+	else 
+		return (0);
 }
 
 int is_single(char *str, int i, int c)
