@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/10 10:48:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:56:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void recover_path_variable(t_variable *var, char **env_variable);
 void recover_keyword(char *str, int i);
 int recover_limiter(t_redirection *redir, char *line, int index);
 
-void open_files(t_env    *env);
+void open_history_file(t_env    *env);
 char *convert_fd(int fd);
 
 void    prompt(t_env	*env);
@@ -104,7 +104,8 @@ void concatenate_args(t_env *env);
 void change_arg_content(t_env *env, t_arg *arg);
 
 void change_fd_cmd(t_cmd *cmd, int fd_in, int fd_out);
-int is_standart_fd(int fd);
+int is_standard_fd(int fd);
+int is_not_standard_fd(int fd);
 int cmd_have_standart_fd(t_cmd *cmd);
 void redirect_cmd(t_cmd *cmd);
 void open_next_file_with_flags(t_token *token, t_file *file);
@@ -114,8 +115,10 @@ void manage_fd_pipe(t_token *token);
 void manage_fd_heredoc(t_token *token);
 char *heredoc_prompt(char *limiter);
 
+void close_fd(char *name, int fd);
 void close_fd_cmd(t_cmd *cmd);
-
+void close_all_fd(t_env *env);
+void remove_tmp_file(t_token *token_heredoc);
 
 
 #endif

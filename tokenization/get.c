@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 17:49:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:58:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,18 @@ t_cmd *get_first_cmd(t_env *env)
     return (NULL);
 }
 
+t_token *get_next_token_cmd(t_token *token)
+{
+    token = token->next;
+    while (token)
+    {
+        if (is_token_cmd(token))
+            return (token);
+        token = token->next;
+    }
+    return (NULL);
+}
+
 t_redirection *get_first_redirection(t_env *env)
 {
     t_token *token;
@@ -53,6 +65,22 @@ t_redirection *get_first_redirection(t_env *env)
     {
         if (is_token_redirection(token))
             return (get_class(token));
+        token = token->next;
+    }
+    return (NULL);
+}
+
+t_token *get_first_token_cmd(t_env *env)
+{
+    t_token *token;
+
+    if (!(get_first_token(env)))
+        return (NULL);
+    token = get_first_token(env);
+    while (token)
+    {
+        if (is_token_cmd(token))
+            return (token);
         token = token->next;
     }
     return (NULL);

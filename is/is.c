@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/10 15:47:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:11:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,27 @@ int is_cmd(t_env *env, char *word)
 int is_flags(char *line, int i)
 {
     if (line[i] == '-' && !(is_blank(line[i+1])))
+        return (1);
+    return (0);
+}
+
+int is_standard_fd(int fd)
+{
+    if (fd == STDIN_FILENO || fd == STDOUT_FILENO || fd == STDERR_FILENO)
+        return (1);
+    return (0);
+}
+
+int is_not_standard_fd(int fd)
+{
+    if (fd != STDIN_FILENO && fd != STDOUT_FILENO && fd != STDERR_FILENO)
+        return (1);
+    return (0);
+}
+
+int cmd_have_standart_fd(t_cmd *cmd)
+{
+    if (is_standard_fd(cmd->fd_in) && is_standard_fd(cmd->fd_out))
         return (1);
     return (0);
 }

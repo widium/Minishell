@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 18:03:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:03:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ void bin_execution(t_env *env, t_cmd *cmd)
         }
         else
         {
+            // print_cmd_info(cmd);
             redirect_cmd(cmd);
-            close_fd_cmd(cmd);
+            // fprintf(stderr, "execve\n");
+            close_all_fd(env);
             execve(path, args, variables);
             perror("Command failure : "); 
         }
@@ -46,28 +48,6 @@ void bin_execution(t_env *env, t_cmd *cmd)
     }
 }
 
-void close_fd_cmd(t_cmd *cmd)
-{
-    if(!(is_standart_fd(cmd->fd_in)))
-        close(cmd->fd_in);
-    if(!(is_standart_fd(cmd->fd_out)))
-        close(cmd->fd_out);
-}
-
-int is_standart_fd(int fd)
-{
-    if (fd == STDIN_FILENO || fd == STDOUT_FILENO || fd == STDERR_FILENO)
-        return (1);
-    return (0);
-}
-
-int cmd_have_standart_fd(t_cmd *cmd)
-{
-    if (is_standart_fd(cmd->fd_in) && is_standart_fd(cmd->fd_out))
-        return (1);
-    return (0);
-}
-
 void redirect_cmd(t_cmd *cmd)
 {
     int fd_in;
@@ -76,12 +56,16 @@ void redirect_cmd(t_cmd *cmd)
     fd_in = cmd->fd_in;
     fd_out = cmd->fd_out;
     
-    if (!(is_standart_fd(cmd->fd_in)))
+    if (is_not_standard_fd(fd_in))
     {
         dup2(fd_in, STDIN_FILENO);
+        // fprintf(stderr, "AFTER DUP : fd_in [%d], STDIN_FILENO [%d]\n", fd_in, STDIN_FILENO);
+        // close_fd(cmd->content, fd_in);
     }
-    if (!(is_standart_fd(cmd->fd_out)))
+    if (is_not_standard_fd(fd_out))
     {
-       dup2(fd_out, STDOUT_FILENO);
+        dup2(fd_out, STDOUT_FILENO);
+        // fprintf(stderr, "AFTER DUP : fd_out [%d], STDOUT_FILENO [%d]\n", fd_out, STDOUT_FILENO);
+        // close_fd(cmd->content, fd_out);
     }
 }

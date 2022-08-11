@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:56:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 16:56:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:59:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ char *heredoc_prompt(char *limiter)
         else
             ft_putstr_fd(line, fd_tmp);
     }
-    close(fd_tmp);
+    close_fd(tmp_file_name, fd_tmp);
     return (tmp_file_name);
 }

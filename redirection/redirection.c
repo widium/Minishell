@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:17:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 17:07:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:10:36 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 void processing_redirection(t_env *env)
 {
     t_token *token;
-    t_cmd *prev_cmd;
-    t_cmd *next_cmd;
-    t_file *next_file;
-    int pipes;
 
     printf("------Processing Redirection ------\n");
     if (have_token_redirection(env))

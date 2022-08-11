@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:53:29 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/09 17:08:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 15:30:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void manage_fd_heredoc(t_token *token)
     prev_cmd = get_prev_cmd(token);
     tmp_file_name = heredoc_prompt(redir->limiter);
     fd_tmp = open(tmp_file_name, O_RDONLY, 0777);
+    redir->tmp_file = init_file(tmp_file_name, fd_tmp);
     change_fd_cmd(prev_cmd, fd_tmp, prev_cmd->fd_out);
 }
 
@@ -49,12 +50,13 @@ void manage_fd_pipe(t_token *token)
     int   fd[2];
 
     pipe(fd);
+    fprintf(stderr, "pipe_read [%d] pipe_send [%d]\n", fd[0], fd[1]);
         
     prev_cmd = get_prev_cmd(token);
     next_cmd = get_next_cmd(token);
     
-    change_fd_cmd(prev_cmd, prev_cmd->fd_in, fd[0]);
-    change_fd_cmd(next_cmd, fd[1], next_cmd->fd_out);
+    change_fd_cmd(prev_cmd, prev_cmd->fd_in, fd[1]);
+    change_fd_cmd(next_cmd, fd[0], next_cmd->fd_out);
 }
 
 void manage_fd_basic_redirection(t_token *token)
@@ -88,17 +90,17 @@ void open_next_file_with_flags(t_token *token, t_file *file)
 {
     if (is_token_input_chevron(token))
     {
-        close(file->fd);
+        close_fd(file->name ,file->fd);
         file->fd = open(file->name, O_RDONLY);
     }
     else if (is_token_output_chevron(token))
     {
-        close(file->fd);
+        close_fd(file->name ,file->fd);
         file->fd = open(file->name, O_WRONLY | O_TRUNC);
     }
     else if (is_token_append_chevron(token))
     {
-        close(file->fd);
+        close_fd(file->name ,file->fd);
         file->fd = open(file->name, O_WRONLY | O_APPEND);
     }
 }

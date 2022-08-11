@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 16:58:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:36:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ typedef struct s_token
     struct s_token *prev;
 
 }   t_token;
+
+typedef struct s_file
+{
+    char *name;
+    int fd;
+
+}   t_file;
 
 typedef struct s_blank
 {
@@ -71,6 +78,7 @@ typedef struct s_redirection
     int type;
     char *limiter;
     char *content;
+    t_file *tmp_file;
 
 }   t_redirection;
 
@@ -82,13 +90,6 @@ typedef struct s_boolean
     int     id;
 
 }   t_boolean;
-
-typedef struct s_file
-{
-    char *name;
-    int fd;
-
-}   t_file;
 
 typedef struct s_wildcard
 {

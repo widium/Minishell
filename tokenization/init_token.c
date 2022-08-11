@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:48:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:21:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ t_redirection	*init_redirection(int type, char *content)
 	redir->fd_out = STDOUT_FILENO;
 	redir->limiter = NULL;
 	redir->content = content;
+	redir->tmp_file = NULL;
 	return (redir);
 }
 
