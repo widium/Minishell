@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 19:16:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 20:34:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void bin_execution(t_env *env, t_cmd *cmd)
     }
     else
     {
-        fprintf(stderr, "stock pid [%s]:[%d]\n", cmd->content, pid);
+        // fprintf(stderr, "stock pid [%s]:[%d]\n", cmd->content, pid);
         cmd->pid = pid;
         return ;
     }
@@ -58,13 +58,11 @@ void redirect_cmd(t_cmd *cmd)
     if (is_not_standard_fd(fd_in))
     {
         dup2(fd_in, STDIN_FILENO);
-        fprintf(stderr, "DUP [%s] : fd_in [%d], STDIN_FILENO [%d]\n", cmd->content, fd_in, STDIN_FILENO);
-        // close_fd(cmd->content, fd_in);
+        // fprintf(stderr, "DUP [%s] : fd_in [%d], STDIN_FILENO [%d]\n", cmd->content, fd_in, STDIN_FILENO);
     }
     if (is_not_standard_fd(fd_out))
     {
         dup2(fd_out, STDOUT_FILENO);
-        fprintf(stderr, "DUP [%s]: fd_out [%d], STDOUT_FILENO [%d]\n",cmd->content, fd_out, STDOUT_FILENO);
-        // close_fd(cmd->content, fd_out);
+        // fprintf(stderr, "DUP [%s]: fd_out [%d], STDOUT_FILENO [%d]\n",cmd->content, fd_out, STDOUT_FILENO);
     }
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 19:16:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 20:35:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void wait_all_pid(t_env *env)
     while (token)
     {
         cmd = get_class(token);
-        fprintf(stderr, "Wait [%s]:[%d]\n", cmd->content, cmd->pid);
-        waitpid(cmd->pid, NULL, 0);
+        // fprintf(stderr, "Wait [%s]:[%d]\n", cmd->content, cmd->pid);
+        wait(&cmd->pid);
         token = get_next_token_cmd(token);
     }
 }
