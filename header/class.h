@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 14:36:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:08:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct s_cmd
     int             fd_in;
     int             fd_out;
     t_arg           *first_arg;
+    int             pid;
 
 }   t_cmd;
 

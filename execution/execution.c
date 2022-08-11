@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 15:58:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:16:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,29 @@ void execution(t_env *env)
         {
             setup_bin_path(cmd, bins);
             setup_bin_args(cmd, bins);
-            // print_cmd_info(cmd);
             bin_execution(env, cmd);
         }
         else if (is_cmd_built_in(cmd))
         {
             printf("c'est un built-in\n");
         }
+        token = get_next_token_cmd(token);
+    }
+    close_all_fd(env);
+    wait_all_pid(env);
+}
+
+void wait_all_pid(t_env *env)
+{
+    t_token *token;
+    t_cmd *cmd;
+    
+    token = get_first_token(env);
+    while (token)
+    {
+        cmd = get_class(token);
+        fprintf(stderr, "Wait [%s]:[%d]\n", cmd->content, cmd->pid);
+        waitpid(cmd->pid, NULL, 0);
         token = get_next_token_cmd(token);
     }
 }

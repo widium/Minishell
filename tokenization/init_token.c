@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 14:21:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:08:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ t_cmd   *init_cmd(char *content, int id)
 	cmd->fd_in = STDIN_FILENO;
 	cmd->fd_out = STDOUT_FILENO;
 	cmd->first_arg = NULL;
+	cmd->pid = 0;
 	return (cmd);
 }
 

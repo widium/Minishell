@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 14:56:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:00:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void close_fd(char *name, int fd);
 void close_fd_cmd(t_cmd *cmd);
 void close_all_fd(t_env *env);
 void remove_tmp_file(t_token *token_heredoc);
+
+void wait_all_pid(t_env *env);
 
 
 #endif

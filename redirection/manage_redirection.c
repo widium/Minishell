@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:53:29 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 15:30:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:28:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void manage_fd_pipe(t_token *token)
     int   fd[2];
 
     pipe(fd);
-    fprintf(stderr, "pipe_read [%d] pipe_send [%d]\n", fd[0], fd[1]);
+    // fprintf(stderr, "pipe_read [%d] pipe_send [%d]\n", fd[0], fd[1]);
         
     prev_cmd = get_prev_cmd(token);
     next_cmd = get_next_cmd(token);

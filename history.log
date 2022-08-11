@@ -19,3 +19,112 @@ ls -l | wc
 ls -l | wc
 make re
 ls -l | cat
+ls | cat
+ls | cat
+ls | cat > result.txt
+ls | cat
+ls | cat
+ls | cat
+ls | wc -l
+ls | wc
+ls | wc
+ls | wc
+ls
+ls -la
+ls | wc
+ls | cat
+ls
+ls | wc
+ls | wc
+ls
+ls | cat
+ls | wc
+ls | wc
+ls
+ls
+ls
+ls
+ls -l | cat
+ls
+ls | cat
+ls
+ls | cat
+ls | wc
+ls | cat
+ls | cat
+ls | cat
+ls
+ls
+ls
+ls
+ls | wc
+ls | car
+ls |cat
+ls | cat
+ls | wc
+ls -l
+ls
+ls
+ls -l
+ls 
+ls
+ls
+ls -l
+ls | wc
+ls | wc
+ls
+ls | wc
+ls | wc
+ls -la | cat
+ls -la | cat
+ls -la | cat
+ls 
+ls | wc -l
+ls -l | wc -l > result.txt 
+ls -l
+ls -l | cat
+ls -l
+ls -l | wc
+ls -l | wc
+ls -l | wc
+ls -l | wc
+ls -l | wc
+ls -l | wc
+ls -la | cat
+ls -la | cat
+ls -la | cat
+ls
+ls -la | wc
+ls | ls
+ls -l
+ls -l | cat
+ls -l | cat
+ls -l | cat
+ls -l | cat
+ls -l | cat
+ls -l | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
+ls -la | wc
