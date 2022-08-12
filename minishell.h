@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 19:00:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:44:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void open_history_file(t_env    *env);
 char *convert_fd(int fd);
 
 void    prompt(t_env	*env);
-void	create_history(t_env	*env);
+void	create_history(t_env	*env, char *line);
 int	line_is_empty(char	*line);
 int	line_is_not_empty(char	*line);
 
@@ -63,7 +63,6 @@ int double_quotes_detection(char *string, int i);
 int single_quotes_detection(char *line, int index);
 int word_detection(char *line, int index);
 int file_detection(char *line, int index);
-;
 int redirection_detection(char *line, int index);
 int paranthesis_detection(char *line, int index);
 void wildcard_detection(char *str);
@@ -94,7 +93,7 @@ int type_of_boolean(char *content);
 
 char *return_built_in(char *content);
 
-void parsing(t_env *env, char *line);
+int parsing(t_env *env, char *line);
 void processing_redirection(t_env *env);
 
 void add_chained_list(t_env *env, t_token *token);
@@ -121,6 +120,12 @@ void close_all_fd(t_env *env);
 void remove_tmp_file(t_token *token_heredoc);
 
 void wait_all_pid(t_env *env);
+
+int check_error_parsing(t_env *env);
+int check_error_token_redirection(t_token *token);
+int check_error_token_heredoc(t_token *token, t_redirection *redir);
+int check_error_token_basic_redirection(t_token *token, t_redirection *redir);
+int check_error_token_pipe(t_token *token, t_redirection *redir);
 
 
 #endif

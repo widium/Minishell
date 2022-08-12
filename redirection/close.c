@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:33:26 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 18:34:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 21:07:42 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void close_fd_cmd(t_cmd *cmd)
 
 void close_fd(char *name, int fd)
 {
-    fprintf(stderr, "close [%s]:[%d]\n", name, fd);
+    // fprintf(stderr, "close [%s]:[%d]\n", name, fd);
     close(fd);
 }
 

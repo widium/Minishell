@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:10:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:35:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 21:26:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ int recover_limiter(t_redirection *redir, char *line, int index)
 {
     int new_index;
     int start;
-    char *limiter;
     
     start = index;
+    if (is_finish(line[index + 1]))
+        return (start);
     while(line[index])
     {
         if (!(is_blank(line[index])))

@@ -6,17 +6,20 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 20:34:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:35:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void parsing(t_env *env, char *line)
+int parsing(t_env *env, char *line)
 {
     tokenization(env, line);
-    // print_chained_list(env);
+    print_chained_list(env);
+    if (!(check_error_parsing(env)))
+        return (0);
     processing_cmd_args(env);
+    return (1);
 }
 
 void processing_cmd_args(t_env *env)

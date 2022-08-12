@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 19:08:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:21:09 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,6 @@ typedef struct s_cmd
 typedef struct s_env
 {
 	int		nbr_cmd;
-	char	*line;
 	t_variable *variable;
 	t_err	*error;
 	t_file	*history;

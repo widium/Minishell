@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:46:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 16:52:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:19:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ft_exit(t_env *env);
 void free_all(t_env *env);
 void my_free(void **ptr);
 
-void remove_all(t_env *env);
+void remove_all(t_env *env, char *line);
 void remove_all_token(t_env *env);
 void remove_arg(t_arg *arg);
 void remove_all_arg(t_cmd *cmd);

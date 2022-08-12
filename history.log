@@ -129,3 +129,41 @@ ls -la | wc
 ls -la | wc
 ls -la | wc
 ls -la | wc
+ls | cat
+ls -l | cat
+ls | wc -l
+ls | wc
+ls | wc
+ls | wc -l
+ls | wc -l < cat
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+wc -l <<
+ls -la >
+ls -la >
+ls -la >
+ls >
+ls >
+ls -la >
+ls -la >
+ls -la >
+ls -la >
+ls -l >
+ls -l >
+ls -l >
+ls -l <
+ls -l >
+ls |
+ls |
+ls |
+salut | salut
+salut | cat
+salut | cat
+salut | cat

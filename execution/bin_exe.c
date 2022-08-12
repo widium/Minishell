@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 20:34:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/11 21:08:07 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void bin_execution(t_env *env, t_cmd *cmd)
     pid = fork();
     if (pid == 0)
     {
-        fprintf(stderr, "------- Execution [%s] --------\n", cmd->content);
+        // fprintf(stderr, "------- Execution [%s] --------\n", cmd->content);
         if (cmd_have_standart_fd(cmd))
         {
             execve(path, args, variables);
