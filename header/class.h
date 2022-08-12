@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 14:21:09 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 16:49:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ typedef struct s_cmd
 
 typedef struct s_env
 {
+    int     error_parsing;
 	int		nbr_cmd;
 	t_variable *variable;
 	t_err	*error;

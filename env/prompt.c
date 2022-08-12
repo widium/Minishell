@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 14:19:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:09:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ void    prompt(t_env	*env)
 		if (line_is_not_empty(line))
 		{
 			create_history(env, line);
-			if (parsing(env, line))
+			parsing(env, line);
+			if (env->error_parsing == 0)
 			{
+				processing_cmd_args(env);
 				processing_redirection(env);
 				execution(env);
-				remove_all_token(env);	
 			}
-			else 
-			{
-				remove_all_token(env);
-			}
+			remove_all_token(env);
 		}
 	}
 

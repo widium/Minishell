@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 15:16:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 16:49:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int type_of_boolean(char *content);
 
 char *return_built_in(char *content);
 
-int parsing(t_env *env, char *line);
+void parsing(t_env *env, char *line);
 void processing_redirection(t_env *env);
 
 void add_chained_list(t_env *env, t_token *token);
@@ -121,7 +121,7 @@ void remove_tmp_file(t_token *token_heredoc);
 
 void wait_all_pid(t_env *env);
 
-int check_error_parsing(t_env *env);
+void check_error_parsing(t_env *env);
 int check_error_token_redirection(t_token *token);
 int check_error_token_heredoc(t_token *token, t_redirection *redir);
 int check_error_token_basic_redirection(t_token *token, t_redirection *redir);
