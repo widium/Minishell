@@ -6,23 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 16:49:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:23:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
-
-
-t_err *init_err(void)
-{
-	t_err	*error;
-
-	error = (t_err *)malloc(sizeof(t_err));
-	if (!error)
-		return (NULL);
-	error->exit = -1;
-	return (error);
-}
 
 t_env	*init_env(char **env_variable)
 {
@@ -31,12 +19,11 @@ t_env	*init_env(char **env_variable)
 	env = (t_env *)malloc(sizeof(t_env));
 	if (!env)
 		return (NULL);
+	env->verbose = 0;
 	env->error_parsing = 0;
 	env->variable = init_variable(env_variable);
-	env->error = init_err();
     env->history = NULL;
 	env->first_token = NULL;
-	env->nbr_cmd = 0;
 	return (env);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 16:49:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:21:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
-t_err	*init_err(void);
 t_env	*init_env(char **varaibles);
 t_variable *init_variable(char **variables);
 

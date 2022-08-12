@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 16:49:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:23:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
 
 typedef struct s_varaible
 {
+    char *path;
 	char **variables;
-	char *path;
 	char **bins;
 } 		t_variable;
-
-typedef struct s_err
-{
-	int	exit;
-} 		t_err;
 
 typedef struct s_token
 {
@@ -122,10 +117,9 @@ typedef struct s_cmd
 
 typedef struct s_env
 {
+    int     verbose;
     int     error_parsing;
-	int		nbr_cmd;
 	t_variable *variable;
-	t_err	*error;
 	t_file	*history;
 	t_token *first_token;
 }   t_env;

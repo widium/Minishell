@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/08/12 14:35:31 by ebennace         ###   ########.fr        #
+#    Updated: 2022/08/12 17:37:10 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ SRCS		= 	main.c \
 				execution/bin_processing.c \
 				execution/bin_exe.c \
 				execution/built_in_exe.c \
+				execution/built_in.c \
 				error/error.c \
 				
 				 
