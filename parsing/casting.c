@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 18:32:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:30:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:07:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ void *get_class(t_token *token)
     else if (is_token_file(token))
     {
         return ((t_file *)token->class);
+    }
+    else if (is_token_word(token))
+    {
+        return ((t_word *)token->class);
     }
     return (NULL);
 }

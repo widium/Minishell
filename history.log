@@ -167,3 +167,8 @@ salut | salut
 salut | cat
 salut | cat
 salut | cat
+salut > result.txt
+salut > result.txt
+salut > result.txt
+cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+salut > result.txt

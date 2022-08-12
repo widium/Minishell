@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:52:44 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 14:09:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:02:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,15 @@ int is_token_boolean(t_token *token)
     if (!token)
         return (0);
     if (token->id == TOKEN_AND || token->id == TOKEN_OR || token->id == TOKEN_BOOLEAN)
+        return (1);
+    return (0);
+}
+
+int is_token_word(t_token *token)
+{
+    if (!token)
+        return (0);
+    if (token->id == TOKEN_WORD)
         return (1);
     return (0);
 }

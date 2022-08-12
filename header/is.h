@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/10 10:36:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:02:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int is_token_output_chevron(t_token *token);
 int is_token_basic_redirection(t_token *token);
 int is_redir_heredoc(t_redirection *redir);
 int is_token_boolean(t_token *token);
+int is_token_word(t_token *token);
 int is_token_cmd(t_token *token);
 int is_cmd_bin(t_cmd *cmd);
 int is_cmd_built_in(t_cmd *cmd);
