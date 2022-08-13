@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 17:23:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/13 15:55:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct s_cmd
     char            *content;
 	char			*bin;
 	char			**args;
+    char            *arg;
     int             fd_in;
     int             fd_out;
     t_arg           *first_arg;

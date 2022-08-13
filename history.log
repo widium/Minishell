@@ -176,3 +176,9 @@ salut >
 ls >
 ls >
 ls >
+echo salut$HOME
+echo salut$HOME
+echo salut$HOME'sa'lut
+echo salut$HOME
+echo salut'tu'me'nik'$HOME
+echo salut'tu'me'nik'$HOME

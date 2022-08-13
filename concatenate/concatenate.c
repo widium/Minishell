@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/05 14:22:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/13 16:32:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,21 @@
 void concatenate_args(t_env *env)
 {
     t_token *token;
+    t_cmd *cmd;
     
     token = env->first_token; 
     while (token)
     {
-        if (is_token_cmd(token) && cmd_have_args((t_cmd *)token->class))
+        if (is_token_cmd(token))
         {
-            ((t_cmd *)token->class)->args = list_to_array(get_class(token));
+            cmd = get_class(token);
+            if (cmd_have_args(cmd))
+            {
+                if (is_cmd_bin(cmd))
+                    cmd->args = list_to_array(cmd);
+                else if (is_cmd_built_in(cmd))
+                    cmd->arg = list_to_string(cmd);
+            }
         }
         token = token->next;
     }
@@ -65,6 +73,28 @@ char **list_to_array(t_cmd *cmd)
         complete[i] = NULL;
         
     }
+    return (complete);
+}
+
+char *list_to_string(t_cmd *cmd)
+{
+    t_arg *arg;
+    char *complete;
+    char *current_arg;
+    
+    if (!(cmd->first_arg))
+        return (complete);
+
+    arg = get_first_arg(cmd);
+    complete = arg->content;
+    arg = arg->next;
+    while (arg)
+    {
+        current_arg = arg->content;
+        complete = ft_strjoin(complete, current_arg);
+        arg = arg->next;
+    }
+    remove_all_arg(cmd);
     return (complete);
 }
 

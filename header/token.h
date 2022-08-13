@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 14:44:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/13 16:16:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ t_token *tokenizer_file(char *name, int id);
 int size_of_list(t_cmd *cmd);
 
 char **list_to_array(t_cmd *cmd);
-// char *list_to_string(t_cmd *cmd);
+char *list_to_string(t_cmd *cmd);
 
 
 char *convert_id(int id);

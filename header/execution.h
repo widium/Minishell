@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:29:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 17:39:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/08/13 17:40:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ char **append_bin_name_in_args(char **args, char *name);
 void execution(t_env *env);
 void bin_execution(t_env *env, t_cmd *cmd);
 
-void echo(char *str);
-void cd(char **variables);
+void echo(t_cmd *cmd, char *args);
+void cd(char **variables, char *args);
 void env_built_in(char **variables);
-void export(char **variables);
-void unset(char **variables);
-void exit(int exit);
+void export(char **variables, char *args);
+void unset(char **variables, char *args);
+void exit_built_in(int type);
 
 # endif
