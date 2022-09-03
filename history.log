@@ -198,3 +198,8 @@ echo
 echo
 echo
 echo
+echo -n "$HOME" && echo sa'lu't && echo sa"$HOME"lut 
+cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+ls -l
+ls -la | cat -e
+ls -la | cat

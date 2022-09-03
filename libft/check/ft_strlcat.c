@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 17:11:07 by ebennace          #+#    #+#             */
-/*   Updated: 2022/06/20 13:58:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:20:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "../libft.h"
 // le but de cette fonction la taille de la concatenation final.
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

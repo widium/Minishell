@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 12:59:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:29:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void print_cmd_info(t_cmd *cmd)
     printf(" | type : [%s]\n",convert_id(cmd->id));
     if (is_cmd_bin(cmd))
     {
-        printf(" | path : [%s]\n",cmd->bin);
+        printf(" | path : [%s]\n", cmd->bin);
         printf(" | args : [");
         print_array_index(cmd->args, 1);
         printf("]\n"); 
