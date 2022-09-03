@@ -1,0 +1,66 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/widium/Programming/42_cursus/libft'
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isdigit.o check/ft_isdigit.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isalpha.o check/ft_isalpha.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isalnum.o check/ft_isalnum.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isascii.o check/ft_isascii.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isprint.o check/ft_isprint.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strlen.o check/ft_strlen.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strlcat.o check/ft_strlcat.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strchr.o check/ft_strchr.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strrchr.o check/ft_strrchr.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strncmp.o check/ft_strncmp.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strnstr.o check/ft_strnstr.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strtrim.o check/ft_strtrim.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_atol.o check/ft_atol.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_toupper.o conversion/ft_toupper.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_tolower.o conversion/ft_tolower.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_atoi.o conversion/ft_atoi.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strdup.o conversion/ft_strdup.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strjoin.o conversion/ft_strjoin.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_substr.o conversion/ft_substr.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_itoa.o conversion/ft_itoa.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strmapi.o conversion/ft_strmapi.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_striteri.o conversion/ft_striteri.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_split.o conversion/ft_split.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strlcpy.o conversion/ft_strlcpy.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memset.o memory/ft_memset.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_bzero.o memory/ft_bzero.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memcpy.o memory/ft_memcpy.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memmove.o memory/ft_memmove.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memchr.o memory/ft_memchr.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memcmp.o memory/ft_memcmp.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_calloc.o memory/ft_calloc.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putchar_fd.o verbose/ft_putchar_fd.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putstr_fd.o verbose/ft_putstr_fd.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putnbr_fd.o verbose/ft_putnbr_fd.c
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putendl_fd.o verbose/ft_putendl_fd.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o get_next_line/get_next_line.o get_next_line/get_next_line.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o printf/ft_check_format.o printf/ft_check_format.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o printf/ft_hexa.o printf/ft_hexa.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o printf/ft_printf.o printf/ft_printf.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o printf/utils.o printf/utils.c
+ 
+clang -c -Wall -Wextra -Werror -I. -o free/free.o free/free.c
+ 
+ar src  libft.a check/ft_isdigit.o check/ft_isalpha.o check/ft_isalnum.o check/ft_isascii.o check/ft_isprint.o check/ft_strlen.o check/ft_strlcat.o check/ft_strchr.o check/ft_strrchr.o check/ft_strncmp.o check/ft_strnstr.o check/ft_strtrim.o check/ft_atol.o conversion/ft_toupper.o conversion/ft_tolower.o conversion/ft_atoi.o conversion/ft_strdup.o conversion/ft_strjoin.o conversion/ft_substr.o conversion/ft_itoa.o conversion/ft_strmapi.o conversion/ft_striteri.o conversion/ft_split.o conversion/ft_strlcpy.o memory/ft_memset.o memory/ft_bzero.o memory/ft_memcpy.o memory/ft_memmove.o memory/ft_memchr.o memory/ft_memcmp.o memory/ft_calloc.o verbose/ft_putchar_fd.o verbose/ft_putstr_fd.o verbose/ft_putnbr_fd.o verbose/ft_putendl_fd.o get_next_line/get_next_line.o printf/ft_check_format.o printf/ft_hexa.o printf/ft_printf.o printf/utils.o free/free.o
+make: Leaving directory '/home/widium/Programming/42_cursus/libft'
+ 
