@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 17:08:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:25:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void check_error_parsing(t_env *env)
 {
     t_token *token;
 
+    printf("=== ERROR ===\n");
     token = get_first_token(env);
     while (token)
     {
@@ -35,6 +36,9 @@ void check_error_parsing(t_env *env)
     }
     if (env->error_parsing > 0)
         printf("[%d] Error detected\n", env->error_parsing);
+    else 
+        printf("ALL OK\n");
+    printf("=== === ===\n");
 }
 
 int check_error_token_word(t_token *token)
@@ -47,29 +51,6 @@ int check_error_token_word(t_token *token)
     return (1);
 }
 
-
-int check_error_token_cmd(t_token *token)
-{
-    t_cmd *cmd;
-    t_cmd *prev_cmd;
-    t_cmd *next_cmd;
-    int result;
-
-    cmd = get_class(token);    
-    if (is_token_cmd(token->next))
-    {
-        next_cmd = get_class(token->next);
-        printf("Error : [Two following cmd \"%s\" && \"%s\"]\n", cmd->content, next_cmd->content);
-        return (1);
-    }
-    else if (is_token_cmd(token->prev))
-    {
-        prev_cmd = get_class(token->prev);
-        printf("Error : [Two following cmd \"%s\" && \"%s\"]\n", prev_cmd->content, cmd->content);
-        return (1);
-    }
-    return (0);
-}
 
 int check_error_token_redirection(t_token *token)
 {

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 15:02:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:53:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,20 @@ int is_redir_heredoc(t_redirection *redir);
 int is_token_boolean(t_token *token);
 int is_token_word(t_token *token);
 int is_token_cmd(t_token *token);
+int is_token_bin(t_token *token);
+int is_token_built_in(t_token *token);
 int is_cmd_bin(t_cmd *cmd);
 int is_cmd_built_in(t_cmd *cmd);
 int is_token_file(t_token *token);
 int is_arg_variable(t_arg *arg);
+
+int is_echo(t_cmd *cmd);
+int is_cd(t_cmd *cmd);
+int is_pwd(t_cmd *cmd);
+int is_env(t_cmd *cmd);
+int is_export(t_cmd *cmd);
+int is_unset(t_cmd *cmd);
+int is_exit(t_cmd *cmd);
 
 int cmd_have_args(t_cmd *cmd);
 int cmd_have_args_array(t_cmd *cmd);

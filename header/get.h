@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 15:44:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:10:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char *get_variable_value(char **variables, char *var);
 
 char *get_cmd_path(t_cmd *cmd);
 char **get_cmd_args(t_cmd *cmd);
+int get_number_args(t_cmd *cmd);
 char **get_env_variables(t_env *env);
 t_redirection *get_first_redirection(t_env *env);
 t_token *get_first_token_redirection(t_env *env);

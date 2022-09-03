@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/13 16:32:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:34:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void concatenate_args(t_env *env)
                 if (is_cmd_bin(cmd))
                     cmd->args = list_to_array(cmd);
                 else if (is_cmd_built_in(cmd))
-                    cmd->arg = list_to_string(cmd);
+                   cmd->arg = list_to_string(cmd);
             }
         }
         token = token->next;
@@ -86,7 +86,7 @@ char *list_to_string(t_cmd *cmd)
         return (complete);
 
     arg = get_first_arg(cmd);
-    complete = arg->content;
+    complete = malloc_strcpy(arg->content);
     arg = arg->next;
     while (arg)
     {

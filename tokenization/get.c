@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 15:58:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:22:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,4 +184,21 @@ char **get_env_variables(t_env *env)
     if (env->variable->variables)
         return (env->variable->variables);
     return (NULL);
+}
+
+int get_number_args(t_cmd *cmd)
+{
+    int nb;
+    t_arg *arg;
+
+    if (!(cmd_have_args(cmd)))
+        return (0);
+    arg = get_first_arg(cmd);
+    nb = 1;
+    while (arg)
+    {
+        arg = arg->next;
+        nb++;
+    }
+    return (nb);
 }

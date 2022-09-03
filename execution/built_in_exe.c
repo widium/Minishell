@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/13 17:40:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:18:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 //     else if (same_str(content, "env", ft_strlen("env")))
 //         env_built_in();
 //     else if (same_str(content, "export", ft_strlen("export")))
-//         export();
+//         export_built_in();
 //     else if (same_str(content, "unset", ft_strlen("unset")))
 //         unset();
 //     else if (same_str(content, "exit", ft_strlen("exit")))

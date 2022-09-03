@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:22:03 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 16:22:02 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:26:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void print_chained_list(t_env *env)
     t_token *iter;
     
     iter = env->first_token; 
-    printf("==== LIST ====\n");
+    printf("==== PARSING ====\n");
     while (iter)
     {
         print_token(iter);
