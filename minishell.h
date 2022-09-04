@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 13:10:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:22:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,11 @@ void processing_redirection(t_env *env);
 
 void add_chained_list(t_env *env, t_token *token);
 
+void processing_cmd(t_env *env);
+void processing_bin(t_env *env);
 void processing_cmd_args(t_env *env);
-void concatenate_args(t_env *env);
+
+void concatenate_cmd_args(t_env *env);
 void change_arg_content(t_env *env, t_arg *arg);
 
 void change_fd_cmd(t_cmd *cmd, int fd_in, int fd_out);

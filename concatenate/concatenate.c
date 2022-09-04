@@ -6,13 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 12:34:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:22:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void concatenate_args(t_env *env)
+void concatenate_cmd_args(t_env *env)
 {
     t_token *token;
     t_cmd *cmd;
@@ -28,7 +28,7 @@ void concatenate_args(t_env *env)
                 if (is_cmd_bin(cmd))
                     cmd->args = list_to_array(cmd);
                 else if (is_cmd_built_in(cmd))
-                   cmd->arg = list_to_string(cmd);
+                    cmd->arg = list_to_string(cmd);
             }
         }
         token = token->next;

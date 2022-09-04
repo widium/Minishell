@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 16:29:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:21:36 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@ void print_cmd_info(t_cmd *cmd)
     printf(" | fd_in : [%s]\n",convert_fd(cmd->fd_in));
     printf(" | fd_out : [%s]\n",convert_fd(cmd->fd_out));
     printf(" ----------------\n");
+}
+
+void print_all_cmd_info(t_env *env)
+{
+    t_token *token;
+    t_cmd *cmd;
+
+    token = get_first_token_cmd(env);
+    while (token)
+    {
+        if (is_token_cmd(token))
+        {
+            cmd = get_class(token);
+            print_cmd_info(cmd);
+        }
+        token = get_next_token_cmd(token);
+    }
 }
 
 char *convert_fd(int fd)

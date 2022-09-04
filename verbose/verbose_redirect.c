@@ -6,12 +6,29 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:33:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 15:57:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:33:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
+void print_all_redirect_info(t_env *env)
+{
+    t_token *token;
+    t_redirection *redir;
+
+    token = get_first_token_redirection(env);
+    while (token)
+    {
+        if (is_token_redirection(token))
+        {
+            redir = get_class(token);
+            print_redirect_info(token, get_prev_cmd(token), 
+                get_next_cmd(token), get_next_file(token));
+        }
+        token = get_next_token_redirection(token);
+    }
+}
 void print_redirect_info(t_token *token, t_cmd *prev_cmd, t_cmd *next_cmd, t_file *next_file)
 {
     t_redirection *redir;

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 16:36:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:27:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@ void execution(t_env *env)
 {
     t_cmd *cmd;
     t_token *token;
-    char **bins;
     
-    printf("=== Execution ===\n");
-    bins = get_bins(env);
+    if (env->verbose == 1)
+        printf("=== Execution ===\n");
     token = get_first_token_cmd(env);
     while (token)
     {
         cmd = get_class(token);
         if (is_cmd_bin(cmd))
         {
-            setup_bin_path(cmd, bins);
-            setup_bin_args(cmd, bins);
             bin_execution(env, cmd);
         }
         else if (is_cmd_built_in(cmd))
@@ -39,7 +36,8 @@ void execution(t_env *env)
     }
     close_all_fd(env);
     wait_all_pid(env);
-    printf("=== === ===\n");
+    if (env->verbose == 1)
+        printf("=========\n");
 }
 
 void wait_all_pid(t_env *env)

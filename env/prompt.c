@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 16:36:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:23:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void    prompt(t_env	*env)
 			parsing(env, line);
 			if (env->error_parsing == 0)
 			{
-				processing_cmd_args(env);
-				// processing_redirection(env);
-				// execution(env);
+				processing_cmd(env);
+				processing_redirection(env);
+				execution(env);
 			}
 			remove_all_token(env);
 			free(line);

@@ -203,3 +203,9 @@ cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> re
 ls -l
 ls -la | cat -e
 ls -la | cat
+ls -l
+ls -l
+ls -l
+ls -l
+ls -l | cat -e
+ls -l | cat -e
