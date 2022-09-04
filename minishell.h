@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:22:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:53:03 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 
+void ask_verbose(t_env *env);
 t_env	*init_env(char **varaibles);
 t_variable *init_variable(char **variables);
 

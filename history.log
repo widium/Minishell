@@ -209,3 +209,5 @@ ls -l
 ls -l
 ls -l | cat -e
 ls -l | cat -e
+ls -l
+ls -l

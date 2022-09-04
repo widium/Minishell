@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 15:18:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 16:12:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 void check_error_parsing(t_env *env)
 {
     t_token *token;
-
-    printf("=== ERROR ===\n");
     token = get_first_token(env);
     while (token)
     {
@@ -34,11 +32,15 @@ void check_error_parsing(t_env *env)
         }
         token = token->next;
     }
-    if (env->error_parsing > 0)
-        printf("[%d] Error detected\n", env->error_parsing);
-    else 
-        printf("ALL OK\n");
-    printf("=== === ===\n");
+    if (env->verbose == 1)
+    {
+        printf("=== ERROR ===\n");
+        if (env->error_parsing > 0)
+            printf("[%d] Error detected\n", env->error_parsing);
+        else 
+            printf("ALL OK\n");
+        printf("=== === ===\n");
+    }
 }
 
 int check_error_token_word(t_token *token)
