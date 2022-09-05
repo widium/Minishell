@@ -6,16 +6,17 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 12:18:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:38:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-// void built_in_execution(t_env *env, t_cmd *cmd)
-// {
-//     choose_built_in(env, cmd);
-// }
+void built_in_execution(t_env *env, t_cmd *cmd)
+{
+    printf("c'est un built-in\n");
+    // choose_built_in(env, cmd);
+}
 
 // void choose_built_in(t_env *env, t_cmd *cmd)
 // {

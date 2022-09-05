@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:27:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:40:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void execution(t_env *env)
         }
         else if (is_cmd_built_in(cmd))
         {
-            // built_in_execution(cmd);
-            printf("c'est un built-in\n");
+            built_in_execution(env, cmd);
         }
         token = get_next_token_cmd(token);
     }
