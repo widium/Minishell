@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 14:36:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 16:03:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,17 @@ int	main(int argc, char **argv, char **env_var)
 
 // int main(int argc, char **argv, char **env)
 // {
-//     char *old = ".";
-// 	char *current = ".";
-// 	printf("same_str [%s] [%s] [len %d] -> [%d]?\n",
-// 	old, 
-// 	current, 
-// 	ft_strlen(old),
-// 	same_str(old, current, ft_strlen(old)));
+//     char s[100];
+  
+//     // printing current working directory
+//     printf("%s\n", getcwd(s, 100));
+  
+//     // using the command
+//     chdir("..");
+  
+//     // printing current working directory
+//     printf("%s\n", getcwd(s, 100));
+  
+//     // after chdir is executed
+//     return 0;
 // }

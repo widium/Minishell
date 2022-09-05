@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:22:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 16:58:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char *list_to_string(t_cmd *cmd)
     char *complete;
     char *current_arg;
     
-    if (!(cmd->first_arg))
+    if (!(cmd_have_args(cmd)))
         return (complete);
 
     arg = get_first_arg(cmd);

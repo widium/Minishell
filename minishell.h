@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 13:12:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 16:26:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void processing_built_in(t_env *env);
 void choose_processing_built_in(t_env *env, t_cmd *cmd);
 
 void processing_cd(t_env *env, t_cmd *cmd);
+void processing_echo(t_cmd *cmd);
 void processing_home_path(t_env *env, t_cmd *cmd);
 
 

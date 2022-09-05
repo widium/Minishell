@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:22:37 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/13 15:55:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 16:33:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_cmd   *init_cmd(char *content, int id)
         return (NULL);
 	cmd->id = id;
 	cmd->content = content;
+	cmd->flags = NULL;
 	cmd->bin = NULL;
 	cmd->arg = NULL;
 	cmd->args = NULL;

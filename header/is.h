@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 12:53:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:19:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int is_cmd_bin(t_cmd *cmd);
 int is_cmd_built_in(t_cmd *cmd);
 int is_token_file(t_token *token);
 int is_arg_variable(t_arg *arg);
+int is_arg_flags(t_arg *arg);
 
 int is_echo(t_cmd *cmd);
 int is_cd(t_cmd *cmd);
@@ -85,6 +86,8 @@ int is_exit(t_cmd *cmd);
 
 int cmd_have_args(t_cmd *cmd);
 int cmd_have_args_array(t_cmd *cmd);
+int cmd_have_arg_flags(t_cmd *cmd);
+int cmd_have_flags(t_cmd *cmd);
 int have_token_redirection(t_env *env);
 int have_token(t_env *env);
 int token_have_args(t_token *token);

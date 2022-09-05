@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:21:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:14:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void print_cmd_info(t_cmd *cmd)
     else if (is_cmd_built_in(cmd))
     {
         printf(" | arg : [%s]\n", cmd->arg);
+        printf(" | flags : [%s]\n", cmd->flags);
     }
     printf(" | fd_in : [%s]\n",convert_fd(cmd->fd_in));
     printf(" | fd_out : [%s]\n",convert_fd(cmd->fd_out));

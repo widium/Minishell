@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:47:48 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 14:17:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:18:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,21 @@ void choose_processing_built_in(t_env *env, t_cmd *cmd)
 {
     if (is_cd(cmd))
         processing_cd(env, cmd);
-    // else if (is_echo(cmd))
-    //     processing_echo();
+    else if (is_echo(cmd))
+        processing_echo(cmd);
 }
 
+void processing_echo(t_cmd *cmd)
+{
+    t_arg *arg;
+
+    if (cmd_have_arg_flags(cmd))
+    {
+        arg = get_cmd_flags(cmd);
+        cmd->flags = malloc_strcpy(arg->content);
+        remove_arg_in_cmd(cmd, arg);
+    }
+}
 void processing_cd(t_env *env, t_cmd *cmd)
 {
     t_arg *arg;

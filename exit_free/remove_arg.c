@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/02 16:26:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:13:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,20 @@ void remove_all_arg(t_cmd *cmd)
     cmd->first_arg = NULL;
 }
 
-void disconect_arg(t_arg *arg)
+void disconect_arg(t_arg *current_arg)
 {
-    arg->next = NULL;
-    arg->prev = NULL; 
+    t_arg *arg_prev;
+    t_arg *arg_next;
+
+    arg_prev = current_arg->prev;
+    arg_next = current_arg->next;
+    
+    if (arg_prev)
+      arg_prev->next = arg_next; 
+    if (arg_next)
+      arg_next->prev = arg_prev;
+    current_arg->next = NULL;
+    current_arg->prev = NULL; 
 }
 
 void remove_arg_index(t_cmd *cmd, t_arg *arg)
@@ -54,6 +64,13 @@ void remove_arg(t_arg *arg)
     disconect_arg(arg);
     free(arg->content);
     free(arg);
+}
+
+void remove_arg_in_cmd(t_cmd *cmd, t_arg *arg)
+{
+    remove_arg(arg);
+    if (get_number_args(cmd) < 2)
+        cmd->first_arg = NULL;
 }
 
 void my_free(void **ptr)
