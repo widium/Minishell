@@ -211,3 +211,41 @@ ls -l | cat -e
 ls -l | cat -e
 ls -l
 ls -l
+cd ..
+cd
+cd $HOME
+cd
+cd
+cd
+cd
+cd
+cd\
+cd
+cd
+cd .
+cd ..
+cd ..
+make
+cd ..
+cd ..
+cd
+cd .
+cd
+cd
+cd .
+cd .
+cd ..
+cd .
+cd .
+cd
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd
+cd ..
+cd
+cd ..
+cd

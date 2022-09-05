@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:17:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:12:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,19 @@ void parsing(t_env *env, char *line)
 {
     tokenization(env, line);
     if (env->verbose == 1)
+    {
         print_chained_list(env);
+        print_all_cmd_info(env);
+    }
     check_error_parsing(env);
 }
+
+
+
+// void processing_old_path(t_env *env, t_cmd *cmd)
+// {
+    
+// }
 
 // if (is_paranthesis(line, index))
 // {

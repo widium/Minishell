@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 16:10:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:43:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,6 @@ int	main(int argc, char **argv, char **env_var)
 	ask_verbose(env);
 	prompt(env);
 	remove_all(env);
-}
-
-void ask_verbose(t_env *env)
-{
-	char answer;
-	
-	printf("Minishell mode verbose [Y/N] ?");
-	scanf("%c", &answer);
-	if (answer == 'Y')
-	{
-		printf("--- Minishell mode verbose activate ---\n");
-		env->verbose = 1;
-	}
-	else if (answer == 'N')
-		env->verbose = 0;
 }
 
 // int main()
@@ -59,7 +44,11 @@ void ask_verbose(t_env *env)
 
 // int main(int argc, char **argv, char **env)
 // {
-//     char *test = "salut";
-// 	char *new = malloc_substrcpy(test, 1, 2);
-// 	printf("new :[%s]\n", new);
+//     char *old = ".";
+// 	char *current = ".";
+// 	printf("same_str [%s] [%s] [len %d] -> [%d]?\n",
+// 	old, 
+// 	current, 
+// 	ft_strlen(old),
+// 	same_str(old, current, ft_strlen(old)));
 // }

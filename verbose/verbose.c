@@ -6,11 +6,26 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/04 17:49:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:09:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+void ask_verbose(t_env *env)
+{
+	char answer;
+	
+	printf("Minishell mode verbose [Y/N] ?");
+	scanf("%c", &answer);
+	if (answer == 'Y')
+	{
+		printf("--- Minishell mode verbose activate ---\n");
+		env->verbose = 1;
+	}
+	else if (answer == 'N')
+		env->verbose = 0;
+}
 
 void print_detection(char *line, int start, int end, int token)
 {

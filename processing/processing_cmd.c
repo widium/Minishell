@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:16:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:27:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:25:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void processing_cmd(t_env *env)
 {
+    processing_built_in(env);
     processing_cmd_args(env);
     processing_bin(env);
     if (env->verbose == 1)

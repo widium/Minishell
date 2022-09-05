@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:33:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:17:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ t_token *get_next_token_cmd(t_token *token)
     return (NULL);
 }
 
+t_token *get_next_token_built_in(t_token *token)
+{
+    token = token->next;
+    while (token)
+    {
+        if (is_token_built_in(token))
+            return (token);
+        token = token->next;
+    }
+    return (NULL);
+}
+
 t_redirection *get_first_redirection(t_env *env)
 {
     t_token *token;
@@ -80,6 +92,22 @@ t_token *get_first_token_cmd(t_env *env)
     while (token)
     {
         if (is_token_cmd(token))
+            return (token);
+        token = token->next;
+    }
+    return (NULL);
+}
+
+t_token *get_first_token_built_in(t_env *env)
+{
+    t_token *token;
+
+    if (!(get_first_token(env)))
+        return (NULL);
+    token = get_first_token(env);
+    while (token)
+    {
+        if (is_token_built_in(token))
             return (token);
         token = token->next;
     }
@@ -194,11 +222,44 @@ int get_number_args(t_cmd *cmd)
     if (!(cmd_have_args(cmd)))
         return (0);
     arg = get_first_arg(cmd);
-    nb = 1;
+    nb = 0;
     while (arg)
     {
-        arg = arg->next;
         nb++;
+        arg = arg->next;
+        
     }
     return (nb);
+}
+
+char *get_home_path(t_env *env)
+{
+    char **variables;
+    char *home;
+
+    variables = get_env_variables(env);
+    home = get_variable_value(variables, "HOME");
+    return (home);
+}
+
+char *get_current_path(t_env *env)
+{
+    char **variables;
+    char *current_path;
+
+    variables = get_env_variables(env);
+    current_path = get_variable_value(variables, "PWD");
+    return (current_path);
+}
+
+char *get_parent_path(t_env *env)
+{
+    char *current_path;
+    char *parent_path;
+    int index;
+    
+    current_path = get_current_path(env);
+    index = return_last_back_slash_index(current_path);
+    parent_path = malloc_strcpy_index(current_path, index);
+    return (parent_path);
 }

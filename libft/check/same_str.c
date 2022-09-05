@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 12:31:54 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 16:30:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:38:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	same_str(char *first, char *second, int size)
 	}
 	if (i == size)
 		return (1);
-	return (1);
+	return (0);
 }
 
 int	same_str_index(char *first, char *second, int size, int index)

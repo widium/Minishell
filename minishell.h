@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:53:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:12:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void    prompt(t_env	*env);
 void	create_history(t_env	*env, char *line);
 int	line_is_empty(char	*line);
 int	line_is_not_empty(char	*line);
+
+int return_last_back_slash_index(char *str);
 
 void use_signal(t_env *env, int key);
 void exit_prompt(int key);
@@ -100,10 +102,17 @@ void add_chained_list(t_env *env, t_token *token);
 
 void processing_cmd(t_env *env);
 void processing_bin(t_env *env);
+void processing_built_in(t_env *env);
+void choose_processing_built_in(t_env *env, t_cmd *cmd);
+
+void processing_cd(t_env *env, t_cmd *cmd);
+void processing_home_path(t_env *env, t_cmd *cmd);
+
+
 void processing_cmd_args(t_env *env);
 
 void concatenate_cmd_args(t_env *env);
-void change_arg_content(t_env *env, t_arg *arg);
+void change_arg_variable_content(t_env *env, t_arg *arg);
 
 void change_fd_cmd(t_cmd *cmd, int fd_in, int fd_out);
 int is_standard_fd(int fd);
@@ -134,5 +143,11 @@ int check_error_token_cmd(t_token *token);
 int check_error_built_in(t_cmd *cmd);
 
 int check_error_echo(t_cmd *cmd);
+int check_error_cd(t_cmd *cmd);
+int check_error_pwd(t_cmd *cmd);
+int check_error_env(t_cmd *cmd);
+int check_error_unset(t_cmd *cmd);
+int check_error_export(t_cmd *cmd);
+int check_error_exit(t_cmd *cmd);
 
 #endif

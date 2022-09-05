@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 15:33:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 14:07:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ char **get_env_variables(t_env *env);
 t_redirection *get_first_redirection(t_env *env);
 t_token *get_first_token_redirection(t_env *env);
 t_token *get_first_token_cmd(t_env *env);
+t_token *get_first_token_built_in(t_env *env);
 
 t_token *get_next_token_redirection(t_token *token);
 t_token *get_next_token_cmd(t_token *token);
+t_token *get_next_token_built_in(t_token *token);
 
 int get_nbr_pipes(t_env *env);
 
@@ -48,5 +50,8 @@ t_cmd *get_prev_cmd(t_token *token);
 t_cmd *get_next_cmd(t_token *token);
 t_file *get_next_file(t_token *token);
 
+char *get_home_path(t_env *env);
+char *get_current_path(t_env *env);
+char *get_parent_path(t_env *env);
 
 # endif

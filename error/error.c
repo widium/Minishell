@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/04 16:12:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:34:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void check_error_parsing(t_env *env)
 {
     t_token *token;
+    
     token = get_first_token(env);
     while (token)
     {
