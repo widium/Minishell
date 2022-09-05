@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:56:25 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:38:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 19:15:46 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,20 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 			i++;
 		}
 		else
-		{
 			new_array[y] = malloc_strcpy(str);
-		}
+		y++;
+	}
+	if (y == pos && !array[i])
+	{
+		new_array[y] =malloc_strcpy(str);
 		y++;
 	}
 	new_array[y] = NULL;
 	return (new_array);
 	
 }
+
+
 /*
 int main ()
 {

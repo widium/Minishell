@@ -300,3 +300,22 @@ echo -n
 echo -n
 echo salut
 echo salut -n
+echo salut -n
+echo salut -n
+echo salut -n
+echo salut -n
+echo salut -n
+echo salut -n
+echo salut
+echo $HOME
+cd $HOME
+cd ..
+env
+env
+env
+env
+env
+export a=124
+export a=1234
+export a=123
+export a=1234

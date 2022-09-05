@@ -6,11 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 17:21:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 19:08:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../minishell.h"
+#include "../minishell.h"
 
 void echo(t_cmd *cmd)
 {
@@ -28,17 +28,25 @@ void cd(t_cmd *cmd)
         perror("Error : ");
 }
 
-// void env_built_in(t_cmd *cmd, t_env *env)
-// {
-//     env->variable->variables;
-    
-// }
+void env_built_in(t_cmd *cmd, t_env *env)
+{
+    char **variables;
 
-// void export_built_in(char **variables, char *args)
-// {
-//     void;
-// ft_arrayjoin_str()
-// }
+    variables = env->variable->variables;
+    print_array_fd(variables, cmd->fd_out);
+}
+
+void export_built_in(t_cmd *cmd, t_env *env)
+{
+    char **variables;
+    char **new_variables;
+
+    variables = env->variable->variables;
+    new_variables = ft_arrayjoin_str(variables, cmd->arg, ft_strlen_array(variables));
+    printf("len OLD : [%d]\n", ft_strlen_array(variables));
+    printf("len NEW : [%d]\n", ft_strlen_array(new_variables));
+    print_array_fd(variables, cmd->fd_out);
+}
 
 // void unset(char **variables, char *args)
 // {

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:51:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:28:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:45:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void			ft_bzero(void *s, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_calloc(size_t elementCount, size_t elementSize );
 void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char *str, int find);
+void			ft_putstr_fd(char *str, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 

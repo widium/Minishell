@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Sep  5 15:48:12 2022
+# Make data base, printed on Mon Sep  5 18:29:22 2022
 
 # Variables
 
@@ -19,11 +19,12 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/widium/.gtkrc:/home/widium/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-b2470dd3-09b8-45d9-9843-98cb91c8ab42.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c720cad7-c388-434a-a6ae-e5b7534a44d2.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
 LC_NUMERIC = fr_FR.UTF-8
+ 
 # environment
 VSCODE_CWD = /home/widium
 # environment
@@ -103,7 +104,7 @@ CONDA_SHLVL = 0
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 39789
+VSCODE_PID = 67190
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -130,7 +131,6 @@ OBJS = $(SRCS:.c=.o)
 SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
- 
 # environment
 SHLVL = 1
 # environment
@@ -260,9 +260,9 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 
 # Directories
 
-# . (device 66306, inode 8652375): 28 files, no impossibilities.
+# . (device 66306, inode 8652375): 29 files, no impossibilities.
 
-# 28 files, no impossibilities in 1 directories.
+# 29 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -346,6 +346,7 @@ env/prompt.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 # Not a target:
 parsing/detect_cmd.o:
 #  Implicit rule search has not been done.
@@ -441,7 +442,6 @@ error/error.o:
 
 clean:
 #  Phony target (prerequisite of .PHONY).
- 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -597,7 +597,8 @@ tokenization/is_token.o:
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-05 14:36:08.473335325
+ 
+#  Last modified 2022-09-05 16:03:06.606670317
 #  File has been updated.
 #  Successfully updated.
 
@@ -727,7 +728,6 @@ exit_free/remove_arg.o:
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 # Not a target:
 redirection/manage_redirection.o:
 #  Implicit rule search has not been done.
@@ -785,12 +785,12 @@ tokenization/argument.o:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 108 / storage = 1679 B / avg = 15 B
-# current buf: size = 8162 B / used = 1679 B / count = 108 / avg = 15 B
+# strcache buffers: 1 (0) / strings = 109 / storage = 1686 B / avg = 15 B
+# current buf: size = 8162 B / used = 1686 B / count = 109 / avg = 15 B
 
-# strcache performance: lookups = 326 / hit rate = 66%
+# strcache performance: lookups = 327 / hit rate = 66%
 # hash-table stats:
-# Load=108/8192=1%, Rehash=0, Collisions=5/326=2%
-# Finished Make data base on Mon Sep  5 15:48:12 2022
+# Load=109/8192=1%, Rehash=0, Collisions=5/327=2%
+# Finished Make data base on Mon Sep  5 18:29:22 2022
 
  

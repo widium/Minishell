@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 17:14:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:31:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void print_cmd_info(t_cmd *cmd)
     }
     printf(" | fd_in : [%s]\n",convert_fd(cmd->fd_in));
     printf(" | fd_out : [%s]\n",convert_fd(cmd->fd_out));
+    if (cmd_have_args(cmd))
+        print_args(cmd);
     printf(" ----------------\n");
 }
 
