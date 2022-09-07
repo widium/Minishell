@@ -319,3 +319,30 @@ export a=124
 export a=1234
 export a=123
 export a=1234
+export A=123
+export A=1
+export A=1
+export A=123
+export B=12
+export A=123
+env
+echo $A
+env
+export A=123
+env
+unset A
+env
+unset LESS
+env
+unset OLDPWD
+env
+env
+unset PKGFILE_PROMPT_INSTALL_MISSING
+env
+pwd
+pwd
+cd ..
+pwd
+pwd
+cd ..
+cd ..

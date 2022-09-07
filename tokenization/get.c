@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 14:17:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:57:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,14 +242,14 @@ char *get_home_path(t_env *env)
     return (home);
 }
 
-char *get_current_path(t_env *env)
+char *get_current_path(void)
 {
-    char **variables;
-    char *current_path;
-
-    variables = get_env_variables(env);
-    current_path = get_variable_value(variables, "PWD");
-    return (current_path);
+    char *path;
+    
+    path = getcwd(NULL, 0);
+    if (path == NULL)
+        perror("getcwd() Error\n");
+    return (path);
 }
 
 char *get_parent_path(t_env *env)
@@ -258,7 +258,7 @@ char *get_parent_path(t_env *env)
     char *parent_path;
     int index;
     
-    current_path = get_current_path(env);
+    current_path = get_current_path();
     index = return_last_back_slash_index(current_path);
     parent_path = malloc_strcpy_index(current_path, index);
     return (parent_path);

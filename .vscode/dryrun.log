@@ -62,6 +62,7 @@ clang -g3 -lreadline -c execution/built_in.c -o execution/built_in.o
 clang -g3 -lreadline -c error/error.c -o error/error.o
 clang -g3 -lreadline -c error/error_cmd.c -o error/error_cmd.o
 clang -g3 -lreadline -c error/error_built_in.c -o error/error_built_in.o
+ 
 clang -g3 -lreadline -c processing/processing_cmd.c -o processing/processing_cmd.o
 clang -g3 -lreadline -c processing/processing_built.c -o processing/processing_built.o
 make -C libft

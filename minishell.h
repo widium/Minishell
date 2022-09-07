@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 16:26:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:51:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_env	*init_env(char **varaibles);
 t_variable *init_variable(char **variables);
 
 void recover_path_variable(t_variable *var, char **env_variable);
+void change_variable_value(t_env *env, char *var, char *value);
 void recover_keyword(char *str, int i);
 int recover_limiter(t_redirection *redir, char *line, int index);
 

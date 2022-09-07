@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 16:30:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 11:28:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void get_arg_variables_value(t_env *env);
 t_token *get_first_token(t_env *env);
 t_cmd *get_first_cmd(t_env *env);
 char *get_variable_value(char **variables, char *var);
+int get_variable_index(char **variables, char *var);
 
 char *get_cmd_path(t_cmd *cmd);
 char **get_cmd_args(t_cmd *cmd);
@@ -53,7 +54,7 @@ t_cmd *get_next_cmd(t_token *token);
 t_file *get_next_file(t_token *token);
 
 char *get_home_path(t_env *env);
-char *get_current_path(t_env *env);
+char *get_current_path(void);
 char *get_parent_path(t_env *env);
 
 # endif

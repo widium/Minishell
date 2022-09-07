@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:35:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:49:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ char *get_variable_value(char **variables, char *variable)
         i++;
     }
     return (0);
+}
+
+int get_variable_index(char **variables, char *variable)
+{
+    int i;
+
+    i = 0;
+    while (variables[i])
+    {
+        if (same_str(variables[i], variable, ft_strlen(variable)))
+            return (i);
+        i++;
+    }
+    return (-1);
 }
 
 char *extract_value_variable(char *env, char *variable)

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:56:25 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 19:15:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 10:41:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 	}
 	if (y == pos && !array[i])
 	{
-		new_array[y] =malloc_strcpy(str);
+		new_array[y] = malloc_strcpy(str);
 		y++;
 	}
 	new_array[y] = NULL;
@@ -115,6 +115,35 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 	
 }
 
+char	**ft_arrayremove_str(char **array, int pos)
+{
+	char **new_array;
+	int size;
+	int i;
+	int y;
+	
+	if (pos < 0)
+		return (array);
+	size = ft_strlen_array(array);
+	new_array = malloc(sizeof(char *)*size);
+	i = 0;
+	y = 0;
+	while (y < (size - 1))
+	{
+		if (y != pos)
+			new_array[y] = malloc_strcpy(array[i]);
+		else
+		{	
+			i++;
+			new_array[y] = malloc_strcpy(array[i]);	
+		}
+		i++;
+		y++;
+	}
+	new_array[y] = NULL;
+	return (new_array);
+	
+}
 
 /*
 int main ()
