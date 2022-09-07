@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 11:54:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 13:23:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void pwd(t_cmd *cmd, t_env *env)
     ft_putstr_fd("\n", cmd->fd_out);
 }
 
-// void exit_built_in(int exit)
+// void exit_built_in(t_env *env, int signal)
 // {
-//     void;
+//     remove_all(env);
+//     exit(signal);
 // }

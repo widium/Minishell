@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 11:51:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:04:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ int	line_is_not_empty(char	*line);
 
 int return_last_back_slash_index(char *str);
 
-void use_signal(t_env *env, int key);
+void use_signal(void);
+void call_prompt(int key);
+void pass(int key);
 void exit_prompt(int key);
 
 void	write_line(char *line, int fd);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:29:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 11:52:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 13:13:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void env_built_in(t_cmd *cmd, t_env *env);
 void export_built_in(t_cmd *cmd, t_env *env);
 void unset(t_cmd *cmd, t_env *env);
 void pwd(t_cmd *cmd, t_env *env);
-void exit_built_in(int type);
+void exit_built_in(int signal);
 
 # endif

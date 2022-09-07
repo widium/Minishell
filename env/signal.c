@@ -6,20 +6,30 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/06/23 13:09:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:05:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void use_signal(t_env *env, int key)
+void use_signal(void)
 {
-    if (key == 0)
-    {
-        // free_all(env);
-        signal(SIGQUIT, exit_prompt);
-    }
+    signal(SIGQUIT, pass);
+    signal(SIGINT, call_prompt);
         
+}
+
+void call_prompt(int key)
+{
+    write(1, "\n", 1);
+    rl_replace_line("", 0);
+    rl_on_new_line();
+    rl_redisplay();
+}
+
+void pass(int key)
+{
+    return;
 }
 
 void exit_prompt(int key)
