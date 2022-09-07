@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 14:04:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:31:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void ask_verbose(t_env *env);
 t_env	*init_env(char **varaibles);
 t_variable *init_variable(char **variables);
 
-void recover_path_variable(t_variable *var, char **env_variable);
+void recover_path_and_bins_variable(t_variable *var, char **env_variable);
+char **add_env_variable(char **variables, char *var);
 void change_variable_value(t_env *env, char *var, char *value);
 void recover_keyword(char *str, int i);
 int recover_limiter(t_redirection *redir, char *line, int index);

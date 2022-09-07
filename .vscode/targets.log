@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Sep  7 08:20:53 2022
+# Make data base, printed on Wed Sep  7 14:19:35 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/widium/.gtkrc:/home/widium/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4f0fa321-3b38-4a8e-bcd4-1508e35371f7.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-0a20a5fd-42e5-4638-aaef-1cc5fb0933c3.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -81,7 +81,6 @@ SRCS = main.c utils/init.c utils/string_utils.c env/prompt.c env/signal.c env/en
 # environment
 PAM_KWALLET5_LOGIN = /run/user/1000/kwallet5.socket
 # environment
- 
 MFLAGS = -pqrR
 # default
 .SHELLFLAGS := -c
@@ -101,10 +100,11 @@ MAKEFILE_LIST := Makefile
 CONDA_SHLVL = 0
 # automatic
 @F = $(notdir $@)
+ 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 3967
+VSCODE_PID = 61808
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -359,7 +359,6 @@ is/is.o:
 #  File has not been updated.
 
 minishell: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o redirection/close.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o execution/built_in.o error/error.o error/error_cmd.o error/error_built_in.o processing/processing_cmd.o processing/processing_built.o
- 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
@@ -399,6 +398,7 @@ debug: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/en
 
 # Not a target:
 Makefile:
+ 
 #  Implicit rule search has been done.
 #  Last modified 2022-09-05 12:48:16.72333352
 #  File has been updated.
@@ -597,7 +597,7 @@ tokenization/is_token.o:
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-05 19:16:48.22667436
+#  Last modified 2022-09-07 14:02:38.420007262
 #  File has been updated.
 #  Successfully updated.
 
@@ -613,6 +613,7 @@ verbose/verbose_redirect.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 leak: main.o utils/init.o utils/string_utils.o env/prompt.o env/signal.o env/env.o env/variable.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o redirection/close.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o execution/built_in.o error/error.o error/error_cmd.o error/error_built_in.o processing/processing_cmd.o processing/processing_built.o
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -649,7 +650,6 @@ main.o: main.c
 # ? := main.c
 # automatic
 # | := 
- 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=2/15=13%
 #  recipe to execute (from 'Makefile', line 93):
@@ -772,6 +772,7 @@ tokenization/chained.o:
 #  File has not been updated.
 
 # Not a target:
+ 
 tokenization/argument.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -791,6 +792,6 @@ tokenization/argument.o:
 # strcache performance: lookups = 327 / hit rate = 66%
 # hash-table stats:
 # Load=109/8192=1%, Rehash=0, Collisions=5/327=2%
-# Finished Make data base on Wed Sep  7 08:20:53 2022
+# Finished Make data base on Wed Sep  7 14:19:35 2022
 
  

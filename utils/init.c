@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 17:23:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:31:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,24 @@ t_env	*init_env(char **env_variable)
 t_variable	*init_variable(char **env_variable)
 {
 	t_variable	*var;
+	
 
 	var = (t_variable *)malloc(sizeof(t_variable));
 	if (!var)
 		return (NULL);
-	recover_path_variable(var, env_variable);
+	recover_path_and_bins_variable(var, env_variable);
+	var->variables = add_env_variable(env_variable, "?=0");
 	return (var);
+}
+
+char **add_env_variable(char **variables, char *var)
+{
+	int	last_index;
+	char **new_variables;
+	
+	last_index = ft_strlen_array(variables);
+	new_variables = ft_arrayjoin_str(variables, var, last_index);
+	free(variables);
+	return (new_variables);
 }
 

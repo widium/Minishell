@@ -6,20 +6,19 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/03 12:01:02 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/07 14:27:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void recover_path_variable(t_variable *var, char **env_variable)
+void recover_path_and_bins_variable(t_variable *var, char **env_variable)
 {
     char *path;
     char **bins;
     
     path = get_variable_value(env_variable, "PATH");
     bins = get_list_of_bins(path);
-    var->variables = env_variable;
     var->path = path;
     var->bins = bins;
 }

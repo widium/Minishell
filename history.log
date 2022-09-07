@@ -347,3 +347,4 @@ pwd
 cd ..
 cd ..
 echo $?
+env
