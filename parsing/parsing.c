@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:38:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:44:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void parsing(t_env *env, char *line)
 {
     tokenization(env, line);
     if (env->verbose == 1)
-    {
         print_chained_list(env);
-    }
 }
 
 

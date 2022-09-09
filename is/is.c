@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:55:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:49:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@ int is_delimiter(t_env *env, char *line, int index)
      is_separator(line, index) || is_variable(env, line, index))
         return (1);
     return (0);    
+}
+
+int is_argument_separator(t_env *env, char *line, int index)
+{
+    if (is_paranthesis(line, index) || is_separator(line, index) || is_variable(env, line, index))
+        return (1);
+    return (0);
 }
 
 int is_not_NULL(char c, char d)

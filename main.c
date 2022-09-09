@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 17:05:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:47:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv, char **env_var)
 	env_variable = malloc_strcpy_array(env_var);
 	env = init_env(env_variable);
 	// ask_verbose(env);
-	env->verbose = 0;
+	env->verbose = 1;
 	prompt(env);
 	remove_all(env);
 }
