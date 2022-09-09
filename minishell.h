@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 14:31:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:49:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ void exit_prompt(int key);
 void	write_line(char *line, int fd);
 
 int blank_detection(char *line, int index);
+char *variable_detection(t_env *env, char *line, int index);
 int double_quotes_detection(char *string, int i);
 int single_quotes_detection(char *line, int index);
-int word_detection(char *line, int index);
+int word_detection(t_env *env, char *line, int index);
+int recover_detection(char *line, int index);
 int file_detection(char *line, int index);
 int redirection_detection(char *line, int index);
 int paranthesis_detection(char *line, int index);
@@ -76,20 +78,20 @@ void prefixe_wildcard_detection(char *line, int i);
 void suffix_wildcard_detection(char *line, int i);
 int boolean_detection(char *line, int index);
 void heredoc_detection(char *str);
-int argument_detection(t_cmd *cmd, char *line, int index);
+int argument_detection(t_env *env, t_cmd *cmd, char *line, int index);
 
-void parse_double_quote(t_cmd *cmd, char *content);
+void parse_double_quote(t_env *env, t_cmd *cmd, char *content);
 
 char *extract_value_variable(char *env, char *variable);
-int double_quotes_extraction(t_cmd * cmd, char *line, int index);
+int double_quotes_extraction(t_env *env, t_cmd * cmd, char *line, int index);
 int single_quotes_extraction(t_cmd *cmd, char *line, int index);
-int word_argument_extraction(t_cmd *cmd, char *line, int index);
-int variables_extraction(t_cmd *cmd, char *line, int index);
-int string_extraction(t_cmd *cmd, char *line, int index);
-int flags_extraction(t_cmd *cmd, char *line, int index);
+int word_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int variables_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int string_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int flags_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 
 int boolean_classification(t_env *env, char *line, int index);
-int argument_classification(t_cmd *cmd, char *line, int index);
+int argument_classification(t_env *env, t_cmd *cmd, char *line, int index);
 t_token *command_classification(t_env *env, char *content);
 int word_classification(t_env *env, char *line, int index);
 int redirection_classification(t_env *env, char *line, int index);

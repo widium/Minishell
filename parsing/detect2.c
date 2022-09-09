@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 12:03:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:48:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,39 @@ int single_quotes_detection(char *line, int index)
     return (start);
 }
 
-int word_detection(char *line, int index)
+int word_detection(t_env *env, char *line, int index)
 {
     int start;
 
     start = index;
     while (line[index])
     {
-        if (is_delimiter(line, index))
+        if (is_delimiter(env, line, index))
+        {
+            return (index - 1);
+        }
+        if (is_double_quote(line[index]))
+        {
+            index = double_quotes_detection(line, index);
+        }
+        if (is_single_quote(line[index]))
+        {
+            index = single_quotes_detection(line, index);
+        }
+        index++;
+    }
+    return (index);
+}
+
+int recover_detection(char *line, int index)
+{
+    int start;
+
+    start = index;
+    while (line[index])
+    {
+        if (is_blank(line[index]) || is_paranthesis(line, index) ||
+                is_separator(line, index))
         {
             return (index - 1);
         }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:59:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 21:19:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:39:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void tokenization(t_env *env, char *line)
     index = 0;
     while (line_is_not_finish(line, index))
     {
-        if (is_word(line, index))
+        if (is_word(env, line, index))
         { 
             index = word_classification(env, line, index);
         }

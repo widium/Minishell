@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:10:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 21:26:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:49:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int recover_limiter(t_redirection *redir, char *line, int index)
     {
         if (!(is_blank(line[index])))
         {
-            new_index = word_detection(line, index);
+            new_index = recover_detection(line, index);
             redir->limiter = malloc_substrcpy(line, index, (new_index - index) + 1);
             return (new_index);
         }

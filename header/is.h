@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:52:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:38:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "class.h"
 
 int	is_in_str(char *first, int i, char *second);
+int variable_exist(t_env *env, char *variable);
 int is_finish(char c);
 int is_not_finish(char c);
 int line_is_finish(char *line, int index);
@@ -38,10 +39,10 @@ int is_boolean_operator(char *line, int i);
 int is_and_operator(char *line, int i);
 int is_or_operator(char *line, int i);
 int is_doublons(char *str, int i, int c);
-int is_delimiter(char *line, int i);
+int is_delimiter(t_env *env, char *line, int i);
 int is_separator(char *line, int i);
-int is_word(char *line, int i);
-int is_variable(char *line, int index);
+int is_word(t_env *env, char *line, int i);
+int is_variable(t_env *env, char *line, int index);
 int is_paranthesis(char *line, int index);
 int is_in_double_quote(char *line, int index);
 int is_in_single_quote(char *line, int index);

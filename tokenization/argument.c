@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:47:07 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:33:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:03:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,23 @@ void get_arg_variables_value(t_env *env)
         }
         token = token->next;
     }
+}
+
+int variable_exist(t_env *env, char *variable)
+{
+    char **env_variables;
+    int index;
+
+    env_variables = get_env_variables(env); 
+    index = 0;
+
+    while (env_variables[index])
+    {
+        if (same_name(env_variables[index], variable))
+            return (1);
+        index++;
+    }
+    return (0);    
 }
 
 void change_arg_variable_content(t_env *env, t_arg *arg)

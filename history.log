@@ -374,3 +374,31 @@ env
 env
 echo $?
 
+cd .. && echo -e $HOME | cat -e | wc -l > result.txt && cat ft_*.c | wc -l >> result.txt && wc -l << STOP
+echo sa'lu't
+echo $rerq
+echo $HOME -n
+echo $HOME
+echo $HOME
+echo $HOME -n
+env
+export A=123
+env
+unset A
+env
+pwd
+pwd
+pwd
+pwd
+env
+pwd
+cd ..
+cd ..
+ls
+cd ..
+echo $H
+echo $H
+echo $H
+echo $H
+echo $H -n
+echo sa'lut'cest"$H"moi

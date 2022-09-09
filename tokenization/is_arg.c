@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 16:58:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:43:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 15:33:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int cmd_have_args(t_cmd *cmd)
 
 int cmd_have_argument(t_cmd *cmd)
 {
-    if (is_env(cmd))
+    if (is_env(cmd) || is_pwd(cmd) || is_cd(cmd) || is_exit(cmd))
         return (1);
     if ((cmd->args || cmd->arg))
         return (1);

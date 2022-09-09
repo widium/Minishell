@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:52:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:55:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int is_separator(char *line, int i)
     return (0);    
 }
 
-int is_delimiter(char *line, int index)
+int is_delimiter(t_env *env, char *line, int index)
 {
     if (is_blank(line[index]) || is_paranthesis(line, index) ||
-     is_separator(line, index) || is_variable(line, index))
+     is_separator(line, index) || is_variable(env, line, index))
         return (1);
     return (0);    
 }
@@ -113,11 +113,11 @@ int is_back_slash(char c)
     return (0);
 }
 
-int is_word(char *line, int i)
+int is_word(t_env *env, char *line, int i)
 {
     if (!(is_quote(line[i])) && !(is_blank(line[i])) &&
      !(is_paranthesis(line, i)) && !(is_separator(line, i)) &&
-     !(is_variable(line, i)))
+     !(is_variable(env, line, i)))
         return (1);
     return (0);
 }
@@ -137,10 +137,19 @@ int is_paranthesis(char *line, int index)
     return (0);
 }
 
-int is_variable(char *line, int i)
+int is_variable(t_env *env, char *line, int i)
 {
+    char *name;
+
     if (line[i] == '$' && !(is_blank(line[i + 1])) && !(is_finish(line[i + 1])))
-        return (1);
+    {
+        name = variable_detection(env, line, i);
+        if (variable_exist(env, name))
+        {
+            free(name);
+            return (1);
+        }
+    }
     return (0);
 }
 
@@ -148,7 +157,7 @@ int is_bin(t_env *env, char *word)
 {
     char **bins;
 
-    bins = env->variable->bins;
+    bins = get_env_bins(env);;
     if (test_absolute_bin_access(word))
         return (1);
     else if (test_bin_access(bins, word))

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:01:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 10:35:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:44:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int single_quotes_extraction(t_cmd *cmd, char *line, int index)
     return (end + 1);
 }
 
-int double_quotes_extraction(t_cmd * cmd, char *line, int index)
+int double_quotes_extraction(t_env *env, t_cmd *cmd, char *line, int index)
 {
     t_arg *arg;
     int start;
@@ -59,12 +59,12 @@ int double_quotes_extraction(t_cmd * cmd, char *line, int index)
         index++;
     }
     content = malloc_substrcpy(line, start, (end - start) + 1);
-    parse_double_quote(cmd, content);
+    parse_double_quote(env, cmd, content);
     free(content);
     return (end + 1);
 }
 
-void parse_double_quote(t_cmd *cmd, char *content)
+void parse_double_quote(t_env *env, t_cmd *cmd, char *content)
 {
     int index;
     int new_index;
@@ -73,14 +73,14 @@ void parse_double_quote(t_cmd *cmd, char *content)
     index = 0;
     while (content[index])
     {
-        if (is_variable(content, index))
+        if (is_variable(env, content, index))
         {
-            new_index = variables_extraction(cmd, content, index);
+            new_index = variables_extraction(env, cmd, content, index);
             index = new_index;
         }
         else
         {
-            new_index = string_extraction(cmd, content, index);
+            new_index = string_extraction(env, cmd, content, index);
             index = new_index;
         }
         index++;
