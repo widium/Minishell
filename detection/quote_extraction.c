@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:01:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:44:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 19:05:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ int single_quotes_extraction(t_cmd *cmd, char *line, int index)
         } 
         index++;
     }
-    arg = tokenizer_arg(line, start, end, TOKEN_SINGLE_QUOTE);
+    if (is_finish(line[index]))
+        arg = tokenizer_arg(NULL, 0, 0, TOKEN_NULL);
+    else   
+        arg = tokenizer_arg(line, start, end, TOKEN_SINGLE_QUOTE);
     add_arg_list(cmd, arg);
     return (end + 1);
 }
 
 int double_quotes_extraction(t_env *env, t_cmd *cmd, char *line, int index)
 {
-    t_arg *arg;
     int start;
     char *content;
     int end;
@@ -58,17 +60,26 @@ int double_quotes_extraction(t_env *env, t_cmd *cmd, char *line, int index)
         }
         index++;
     }
-    content = malloc_substrcpy(line, start, (end - start) + 1);
+    if (is_finish(line[index]))
+        content = NULL;
+    else
+        content = malloc_substrcpy(line, start, (end - start) + 1);
     parse_double_quote(env, cmd, content);
-    free(content);
     return (end + 1);
 }
 
 void parse_double_quote(t_env *env, t_cmd *cmd, char *content)
 {
+    t_arg *arg;
     int index;
     int new_index;
 
+    if (content == NULL)
+    {
+       arg = tokenizer_arg(NULL, 0, 0, TOKEN_NULL); 
+       add_arg_list(cmd, arg);
+       return ;
+    }
     new_index = 0;
     index = 0;
     while (content[index])

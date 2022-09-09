@@ -410,3 +410,8 @@ echo sault
 echo sault sault
 echo salut sault
 echo sault sault
+echo sa'lu
+echo sa'lu
+echo sa"lu
+echo sa"lu
+echo sa"lu
