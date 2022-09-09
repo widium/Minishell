@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/05 12:48:16 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/09 12:55:08 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,16 +80,24 @@ SRCS		= 	main.c \
 				 
 
 
+HEADER 			= header/class.h \
+				  header/execution.h \
+				  header/free.h \
+				  header/get.h \
+				  header/is.h \
+				  header/token.h \
+				  header/verbose.h \
 
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
+
 # FLAGS 		= -Wall -Werror -Wextra
 FLAGS			= -g3 -lreadline
 SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
 DEBUGGER		= lldb
 
-%.o : %.c
+%.o : %.c $(HEADER)
 			$(CC) $(FLAGS) -c $< -o $@
 	
 $(NAME) : 		$(OBJS)

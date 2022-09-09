@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 16:58:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:27:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,19 @@ char **list_to_array(t_cmd *cmd)
     
     i = 0;
     if (!(cmd->first_arg))
-        return (complete);
-    else
+        return (NULL);
+    arg = get_first_arg(cmd);
+    if (arg->content == NULL)
+        return (NULL);
+    complete = malloc(sizeof(char *)*size_of_list(cmd) + 1);
+    while (arg)
     {
-        complete = malloc(sizeof(char *)*size_of_list(cmd) + 1);
-        arg = get_first_arg(cmd);
-        while (arg)
-        {
-            complete[i] = malloc_strcpy(arg->content);
-            arg = arg->next;
-            i++;
-        }
-        remove_all_arg(cmd);
-        complete[i] = NULL;
-        
+        complete[i] = malloc_strcpy(arg->content);
+        arg = arg->next;
+        i++;
     }
+    remove_all_arg(cmd);
+    complete[i] = NULL;
     return (complete);
 }
 
@@ -83,9 +81,10 @@ char *list_to_string(t_cmd *cmd)
     char *current_arg;
     
     if (!(cmd_have_args(cmd)))
-        return (complete);
-
+        return (NULL);
     arg = get_first_arg(cmd);
+    if (arg->content == NULL)
+        return (NULL);
     complete = malloc_strcpy(arg->content);
     arg = arg->next;
     while (arg)

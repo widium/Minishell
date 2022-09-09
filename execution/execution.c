@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 14:40:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 11:37:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void execution(t_env *env)
     while (token)
     {
         cmd = get_class(token);
-        if (is_cmd_bin(cmd))
+        if (is_cmd_bin(cmd) && cmd_have_argument(cmd))
         {
             bin_execution(env, cmd);
         }
-        else if (is_cmd_built_in(cmd))
+        else if (is_cmd_built_in(cmd) && cmd_have_argument(cmd))
         {
             built_in_execution(env, cmd);
         }

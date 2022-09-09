@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:20:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 17:18:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:39:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,8 @@ void remove_variable(t_variable *var)
     free_array(var->variables);
     
 }
+
+// void exit_shell(t_env *env)
+// {
+    
+// }

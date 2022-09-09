@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 17:19:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:52:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int is_double_quote(char c);
 int is_single_quote(char c);
 int is_quote(char c);
 int is_not_NULL(char c, char d);
+int is_NULL(char *line);
 int is_input_chevrons(char *line, int i);
 int is_output_chevrons(char *line, int i);
 int is_pipe(char *line, int index);
@@ -85,6 +86,7 @@ int is_unset(t_cmd *cmd);
 int is_exit(t_cmd *cmd);
 
 int cmd_have_args(t_cmd *cmd);
+int cmd_have_argument(t_cmd *cmd);
 int cmd_have_args_array(t_cmd *cmd);
 int cmd_have_arg_flags(t_cmd *cmd);
 int cmd_have_flags(t_cmd *cmd);

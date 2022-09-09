@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 14:31:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:40:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_env	*init_env(char **env_variable)
 		return (NULL);
 	env->verbose = 0;
 	env->error_parsing = 0;
+	env->error_processing = 0;
 	env->variable = init_variable(env_variable);
     env->history = NULL;
 	env->first_token = NULL;

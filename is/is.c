@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 15:11:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:52:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	line_is_empty(char	*line)
 
 int	line_is_not_empty(char	*line)
 {
-	if (ft_strlen(line) > 0)
+	if (line != NULL && ft_strlen(line) > 0)
 		return (1);
 	else 
 		return (0);
@@ -90,6 +90,13 @@ int is_not_NULL(char c, char d)
 	if (c && d)
 		return (1);
 	return (0);
+}
+
+int is_NULL(char *line)
+{
+    if (line == NULL)
+        return (1);
+    return (0);
 }
 
 int is_blank(char c)

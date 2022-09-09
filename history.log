@@ -348,3 +348,29 @@ cd ..
 cd ..
 echo $?
 env
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+make
+echo $?
+echo $?
+mkae
+make
+echo $?
+make
+echo $?
+echo $?
+env
+env
+echo $?
+
