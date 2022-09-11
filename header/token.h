@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/13 16:16:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 14:33:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define TOKEN_BOOLEAN 22
 # define TOKEN_LIMITER 23
 # define TOKEN_STRING 24
+# define TOKEN_NOT_FINISH 25
 
 # include "class.h"
 
@@ -72,6 +73,8 @@ void connect_arg(t_arg *curr_arg, t_arg *next_arg);
 void add_arg_list(t_cmd *cmd, t_arg *arg);
 
 void tokenization(t_env *env, char *line);
+int tokenize_content_single_quote(t_cmd *cmd, char *line, int start, int index);
+char *get_content_double_quote(t_cmd *cmd, char *line, int start, int *index);
 t_token *tokenizer_word(char *content, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *word, int id);

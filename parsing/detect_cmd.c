@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:41:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 12:36:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int argument_detection(t_env *env, t_cmd *cmd, char *line, int index)
 
     new_index = index;
 
-    while (line[index] && !(is_separator(line, index)))
+    while (line_is_not_finish(line, index) && !(is_separator(line, index)))
     {
         new_index = argument_classification(env, cmd, line, index);
         index = new_index;

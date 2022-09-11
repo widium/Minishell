@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 18:47:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/10 18:14:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,8 @@ char *convert_id(int id)
         return ("TOKEN_LIMITER");
     if (id == TOKEN_STRING)
         return ("TOKEN_STRING");
+    if (id == TOKEN_NOT_FINISH)
+        return ("TOKEN_NOT_FINISH");
     return ("NULL");
 }
 

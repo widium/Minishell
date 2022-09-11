@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:55:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 13:14:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,7 @@ t_file *get_next_file(t_token *token);
 char *get_home_path(t_env *env);
 char *get_current_path(void);
 char *get_parent_path(t_env *env);
+
+char *get_rest_of_quote_content(char *line, int start, int end, char *quote);
 
 # endif

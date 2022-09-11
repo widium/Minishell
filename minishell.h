@@ -6,12 +6,14 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:49:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 14:42:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
+# define BUFF_SIZE 4096
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -80,7 +82,7 @@ int boolean_detection(char *line, int index);
 void heredoc_detection(char *str);
 int argument_detection(t_env *env, t_cmd *cmd, char *line, int index);
 
-void parse_double_quote(t_env *env, t_cmd *cmd, char *content);
+void parse_and_tokenize_double_quote(t_env *env, t_cmd *cmd, char *content);
 
 char *extract_value_variable(char *env, char *variable);
 int double_quotes_extraction(t_env *env, t_cmd * cmd, char *line, int index);
@@ -132,6 +134,8 @@ void manage_fd_basic_redirection(t_token *token);
 void manage_fd_pipe(t_token *token);
 void manage_fd_heredoc(t_token *token);
 char *heredoc_prompt(char *limiter);
+char *heredoc_not_finish(char *limiter);
+char *read_and_extract_content_file(char *path);
 
 void close_fd(char *name, int fd);
 void close_fd_cmd(t_cmd *cmd);

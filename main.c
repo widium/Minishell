@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 18:47:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 14:41:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv, char **env_var)
 	env = init_env(env_variable);
 	// ask_verbose(env);
 	env->verbose = 1;
-	prompt(env);
+    prompt(env);
 	remove_all(env);
 }
 
@@ -43,9 +43,21 @@ int	main(int argc, char **argv, char **env_var)
 // 	}
 // }
 
+// void test(char *str, int *index)
+// {
+
+// 	while (str[*index])
+// 	{
+// 		ft_putchar_fd(str[*index], 1);
+// 		(*index)++;
+// 	}
+// }
+
 // int main(int argc, char **argv, char **env)
 // {
-//     char **vars = malloc_strcpy_array(env);
-// 	char *name = "PAT";
-//     printf("[%d]\n",zeubi(vars, name));
+// 	int index = 0;
+
+// 	test("salut moi c'est eddie\n", &index);
+// 	printf("index : [%d]\n", index);
+	
 // }
