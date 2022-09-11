@@ -471,3 +471,16 @@ echo sa'lu
 echo sa'lu
 echo sa'lu
 echo sa"lu
+echo "salut"
+echo "salut$HOME"
+echo sa"lut$HOME"
+echo sa"HOME"
+echo sa"$HOME"
+echo sa"$HOME"
+echo "$HOME"
+make
+echo "$HOME"
+echo "$HOME"
+echo sa"$HOME"
+echo "$HOME"
+echo sa"lut$HOME"
