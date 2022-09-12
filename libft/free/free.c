@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:11:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/27 17:39:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 10:53:42 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_array(char **array)
 {
 	int	i;
-
 	if (!(array))
 		return;
 	i = 0;

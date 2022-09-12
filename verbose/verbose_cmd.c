@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 18:31:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:10:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void print_cmd_info(t_cmd *cmd)
     {
         printf(" | path : [%s]\n", cmd->bin);
         printf(" | args : [");
-        print_array_index(cmd->args, 1);
+        print_array(cmd->args);
         printf("]\n"); 
     }
     else if (is_cmd_built_in(cmd))
@@ -60,7 +60,7 @@ char *convert_fd(int fd)
         return ("STDOUT");
     else if (fd == STDERR_FILENO)
         return ("STDERR");
-    else 
+    else
         return (ft_itoa(fd));
 }
 

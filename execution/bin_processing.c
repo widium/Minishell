@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 16:02:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/04 17:40:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 11:15:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char **append_bin_name_in_args(char **args, char *name)
     char **new_args;
     
     new_args = ft_arrayjoin_str(args, name, 0);
-    free(args);
+    free_array(args);
     return (new_args);
 }
 

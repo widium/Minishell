@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/01 15:00:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:29:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,49 @@ void remove_token(t_token *token)
     {
         remove_token_file(get_class(token));
     }
+    free(token);
+    
+}
+
+void	free_array_2(char **array)
+{
+	int	i;
+	if (!(array))
+		return;
+	i = 0;
+	while (array[i])
+	{
+        printf("[%s : %p]\n", array[i], array[i]);
+        // printf("[%s : %p]\n", array[i+1], array[i+1]);
+		free(array[i]);
+		array[i] = NULL;
+		i++;
+	}
+	free(array);
 }
 
 void remove_token_cmd(t_cmd *cmd)
 {
-    free(cmd->bin);
-    free_array(cmd->args);
-    free(cmd->content);
+    // printf("[%s] \n", cmd->content);
+    if (cmd->bin)
+        free(cmd->bin);
+    cmd->bin = NULL;
+    if (cmd->arg)
+        free(cmd->arg);
+    cmd->arg = NULL;
+    if (cmd->args)
+    {
+        print_array_fd(cmd->args, 2);
+        free_array(cmd->args);  
+        cmd->args = NULL;
+    }
+    if (cmd->content)
+        free(cmd->content);
+    cmd->content = NULL;
     remove_all_arg(cmd);
-    free(cmd);
+    if (cmd)
+        free(cmd);
+    cmd = NULL;
     
 }
 

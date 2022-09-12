@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:56:25 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 10:41:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:26:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,38 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	cont[i + a] = '\0';
 	return ((char *)cont);
+}
+
+char	*ft_strjoin_free_first(char *s1, char *s2)
+{
+	char *complete;
+
+	complete = ft_strjoin(s1, s2);
+	free(s1);
+	s1 = NULL;
+	return (complete);
+}
+
+char	*ft_strjoin_free_second(char *s1, char *s2)
+{
+	char *complete;
+
+	complete = ft_strjoin(s1, s2);
+	free(s2);
+	s2 = NULL;
+	return (complete);
+}
+
+char	*ft_strjoin_free_all(char *s1, char *s2)
+{
+	char *complete;
+
+	complete = ft_strjoin(s1, s2);
+	free(s1);
+	free(s2);
+	s1 = NULL;
+	s2 = NULL;
+	return (complete);
 }
 
 char	*ft_strjoin_char(char *s1, char *s2, char c)
@@ -90,7 +122,7 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 	int y;
 	
 	size = ft_strlen_array(array);
-	new_array = malloc(sizeof(char *)*size + 2);
+	new_array = malloc(sizeof(char *)*(size + 2));
 	
 	i = 0;
 	y = 0;
@@ -105,7 +137,7 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 			new_array[y] = malloc_strcpy(str);
 		y++;
 	}
-	if (y == pos && !array[i])
+	if (y == pos && i >= size)
 	{
 		new_array[y] = malloc_strcpy(str);
 		y++;

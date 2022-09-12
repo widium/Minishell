@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:51:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 08:36:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:52:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ char			*ft_strrchr(const char *str, int find);
 char			*ft_strnstr(const char *str, const char *find, size_t len);
 char			*ft_strdup( const char *source );
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin_free_first(char *s1, char *s2);
+char			*ft_strjoin_free_second(char *s1, char *s2);
+char			*ft_strjoin_free_all(char *s1, char *s2);
 char			*ft_strjoin_char(char *s1, char *s2, char c);
 char			**ft_arrayjoin_str(char **array, char *str, int pos);
 char			**ft_arrayremove_str(char **array, int pos);

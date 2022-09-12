@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 17:04:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 15:49:23 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int same_name(char *variable, char *var)
         free(var_name);
         return (1); 
     }
-        
+    free(var_name);
     return (0);
 }
 

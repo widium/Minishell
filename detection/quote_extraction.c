@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:01:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 15:31:07 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:00:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int double_quotes_extraction(t_env *env, t_cmd *cmd, char *line, int index)
 	}
 	content = get_content_double_quote(cmd, line, start, &index);
 	parse_and_tokenize_double_quote(env, cmd, content);
+	free(content);
 	return (index);
 }
 
