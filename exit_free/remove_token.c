@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 15:34:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:12:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void remove_token(t_token *token)
     {
         remove_token_file(get_class(token));
     }
+    else if (is_token_word(token))
+    {
+        remove_token_word(get_class(token));
+    }
     free(token);
     
 }
@@ -76,7 +80,7 @@ void remove_token(t_token *token)
 
 void remove_token_cmd(t_cmd *cmd)
 {
-    // printf("[%s] \n", cmd->content);
+    printf("remove && free [%s]\n", cmd->content);
     if (cmd->bin)
         free(cmd->bin);
     cmd->bin = NULL;
@@ -84,11 +88,8 @@ void remove_token_cmd(t_cmd *cmd)
         free(cmd->arg);
     cmd->arg = NULL;
     if (cmd->args)
-    {
-        print_array_fd(cmd->args, 2);
         free_array(cmd->args);  
-        cmd->args = NULL;
-    }
+    cmd->args = NULL;
     if (cmd->content)
         free(cmd->content);
     cmd->content = NULL;
@@ -101,9 +102,13 @@ void remove_token_cmd(t_cmd *cmd)
 
 void remove_token_redir(t_redirection *redir)
 {
-    free(redir->content);
-    free(redir->limiter);
-    free(redir);
+    printf("remove && free [%s]\n", redir->content);
+    if (redir->content)
+        free(redir->content);
+    if (redir->limiter)
+        free(redir->limiter);
+    if (redir)
+        free(redir);
 }
 
 void remove_token_bool(t_boolean *boolean)
@@ -116,5 +121,18 @@ void remove_token_bool(t_boolean *boolean)
 
 void remove_token_file(t_file *file)
 {
-    free(file);
+    printf("remove && free [%s]\n", file->name);
+    if (file->name)
+        free(file->name);
+    if (file)
+        free(file);
+}
+
+void remove_token_word(t_word *word)
+{
+    printf("remove && free [%s]\n", word->content);
+    if (word->content)
+        free(word->content);
+    if (word)
+        free(word);
 }

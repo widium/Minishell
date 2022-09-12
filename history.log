@@ -577,3 +577,11 @@ fffff
 ls
 ffff
 ls
+ffff
+fffff
+ffffff
+ffff
+fffff
+ls
+ls -la > salut.txt
+ls -la > tt.txt
