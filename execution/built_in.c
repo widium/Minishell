@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 15:32:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:29:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ void echo(t_cmd *cmd)
 void cd(t_cmd *cmd, t_env *env)
 {
     char *path;
+    char *new_path;
 
     path = cmd->arg;
     if (chdir(path) == -1)
         perror("Error : ");
-    change_variable_value(env, "PWD", get_current_path());
+    new_path = get_current_path();
+    change_variable_value(env, "PWD", new_path);
+    free(new_path);
     
 }
 
@@ -69,6 +72,7 @@ void pwd(t_cmd *cmd, t_env *env)
     path = get_current_path();
     ft_putstr_fd(path, cmd->fd_out);
     ft_putstr_fd("\n", cmd->fd_out);
+    free(path);
 }
 
 // void exit_built_in(t_env *env, int signal)

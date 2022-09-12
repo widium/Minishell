@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 15:31:02 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:41:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,15 @@ int is_delimiter(t_env *env, char *line, int index)
 
 int is_argument_separator(t_env *env, char *line, int index)
 {
-    if (is_paranthesis(line, index) || is_separator(line, index) || is_variable(env, line, index))
+    if (is_paranthesis(line, index) || is_separator(line, index) ||
+     is_variable(env, line, index))
+        return (1);
+    return (0);
+}
+
+int is_blank_before_redirection(char *line, int index)
+{
+    if (is_blank(line[index]) && is_separator(line, index + 1))
         return (1);
     return (0);
 }

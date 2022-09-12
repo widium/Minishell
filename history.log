@@ -585,3 +585,12 @@ fffff
 ls
 ls -la > salut.txt
 ls -la > tt.txt
+cd ..
+cd ..
+pwd
+cat main.c | wc -l | cat -e
+cat main.c
+cat main.c | wc -l
+cat main.c | wc -l
+cat main.c | wc -l
+cat main.c

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 15:29:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:43:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ int word_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
         if (is_argument_separator(env, line, index) || is_quote(line[index]))
         {
             end = index - 1;
+            break;
+        }
+        else if (is_blank_before_redirection(line, index))
+        {
+            end = index - 2;
             break;
         }
         index++;

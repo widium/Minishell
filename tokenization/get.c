@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:54:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:16:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,5 +268,6 @@ char *get_parent_path(t_env *env)
     current_path = get_current_path();
     index = return_last_back_slash_index(current_path);
     parent_path = malloc_strcpy_index(current_path, index);
+    free(current_path);
     return (parent_path);
 }
