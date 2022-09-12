@@ -565,3 +565,15 @@ echo salut | cat -e
 echo salut | cat -e\
 echo salut | cat -e\
 echo salut | cat -e
+echo salut | cat -e
+ls
+ffff
+ls
+fffff
+ls
+ffff
+ls
+fffff
+ls
+ffff
+ls

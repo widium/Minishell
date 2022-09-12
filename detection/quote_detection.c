@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 13:18:41 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 14:43:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:46:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ char *get_rest_of_quote_content(char *line, int start, int end, char *quote)
 	dup = malloc_strcpy(content);
 	free(content);
 	content = ft_strjoin(dup, heredoc);
+	free(dup);
+	free(heredoc);
 	return (content);
 }

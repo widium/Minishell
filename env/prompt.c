@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 10:23:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:51:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,18 @@ void    prompt(t_env	*env)
 				if (env->error_processing == 0)
 					execution(env);
 			}
+			reset_counter_error(env);
 			remove_all_token(env);
 			free(line);
 		}
 	}
 
+}
+
+void reset_counter_error(t_env *env)
+{
+	env->error_parsing = 0;
+	env->error_parsing = 0;
 }
 
 void	create_history(t_env *env, char *line)

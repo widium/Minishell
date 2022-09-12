@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 14:42:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:51:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ void remove_tmp_file(t_token *token_heredoc);
 
 void wait_all_pid(t_env *env);
 
+void reset_counter_error(t_env *env);
 void check_error_parsing(t_env *env);
 int check_error_token_redirection(t_token *token);
 int check_error_token_heredoc(t_token *token, t_redirection *redir);

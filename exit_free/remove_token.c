@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 15:29:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:34:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,22 +58,21 @@ void remove_token(t_token *token)
     
 }
 
-void	free_array_2(char **array)
-{
-	int	i;
-	if (!(array))
-		return;
-	i = 0;
-	while (array[i])
-	{
-        printf("[%s : %p]\n", array[i], array[i]);
-        // printf("[%s : %p]\n", array[i+1], array[i+1]);
-		free(array[i]);
-		array[i] = NULL;
-		i++;
-	}
-	free(array);
-}
+// void	free_array_2(char **array)
+// {
+// 	int	i;
+// 	if (!(array))
+// 		return;
+// 	i = 0;
+// 	while (array[i])
+// 	{
+//         // printf("[%s : %p]\n", array[i+1], array[i+1]);
+// 		free(array[i]);
+// 		array[i] = NULL;
+// 		i++;
+// 	}
+// 	free(array);
+// }
 
 void remove_token_cmd(t_cmd *cmd)
 {
