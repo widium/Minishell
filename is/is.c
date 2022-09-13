@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 10:40:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:10:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,15 @@ int is_NULL(char *line)
 int is_blank(char c)
 {
     if (c == ' ' || c == '\t' || c == '\n')
+        return (1);
+    return (0);
+}
+
+int is_blank_argument(t_env *env, char *line, int index)
+{
+    if (is_blank(line[index]) && !(is_blank(line[index + 1])) 
+        && !(is_separator(line, index + 1)) && is_word(env, line, index + 1) 
+        && !(is_finish(line[index + 1])))
         return (1);
     return (0);
 }

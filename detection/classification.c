@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:44:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:11:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int word_classification(t_env *env, char *line, int index)
     {
         token = command_classification(env, content);
         if (line_is_not_finish(line, new_index + 1))
-            new_index = argument_detection(env, get_class(token), line, ++new_index);
+            new_index = argument_detection(env, get_class(token), line, new_index + 2);
     }
     else
     {

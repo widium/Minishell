@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 10:34:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:55:03 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int is_finish(char c);
 int is_not_finish(char c);
 int line_is_finish(char *line, int index);
 int line_is_not_finish(char *line, int index);
+int is_blank_argument(t_env *env, char *line, int index);
 int is_blank(char c);
 int is_back_slash(char c);
 int is_double_quote(char c);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 10:36:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:07:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,28 @@ int string_extraction(t_env *env, t_cmd *cmd, char *line, int index)
     if (!(is_double_quote(line[index])) || !(is_variable(env, line, index)))
         end = index - 1;
     arg = tokenizer_arg(line, start, end, TOKEN_STRING);
+    add_arg_list(cmd, arg);
+    return (end);
+}
+
+int blank_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
+{
+    t_arg *arg;
+    int start;
+    int end;
+    
+    end = index;
+    start = index;
+    while (line[index])
+    {
+        if (!(is_blank_argument(env, line, index)))
+        {
+            end = index - 1;
+            break;
+        }
+        index++;
+    }
+    arg = tokenizer_arg(line, start, end, TOKEN_BLANK);
     add_arg_list(cmd, arg);
     return (end);
 }

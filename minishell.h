@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 07:26:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:02:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int single_quotes_extraction(t_cmd *cmd, char *line, int index);
 int word_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int variables_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int string_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int blank_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int flags_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 
 int boolean_classification(t_env *env, char *line, int index);

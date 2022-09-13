@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 14:33:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:03:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_token *tokenizer_word(char *content, int id);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *word, int id);
 t_arg *tokenizer_arg(char *line, int start, int end, int id);
+void tokenize_word_arg(t_env *env, t_cmd *cmd, char *content);
 t_token *tokenizer_file(char *name, int id);
 
 int size_of_list(t_cmd *cmd);
