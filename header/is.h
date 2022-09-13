@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 10:55:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 13:43:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int is_delimiter(t_env *env, char *line, int i);
 int is_valide_argument(t_env *env, char *word);
 int is_argument_separator(t_env *env, char *line, int index);
 int is_blank_before_redirection(char *line, int index);
+int is_blank_before_finish(char *line, int index);
 int is_separator(char *line, int i);
 int is_word(t_env *env, char *line, int i);
 int is_variable(t_env *env, char *line, int index);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 11:03:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 13:38:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void tokenization(t_env *env, char *line);
 int tokenize_content_single_quote(t_cmd *cmd, char *line, int start, int index);
 char *get_content_double_quote(t_cmd *cmd, char *line, int start, int *index);
 t_token *tokenizer_word(char *content, int id);
+int command_tokenization(t_env *env, char *line, char *content, int index);
 t_token *tokenizer_bool(char *line, int start, int end, int id);
 t_token *tokenizer_command(char *word, int id);
 t_arg *tokenizer_arg(char *line, int start, int end, int id);

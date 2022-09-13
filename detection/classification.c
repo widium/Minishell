@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 11:11:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 13:39:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,27 @@ int word_classification(t_env *env, char *line, int index)
     content = malloc_substrcpy(line, index, (new_index - index) + 1);
     if (is_cmd(env, content))
     {
-        token = command_classification(env, content);
-        if (line_is_not_finish(line, new_index + 1))
-            new_index = argument_detection(env, get_class(token), line, new_index + 2);
+        new_index = command_tokenization(env, line, content, new_index);
     }
     else
     {
         token = tokenizer_word(content, TOKEN_WORD);
+        add_chained_list(env, token);
+    }
+    return (new_index);
+}
+
+int command_tokenization(t_env *env, char *line, char *content, int index)
+{
+    t_token *token;
+    
+    token = command_classification(env, content);
+    if (line_is_not_finish(line, index + 1))
+    {
+        index = argument_detection(env, get_class(token), line, index + 2);
     }
     add_chained_list(env, token);
-    return (new_index);
+    return (index);
 }
 
 t_token *command_classification(t_env *env, char *content)
