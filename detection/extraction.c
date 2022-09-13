@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 11:07:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:28:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,20 +99,13 @@ int word_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
     end = index;
     while (line[index])
     {
-        if (is_argument_separator(env, line, index) || is_quote(line[index]))
+        if (is_word_argument_separator(env, line, index))
         {
             end = index - 1;
             break;
         }
-        else if (is_blank_before_redirection(line, index))
-        {
-            end = index - 2;
-            break;
-        }
         index++;
     }
-    if (!(is_delimiter(env, line, index - 1)))
-        end = index - 1;
     content = malloc_substrcpy(line, start, (end - start) + 1);
     tokenize_word_arg(env, cmd, content);
     return (end);

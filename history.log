@@ -629,3 +629,14 @@ cat salut.txt
 cat salut.txt                                       
 echo sault                     
 echo sault                     sds
+cat salut.txt                       
+cat ddd.txt
+echo salut         cava
+echo salut | cat -e
+echo salut | cat -e
+echo saluit | cat -e
+echo salut cest moi eddie la streed              zer | ta mere
+echo salut     | cat -e
+echo salut cest moi   sa
+echo salut cest                        moi         sa
+echo salut             | cat -e

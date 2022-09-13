@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 13:55:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:23:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,23 @@ int is_argument_separator(t_env *env, char *line, int index)
 int is_blank_before_redirection(char *line, int index)
 {
     if (is_blank(line[index]) && is_separator(line, index + 1))
+    {
+        while (line[index] && is_blank(line[index]))
+        {
+            if (is_redirection(line, index + 1))
+            {
+               return (1); 
+            }   
+            index++;
+        }     
+    }
+    return (0);
+}
+
+int is_word_argument_separator(t_env *env, char *line, int index)
+{
+    if (is_argument_separator(env, line, index) || is_quote(line[index])
+        || is_blank(line[index]))
         return (1);
     return (0);
 }
