@@ -651,3 +651,23 @@ cat main.c | grep include | wc -l
 env
 cat main.c | grep include | wc -lasdc
 env
+top
+env
+top
+env
+cat -qwedrwefqw
+env
+<<a
+<< a
+wc -l << stop
+wc -l << a
+av
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a

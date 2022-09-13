@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 13:39:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:07:18 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ int redirection_classification(t_env *env, char *line, int index)
     new_index = redirection_detection(line, index);
     token = create_token_redir(line, index, new_index);
     add_chained_list(env, token);
-    index = new_index;
+    index = get_argument_redirection(env, token, line, new_index);
+    return (index);
+}
+
+int get_argument_redirection(t_env *env, t_token *token, char *line, int index)
+{
     if (is_token_heredoc(token))
     {
         index = recover_limiter(get_class(token), line, ++index);
@@ -33,6 +38,8 @@ int redirection_classification(t_env *env, char *line, int index)
     }
     return (index);
 }
+
+
 
 int word_classification(t_env *env, char *line, int index)
 {

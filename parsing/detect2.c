@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 13:33:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:08:46 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int word_detection(t_env *env, char *line, int index)
     return (index);
 }
 
-int recover_detection(char *line, int index)
+int limiter_detection(char *line, int index)
 {
     int start;
 

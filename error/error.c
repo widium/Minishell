@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 16:54:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:00:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ int check_error_token_heredoc(t_token *token, t_redirection *redir)
         printf("Error : [limiter after \"%s\" not found]\n", redir->content);
         return (1);
     }
-    else if (!(is_token_cmd(token->prev)) || !token->prev)
-    {
-        printf("Error : [prev_cmd before \"%s\" not found]\n", redir->content);
-        return (1);
-    }
+    // else if (!(is_token_cmd(token->prev)) || !token->prev)
+    // {
+    //     printf("Error : [prev_cmd before \"%s\" not found]\n", redir->content);
+    //     return (1);
+    // }
     return (0);
 }
 

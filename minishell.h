@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 15:44:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:08:46 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char *variable_detection(t_env *env, char *line, int index);
 int double_quotes_detection(char *string, int i);
 int single_quotes_detection(char *line, int index);
 int word_detection(t_env *env, char *line, int index);
-int recover_detection(char *line, int index);
+int limiter_detection(char *line, int index);
 int file_detection(char *line, int index);
 int redirection_detection(char *line, int index);
 int paranthesis_detection(char *line, int index);
@@ -99,6 +99,7 @@ int argument_classification(t_env *env, t_cmd *cmd, char *line, int index);
 t_token *command_classification(t_env *env, char *content);
 int word_classification(t_env *env, char *line, int index);
 int redirection_classification(t_env *env, char *line, int index);
+int get_argument_redirection(t_env *env, t_token *token, char *line, int index);
 
 int type_of_redirect(char *content);
 int type_of_boolean(char *content);
