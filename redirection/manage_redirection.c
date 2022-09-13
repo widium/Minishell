@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:53:29 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:36:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:28:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void manage_fd_heredoc(t_token *token)
     tmp_file_name = heredoc_prompt(redir->limiter);
     fd_tmp = open(tmp_file_name, O_RDONLY, 0777);
     redir->tmp_file = init_file(tmp_file_name, fd_tmp);
-    change_fd_cmd(prev_cmd, fd_tmp, prev_cmd->fd_out);
+    if (prev_cmd)
+    {
+        change_fd_cmd(prev_cmd, fd_tmp, prev_cmd->fd_out);
+    }
 }
 
 void manage_fd_pipe(t_token *token)
