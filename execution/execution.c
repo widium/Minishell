@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 15:34:38 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:44:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,26 @@ void wait_all_pid(t_env *env)
 {
     t_token *token;
     t_cmd *cmd;
+    int status;
     
     token = get_first_token(env);
     while (token)
     {
         cmd = get_class(token);
         // fprintf(stderr, "Wait [%s]:[%d]\n", cmd->content, cmd->pid);
-        wait(&cmd->pid);
+        waitpid(cmd->pid, &status, 0);
+        update_variable_status_process(env, status);
         token = get_next_token_cmd(token);
     }
+}
+
+void update_variable_status_process(t_env *env, int status)
+{
+    char **env_variables;
+    char *value;
+
+    env_variables = get_env_variables(env);
+    value = ft_itoa(status);
+    change_variable_value(env, "?", value);
+    free(value);
 }

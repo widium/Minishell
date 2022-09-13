@@ -640,3 +640,14 @@ echo salut     | cat -e
 echo salut cest moi   sa
 echo salut cest                        moi         sa
 echo salut             | cat -e
+echo salut    cava        cest
+ 
+echo salut   cav        cest
+echo salut              cav
+echo salut         cav
+echo salut                  vac
+echo salut               cav
+cat main.c | grep include | wc -l
+env
+cat main.c | grep include | wc -lasdc
+env

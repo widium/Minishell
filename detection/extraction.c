@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 14:28:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:30:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,9 @@ int blank_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
     {
         if (!(is_blank_argument(env, line, index)))
         {
+            printf("-1 [%c] curr [%c] +1 [%c]\n", line[index], line[index], line[index]);
             end = index - 1;
+            printf("start [%d] end [%d]\n", start, end);
             break;
         }
         index++;
