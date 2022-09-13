@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 12:50:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:13:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void call_prompt(int key)
 
 void pass(int key)
 {
-    printf("CTRL + \\");
     return;
 }
 
