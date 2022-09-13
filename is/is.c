@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 17:41:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:40:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ int is_paranthesis(char *line, int index)
 int is_variable(t_env *env, char *line, int i)
 {
     char *name;
-    if (line[i] == '$' && !(is_blank(line[i + 1])) && !(is_finish(line[i + 1])))
+    if (is_variable_word(line, i))
     {
         name = variable_detection(env, line, ++i);
         if (variable_exist(env, name))
@@ -163,8 +163,23 @@ int is_variable(t_env *env, char *line, int i)
             free(name);
             return (1);
         }
+        free(name);
     }
     return (0);
+}
+
+int is_variable_word(char *line, int i)
+{
+    if (line[i] == '$' && !(is_blank(line[i + 1])) && !(is_finish(line[i + 1])))
+        return (1);
+    return (0);
+}
+
+int is_valide_argument(t_env *env, char *word)
+{
+    if (is_variable_word(word, 0) && !(is_variable(env, word, 0)))
+        return (0);
+    return (1);
 }
 
 int is_bin(t_env *env, char *word)

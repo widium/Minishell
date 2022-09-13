@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/10 18:38:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:40:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ t_arg *tokenizer_arg(char *line, int start, int end, int id)
         content = malloc_substrcpy(line, start, (end - start) + 1);
     arg = create_arg(content, id);
     return (arg);
+}
+
+void tokenize_word_arg(t_env *env, t_cmd *cmd, char *content)
+{
+    t_arg *arg;
+    
+    if (is_valide_argument(env, content))
+    {
+        arg = create_arg(content, TOKEN_WORD);
+        add_arg_list(cmd, arg); 
+    }
+    else
+        free(content);
+    
 }
 
 t_token *tokenizer_bool(char *line, int start, int end, int id)

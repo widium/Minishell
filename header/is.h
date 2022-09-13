@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 17:41:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:34:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ int is_and_operator(char *line, int i);
 int is_or_operator(char *line, int i);
 int is_doublons(char *str, int i, int c);
 int is_delimiter(t_env *env, char *line, int i);
+int is_valide_argument(t_env *env, char *word);
 int is_argument_separator(t_env *env, char *line, int index);
 int is_blank_before_redirection(char *line, int index);
 int is_separator(char *line, int i);
 int is_word(t_env *env, char *line, int i);
 int is_variable(t_env *env, char *line, int index);
+int is_variable_word(char *line, int i);
 int is_paranthesis(char *line, int index);
 int is_in_double_quote(char *line, int index);
 int is_in_single_quote(char *line, int index);
