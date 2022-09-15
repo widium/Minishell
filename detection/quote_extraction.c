@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:01:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 16:00:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:09:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int single_quotes_extraction(t_cmd *cmd, char *line, int index)
 			index++;
 		if (is_single_quote(line[index]))
 		{
-		   end = index - 1;
+		   index--;
 		   break; 
 		} 
 		index++;

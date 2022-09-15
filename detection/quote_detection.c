@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 13:18:41 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 15:46:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:10:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,15 @@ int tokenize_content_single_quote(t_cmd *cmd, char *line, int start, int index)
 	if (is_finish(line[index]))
 	{
 	   content = get_rest_of_quote_content(line, start, index, "\'");
-	   end = index;
 	}
 	else
 	{
-		content = malloc_substrcpy(line, start, (end - start) + 1);
-		end += 1;
+		content = malloc_substrcpy(line, start, (index - start) + 1);
+		index++;
 	}
-	arg = create_arg(content, TOKEN_DOUBLE_QUOTE);
+	arg = create_arg(content, TOKEN_SINGLE_QUOTE);
 	add_arg_list(cmd, arg);
-	return (end);
+	return (index);
 }
 
 char *get_content_double_quote(t_cmd *cmd, char *line, int start, int *index)
