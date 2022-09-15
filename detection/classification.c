@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:07:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:32:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int word_classification(t_env *env, char *line, int index)
     }
     return (new_index);
 }
-
+ 
 int command_tokenization(t_env *env, char *line, char *content, int index)
 {
     t_token *token;

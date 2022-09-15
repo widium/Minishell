@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 15:30:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:01:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ int word_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
         }
         index++;
     }
+    if (!(is_word_argument_separator(env, line, index)))
+        end = index -1;
     content = malloc_substrcpy(line, start, (end - start) + 1);
     tokenize_word_arg(env, cmd, content);
     return (end);
@@ -147,9 +149,7 @@ int blank_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
     {
         if (!(is_blank_argument(env, line, index)))
         {
-            printf("-1 [%c] curr [%c] +1 [%c]\n", line[index], line[index], line[index]);
             end = index - 1;
-            printf("start [%d] end [%d]\n", start, end);
             break;
         }
         index++;
