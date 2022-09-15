@@ -718,3 +718,10 @@ echo -l
 echo -l
 exit
 echo test | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e| cat -e| cat -e| cat -e| cat -e| cat -e| cat -e
+echo 'test"
+echo 'test"
+echo sa'
+echo 'test
+echo 'test
+echo 'test
+echo 'test

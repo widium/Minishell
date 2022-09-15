@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/15 17:02:13 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/15 17:15:36 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,10 @@ HEADER 			= header/class.h \
 # ==== Template ==== #
 TEMPLATE = header/header.txt
 
+# ==== Execute ==== #
+
+EXE = @./$(NAME)
+
 # ==== Objet && compiling ==== #
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
@@ -116,12 +120,10 @@ $(NAME) : 	    $(OBJS)
 				@$(MAKE) -C libft
 				@echo "==== Compiling Minishell ===="
 				@$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)
-						
+				@cat "$(TEMPLATE)"
+				$(EXE)			
 
-templater :
-	@cat "$(TEMPLATE)"
-
-all : 	 $(NAME) templater
+all : 	 $(NAME)
 
 clean :
 				@echo "==== Remove all Libft .o ===="
@@ -134,14 +136,23 @@ fclean : clean
 				@$(RM_FILE) $(NAME)
 
 debug : 		$(OBJS)
-				@$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@echo "==== Mode Debug Activate ===="
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(SANITIZE) libft/libft.a  -o $(NAME)
 				$(DEBUGGER) $(NAME)
+				@cat "$(TEMPLATE)"
+				$(EXE)
 				
 sanitize :		$(OBJS)
-				@$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@echo "==== Mode Sanitize Activate ===="
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@cat "$(TEMPLATE)"
+				$(EXE)
 
 leak :			$(OBJS)
-				@$(CC) $(OBJS) $(FLAGS) $(LEAKS) libft/libft.a  -o $(NAME)
+				@echo "==== Mode Leak Activate ===="
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(LEAKS) libft/libft.a  -o $(NAME)
+				@cat "$(TEMPLATE)"
+				$(EXE)
 
 
 re : fclean all

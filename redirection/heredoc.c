@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:56:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:29:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:12:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,6 @@ char *heredoc_prompt(char *limiter)
     return (tmp_file_name);
 }
 
-char *get_next_l(int fd)
-{
-    char *start = malloc(10000);
-    char *cursor = start;
-    
-    while(read(fd, cursor, 1) > 0)
-    {
-        if (*cursor == '\n')
-            break;
-        cursor++;
-    }
-    if (cursor > start)
-    {
-        *cursor = 0;
-        return (start);
-    }
-    free(start);
-    return (NULL);
-    
-}
-
 char *heredoc_not_finish(char *limiter)
 {
     char *line;
@@ -64,11 +43,15 @@ char *heredoc_not_finish(char *limiter)
     while (1)
     {
         ft_putstr_fd("> ", 1);
-        line = get_next_l(STDIN_FILENO);
+        line = get_next_line(STDIN_FILENO);
         if (same_str(limiter, line, ft_strlen(limiter)))
+        {
+            free(line);
             break;
+        }
         else
             ft_putstr_fd(line, fd_tmp);
+        free(line);
     }
     close(fd_tmp);
     content = read_and_extract_content_file("tmp.txt");
