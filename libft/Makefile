@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 16:01:52 by ebennace          #+#    #+#              #
-#    Updated: 2022/07/27 17:50:09 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/15 16:50:26 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,20 +76,20 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 FLAGS 			= -Wall -Wextra -Werror -I.
 
 $(NAME) : $(OBJS)
-				ar src  $(NAME) $(OBJS)
+				@ar src  $(NAME) $(OBJS)
 
 %.o: %.c
-	clang -c $(FLAGS) -o $@ $^
+	@clang -c $(FLAGS) -o $@ $^
 
 all : $(NAME)
 
 clean :
-				/bin/rm -rf $(OBJS)
+				@/bin/rm -rf $(OBJS)
 
 fclean : clean
-				/bin/rm -rf $(NAME)
+				@/bin/rm -rf $(NAME)
 
 re : fclean all
 
 bonus:			$(OBJS) $(BONUS_OBJS)
-						ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+						@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)

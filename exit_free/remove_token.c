@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 14:34:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:46:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void remove_token(t_token *token)
 
 void remove_token_cmd(t_cmd *cmd)
 {
-    printf("remove && free [%s]\n", cmd->content);
+    // printf("remove && free [%s]\n", cmd->content);
     if (cmd->flags)
         free(cmd->flags);
     cmd->flags = NULL;
@@ -105,7 +105,7 @@ void remove_token_cmd(t_cmd *cmd)
 
 void remove_token_redir(t_redirection *redir)
 {
-    printf("remove && free [%s]\n", redir->content);
+    // printf("remove && free [%s]\n", redir->content);
     if (redir->content)
         free(redir->content);
     if (redir->limiter)
@@ -124,7 +124,7 @@ void remove_token_bool(t_boolean *boolean)
 
 void remove_token_file(t_file *file)
 {
-    printf("remove && free [%s]\n", file->name);
+    // printf("remove && free [%s]\n", file->name);
     if (file->name)
         free(file->name);
     if (file)
@@ -133,7 +133,7 @@ void remove_token_file(t_file *file)
 
 void remove_token_word(t_word *word)
 {
-    printf("remove && free [%s]\n", word->content);
+    // printf("remove && free [%s]\n", word->content);
     if (word->content)
         free(word->content);
     if (word)

@@ -717,3 +717,4 @@ echo -l
 echo -l
 echo -l
 exit
+echo test | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e | cat -e| cat -e| cat -e| cat -e| cat -e| cat -e| cat -e

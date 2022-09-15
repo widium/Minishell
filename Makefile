@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/15 16:22:32 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/15 16:57:10 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,7 @@ CC				= clang
 # FLAGS 		= -Wall -Werror -Wextra
 FLAGS			= -g3 
 READLINE		= -lreadline
+MAKE			= make -s
 
 # ==== Debug && Leak ==== #
 SANITIZE 		= -fsanitize=address
@@ -107,11 +108,11 @@ RM_FILE = /bin/rm -rf
 
 # === Convert all .c to .o with flags and header === # 
 %.o : %.c $(HEADER)
-			$(CC) $(FLAGS) -c $< -o $@
+			@$(CC) $(FLAGS) -c $< -o $@
 	
 $(NAME) : 		$(OBJS)
-				make -C libft
-				$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)		
+				@$(MAKE) -C libft
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)		
 
 templater :
 	@cat "$(TEMPLATE)"
@@ -119,22 +120,22 @@ templater :
 all : 	 $(NAME) templater
 
 clean :
-				make clean -C libft
-				$(RM_FILE) $(OBJS)
+				@$(MAKE) clean -C libft
+				@$(RM_FILE) $(OBJS)
 
 fclean : clean
-				make fclean -C libft
-				$(RM_FILE) $(NAME)
+				@$(MAKE) fclean -C libft
+				@$(RM_FILE) $(NAME)
 
 debug : 		$(OBJS)
-				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
 				$(DEBUGGER) $(NAME)
 				
 sanitize :		$(OBJS)
-				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)
 
 leak :			$(OBJS)
-				$(CC) $(OBJS) $(FLAGS) $(LEAKS) libft/libft.a  -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(LEAKS) libft/libft.a  -o $(NAME)
 
 
 re : fclean all
