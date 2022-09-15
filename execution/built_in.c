@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 17:29:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:36:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ void pwd(t_cmd *cmd, t_env *env)
     free(path);
 }
 
-// void exit_built_in(t_env *env, int signal)
-// {
-//     remove_all(env);
-//     exit(signal);
-// }
+void exit_built_in(t_cmd *cmd, t_env *env)
+{
+    remove_all(env);
+    ft_putstr_fd("exit", 2);
+    ft_putstr_fd("\n", 2);
+    exit(0);
+}

@@ -6,12 +6,13 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/11 13:19:25 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/15 16:22:32 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
+# === File && Header === #
 SRCS		= 	main.c \
 				utils/init.c \
 				utils/string_utils.c \
@@ -78,9 +79,6 @@ SRCS		= 	main.c \
 				processing/processing_cmd.c \
 				processing/processing_built.c \
 				
-				 
-
-
 HEADER 			= header/class.h \
 				  header/execution.h \
 				  header/free.h \
@@ -89,31 +87,44 @@ HEADER 			= header/class.h \
 				  header/token.h \
 				  header/verbose.h \
 
+# ==== Template ==== #
+TEMPLATE = header/header.txt
+
+# ==== Objet && compiling ==== #
 OBJS			= $(SRCS:.c=.o)
 CC				= clang
-
 # FLAGS 		= -Wall -Werror -Wextra
-FLAGS			= -g3 -lreadline
+FLAGS			= -g3 
+READLINE		= -lreadline
+
+# ==== Debug && Leak ==== #
 SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
 DEBUGGER		= lldb
 
+# ==== Remove ==== #
+RM_FILE = /bin/rm -rf
+
+# === Convert all .c to .o with flags and header === # 
 %.o : %.c $(HEADER)
 			$(CC) $(FLAGS) -c $< -o $@
 	
 $(NAME) : 		$(OBJS)
 				make -C libft
-				$(CC) $(OBJS) $(FLAGS) libft/libft.a -o $(NAME)		
+				$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)		
 
-all : 			$(NAME)
+templater :
+	@cat "$(TEMPLATE)"
+
+all : 	 $(NAME) templater
 
 clean :
 				make clean -C libft
-				/bin/rm -rf $(OBJS)
+				$(RM_FILE) $(OBJS)
 
 fclean : clean
 				make fclean -C libft
-				/bin/rm -rf $(NAME)
+				$(RM_FILE) $(NAME)
 
 debug : 		$(OBJS)
 				$(CC) $(OBJS) $(FLAGS) $(SANITIZE) libft/libft.a  -o $(NAME)

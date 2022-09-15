@@ -700,3 +700,20 @@ echo 'salut'
 echo 'salut'
 echo 'salut'
 echo 'salut
+echo -j
+wc -ldafvaSD
+echo $?
+le
+echo $?
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+echo -l
+exit

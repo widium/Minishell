@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 13:23:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:30:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void built_in_execution(t_env *env, t_cmd *cmd)
         unset(cmd, env);
     else if (is_pwd(cmd))
         pwd(cmd, env);
-    // else if (is_exit(cmd))
-    //     exit(cmd, env);
+    else if (is_exit(cmd))
+        exit_built_in(cmd, env);
 }
 

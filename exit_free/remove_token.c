@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 17:12:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:34:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void remove_token(t_token *token)
 void remove_token_cmd(t_cmd *cmd)
 {
     printf("remove && free [%s]\n", cmd->content);
+    if (cmd->flags)
+        free(cmd->flags);
+    cmd->flags = NULL;
     if (cmd->bin)
         free(cmd->bin);
     cmd->bin = NULL;
