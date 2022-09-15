@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/15 16:57:10 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/15 17:02:13 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,9 +110,13 @@ RM_FILE = /bin/rm -rf
 %.o : %.c $(HEADER)
 			@$(CC) $(FLAGS) -c $< -o $@
 	
-$(NAME) : 		$(OBJS)
+$(NAME) : 	    $(OBJS)
+				@echo "==== Compiling all .c ===="
+				@echo "==== Compiling libft ===="
 				@$(MAKE) -C libft
-				@$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)		
+				@echo "==== Compiling Minishell ===="
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)
+						
 
 templater :
 	@cat "$(TEMPLATE)"
@@ -120,7 +124,9 @@ templater :
 all : 	 $(NAME) templater
 
 clean :
+				@echo "==== Remove all Libft .o ===="
 				@$(MAKE) clean -C libft
+				@echo "==== Remove all Minishell .o ===="
 				@$(RM_FILE) $(OBJS)
 
 fclean : clean
