@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 18:55:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:13:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int argument_classification(t_env *env, t_cmd *cmd, char *line, int index)
     }   
     else if (is_word(env, line, index))
     {
-        printf("line [%c] [%d]\n", line[index], index);
         new_index = word_argument_extraction(env, cmd, line, index);
     }
     return (new_index);

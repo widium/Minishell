@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:59:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 16:14:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:18:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,9 @@ void tokenization(t_env *env, char *line)
         { 
             index = word_classification(env, line, index);
         }
-        else if (is_redirection(line, index))
+        if (is_redirection(line, index))
         {
             index = redirection_classification(env, line, index);
-        }
-        if (is_boolean_operator(line, index))
-        {
-            index = boolean_classification(env, line, index);
         }
         index++;
     }

@@ -797,3 +797,25 @@ echo $"salut"
 echo $"salut"
 echo cou$"$mama$"$'$'papa
 echo cou$"$mama$"$'$'papa
+cat | cat | ls
+echo salut | wc -l
+wc | ls
+wc | cat
+wc | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat
+cat | cat | ls
+cat | cat | ls

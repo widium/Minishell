@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 12:32:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 19:17:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int command_tokenization(t_env *env, char *line, char *content, int index)
     {
         index = argument_detection(env, get_class(token), line, index + 2);
     }
+    
     add_chained_list(env, token);
     return (index);
 }
