@@ -6,13 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 13:01:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:15:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-int flags_extraction(t_env *env, t_cmd *cmd, char *line, int index)
+int flags_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
 {
     t_arg *arg;
     int start;
@@ -137,7 +137,7 @@ int string_extraction(t_env *env, t_cmd *cmd, char *line, int index)
     return (end);
 }
 
-int blank_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index)
+int blank_argument_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
 {
     t_arg *arg;
     int start;

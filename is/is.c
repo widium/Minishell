@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 12:56:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 18:56:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ int is_word(t_env *env, char *line, int i)
 {
     if (!(is_quote(line[i])) && !(is_blank(line[i])) &&
      !(is_paranthesis(line, i)) && !(is_separator(line, i)) &&
-     !(is_variable(env, line, i)))
+     !(is_variable(env, line, i)) && line[i] != '$')
         return (1);
     return (0);
 }
@@ -212,9 +212,19 @@ int is_variable(t_env *env, char *line, int i)
     return (0);
 }
 
+// int is_variable_word(char *line, int i)
+// {
+//     if (line[i] == '$' && !(is_blank(line[i + 1])) && 
+//     !(is_finish(line[i + 1])))
+//         return (1);
+//     return (0);
+// }
+
 int is_variable_word(char *line, int i)
 {
-    if (line[i] == '$' && !(is_blank(line[i + 1])) && !(is_finish(line[i + 1])))
+    if (line[i] == '$' && !(is_blank(line[i + 1])) && 
+    !(is_finish(line[i + 1])) && !(is_quote(line[i + 1])) && 
+    !(is_paranthesis(line, i + 1)) && !(is_separator(line, i + 1)))
         return (1);
     return (0);
 }

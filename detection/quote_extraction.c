@@ -6,13 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:01:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 13:09:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:12:48 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-int single_quotes_extraction(t_cmd *cmd, char *line, int index)
+int single_quotes_tokenization(t_cmd *cmd, char *line, int index)
 {
 	t_arg *arg;
 	char *content;
@@ -37,7 +37,7 @@ int single_quotes_extraction(t_cmd *cmd, char *line, int index)
 	return (end);
 }
 
-int double_quotes_extraction(t_env *env, t_cmd *cmd, char *line, int index)
+int double_quotes_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
 {
 	int start;
 	char *content;
@@ -71,9 +71,9 @@ void parse_and_tokenize_double_quote(t_env *env, t_cmd *cmd, char *content)
 	index = 0;
 	while (content[index])
 	{
-		if (is_variable(env, content, index))
+		if (is_variable_word(content, index))
 		{
-			new_index = variables_extraction(env, cmd, content, index);
+			new_index = variable_tokenization(env, cmd, content, index);
 			index = new_index;
 		}
 		else

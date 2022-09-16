@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:08:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:12:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,14 @@ int argument_detection(t_env *env, t_cmd *cmd, char *line, int index);
 void parse_and_tokenize_double_quote(t_env *env, t_cmd *cmd, char *content);
 
 char *extract_value_variable(char *env, char *variable);
-int double_quotes_extraction(t_env *env, t_cmd * cmd, char *line, int index);
-int single_quotes_extraction(t_cmd *cmd, char *line, int index);
+int double_quotes_tokenization(t_env *env, t_cmd * cmd, char *line, int index);
+int single_quotes_tokenization(t_cmd *cmd, char *line, int index);
 int word_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int variable_tokenization(t_env *env, t_cmd *cmd, char *line, int index);
 int variables_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int string_extraction(t_env *env, t_cmd *cmd, char *line, int index);
-int blank_argument_extraction(t_env *env, t_cmd *cmd, char *line, int index);
-int flags_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int blank_argument_tokenization(t_env *env, t_cmd *cmd, char *line, int index);
+int flags_tokenization(t_env *env, t_cmd *cmd, char *line, int index);
 
 int boolean_classification(t_env *env, char *line, int index);
 int argument_classification(t_env *env, t_cmd *cmd, char *line, int index);

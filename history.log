@@ -725,3 +725,75 @@ echo 'test
 echo 'test
 echo 'test
 echo 'test
+                   
+                         
+echo cou$"$mama$"$'$'papa
+echo echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+export mama kuku
+export
+env
+export mama=kuku
+env
+echo cou$"$mama$"$'$'papa
+echo echo -n
+echo -n echo
+echo -n mama
+ls
+ls -l
+test << kk
+fewf
+fwef
+kk
+echo mama << kk
+ls -l << d
+ls -l << d
+ls -l << d
+ls -l << d
+cat | cat 
+cat | cat | cat | ls
+cat main.c
+cat | cat | ls
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$
+echo cou$"salut"
+echo cou$"$salut"
+echo $salut
+echo sa$salut
+echo sal$mama
+echo sal"$mama"
+echo sal"$mama$"
+echo sa$"$mama$"
+sa$"salut"
+echo salut$"salut"
+echo salut$"$salut"
+echo s$s
+echo s$"$s
+echo s$"$salut"
+echo sa$"$lut"
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa
+echo $existpas
+echo $
+echo $sa
+echo $"salut"
+echo $"salut"
+echo $"salut"
+echo cou$"$mama$"$'$'papa
+echo cou$"$mama$"$'$'papa

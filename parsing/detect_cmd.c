@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 12:48:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/16 18:55:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,29 @@ int argument_classification(t_env *env, t_cmd *cmd, char *line, int index)
     new_index = index;
     if (is_flags(line, index))
     {
-        new_index = flags_extraction(env, cmd, line, index);
+        new_index = flags_tokenization(env, cmd, line, index);
     }
     else if (is_blank_argument(env, line, index))
     {
-        new_index = blank_argument_extraction(env, cmd, line, index);
+        new_index = blank_argument_tokenization(env, cmd, line, index);
     }
     else if (is_single_quote(line[index]))
     {
-       new_index = single_quotes_extraction(cmd, line, index);
+       new_index = single_quotes_tokenization(cmd, line, index);
     } 
     else if (is_double_quote(line[index]))
     {
-        new_index = double_quotes_extraction(env, cmd, line, index);
+        new_index = double_quotes_tokenization(env, cmd, line, index);
     }  
-    else if (is_variable(env, line, index))
+    else if (is_variable_word(line, index))
     {
-        new_index = variables_extraction(env, cmd, line, index);
+        new_index = variable_tokenization(env, cmd, line, index);
     }   
     else if (is_word(env, line, index))
+    {
+        printf("line [%c] [%d]\n", line[index], index);
         new_index = word_argument_extraction(env, cmd, line, index);
+    }
     return (new_index);
 }
+
