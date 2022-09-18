@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:46:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 17:00:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:04:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 
 void ft_exit(t_env *env);
 
+void free_env_var(t_env_var *var);
 void free_all(t_env *env);
 void my_free(void **ptr);
 
+void remove_env_var(t_variable *variable, t_env_var *var);
 void remove_all(t_env *env);
 void remove_all_token(t_env *env);
 void remove_arg(t_arg *arg);
@@ -35,6 +37,8 @@ void remove_token_file(t_file *file);
 void remove_variable(t_variable *var);
 
 void disconect_arg(t_arg *arg);
+void disconect_env_var(t_variable *variable, t_env_var *var);
+void disconect_env_var_first(t_variable *variable, t_env_var *var, t_env_var *var_next);
 void disconect_token(t_token *token);
 
 # endif

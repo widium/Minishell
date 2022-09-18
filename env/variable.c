@@ -6,11 +6,34 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 15:49:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:42:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+
+char *get_env_variable_value(char *variable)
+{
+    int i;
+    int start;
+    int end;
+    char *value;
+
+    i = 0;
+    while (variable[i])
+    {
+        if (variable[i] == '=')
+        {
+            start = i + 1;
+            end = ft_strlen(variable);
+            value = malloc_substrcpy(variable, start, (end - start) + 1);
+            return (value);
+        }
+        i++;
+    }
+    return (NULL);
+}
 
 char *get_variable_value(char **variables, char *variable)
 {
@@ -28,17 +51,12 @@ char *get_variable_value(char **variables, char *variable)
     return (NULL);
 }
 
-int same_name(char *variable, char *var)
+int same_name(char *first, char *second)
 {
-    char *var_name;
-
-    var_name = get_variable_name(variable);
-    if (same_str(var_name, var, ft_strlen(var_name)))
+    if (same_str(first, second, ft_strlen(first)))
     {
-        free(var_name);
         return (1); 
     }
-    free(var_name);
     return (0);
 }
 
@@ -79,7 +97,7 @@ int get_variable_index(char **variables, char *variable)
     return (-1);
 }
 
-char *extract_value_variable(char *env, char *variable)
+char *extract_value_variable(char *env_variable, char *variable)
 {
     int start;
     int end;
@@ -88,8 +106,8 @@ char *extract_value_variable(char *env, char *variable)
     start = 0;
     end = 0;
 
-    start = index_diff(env, variable, ft_strlen(variable)) + 1;
-    end = ft_strlen(env);
-    content = malloc_substrcpy(env, start, (end - start) + 1);
+    start = index_diff(env_variable, variable, ft_strlen(variable)) + 1;
+    end = ft_strlen(env_variable);
+    content = malloc_substrcpy(env_variable, start, (end - start) + 1);
     return (content);
 }

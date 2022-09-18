@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 13:14:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:43:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 char **get_bins(t_env *env);
 char **get_list_of_bins(char *path_variable);
 
+int get_env_var_size(t_variable *variable);
+t_env_var *get_env_var_with_name(t_variable *variable, char *name);
+t_env_var *get_last_env_var(t_variable *variable);
+t_env_var *get_first_env_var(t_variable *vars);
 void *get_class(t_token *token);
 char *get_content(t_token *token);
 char *get_file_name(t_token *token);
@@ -29,8 +33,9 @@ void get_arg_variables_value(t_env *env);
 
 t_token *get_first_token(t_env *env);
 t_cmd *get_first_cmd(t_env *env);
+char *get_env_variable_value(char *variable);
 char *get_variable_value(char **variables, char *var);
-int same_name(char *variable, char *var);
+int same_name(char *first, char *second);
 char *get_variable_name(char *variable);
 int get_variable_index(char **variables, char *var);
 

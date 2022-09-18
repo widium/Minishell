@@ -6,11 +6,71 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 14:14:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:42:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+
+
+t_env_var *get_env_var_with_name(t_variable *variable, char *name)
+{
+    t_env_var *var;
+
+    var = get_first_env_var(variable);
+    if (!var)
+        return (NULL);
+    while (var)
+    {
+        if (same_name(var->name, name))
+        {
+            return (var);
+        }
+        var = var->next;
+    }
+    return (0);
+}
+
+t_env_var *get_first_env_var(t_variable *vars)
+{
+    if (vars->first_var)
+        return (vars->first_var);
+    return (0);
+}
+
+t_env_var *get_last_env_var(t_variable *variable)
+{
+    t_env_var *var;
+
+    var = get_first_env_var(variable);
+    if (!var)
+        return (NULL);
+    while (var)
+    {
+        if (!var->next)
+            return (var);
+        var = var->next;
+    }
+    return (0);
+}
+
+int get_env_var_size(t_variable *variable)
+{
+    t_env_var *var;
+    int i;
+
+    var = get_first_env_var(variable);
+    if (!var)
+        return (0);
+    i = 0;
+    while (var)
+    {
+        i++;
+        var = var->next;
+    }
+    return (i);
+}
 
 t_arg *get_first_arg(t_cmd *cmd)
 {

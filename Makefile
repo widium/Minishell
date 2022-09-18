@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/15 19:04:32 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/18 18:01:48 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME = minishell
 SRCS		= 	main.c \
 				utils/init.c \
 				utils/string_utils.c \
+				env/chained_var.c \
 				env/prompt.c \
 				env/signal.c \
 				env/env.c \

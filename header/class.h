@@ -6,18 +6,33 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 15:35:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 17:50:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLASS_H
 # define CLASS_H
 
+# define NATIF 1
+# define EXPORT 2
+
+typedef struct s_env_variable
+{
+    int index;
+    int id;
+    char *name;
+    char *value;
+    struct s_env_variable *next;
+    struct s_env_variable *prev;
+    
+}   t_env_var;
+
 typedef struct s_varaible
 {
     char *path;
-	char **variables;
 	char **bins;
+    char **variables;
+    t_env_var *first_var;
 } 		t_variable;
 
 typedef struct s_token

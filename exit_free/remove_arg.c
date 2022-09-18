@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 14:16:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:05:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,48 @@ void disconect_arg(t_arg *current_arg)
     arg_prev = current_arg->prev;
     arg_next = current_arg->next;
     
+    
     if (arg_prev)
       arg_prev->next = arg_next;
     if (arg_next)
       arg_next->prev = arg_prev;
     current_arg->next = NULL;
     current_arg->prev = NULL; 
+}
+
+void disconect_env_var(t_variable *variable, t_env_var *var)
+{
+    t_env_var *var_prev;
+    t_env_var *var_next;
+
+    
+    var_prev = var->prev;
+    var_next = var->next;
+    
+    if (var->index == 0)
+    {
+        disconect_env_var_first(variable, var, var_next);
+        return ;
+    }
+    if (var_prev)
+      var_prev->next = var_next;
+    if (var_next)
+      var_next->prev = var_prev;
+    var->next = NULL;
+    var->prev = NULL; 
+}
+
+void disconect_env_var_first(t_variable *variable, t_env_var *var, t_env_var *var_next)
+{
+    if (!var_next)
+        variable->first_var = NULL;
+    else
+    {
+        variable->first_var = var_next;
+        var_next->prev = NULL;
+    }
+    var->next = NULL;
+    var->prev = NULL; 
 }
 
 void remove_arg_index(t_cmd *cmd, t_arg *arg)

@@ -6,11 +6,56 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:21:59 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/10 09:11:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:56:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+
+void print_all_env_var(t_variable *vars)
+{
+    t_env_var *var;
+
+    var = get_first_env_var(vars);
+    if (!var)
+        return ;
+    while (var)
+    {
+        print_env_var(var);
+        var = var->next;
+    }
+}
+
+void print_env_var(t_env_var *var)
+{
+    if (!var)
+        return ;
+	ft_printf("%s=%s\n", var->name, var->value);
+}
+
+void print_all_env_var_struct(t_variable *vars)
+{
+    t_env_var *var;
+
+    var = get_first_env_var(vars);
+    if (!var)
+        return ;
+    while (var)
+    {
+        print_env_var_struct(var);
+        var = var->next;
+    }
+}
+
+void print_env_var_struct(t_env_var *var)
+{
+	printf(" ---[%s]---\n", var->name);
+    printf(" | type : [%d]\n", var->id);
+	printf(" | index : [%d]\n", var->index);
+    printf(" | value : [%s]\n", var->value);
+    printf(" ----------------\n");
+}
 
 void print_cmd(t_cmd *cmd, int index)
 {

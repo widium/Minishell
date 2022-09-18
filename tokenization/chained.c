@@ -6,11 +6,41 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/26 17:55:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:49:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+void add_variables_list(t_variable *variables, t_env_var *var)
+{
+    t_env_var *iter;
+    int i;
+    
+    i = 0;
+    if (!(variables->first_var))
+    {
+        variables->first_var = var;
+        var->index = i;
+    } 
+    else 
+    {
+        iter = get_first_env_var(variables);
+        if (!iter)
+            return ;
+        i++;
+        while (iter)
+        {
+            i++;
+            if (!(iter->next))
+                break;
+            iter = iter->next;  
+        }
+        var->index = i; 
+        connect_var(iter, var);
+    }
+}
+
 
 void add_chained_list(t_env *env, t_token *token)
 {

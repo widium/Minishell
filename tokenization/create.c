@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:58:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/08 14:45:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/18 18:01:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,13 @@ void connect_token(t_token *curr_token, t_token *next_token)
 	curr_token->next = next_token;
 	next_token->prev = curr_token;
 }
+
+void connect_var(t_env_var *curr_var, t_env_var *next_var)
+{
+	curr_var->next = next_var;
+	next_var->prev = curr_var;
+}
+
 
 void connect_arg(t_arg *curr_arg, t_arg *next_arg)
 {
