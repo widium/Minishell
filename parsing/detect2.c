@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 15:20:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:26:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int single_quotes_detection(char *line, int index)
 
     start = index;
     index++;
-    while (line[start])
+    while (line[index])
     {
         while (line[index] && is_back_slash(line[index]))
             index++;

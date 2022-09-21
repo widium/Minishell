@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 17:22:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:35:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,15 @@ void export_built_in(t_cmd *cmd, t_env *env)
 
 void unset(t_cmd *cmd, t_env *env)
 {
-    char **variables;
-    char **new_variables;
-    int index_var;
+    t_env_var *var;
+    char *name;
 
     if (!cmd->arg)
         return ;
-    variables = env->variable->variables;
-    index_var = get_variable_index(variables, cmd->arg);
-    new_variables = ft_arrayremove_str(variables, index_var);
-    free(variables);
-    env->variable->variables = new_variables;
+    name = get_variable_name(cmd->arg);
+    var = get_env_var_with_name(env->variable, name);
+    remove_and_disconect_env_var(env->variable, var);
+    free(name);
 }
 
 void pwd(t_cmd *cmd, t_env *env)

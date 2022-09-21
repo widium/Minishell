@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 19:13:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:45:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int argument_detection(t_env *env, t_cmd *cmd, char *line, int index)
     int new_index;
 
     new_index = index;
-
+    if (is_flags(line, index))
+    {
+        new_index = flags_tokenization(env, cmd, line, index);
+    }
     while (line_is_not_finish(line, index) && !(is_separator(line, index)))
     {
         new_index = argument_classification(env, cmd, line, index);
@@ -33,11 +36,7 @@ int argument_classification(t_env *env, t_cmd *cmd, char *line, int index)
     char *name;
     
     new_index = index;
-    if (is_flags(line, index))
-    {
-        new_index = flags_tokenization(env, cmd, line, index);
-    }
-    else if (is_blank_argument(env, line, index))
+    if (is_blank_argument(env, line, index))
     {
         new_index = blank_argument_tokenization(env, cmd, line, index);
     }

@@ -915,3 +915,30 @@ echo "bon>>jou<<r" | echo "s>a|lu<t"
 cat main.c|wc -l
 cat main.c|wc -l
 cat main.c|wc -l
+export A=123
+env
+export A=123
+env
+env'
+env
+'
+''
+env'
+export A=1223
+env
+unset A
+env
+unset ?
+env
+unset _
+env
+export A=1234
+env
+unset A
+export A=123
+env
+unset A
+echo echo -n
+echo -n mama
+echo echo -n
+echo -n echo

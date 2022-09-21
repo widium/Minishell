@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 19:17:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:22:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int command_tokenization(t_env *env, char *line, char *content, int index)
     t_token *token;
     
     token = command_classification(env, content);
-    if (line_is_not_finish(line, index + 1))
+    if (line_is_not_finish(line, index))
     {
         index = argument_detection(env, get_class(token), line, index + 2);
     }
