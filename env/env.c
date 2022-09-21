@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:44:46 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 17:23:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:27:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void change_env_var_value_with_name(t_env *env, char *name, char *value)
 {
     t_env_var *var;
 
-    
     var = get_env_var_with_name(env->variable, name);
     if (!var)
         return ;

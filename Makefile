@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/21 17:15:40 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/21 17:33:27 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,15 +94,6 @@ TEMPLATE = header/header.txt
 # ==== Execute ==== #
 EXE = @./$(NAME)
 
-# ==== Objet && compiling ==== #
-OBJS			= $(SRCS:.c=.o)
-CC				= gcc
-# FLAGS 		= -Wall -Werror -Wextra
-FLAGS			= -g3
-# FLAGS 			+= $(SANITIZE)
-READLINE		= -lreadline
-MAKE			= make -s
-
 # ==== Debug && Leak ==== #
 SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
@@ -110,6 +101,15 @@ DEBUGGER		= lldb
 
 # ==== Remove ==== #
 RM_FILE = /bin/rm -rf
+
+# ==== Objet && compiling ==== #
+OBJS			= $(SRCS:.c=.o)
+CC				= gcc
+# FLAGS 		= -Wall -Werror -Wextra
+FLAGS			= -g3
+FLAGS 			+= $(SANITIZE)
+READLINE		= -lreadline
+MAKE			= make -s
 
 
 # === Convert all .c to .o with flags and header === # 

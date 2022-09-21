@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 17:18:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:02:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,24 +49,6 @@ t_env_var *get_env_var_with_name(t_variable *variable, char *name)
     }
     return (0);
 }
-
-// int is_env_var_exist(t_variable *variable, char *name)
-// {
-//     t_env_var *var;
-
-//     var = get_first_env_var(variable);
-//     if (!var)
-//         return (NULL);
-//     while (var)
-//     {
-//         if (same_name(var->name, name))
-//         {
-//             return (var);
-//         }
-//         var = var->next;
-//     }
-//     return (0);
-// }
 
 t_env_var *get_first_env_var(t_variable *vars)
 {

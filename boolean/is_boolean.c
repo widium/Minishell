@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:10:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/07/20 17:22:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:31:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 
 int is_and_operator(char *line, int i)
 {
-    if (line[i - 1] != '&' && line[i] == '&' && line[i + 1] == '&' && line[i + 2] != '&' ||
-        (line[i - 2] != '&' && line[i - 1] == '&' && line[i] == '&' && line[i + 1] != '&'))
+    if (line[i] == '&' && line[i + 1] == '&')
         return (1);
     return (0);
 }
 
 int is_or_operator(char *line, int i)
 {
-   if (line[i - 1] != '|' && line[i] == '|' && line[i + 1] == '|' && line[i + 2] != '|' ||
-        (line[i - 2] != '|' && line[i - 1] == '|' && line[i] == '|' && line[i + 1] != '|'))
+   if (line[i] == '|' && line[i + 1] == '|')
         return (1);
     return (0); 
 }

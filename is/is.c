@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 14:45:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:30:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ int	line_is_not_empty(char	*line)
 
 int is_single(char *str, int i, int c)
 {
-    if (str[i - 1] == ' ' && str[i] == c && str[i + 1] == ' ')
+    if (str[i] == c && str[i + 1] == ' ')
         return (1);
     return (0);
 }
 
 int is_doublons(char *str, int i, int c)
 {
-    if (str[i - 1] == ' ' && str[i] == c && str[i + 1] == c && str[i + 2] == ' ')
+    if (str[i] == c && str[i + 1] == c)
         return (1);
     return (0);
 }

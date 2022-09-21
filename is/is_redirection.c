@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:45:44 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 16:04:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:30:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,35 @@
 
 int is_pipe(char *line, int i)
 {
-   if (line[i - 1] != '|' && line[i] == '|' && line[i + 1] != '|')
+   if (line[i] == '|' && line[i + 1] != '|')
         return (1);
     return (0); 
 }
 
 int is_output_chevrons(char *line, int i)
 {
-    if (line[i - 1] != '>' && line[i] == '>' && line[i + 1] != '>')
+    if (line[i] == '>' && line[i + 1] != '>')
         return (1);
     return (0);
 }
 
 int is_input_chevrons(char *line, int i)
 {
-    if (line[i - 1] != '<' && line[i] == '<' && line[i + 1] != '<')
+    if (line[i] == '<' && line[i + 1] != '<')
         return (1);
     return (0);
 }
 
 int is_append_chevrons(char *line, int i)
 {
-    if ((line[i-1] != '>' && line[i] == '>' && line[i+1] == '>' && line[i+2] != '>') || 
-        (line[i-2] != '>' && line[i - 1] == '>' && line[i] == '>' && line[i + 1] != '>'))
+    if ((line[i] == '>' && line[i+1] == '>'))
         return (1);
     return (0);
 }
 
 int is_heredoc(char *line, int i)
 {
-    if ((line[i-1] != '<' && line[i] == '<' && line[i+1] == '<' && line[i+2] != '<') ||
-        (line[i-2] != '<' && line[i - 1] == '<' && line[i] == '<' && line[i+1] != '<'))
+    if ((line[i] == '<' && line[i+1] == '<'))
         return (1);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 16:53:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:07:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char **list_to_array(t_cmd *cmd)
     arg = get_first_arg(cmd);
     if (arg->content == NULL)
         return (NULL);
-    complete = malloc(sizeof(char *)*size_of_list(cmd) + 1);
+    complete = malloc(sizeof(char *)*(size_of_list(cmd) + 1));
     while (arg)
     {
         complete[i] = malloc_strcpy(arg->content);

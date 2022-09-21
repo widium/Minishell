@@ -910,3 +910,8 @@ export
 ls
 ls | cat
 ls > salut
+echo $HOME
+echo "bon>>jou<<r" | echo "s>a|lu<t"
+cat main.c|wc -l
+cat main.c|wc -l
+cat main.c|wc -l
