@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:47:07 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/09 16:03:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:16:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,35 @@ void get_arg_variables_value(t_env *env)
     }
 }
 
-int variable_exist(t_env *env, char *variable)
+int variable_exist(t_env *env, char *name)
 {
-    char **env_variables;
-    int index;
+    t_variable *vars;
+    t_env_var *var;
 
-    env_variables = get_env_variables(env); 
-    index = 0;
-
-    while (env_variables[index])
-    {
-        if (same_name(env_variables[index], variable))
-            return (1);
-        index++;
-    }
+    vars = env->variable;
+    var = get_env_var_with_name(vars, name);
+    if (!var)
+        return (0);
+    if (same_name(var->name, name))
+        return (1);
     return (0);    
 }
 
 void change_arg_variable_content(t_env *env, t_arg *arg)
 {
-    char *value;
-    char **variables;
+    char *name;
+    t_variable *variable;
+    t_env_var *var;
+    
 
-    variables = env->variable->variables;
-    value = malloc_strcpy(arg->content);
+    variable = env->variable;
+    name = malloc_strcpy(arg->content);
     free(arg->content);
-    arg->content = get_variable_value(variables, value);
+    arg->content = get_env_var_value_with_name(variable, name);
     if (arg->content == NULL)
     {
-        printf("Error : unknow variable [%s]\n", value);
+        printf("Error : unknow variable [%s]\n", name);
         env->error_processing += 1;
     }
-    free(value);
+    free(name);
 }

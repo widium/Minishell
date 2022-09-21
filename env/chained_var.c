@@ -6,13 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:00:19 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:25:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:21:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-t_env_var *create_chained_var(t_variable *variable, char **env_variable)
+void create_chained_var(t_variable *variable, char **env_variable)
 {	
 	int index;
 	char *name;
@@ -24,11 +24,10 @@ t_env_var *create_chained_var(t_variable *variable, char **env_variable)
 	{
 		name = get_variable_name(env_variable[index]);
 		value = get_env_variable_value(env_variable[index]);
-		var = init_env_variable(name, value, index, NATIF);
+		var = init_env_variable(name, value, VALUE);
 		add_variables_list(variable, var);
 		index++;
 	}
-	return (get_first_env_var(variable));
 }
 
 void add_new_env_variable(t_variable *variable, t_env_var *new)

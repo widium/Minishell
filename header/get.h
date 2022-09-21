@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:43:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:01:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 # include "class.h"
 
 char **get_bins(t_env *env);
-char **get_list_of_bins(char *path_variable);
+char **get_list_of_bins(t_variable *vars, char *value);
 
 int get_env_var_size(t_variable *variable);
+char *get_env_var_value_with_name(t_variable *variable, char *name);
 t_env_var *get_env_var_with_name(t_variable *variable, char *name);
 t_env_var *get_last_env_var(t_variable *variable);
 t_env_var *get_first_env_var(t_variable *vars);

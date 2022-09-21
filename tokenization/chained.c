@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 13:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:49:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:20:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,14 @@ void add_variables_list(t_variable *variables, t_env_var *var)
     } 
     else 
     {
-        iter = get_first_env_var(variables);
-        if (!iter)
-            return ;
+        iter = variables->first_var;
         i++;
-        while (iter)
+        while (iter->next)
         {
             i++;
-            if (!(iter->next))
-                break;
-            iter = iter->next;  
+            iter = iter->next;
         }
-        var->index = i; 
+        var->index = i;
         connect_var(iter, var);
     }
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:34:03 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 17:50:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:20:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void print_token(t_token *token);
 void print_all_cmd_info(t_env *env);
 void print_all_env_var_struct(t_variable *vars);
 void print_env_var_struct(t_env_var *var);
+void print_all_env_export_var(t_variable *vars);
 void print_all_env_var(t_variable *vars);
 void print_env_var(t_env_var *var);
 void print_cmd(t_cmd *cmd, int index);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:28:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:15:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,15 @@
 
 void ask_verbose(t_env *env);
 t_env	*init_env(char **varaibles);
-t_env_var	*init_env_variable(char *name, char *value, int index, int id);
+t_env_var	*init_env_variable(char *name, char *value, int id);
 t_variable *init_variable(char **variables);
 
 void recover_path_and_bins_variable(t_variable *var, char **env_variable);
 char **add_env_variable(char **variables, char *var);
 void add_signal_env_var(t_variable *vars);
 void add_new_env_variable(t_variable *variable, t_env_var *new);
-void change_variable_value(t_env *env, char *var, char *value);
+void change_env_var_value_with_name(t_env *env, char *var, char *value);
+void change_env_var_value(t_env_var *var, char *new_value);
 void update_variable_status_process(t_env *env, int status);
 void recover_keyword(char *str, int i);
 int recover_limiter(t_redirection *redir, char *line, int index);

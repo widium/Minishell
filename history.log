@@ -819,3 +819,94 @@ cat | cat
 cat | cat
 cat | cat | ls
 cat | cat | ls
+echo $HOME
+echo $salut
+echo $salut
+echo $salut
+echo $salut
+echo $salut
+echo $sault
+echo $HOME
+echo $sault
+echo $HOME
+echo sault
+echo saukt
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+echo $HOME
+env 
+env
+echo $HOME
+env
+cd ..
+env
+cd ..
+cd ..
+cd ..
+cd ..
+export A=1234
+export TAGRANDMERE=13
+export A
+echo $HOME
+export A
+echo $HOME
+echo $HOME
+echo $HOME
+export A
+export A
+export A
+export A
+export
+export A
+export
+export
+export A
+env
+export
+export A
+env
+export A
+env
+export A
+env
+export A=123
+env
+export
+export B
+env
+export
+export S
+export A
+export
+export
+export A
+env
+env
+export
+export A=1234
+env
+export
+export A
+env
+export
+export A=123
+env
+export
+export A
+env
+export A=123
+env
+export
+ls
+ls | cat
+ls > salut

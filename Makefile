@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/18 18:01:48 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/21 17:15:40 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,9 +96,10 @@ EXE = @./$(NAME)
 
 # ==== Objet && compiling ==== #
 OBJS			= $(SRCS:.c=.o)
-CC				= clang
+CC				= gcc
 # FLAGS 		= -Wall -Werror -Wextra
-FLAGS			= -g3 
+FLAGS			= -g3
+# FLAGS 			+= $(SANITIZE)
 READLINE		= -lreadline
 MAKE			= make -s
 
@@ -109,6 +110,7 @@ DEBUGGER		= lldb
 
 # ==== Remove ==== #
 RM_FILE = /bin/rm -rf
+
 
 # === Convert all .c to .o with flags and header === # 
 %.o : %.c $(HEADER)

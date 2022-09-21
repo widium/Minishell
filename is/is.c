@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 18:56:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:45:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,7 +240,7 @@ int is_bin(t_env *env, char *word)
 {
     char **bins;
 
-    bins = get_env_bins(env);;
+    bins = get_env_bins(env);
     if (test_absolute_bin_access(word))
         return (1);
     else if (test_bin_access(bins, word))

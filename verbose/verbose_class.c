@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:21:59 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:56:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:20:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ void print_all_env_var(t_variable *vars)
         return ;
     while (var)
     {
+        if (var->id == VALUE)
+            print_env_var(var);
+        var = var->next;
+    }
+}
+
+void print_all_env_export_var(t_variable *vars)
+{
+    t_env_var *var;
+
+    var = get_first_env_var(vars);
+    if (!var)
+        return ;
+    while (var)
+    {
         print_env_var(var);
         var = var->next;
     }
@@ -29,9 +44,12 @@ void print_all_env_var(t_variable *vars)
 
 void print_env_var(t_env_var *var)
 {
-    if (!var)
+    if (!var || !var->name)
         return ;
-	ft_printf("%s=%s\n", var->name, var->value);
+    if (!var->value)
+        ft_printf("%s\n", var->name);
+    else
+	    ft_printf("%s=%s\n", var->name, var->value);
 }
 
 void print_all_env_var_struct(t_variable *vars)

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:11:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:23:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_boolean	*init_boolean_operator(char * content, char *first, char *second, int 
 t_wildcard	*init_wildcard(void);
 t_arg *init_arg(char *content, int id);
 
-t_env_var *create_chained_var(t_variable *variable, char **env_variable);
+void create_chained_var(t_variable *variable, char **env_variable);
 t_token *create_token_word(char *content, int id);
 t_token *create_token_bool(char *content, char *first, char *second, int id);
 t_token *create_token_redir(char *line, int index, int new_index);

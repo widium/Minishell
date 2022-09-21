@@ -6,15 +6,15 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 17:50:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 18:21:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLASS_H
 # define CLASS_H
 
-# define NATIF 1
-# define EXPORT 2
+# define VALUE 1
+# define NONE_VALUE 2
 
 typedef struct s_env_variable
 {

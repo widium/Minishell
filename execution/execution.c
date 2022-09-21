@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 15:53:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 15:33:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,10 @@ void wait_all_pid(t_env *env)
 
 void update_variable_status_process(t_env *env, int status)
 {
-    char **env_variables;
     char *value;
 
-    env_variables = get_env_variables(env);
     value = ft_itoa(status);
-    change_variable_value(env, "?", value);
-    free(value);
+    if (!value)
+        return ;
+    change_env_var_value_with_name(env, "?", value);
 }

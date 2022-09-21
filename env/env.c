@@ -6,19 +6,27 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 15:44:46 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 15:57:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:23:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void change_variable_value(t_env *env, char *var, char *value)
+void change_env_var_value_with_name(t_env *env, char *name, char *value)
 {
-    char **variables;
-    int index_var;
+    t_env_var *var;
+
     
-    variables = get_env_variables(env);
-    index_var = get_variable_index(env->variable->variables, var);
-    free(variables[index_var]);
-    variables[index_var] = ft_strjoin_char(var, value, '=');
+    var = get_env_var_with_name(env->variable, name);
+    if (!var)
+        return ;
+    change_env_var_value(var, value);
+}
+
+void change_env_var_value(t_env_var *var, char *new_value)
+{
+    if (var->value)
+        free(var->value);
+    var->value = new_value;
+    var->id = VALUE;
 }

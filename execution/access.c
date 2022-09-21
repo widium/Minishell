@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/07 14:27:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:02:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,15 @@ void recover_path_and_bins_variable(t_variable *var, char **env_variable)
     char *path;
     char **bins;
     
-    path = get_variable_value(env_variable, "PATH");
-    bins = get_list_of_bins(path);
-    var->path = path;
-    var->bins = bins;
+    var->path = get_variable_value(env_variable, "PATH");
+    var->bins = get_list_of_bins(var, path);
 }
 
-char **get_list_of_bins(char *path_variable)
+char **get_list_of_bins(t_variable *vars, char *value)
 {
     char **bins;
-    
-    bins = ft_split(path_variable, ':');
+
+    bins = ft_split(value, ':');
     return (bins);
 }
 

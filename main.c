@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/18 18:47:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/19 17:38:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int argc, char **argv, char **env_var)
 	env_variable = malloc_strcpy_array(env_var);
 	env = init_env(env_variable);
 	// ask_verbose(env);
-	// env->verbose = 1;
-    // prompt(env);
-	// remove_all(env);
+	env->verbose = 1;
+    prompt(env);
+	remove_all(env);
 }
 
 // void array_to_list(t_variable *variables)
@@ -52,9 +52,9 @@ int	main(int argc, char **argv, char **env_var)
 
 // int main(int argc, char **argv, char **env)
 // {
-// 	int index = 0;
-
-// 	test("salut moi c'est eddie\n", &index);
-// 	printf("index : [%d]\n", index);
 	
+// 	char **env_variable = malloc_strcpy_array(env);
+// 	char **ret = ft_split(env_variable[0], '=');
+// 	print_array(ret);
+
 // }
