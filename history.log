@@ -1093,3 +1093,102 @@ echo salut > test.txt > cc.txt > test2.txt
 echo salut > test.txt > cc.txt > test2.txt
 echo salut > test.txt > cc.txt > test2.txt
 echo salut > test.txt > cc.txt > test2.txt
+echo sa'lut'cest"$HOME
+ls
+/bin/ls
+ls | frep main
+/bin/ls
+cat | cat | ls
+cat | cat |cat| ls
+cat | cat | cat | ls
+echo lool >> text.txt
+cat text.txt 
+echo lool >> text.txt
+cat text.txt 
+echo lool > text.txt
+cat text.txt 
+>> echo text.txt
+echo <<
+echo << a
+>> cat.txt
+export
+export a
+env
+export
+export a=23
+env
+export
+unset a
+env
+unset a
+unset F
+unset
+cd
+>test.txt
+echo 'test.txt
+cat 'test.txt
+cat text.txt
+cat 'text.txt
+cat | cat | ls |
+cd
+cd 
+ls
+make
+echo test'
+echo $?
+qweuodhweuohfuw
+echo $?
+cd weqhuidqweui
+echo $?
+make
+ls\
+ls
+echo $?
+>> echo
+>> echo
+> echo
+<<
+> echo
+unset H
+export H
+unset H
+unset H
+unset a
+unset H
+unset H
+unset H
+unset H
+unset H
+echo salut
+echo $?
+cat |cat| ls
+cat|cat|ls
+cat|cat|ls
+make
+v
+cat|cat|ls
+make
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls
+cat|cat|ls

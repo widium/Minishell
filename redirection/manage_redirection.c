@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:53:29 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:28:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:06:28 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ void manage_fd_basic_redirection(t_token *token)
     prev_cmd = get_prev_cmd(token);
     next_cmd = get_next_cmd(token);
     next_file = get_next_file(token);
-    
+
+    if (!prev_cmd)
+        return ;
     if (is_token_input_chevron(token))
     {
         open_next_file_with_flags(token, next_file);

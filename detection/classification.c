@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 09:57:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:11:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int word_classification(t_env *env, char *line, int index)
     content = malloc_substrcpy(line, index, (new_index - index) + 1);
     if (is_cmd(env, content))
     {
-        new_index = command_tokenization(env, line, content, new_index);
+        new_index = command_tokenization(env, line, content, ++new_index);
     }
     else
     {
@@ -66,11 +66,10 @@ int command_tokenization(t_env *env, char *line, char *content, int index)
     t_token *token;
     
     token = command_classification(env, content);
-    if (line_is_not_finish(line, index))
+    if (!(is_separator(line, index)))
     {
         index = argument_detection(env, get_class(token), line, index + 2);
     }
-    
     add_chained_list(env, token);
     return (index);
 }

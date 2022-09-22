@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 21:24:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:02:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int redirection_detection(char *line, int index)
     int start;
     
     start = index;
-    while (line[index])
+    while (line_is_not_finish(line, index))
     {
         if (!(is_redirection(line, index)))
         {
@@ -39,7 +39,7 @@ int redirection_detection(char *line, int index)
         } 
         index++;
     }
-    if (is_finish(line[index]) && is_redirection(line, index -1))
+    if (index == ft_strlen(line) && is_redirection(line, index -1))
     {
         return (index - 1);
     }

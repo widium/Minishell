@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 11:09:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:12:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int is_not_finish(char c)
 
 int line_is_finish(char *line, int index)
 {
-    if (is_finish(line[index]) || index >= ft_strlen(line))
+    if (index >= ft_strlen(line) && is_finish(line[index]))
         return (1);
     return (0);
 }
@@ -72,6 +72,8 @@ int is_doublons(char *str, int i, int c)
 
 int is_separator(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if (is_redirection(line, i) || is_boolean_operator(line, i)
         || is_blank_before_finish(line, i))
         return (1);
@@ -257,6 +259,8 @@ int is_cmd(t_env *env, char *word)
 
 int is_flags(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if (line[i] == '-' && !(is_blank(line[i+1])))
         return (1);
     return (0);

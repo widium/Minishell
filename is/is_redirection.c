@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:45:44 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 17:30:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:13:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int is_pipe(char *line, int i)
 {
-   if (line[i] == '|' && line[i + 1] != '|')
+    if (i >= ft_strlen(line))
+        return (0);
+    if (line[i] == '|' && line[i + 1] != '|')
         return (1);
     return (0); 
 }
 
 int is_output_chevrons(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if (line[i] == '>' && line[i + 1] != '>')
         return (1);
     return (0);
@@ -28,6 +32,8 @@ int is_output_chevrons(char *line, int i)
 
 int is_input_chevrons(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if (line[i] == '<' && line[i + 1] != '<')
         return (1);
     return (0);
@@ -35,6 +41,8 @@ int is_input_chevrons(char *line, int i)
 
 int is_append_chevrons(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if ((line[i] == '>' && line[i+1] == '>'))
         return (1);
     return (0);
@@ -42,6 +50,8 @@ int is_append_chevrons(char *line, int i)
 
 int is_heredoc(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if ((line[i] == '<' && line[i+1] == '<'))
         return (1);
     return (0);
@@ -49,6 +59,8 @@ int is_heredoc(char *line, int i)
 
 int is_redirection(char *line, int i)
 {
+    if (i >= ft_strlen(line))
+        return (0);
     if (is_pipe(line, i) || is_output_chevrons(line, i) ||
             is_input_chevrons(line, i) || is_append_chevrons(line, i) || is_heredoc(line , i))
         return (1);

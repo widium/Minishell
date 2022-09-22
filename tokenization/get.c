@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 19:53:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:15:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_env_var *get_env_var_with_name(t_variable *variable, char *name)
         return (NULL);
     while (var)
     {
-        if (same_name(var->name, name))
+        if (same_name(name, var->name))
         {
             return (var);
         }

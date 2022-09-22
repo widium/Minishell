@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 09:49:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:09:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ void execution(t_env *env)
         printf("=========\n");
 }
 
+/*
+waitpid(pip->pid[n], &g_status_exit, 0);
+if (WIFSIGNALED(g_status_exit) && !ad->pa->is_blt)
+    g_status_exit = SIGNAL_ERR + g_status_exit;
+if (WIFEXITED(g_status_exit))
+    g_status_exit = WEXITSTATUS(g_status_exit);
+*/
+
 void wait_all_pid(t_env *env)
 {
     t_token *token;
@@ -50,6 +58,10 @@ void wait_all_pid(t_env *env)
     {
         cmd = get_class(token);
         waitpid(cmd->pid, &status, 0);
+        if(WIFSIGNALED(status))
+            status = WEXITSTATUS(status);
+        if (WIFEXITED(status))
+            status = WEXITSTATUS(status);
         update_variable_status_process(env, status);
         token = get_next_token_cmd(token);
     }
@@ -59,7 +71,6 @@ void update_variable_status_process(t_env *env, int status)
 {
     t_env_var *var;
     char *value;
-
     value = ft_itoa(status);
     if (!value)
         return ;

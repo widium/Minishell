@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 18:35:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:17:14 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,10 @@ void unset(t_cmd *cmd, t_env *env)
         return ;
     name = get_variable_name(cmd->arg);
     var = get_env_var_with_name(env->variable, name);
-    remove_and_disconect_env_var(env->variable, var);
+    if (var)
+    {
+        remove_and_disconect_env_var(env->variable, var);
+    }    
     free(name);
 }
 
