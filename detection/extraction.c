@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 16:15:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:00:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int flags_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
         end = index - 1;
     arg = tokenizer_arg(line, start, end, TOKEN_FLAGS);
     add_arg_list(cmd, arg);
-    return (end);
+    return (end + 1);
 }
 
 int variables_extraction(t_env *env, t_cmd *cmd, char *line, int index)

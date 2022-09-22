@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 19:45:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:04:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int argument_detection(t_env *env, t_cmd *cmd, char *line, int index)
     new_index = index;
     if (is_flags(line, index))
     {
-        new_index = flags_tokenization(env, cmd, line, index);
+        index = flags_tokenization(env, cmd, line, index);
     }
     while (line_is_not_finish(line, index) && !(is_separator(line, index)))
     {
