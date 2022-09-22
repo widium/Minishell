@@ -89,6 +89,8 @@
         "execution.h": "c",
         "get.h": "c",
         "free.h": "c",
-        "is.h": "c"
+        "is.h": "c",
+        "token.h": "c",
+        "termios.h": "c"
     }
 }

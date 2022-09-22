@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 08:39:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:40:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@
 # include <stddef.h>
 # include <stdarg.h>
 # include <signal.h>
+# include <termios.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 
 # include "libft/libft.h"
 # include "header/token.h"
@@ -34,10 +39,7 @@
 # include "header/is.h"
 # include "header/verbose.h"
 
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <sys/types.h>
-# include <sys/wait.h>
+
 
 void ask_verbose(t_env *env);
 t_env	*init_env(char **varaibles);
@@ -57,6 +59,7 @@ int recover_limiter(t_redirection *redir, char *line, int index);
 void open_history_file(t_env    *env);
 char *convert_fd(int fd);
 
+char *get_line(t_env *env);
 void    prompt(t_env	*env);
 void	create_history(t_env	*env, char *line);
 int	line_is_empty(char	*line);
