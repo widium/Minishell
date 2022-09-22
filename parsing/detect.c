@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 10:00:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:02:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char *return_built_in(char *content)
 int is_built_in(char *content)
 {
     if (same_str(content, "echo", ft_strlen(content)))
-	    return (1);
+	    return (1); 
     if (same_str(content, "cd", ft_strlen(content)))
 	    return (1);
     if (same_str(content, "pwd", ft_strlen(content)))
