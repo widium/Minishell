@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 18:26:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:58:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,14 @@ int file_detection(char *line, int index)
     int start;
 
     start = index;
-    index = blank_detection(line, ++index);
     while (line[index])
     {
         if (is_separator(line, index))
         {
-            return (index - 1);
+            --index;
+            if (is_blank(line[index]))
+                --index;
+            return (index);
         }
         index++;
     }
@@ -116,7 +118,7 @@ int blank_detection(char *line, int index)
 {
     while (line[index] && is_blank(line[index]))
         index++;
-    return (index - 1);
+    return (index);
 }
 
 int paranthesis_detection(char *line, int index)
