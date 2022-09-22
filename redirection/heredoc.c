@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:56:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 08:40:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:30:35 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char *heredoc_prompt(char *limiter)
         line = mini_get_next_line(STDIN_FILENO);
         if (line)
         {
-            if (same_str(limiter, line, (ft_strlen(line) - 1)))
+            if (same_str(limiter, line, (ft_strlen(limiter))))
             {
                 free(line);
                 break;
@@ -91,6 +91,7 @@ char *heredoc_not_finish(char *limiter)
     close(fd_tmp);
     content = read_and_extract_content_file("tmp.txt");
     unlink("tmp.txt");
+    printf("content [%s]\n", content);
     return (content);
 }
 

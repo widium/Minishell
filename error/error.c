@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:00:11 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:17:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,16 @@ int check_error_token_heredoc(t_token *token, t_redirection *redir)
 
 int check_error_token_basic_redirection(t_token *token, t_redirection *redir)
 {
-    if (!(is_token_file(token->next)) || !token->next)
-    {
-        printf("Error : [next_file after \"%s\" not found]\n", redir->content);
-        return (1);
-    }
-    else if (!(is_token_cmd(token->prev)) || !token->prev)
-    {
-        printf("Error : [prev_cmd before \"%s\" not found]\n", redir->content);
-        return (1);
-    }
+    // if (!(is_token_file(token->next)) || !token->next)
+    // {
+    //     printf("Error : [next_file after \"%s\" not found]\n", redir->content);
+    //     return (1);
+    // }
+    // else if (!(is_token_cmd(token->prev)) || !token->prev)
+    // {
+    //     printf("Error : [prev_cmd before \"%s\" not found]\n", redir->content);
+    //     return (1);
+    // }
     return (0);
 }
 

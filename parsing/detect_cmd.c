@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:13:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 08:04:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:50:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int argument_classification(t_env *env, t_cmd *cmd, char *line, int index)
     }
     else if (is_single_quote(line[index]))
     {
-       new_index = single_quotes_tokenization(cmd, line, index);
+        new_index = single_quotes_tokenization(cmd, line, index);
     } 
     else if (is_double_quote(line[index]))
     {

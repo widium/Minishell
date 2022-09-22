@@ -999,3 +999,75 @@ echotest
 echotest
 echo > machin.txt
 echo > ttt.xtx
+exit 42
+echo $HOME
+echo $HOME$HOME
+echo $HOME'$HOME'
+echo $HOME$HOME
+echo $HOME"$HOME"
+echo $HOME'$HOME'
+cat << lol
+a
+s
+cat << lol
+cat << lol
+cat << lol
+cat << lol
+cat | ls
+cat | ls
+cat | cat | ls
+	
+	
+echo salut > test.txt > cc.txt > test2.txt yo
+echo salut > test.txt > cc.txt > test2.txt
+ls
+echo salut > test.txt > test2.txt > test3.txt
+cat test3.txt 
+cat test2.txt 
+cat test2.txt
+cat test.txt  
+cat test.txt
+cat test3.txt 
+cat test2.txt
+ls -al
+ls -la
+ls -a
+ls 
+cat test2.txt 
+cat 'test2.txt '
+ls > test.txt
+cat test.txt
+cat < test.txt
+cat < test.txt < test3.txt
+cat test3.txt
+cat << lol
+export
+ls
+env
+export kill=test
+env
+export kill=test432
+env
+export kil
+env
+export
+env
+unset kill
+env
+unset PATH
+ls
+env
+ls
+echo $PATH
+echo salut -n
+echo -n salut
+\\\
+echo 
+echo sa'lut'cest"$HOME"
+echo sa'lut'cest"$HOME
+echo sa'lut'cest"$HOME
+echo $HOME'$HOME'
+echo $HOME'$HOME'
+echo $HOME'$HOME'
+echo $HOME'$HOME'
+echo $HOME'$HOME'

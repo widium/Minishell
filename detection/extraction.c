@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 08:00:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:55:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int variables_extraction(t_env *env, t_cmd *cmd, char *line, int index)
     index++;
     while (line[index])
     {
-        if (is_delimiter(env, line, index))
+        if (is_delimiter(env, line, index) || is_quote(line[index]))
         {
             end = index - 1;
             break;
