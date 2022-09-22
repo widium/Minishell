@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 18:14:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:09:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char *get_variable_value(char **variables, char *variable)
 
 int same_name(char *first, char *second)
 {
-    if (same_str(first, second, ft_strlen(first)))
+    if (same_str(first, second, ft_strlen(second)))
     {
         return (1); 
     }

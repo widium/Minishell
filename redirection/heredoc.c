@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:56:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 10:30:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:01:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ char *heredoc_not_finish(char *limiter)
     close(fd_tmp);
     content = read_and_extract_content_file("tmp.txt");
     unlink("tmp.txt");
-    printf("content [%s]\n", content);
     return (content);
 }
 

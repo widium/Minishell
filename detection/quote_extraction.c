@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:01:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/16 16:12:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:07:54 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void parse_and_tokenize_double_quote(t_env *env, t_cmd *cmd, char *content)
 	index = 0;
 	while (content[index])
 	{
-		if (is_variable_word(content, index))
+		if (is_variable(env, content, index))
 		{
 			new_index = variable_tokenization(env, cmd, content, index);
 			index = new_index;
