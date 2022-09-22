@@ -997,3 +997,5 @@ echotest
 echotest
 echotest
 echotest
+echo > machin.txt
+echo > ttt.xtx
