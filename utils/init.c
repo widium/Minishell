@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 18:21:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 09:10:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,11 @@ void remove_and_disconect_env_var(t_variable *variable, t_env_var *var)
 void add_signal_env_var(t_variable *vars)
 {
 	t_env_var	*signal_var;
-	int 		list_size;
 	char		*value;
 	char		*name;
 
-	value = malloc_strcpy("NULL");
 	name = malloc_strcpy("?");
-	list_size = get_env_var_size(vars);
+	value = malloc_strcpy("NULL");
 	signal_var = init_env_variable(name, value, VALUE);
 	add_new_env_variable(vars, signal_var);
 }

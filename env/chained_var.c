@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:00:19 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 18:21:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 09:10:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void add_new_env_variable(t_variable *variable, t_env_var *new)
     if (!last_var)
         return ;
     connect_new_var(last_var, new, NULL);
+    new->index = last_var->index + 1;
 }
 
 void connect_new_var(t_env_var *prev_var, t_env_var *curr_var, t_env_var *next_var)

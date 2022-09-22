@@ -981,3 +981,14 @@ echo -n mama
 echo sault
 echo salut
 echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+env
+echo $?
+echo $?
+echo $?
+echo $?
