@@ -6,11 +6,32 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:56:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 17:12:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:40:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+char *mini_get_next_line(int fd)
+{
+    char *start = malloc(10000);
+    char *cursor = start;
+    
+    while(read(fd, cursor, 1) > 0)
+    {
+        if (*cursor == '\n')
+            break;
+        cursor++;
+    }
+    if (cursor > start)
+    {
+        *cursor = 0;
+        return (start);
+    }
+    free(start);
+    return (NULL);
+    
+}
 
 char *heredoc_prompt(char *limiter)
 {
@@ -23,11 +44,20 @@ char *heredoc_prompt(char *limiter)
     while (1)
     {
         ft_putstr_fd("> ", 1);
-        line = get_next_line(STDIN_FILENO);
-        if (same_str(limiter, line, (ft_strlen(line) - 1)))
-            break;
-        else
-            ft_putstr_fd(line, fd_tmp);
+        line = mini_get_next_line(STDIN_FILENO);
+        if (line)
+        {
+            if (same_str(limiter, line, (ft_strlen(line) - 1)))
+            {
+                free(line);
+                break;
+            } 
+            else
+            {
+                ft_putstr_fd(line, fd_tmp); 
+                free(line);
+            }
+        }
     }
     close_fd(tmp_file_name, fd_tmp);
     return (tmp_file_name);
@@ -43,15 +73,20 @@ char *heredoc_not_finish(char *limiter)
     while (1)
     {
         ft_putstr_fd("> ", 1);
-        line = get_next_line(STDIN_FILENO);
-        if (same_str(limiter, line, ft_strlen(limiter)))
+        line = mini_get_next_line(STDIN_FILENO);
+        if (line)
         {
-            free(line);
-            break;
+            if (same_str(limiter, line, ft_strlen(limiter)))
+            {
+                free(line);
+                break;
+            }
+            else
+            {
+                ft_putstr_fd(line, fd_tmp);
+                free(line);
+            }
         }
-        else
-            ft_putstr_fd(line, fd_tmp);
-        free(line);
     }
     close(fd_tmp);
     content = read_and_extract_content_file("tmp.txt");

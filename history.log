@@ -958,3 +958,26 @@ echo -n echo
 echo -n echo
 echo -n echo
 echo -n echo
+echo -n mama'
+echo -n mama
+echo -n echo
+echo -n mama
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<z
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+<<a
+echo sault
+echo salut
+echo $?

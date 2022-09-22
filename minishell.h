@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 16:15:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:39:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int return_last_back_slash_index(char *str);
 
 void use_signal(void);
 void call_prompt(int key);
+void stop_prompt(int key);
 void pass(int key);
 void exit_prompt(int key);
 
@@ -142,6 +143,7 @@ void manage_fd_for_redirection(t_token *token);
 void manage_fd_basic_redirection(t_token *token);
 void manage_fd_pipe(t_token *token);
 void manage_fd_heredoc(t_token *token);
+char *mini_get_next_line(int fd);
 char *heredoc_prompt(char *limiter);
 char *heredoc_not_finish(char *limiter);
 char *read_and_extract_content_file(char *path);
