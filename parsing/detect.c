@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:06:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 12:54:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:00:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,38 @@
 
 char *return_built_in(char *content)
 {
-    if (same_str(content, "echo", ft_strlen("echo")))
+    if (same_str(content, "echo", ft_strlen(content)))
 	    return ("echo");
-    if (same_str(content, "cd", ft_strlen("cd")))
+    if (same_str(content, "cd", ft_strlen(content)))
 	    return ("cd");
-    if (same_str(content, "pwd", ft_strlen("pwd")))
+    if (same_str(content, "pwd", ft_strlen(content)))
 	    return ("pwd");
-    if (same_str(content, "env", ft_strlen("env")))
+    if (same_str(content, "env", ft_strlen(content)))
 	    return ("env");
-    if (same_str(content, "export", ft_strlen("export")))
+    if (same_str(content, "export", ft_strlen(content)))
 	    return ("export");
-    if (same_str(content, "unset", ft_strlen("unset")))
+    if (same_str(content, "unset", ft_strlen(content)))
 	    return ("unset");
-    if (same_str(content, "exit", ft_strlen("exit")))
+    if (same_str(content, "exit", ft_strlen(content)))
 	    return ("exit");
 	return (NULL);
 }
 
 int is_built_in(char *content)
 {
-    if (same_str(content, "echo", ft_strlen("echo")))
+    if (same_str(content, "echo", ft_strlen(content)))
 	    return (1);
-    if (same_str(content, "cd", ft_strlen("cd")))
+    if (same_str(content, "cd", ft_strlen(content)))
 	    return (1);
-    if (same_str(content, "pwd", ft_strlen("pwd")))
+    if (same_str(content, "pwd", ft_strlen(content)))
 	    return (1);
-    if (same_str(content, "env", ft_strlen("env")))
+    if (same_str(content, "env", ft_strlen(content)))
 	    return (1);
-    if (same_str(content, "export", ft_strlen("export")))
+    if (same_str(content, "export", ft_strlen(content)))
 	    return (1);
-    if (same_str(content, "unset", ft_strlen("unset")))
+    if (same_str(content, "unset", ft_strlen(content)))
 	    return (1);
-    if (same_str(content, "exit", ft_strlen("exit")))
+    if (same_str(content, "exit", ft_strlen(content)))
 	    return (1);
 	return (0);
 }
