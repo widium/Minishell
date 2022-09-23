@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:29:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/15 14:31:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:44:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ char **append_bin_name_in_args(char **args, char *name);
 
 void execution(t_env *env);
 void bin_execution(t_env *env, t_cmd *cmd);
-void built_in_execution(t_env *env, t_cmd *cmd);
+int built_in_execution(t_env *env, t_cmd *cmd);
 
-void echo(t_cmd *cmd);
-void cd(t_cmd *cmd, t_env *env);
-void env_built_in(t_cmd *cmd, t_env *env);
-void export_built_in(t_cmd *cmd, t_env *env);
-void unset(t_cmd *cmd, t_env *env);
-void pwd(t_cmd *cmd, t_env *env);
+int echo(t_cmd *cmd);
+int cd(t_cmd *cmd, t_env *env);
+int env_built_in(t_cmd *cmd, t_env *env);
+int export_built_in(t_cmd *cmd, t_env *env);
+int unset(t_cmd *cmd, t_env *env);
+int pwd(t_cmd *cmd, t_env *env);
 void exit_built_in(t_cmd *cmd, t_env *env);
 
 # endif

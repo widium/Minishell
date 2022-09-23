@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 14:09:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:02:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void add_new_env_variable(t_variable *variable, t_env_var *new);
 void change_env_var_value_with_name(t_env *env, char *var, char *value);
 void change_env_var_value(t_env_var *var, char *new_value);
 void update_variable_status_process(t_env *env, int status);
+int convert_status_process_value(int status);
 void recover_keyword(char *str, int i);
 int recover_limiter(t_redirection *redir, char *line, int index);
 
@@ -162,7 +163,8 @@ void close_fd_cmd(t_cmd *cmd);
 void close_all_fd(t_env *env);
 void remove_tmp_file(t_token *token_heredoc);
 
-void wait_all_pid(t_env *env);
+int wait_all_pid(t_env *env);
+int get_last_status(int bin_status, int ret_built_in);
 
 int doesnt_have_error_processing(t_env *env);
 int doesnt_have_error_parsing(t_env *env);

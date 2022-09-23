@@ -6,44 +6,50 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 15:17:14 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:43:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void echo(t_cmd *cmd)
+int echo(t_cmd *cmd)
 {
     if (!cmd->arg)
-        return ;
+        return (0);
     ft_putstr_fd(cmd->arg, cmd->fd_out);
     if (!(cmd_have_flags(cmd)))
         ft_putstr_fd("\n", cmd->fd_out);
+    return (0);
 }
 
-void cd(t_cmd *cmd, t_env *env)
+int cd(t_cmd *cmd, t_env *env)
 {
     char *path;
     char *new_path;
 
     if (!cmd->arg)
-        return ;
+        return (0);
     path = cmd->arg;
     if (chdir(path) == -1)
-        perror("Error : ");
+    {
+        ft_printf("%s: No such file or directory\n", path);
+        return (1);
+    }
     new_path = get_current_path();
     change_env_var_value_with_name(env, "PWD", new_path);
+    return (0);
 }
 
-void env_built_in(t_cmd *cmd, t_env *env)
+int env_built_in(t_cmd *cmd, t_env *env)
 {
     t_variable *vars;
 
     vars = env->variable;
     print_all_env_var(vars);
+    return (0);
 }
 
-void export_built_in(t_cmd *cmd, t_env *env)
+int export_built_in(t_cmd *cmd, t_env *env)
 {
     t_env_var *var;
     char *name;
@@ -53,7 +59,7 @@ void export_built_in(t_cmd *cmd, t_env *env)
     if (!cmd->arg)
     {
         print_all_env_export_var(env->variable);
-        return ;
+        return (0);
     }
     name = get_variable_name(cmd->arg);
     value = get_env_variable_value(cmd->arg);
@@ -71,15 +77,16 @@ void export_built_in(t_cmd *cmd, t_env *env)
         var = init_env_variable(name, value, id);
         add_new_env_variable(env->variable, var);
     }
+    return (0);
 }
 
-void unset(t_cmd *cmd, t_env *env)
+int unset(t_cmd *cmd, t_env *env)
 {
     t_env_var *var;
     char *name;
 
     if (!cmd->arg)
-        return ;
+        return (0);
     name = get_variable_name(cmd->arg);
     var = get_env_var_with_name(env->variable, name);
     if (var)
@@ -87,9 +94,10 @@ void unset(t_cmd *cmd, t_env *env)
         remove_and_disconect_env_var(env->variable, var);
     }    
     free(name);
+    return (0);
 }
 
-void pwd(t_cmd *cmd, t_env *env)
+int pwd(t_cmd *cmd, t_env *env)
 {
     char *path;
     
@@ -97,6 +105,7 @@ void pwd(t_cmd *cmd, t_env *env)
     ft_putstr_fd(path, cmd->fd_out);
     ft_putstr_fd("\n", cmd->fd_out);
     free(path);
+    return (0);
 }
 
 void exit_built_in(t_cmd *cmd, t_env *env)

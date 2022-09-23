@@ -1451,3 +1451,7 @@ wc -l
 wc -l main.c
 wc -l main.c
 wc -l main.c
+echo sault
+echo $?
+cd salurt
+echo $?
