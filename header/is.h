@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 17:09:02 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 19:48:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "class.h"
 
+int is_not_empty_after_equal(char *variable, int i);
 int	is_in_str(char *first, int i, char *second);
 int variable_exist(t_env *env, char *variable);
 int is_finish(char c);
@@ -30,6 +31,7 @@ int is_double_quote(char c);
 int is_single_quote(char c);
 int is_quote(char c);
 int is_not_NULL(char c, char d);
+int is_value_NULL(char *value);
 int is_NULL(char *line);
 int is_input_chevrons(char *line, int i);
 int is_output_chevrons(char *line, int i);

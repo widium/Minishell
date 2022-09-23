@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 14:01:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 19:48:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,13 @@ int is_not_NULL(char c, char d)
 int is_NULL(char *line)
 {
     if (line == NULL)
+        return (1);
+    return (0);
+}
+
+int is_value_NULL(char *value)
+{
+    if (value[0] == '\0')
         return (1);
     return (0);
 }

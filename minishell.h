@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 18:02:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:45:43 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void recover_path_and_bins_variable(t_variable *var, char **env_variable);
 char **add_env_variable(char **variables, char *var);
 void add_signal_env_var(t_variable *vars);
 void add_new_env_variable(t_variable *variable, t_env_var *new);
+int assign_env_var_id(char *value);
 void change_env_var_value_with_name(t_env *env, char *var, char *value);
 void change_env_var_value(t_env_var *var, char *new_value);
 void update_variable_status_process(t_env *env, int status);

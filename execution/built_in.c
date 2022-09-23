@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 17:43:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:51:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,8 @@ int export_built_in(t_cmd *cmd, t_env *env)
         return (0);
     }
     name = get_variable_name(cmd->arg);
-    value = get_env_variable_value(cmd->arg);
-    if (!value)
-        id = NONE_VALUE;
-    else 
-        id = VALUE;
+    value = get_export_variable_value(cmd->arg);
+    id = assign_env_var_id(value);
     if (variable_exist(env, name))
     {
         change_env_var_value_with_name(env, name, value);
@@ -78,6 +75,13 @@ int export_built_in(t_cmd *cmd, t_env *env)
         add_new_env_variable(env->variable, var);
     }
     return (0);
+}
+
+int assign_env_var_id(char *value)
+{
+    if (!value)
+        return (NONE_VALUE);  
+    return (VALUE);
 }
 
 int unset(t_cmd *cmd, t_env *env)

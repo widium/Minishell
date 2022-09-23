@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 11:09:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 19:52:34 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,43 @@ char *get_env_variable_value(char *variable)
         i++;
     }
     return (NULL);
+}
+
+char *get_export_variable_value(char *variable)
+{
+    int i;
+    int start;
+    int end;
+    char *value;
+    
+    i = 0;
+    if (!variable)
+        return (NULL);
+    while (variable[i])
+    {
+        if (variable[i] == '=' && !(is_blank(variable[i + 1])))
+        {
+            start = i + 1;
+            end = ft_strlen(variable);
+            value = malloc_substrcpy(variable, start, (end - start) + 1);
+            if (is_value_NULL(value))
+            {
+                free(value);
+                return (NULL);
+            }
+            return (value);
+        }
+        i++;
+    }
+    return (NULL);
+}
+
+
+int is_not_empty_after_equal(char *variable, int i)
+{
+    if ( index_not_over_flow(variable, i + 1) || !(is_blank(variable[i + 1])))
+        return (1);
+    return (0);
 }
 
 char *get_variable_value(char **variables, char *variable)
