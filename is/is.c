@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 12:05:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:56:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ int is_not_finish(char c)
     if (c != '\0')
         return (1);
     return (0);
+}
+
+int index_not_over_flow(char *line, int index)
+{
+    if (index < ft_strlen(line))
+        return (1);
+    return (0);  
 }
 
 int line_is_finish(char *line, int index)
