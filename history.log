@@ -1447,3 +1447,7 @@ env
 ls -la
 ls -la
 ls -la
+wc -l
+wc -l main.c
+wc -l main.c
+wc -l main.c

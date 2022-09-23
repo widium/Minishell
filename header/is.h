@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 14:00:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:09:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int is_cmd_built_in(t_cmd *cmd);
 int is_token_file(t_token *token);
 int is_arg_variable(t_arg *arg);
 int is_arg_flags(t_arg *arg);
+int is_arg_blank(t_arg *arg);
 
 int is_echo(t_cmd *cmd);
 int is_cd(t_cmd *cmd);

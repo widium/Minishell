@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 18:07:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:13:36 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,35 @@ void concatenate_cmd_args(t_env *env)
             if (cmd_have_args(cmd))
             {
                 if (is_cmd_bin(cmd))
+                {
+                    remove_blank_arg(cmd);
                     cmd->args = list_to_array(cmd);
+                }
                 else if (is_cmd_built_in(cmd))
                     cmd->arg = list_to_string(cmd);
             }
         }
         token = token->next;
+    }
+}
+
+void remove_blank_arg(t_cmd *cmd)
+{
+    t_arg *arg;
+    t_arg *iter;
+
+    iter = get_first_arg(cmd);
+    arg = iter;
+    while (iter)
+    {
+        iter = arg->next;
+        if (is_arg_blank(arg))
+        {
+            if (arg->index == 1)
+                cmd->first_arg = NULL;
+            remove_arg(arg);
+        }
+        arg = iter;
     }
 }
 

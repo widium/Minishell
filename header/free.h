@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:46:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:34:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:12:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void my_free(void **ptr);
 void remove_and_disconect_env_var(t_variable *variable, t_env_var *var);
 void remove_all(t_env *env);
 void remove_all_token(t_env *env);
+void remove_blank_arg(t_cmd *cmd);
 void remove_arg(t_arg *arg);
 void remove_arg_in_cmd(t_cmd *cmd, t_arg *arg);
 void remove_all_arg(t_cmd *cmd);
