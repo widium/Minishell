@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 17:23:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:36:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ void connect_new_var(t_env_var *prev_var, t_env_var *curr_var, t_env_var *next_v
 void connect_var(t_env_var *curr_var, t_env_var *next_var);
 void connect_token(t_token *curr_token, t_token *next_token);
 void connect_arg(t_arg *curr_arg, t_arg *next_arg);
+void connect_line(t_line *curr_line, t_line *next_line);
 void add_arg_list(t_cmd *cmd, t_arg *arg);
+void add_line_list(t_env *env, t_line *line);
 
 void tokenization(t_env *env, char *line);
 int tokenize_content_single_quote(t_cmd *cmd, char *line, int start, int index);

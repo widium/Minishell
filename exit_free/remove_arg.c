@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 09:45:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:27:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,23 @@ void disconect_arg(t_arg *current_arg)
       arg_next->prev = arg_prev;
     current_arg->next = NULL;
     current_arg->prev = NULL; 
+}
+
+void disconect_line(t_line *current_line)
+{
+    t_line *line_prev;
+    t_line *line_next;
+
+    line_prev = current_line->prev;
+    line_next = current_line->next;
+    
+    
+    if (line_prev)
+      line_prev->next = line_next;
+    if (line_next)
+      line_next->prev = line_prev;
+    current_line->next = NULL;
+    current_line->prev = NULL; 
 }
 
 void disconect_env_var(t_variable *variable, t_env_var *var)

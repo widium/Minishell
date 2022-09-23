@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 18:21:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:32:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # define VALUE 1
 # define NONE_VALUE 2
+
+
+typedef struct s_line
+{
+    int index;
+    char *content;
+    struct s_line *next;
+    struct s_line *prev;
+
+}       t_line;
 
 typedef struct s_env_variable
 {
@@ -138,6 +148,7 @@ typedef struct s_env
     int     error_parsing;
     int     error_processing;
 	t_variable *variable;
+    t_line     *first_line;
 	t_file	*history;
 	t_token *first_token;
 }   t_env;

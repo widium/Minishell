@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 17:40:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:05:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 void ask_verbose(t_env *env);
 t_env	*init_env(char **varaibles);
 t_env_var	*init_env_variable(char *name, char *value, int id);
+t_line	*init_line(char *content);
 t_variable *init_variable(char **variables);
 
 void recover_path_and_bins_variable(t_variable *var, char **env_variable);
@@ -60,6 +61,7 @@ void open_history_file(t_env    *env);
 char *convert_fd(int fd);
 
 char *get_line(t_env *env);
+void execute_line(t_env *env, char *line);
 void    prompt(t_env	*env);
 void	create_history(t_env	*env, char *line);
 int	line_is_empty(char	*line);
@@ -115,6 +117,8 @@ int type_of_boolean(char *content);
 
 char *return_built_in(char *content);
 
+void add_line_to_env(t_env *env, char *content);
+void parse_line_with_semicolon(t_env *env, char *line);
 void parsing(t_env *env, char *line);
 void processing_redirection(t_env *env);
 
@@ -158,6 +162,8 @@ void remove_tmp_file(t_token *token_heredoc);
 
 void wait_all_pid(t_env *env);
 
+int doesnt_have_error_processing(t_env *env);
+int doesnt_have_error_parsing(t_env *env);
 void reset_counter_error(t_env *env);
 void check_error_parsing(t_env *env);
 int check_error_token_redirection(t_token *token);

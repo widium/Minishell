@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 15:01:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 12:57:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void *get_class(t_token *token);
 char *get_content(t_token *token);
 char *get_file_name(t_token *token);
 int get_file_fd(t_token *token);
+t_line *get_first_line(t_env *env);
 t_arg *get_first_arg(t_cmd *cmd);
 
 

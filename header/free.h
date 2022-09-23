@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:46:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 18:03:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:34:34 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ void remove_token_redir(t_redirection *redir);
 void remove_token_bool(t_boolean *boolean);
 void remove_token_word(t_word *word);
 void remove_token_file(t_file *file);
+void remove_line(t_line *line);
+void remove_all_line(t_env *env);
 void remove_variable(t_variable *var);
 void remove_env_var(t_env_var *var);
 
+void disconect_line(t_line *current_line);
 void disconect_arg(t_arg *arg);
 void disconect_env_var(t_variable *variable, t_env_var *var);
 void disconect_env_var_first(t_variable *variable, t_env_var *var, t_env_var *var_next);

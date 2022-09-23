@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/21 17:33:27 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/23 11:29:00 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS		= 	main.c \
 				env/signal.c \
 				env/env.c \
 				env/variable.c \
+				env/line.c \
 				exit_free/exit.c \
 				exit_free/free.c \
 				exit_free/remove_arg.c \

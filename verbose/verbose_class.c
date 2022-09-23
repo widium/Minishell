@@ -6,11 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:21:59 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 15:20:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:53:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
+
+
 
 
 void print_all_env_var(t_variable *vars)
