@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:56:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:01:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int index_not_over_flow(char *line, int index)
         return (1);
     return (0);  
 }
+
+int index_is_over_flow(char *line, int index)
+{
+    if (index >= ft_strlen(line))
+        return (1);
+    return (0);  
+}
+
 
 int line_is_finish(char *line, int index)
 {
@@ -59,8 +67,7 @@ int	line_is_not_empty(char	*line)
 {
 	if (line != NULL && ft_strlen(line) > 0)
 		return (1);
-	else 
-		return (0);
+	return (0);
 }
 
 int is_single(char *str, int i, int c)
@@ -79,7 +86,7 @@ int is_doublons(char *str, int i, int c)
 
 int is_separator(char *line, int i)
 {
-    if (i >= ft_strlen(line))
+    if (index_is_over_flow(line, i))
         return (0);
     if (is_redirection(line, i) || is_boolean_operator(line, i)
         || is_blank_before_finish(line, i))
@@ -266,7 +273,7 @@ int is_cmd(t_env *env, char *word)
 
 int is_flags(char *line, int i)
 {
-    if (i >= ft_strlen(line))
+    if (index_is_over_flow(line, i))
         return (0);
     if (line[i] == '-' && !(is_blank(line[i+1])))
         return (1);

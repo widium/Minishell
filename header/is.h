@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:56:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:00:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	is_in_str(char *first, int i, char *second);
 int variable_exist(t_env *env, char *variable);
 int is_finish(char c);
 int index_not_over_flow(char *line, int index);
+int index_is_over_flow(char *line, int index);
 int is_not_finish(char c);
 int line_is_finish(char *line, int index);
 int line_is_not_finish(char *line, int index);

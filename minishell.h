@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:05:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:09:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ void open_history_file(t_env    *env);
 char *convert_fd(int fd);
 
 char *get_line(t_env *env);
+int env_have_multi_line(t_env *env);
 void execute_line(t_env *env, char *line);
+void execute_multi_line(t_env *env, t_line *line);
 void    prompt(t_env	*env);
 void	create_history(t_env	*env, char *line);
 int	line_is_empty(char	*line);

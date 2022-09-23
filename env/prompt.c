@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:09:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:09:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,28 @@ void    prompt(t_env	*env)
 		parse_line_with_semicolon(env, read_line);
 		free(read_line);
 		line = get_first_line(env);
-		while (line)
-		{
+		if (env_have_multi_line(env))
+			execute_multi_line(env, line);
+		else
 			execute_line(env, line->content);
-			line = line->next;
-		}
 	}
+}
+
+int env_have_multi_line(t_env *env)
+{
+	t_line *line;
+	int nbr;
+
+	line = get_first_line(env);
+	nbr = 1;
+	while (line)
+	{
+		nbr++;
+		line = line->next;
+	}
+	if (nbr > 1)
+		return (1);
+	return (0);
 }
 
 void execute_line(t_env *env, char *line)
@@ -51,6 +67,16 @@ void execute_line(t_env *env, char *line)
 	reset_counter_error(env);
 	remove_all_token(env);
 }
+
+void execute_multi_line(t_env *env, t_line *line)
+{
+	while (line)
+	{
+		execute_line(env, line->content);
+		line = line->next;
+	}
+}
+
 
 void parse_line_with_semicolon(t_env *env, char *line)
 {
