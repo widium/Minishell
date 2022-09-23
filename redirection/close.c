@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:33:26 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/11 21:07:42 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:31:34 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void close_all_fd(t_env *env)
 {
     t_token *token;
     
-    close_fd(env->history->name, env->history->fd);
     token = get_first_token(env);
     while (token)
     {

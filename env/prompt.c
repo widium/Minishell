@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 14:09:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:52:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,20 @@ void    prompt(t_env	*env)
 			printf("exit\n");
 			break;
 		}
-		parse_line_with_semicolon(env, read_line);
-		free(read_line);
-		line = get_first_line(env);
-		if (env_have_multi_line(env))
-			execute_multi_line(env, line);
-		else
-			execute_line(env, line->content);
+		execute_line(env, read_line);
 	}
 }
+
+// parse_line_with_semicolon(env, read_line);
+// free(read_line);
+// line = get_first_line(env);
+// if (env_have_multi_line(env))
+// {
+// 	printf("multi_line\n");
+// 	execute_multi_line(env, line);
+// }
+// else
+// 	execute_line(env, line->content);
 
 int env_have_multi_line(t_env *env)
 {
@@ -66,6 +71,7 @@ void execute_line(t_env *env, char *line)
 	}
 	reset_counter_error(env);
 	remove_all_token(env);
+	free(line);
 }
 
 void execute_multi_line(t_env *env, t_line *line)
@@ -142,9 +148,11 @@ int doesnt_have_error_processing(t_env *env)
 
 void	create_history(t_env *env, char *line)
 {
+	int fd;
+	
 	add_history(line);
-	open_history_file(env);
-	write_line(line, env->history->fd);
+	fd = open("history.log", O_CREAT | O_WRONLY | O_APPEND, 0777);
+	write_line(line, fd);
 }
 
 void	write_line(char *line, int fd)

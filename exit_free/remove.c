@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:20:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:35:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:29:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void remove_all(t_env *env)
     remove_variable(env->variable);
     remove_all_line(env);
     env->variable = NULL;
-    free(env->history);
-    env->history = NULL;
     free(env);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 08:41:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:16:55 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void use_signal(void)
 
 void call_prompt(int key)
 {
-    write(1, "\n", 1);
     rl_replace_line("", 0);
     rl_on_new_line();
+    write(1, "\n", 1);
     rl_redisplay();
 }
 

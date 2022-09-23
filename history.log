@@ -1342,3 +1342,108 @@ cat|cat|ls
 
 
 
+cat|cat|ls
+
+cat|cat|ls
+
+cat|cat|ls
+
+
+
+
+cat|cat|ls
+cat|cat|ls
+
+
+
+cat|cat|ls
+
+
+
+
+echo salut > test.txt > test2.txt > test3.txt
+ls
+ls -la
+cat test3.txt
+cat test3.txt
+cat test2.txt
+echo $?
+ls jklasd
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo -lsa
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+echo $?
+cat 
+cat
+
+
+cat
+
+wc
+
+cat
+
+
+
+
+
+
+
+
+
+cat
+cat
+cat
+cat cat
+cat
+
+
+ls
+
+
+
+cat
+
+
+cat
+
+cat
+echo salut
+
+cat
+wc -l main.c
+<<a
+cat|cat|ls
+
+
+
+
+
+
+cat
+cat
+cart
+cat
+export a=123
+env
+export a = 123
+env
+export a= 
+env
+export a=
+env
+unset a
+env
+export a=
+env
+ls -la
+ls -la
+ls -la
