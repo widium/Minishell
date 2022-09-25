@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 07:29:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:21:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void ask_verbose(t_env *env);
 t_env	*init_env(char **varaibles);
 t_env_var	*init_env_variable(char *name, char *value, int id);
 t_line	*init_line(char *content);
-t_variable *init_variable(char **variables);
+t_env *envinit_variable(char **variables);
 
-void recover_path_and_bins_variable(t_variable *var, char **env_variable);
+void recover_path_and_bins_variable(t_env *env, char **env_variable);
 char **add_env_variable(char **variables, char *var);
-void add_signal_env_var(t_variable *vars);
-void add_new_env_variable(t_variable *variable, t_env_var *new);
+void add_signal_env_var(t_env * env);
+void add_new_env_variable(t_env *  env, t_env_var *new);
 int assign_env_var_id(char *value);
 void add_or_create_env_var(t_env *env, char *name, char *value, int id);
 void change_env_var_value_with_name(t_env *env, char *var, char *value);
@@ -58,7 +58,7 @@ void change_env_var_value(t_env_var *var, char *new_value);
 void update_variable_status_process(t_env *env, int status);
 int convert_status_process_value(int status);
 void recover_keyword(char *str, int i);
-int recover_limiter(t_redirection *redir, char *line, int index);
+int recover_limiter(t_redir *redir, char *line, int index);
 
 void open_history_file(t_env    *env);
 char *convert_fd(int fd);
@@ -127,8 +127,8 @@ void parse_line_with_semicolon(t_env *env, char *line);
 void parsing(t_env *env, char *line);
 void processing_redirection(t_env *env);
 
-void add_variables_list(t_variable *variables, t_env_var *var);
-void add_chained_list(t_env *env, t_token *token);
+void add_variables_list(t_env *env, t_env_var *var);
+void add_token_list(t_env *env, t_token *token);
 
 void processing_cmd(t_env *env);
 void processing_bin(t_env *env);
@@ -173,9 +173,9 @@ int doesnt_have_error_parsing(t_env *env);
 void reset_counter_error(t_env *env);
 void check_error_parsing(t_env *env);
 int check_error_token_redirection(t_token *token);
-int check_error_token_heredoc(t_token *token, t_redirection *redir);
-int check_error_token_basic_redirection(t_token *token, t_redirection *redir);
-int check_error_token_pipe(t_token *token, t_redirection *redir);
+int check_error_token_heredoc(t_token *token, t_redir *redir);
+int check_error_token_basic_redirection(t_token *token, t_redir *redir);
+int check_error_token_pipe(t_token *token, t_redir *redir);
 int check_error_token_word(t_token *token);
 int check_error_token_cmd(t_token *token);
 int check_error_built_in(t_cmd *cmd);

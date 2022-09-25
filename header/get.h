@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 07:26:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:26:44 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include "class.h"
 
 char **get_bins(t_env *env);
-char **get_list_of_bins(t_variable *vars, char *value);
+char **get_list_of_bins(t_env * env);
 
-int get_env_var_size(t_variable *variable);
-char *get_env_var_value_with_name(t_variable *variable, char *name);
-t_env_var *get_env_var_with_name(t_variable *variable, char *name);
-t_env_var *get_last_env_var(t_variable *variable);
-t_env_var *get_first_env_var(t_variable *vars);
+int get_env_var_size(t_env *  env);
+char *get_env_var_value_with_name(t_env *  env, char *name);
+t_env_var *get_env_var_with_name(t_env *  env, char *name);
+t_env_var *get_last_env_var(t_env *  env);
+t_env_var *get_first_env_var(t_env * env);
 void *get_class(t_token *token);
 char *get_content(t_token *token);
 char *get_file_name(t_token *token);
@@ -50,7 +50,7 @@ t_arg *get_cmd_flags(t_cmd *cmd);
 
 char **get_env_variables(t_env *env);
 char **get_env_bins(t_env *env);
-t_redirection *get_first_redirection(t_env *env);
+t_redir *get_first_redirection(t_env *env);
 t_token *get_first_token_redirection(t_env *env);
 t_token *get_first_token_cmd(t_env *env);
 t_token *get_first_token_built_in(t_env *env);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 19:48:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:57:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,10 +264,16 @@ int is_bin(t_env *env, char *word)
     char **bins;
 
     bins = get_env_bins(env);
-    if (test_absolute_bin_access(word))
+    if (!bins)
+    {
+        return (0);
+    } 
+    else if (test_absolute_bin_access(word) || test_bin_access(bins, word))
+    {
+        free_array(bins);
         return (1);
-    else if (test_bin_access(bins, word))
-        return (1);
+    }
+    free_array(bins);
     return (0);
 }
 

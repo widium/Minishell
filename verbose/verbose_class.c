@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:21:59 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 11:53:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:22:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 
 
-void print_all_env_var(t_variable *vars)
+void print_all_env_var(t_env * env)
 {
     t_env_var *var;
 
-    var = get_first_env_var(vars);
+    var = get_first_env_var(env);
     if (!var)
         return ;
     while (var)
@@ -30,11 +30,11 @@ void print_all_env_var(t_variable *vars)
     }
 }
 
-void print_all_env_export_var(t_variable *vars)
+void print_all_env_export_var(t_env * env)
 {
     t_env_var *var;
 
-    var = get_first_env_var(vars);
+    var = get_first_env_var(env);
     if (!var)
         return ;
     while (var)
@@ -54,11 +54,11 @@ void print_env_var(t_env_var *var)
 	    ft_printf("%s=%s\n", var->name, var->value);
 }
 
-void print_all_env_var_struct(t_variable *vars)
+void print_all_env_var_struct(t_env * env)
 {
     t_env_var *var;
 
-    var = get_first_env_var(vars);
+    var = get_first_env_var(env);
     if (!var)
         return ;
     while (var)
@@ -120,7 +120,7 @@ void print_args_array(char **args)
     printf("]\n");
 }
 
-void print_redirection(t_token *token, t_redirection *redir)
+void print_redirection(t_token *token, t_redir *redir)
 {
     printf("[%d][%s] : [%s]\n", token->index, convert_id(redir->type), redir->content);
     if (redir->type == TOKEN_HERE_DOC)

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 07:32:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:25:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ int cd(t_cmd *cmd, t_env *env)
 
 int env_built_in(t_cmd *cmd, t_env *env)
 {
-    t_variable *vars;
-
-    vars = env->variable;
-    print_all_env_var(vars);
+    print_all_env_var(env);
     return (0);
 }
 
@@ -57,7 +54,7 @@ int export_built_in(t_cmd *cmd, t_env *env)
     
     if (!cmd->arg)
     {
-        print_all_env_export_var(env->variable);
+        print_all_env_export_var(env);
         return (0);
     }
     name = get_export_variable_name(cmd->arg);
@@ -84,7 +81,7 @@ void add_or_create_env_var(t_env *env, char *name, char *value, int id)
     else
     {
         var = init_env_variable(name, value, id);
-        add_new_env_variable(env->variable, var);
+        add_new_env_variable(env, var);
     } 
 }
 
@@ -103,10 +100,10 @@ int unset(t_cmd *cmd, t_env *env)
     if (!cmd->arg)
         return (0);
     name = get_variable_name(cmd->arg);
-    var = get_env_var_with_name(env->variable, name);
+    var = get_env_var_with_name(env, name);
     if (var)
     {
-        remove_and_disconect_env_var(env->variable, var);
+        remove_and_disconect_env_var(env, var);
     }    
     free(name);
     return (0);

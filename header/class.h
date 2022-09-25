@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 15:29:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:31:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ typedef struct s_env_variable
     struct s_env_variable *prev;
     
 }   t_env_var;
-
-typedef struct s_varaible
-{
-    char *path;
-	char **bins;
-    char **variables;
-    t_env_var *first_var;
-} 		t_variable;
 
 typedef struct s_token
 {
@@ -91,7 +83,7 @@ typedef struct s_double
 }   t_double;
 
 
-typedef struct s_redirection
+typedef struct s_redir
 {
     int fd_in;
     int fd_out;
@@ -100,7 +92,7 @@ typedef struct s_redirection
     char *content;
     t_file *tmp_file;
 
-}   t_redirection;
+}   t_redir;
 
 typedef struct s_boolean
 {
@@ -147,9 +139,11 @@ typedef struct s_env
     int     verbose;
     int     error_parsing;
     int     error_processing;
-	t_variable *variable;
     t_line     *first_line;
 	t_token *first_token;
+    t_env_var *first_var;
+    // char      **env_vars;
+
 }   t_env;
 
 # endif

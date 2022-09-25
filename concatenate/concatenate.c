@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:05:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 17:13:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:06:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,21 @@ int size_of_list(t_cmd *cmd)
     return (i);
 }
 
+int size_of_list_env(t_env *env)
+{
+    t_env_var *var;
+    int i;
+
+    var = get_first_env_var(env);
+    i = 0;
+    while (var)
+    {
+        i++;
+        var = var->next;
+    }
+    return (i);
+}
+
 char **list_to_array(t_cmd *cmd)
 {
     t_arg *arg;
@@ -93,6 +108,29 @@ char **list_to_array(t_cmd *cmd)
         i++;
     }
     remove_all_arg(cmd);
+    complete[i] = NULL;
+    return (complete);
+}
+
+char **env_var_list_to_array(t_env *env)
+{
+    t_env_var *var;
+    char **complete;
+    int i;
+    
+    i = 0;
+    if (!(env->first_var))
+        return (NULL);
+    var = get_first_env_var(env);
+    if (!var)
+        return (NULL);
+    complete = malloc(sizeof(char *)*(size_of_list_env(env) + 1));
+    while (var)
+    {
+        complete[i] = ft_strjoin_char(var->name, var->value, '=');
+        var = var->next;
+        i++;
+    }
     complete[i] = NULL;
     return (complete);
 }

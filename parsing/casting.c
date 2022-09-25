@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 18:32:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/08/12 15:07:54 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void *get_class(t_token *token)
     }
     else if (is_token_redirection(token))
     {
-        return ((t_redirection *)token->class);
+        return ((t_redir *)token->class);
     }
     else if (is_token_boolean(token))
     {

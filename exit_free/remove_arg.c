@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:27:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:17:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void disconect_line(t_line *current_line)
     current_line->prev = NULL; 
 }
 
-void disconect_env_var(t_variable *variable, t_env_var *var)
+void disconect_env_var(t_env *env, t_env_var *var)
 {
     t_env_var *var_prev;
     t_env_var *var_next;
@@ -74,7 +74,7 @@ void disconect_env_var(t_variable *variable, t_env_var *var)
     
     if (var->index == 0)
     {
-        disconect_env_var_first(variable, var, var_next);
+        disconect_env_var_first(env, var, var_next);
         return ;
     }
     if (var_prev)
@@ -85,13 +85,13 @@ void disconect_env_var(t_variable *variable, t_env_var *var)
     var->prev = NULL; 
 }
 
-void disconect_env_var_first(t_variable *variable, t_env_var *var, t_env_var *var_next)
+void disconect_env_var_first(t_env *env, t_env_var *var, t_env_var *var_next)
 {
     if (!var_next)
-        variable->first_var = NULL;
+        env->first_var = NULL;
     else
     {
-        variable->first_var = var_next;
+        env->first_var = var_next;
         var_next->prev = NULL;
     }
     var->next = NULL;

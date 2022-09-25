@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:33:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:35:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void print_all_redirect_info(t_env *env)
 {
     t_token *token;
-    t_redirection *redir;
+    t_redir *redir;
 
     token = get_first_token_redirection(env);
     while (token)
@@ -31,9 +31,9 @@ void print_all_redirect_info(t_env *env)
 }
 void print_redirect_info(t_token *token, t_cmd *prev_cmd, t_cmd *next_cmd, t_file *next_file)
 {
-    t_redirection *redir;
+    t_redir *redir;
     
-    redir = (t_redirection *)token->class;
+    redir = (t_redir *)token->class;
     printf("___[TOKEN_REDIRECTION]___\n");
     if (is_token_pipe(token))
         print_pipe_info(redir, prev_cmd, next_cmd);
@@ -47,7 +47,7 @@ void print_redirect_info(t_token *token, t_cmd *prev_cmd, t_cmd *next_cmd, t_fil
         print_append_chevron_info(redir, prev_cmd, next_file);
 }
 
-void print_pipe_info(t_redirection *redir, t_cmd *prev_cmd, t_cmd *next_cmd)
+void print_pipe_info(t_redir *redir, t_cmd *prev_cmd, t_cmd *next_cmd)
 {
     char *prev_cmd_name;
     char *next_cmd_name;
@@ -69,7 +69,7 @@ void print_pipe_info(t_redirection *redir, t_cmd *prev_cmd, t_cmd *next_cmd)
     printf(" ----------------\n");
 }
 
-void print_heredoc_info(t_redirection *redir, t_cmd *prev_cmd)
+void print_heredoc_info(t_redir *redir, t_cmd *prev_cmd)
 {
     char *prev_cmd_name;
     
@@ -85,7 +85,7 @@ void print_heredoc_info(t_redirection *redir, t_cmd *prev_cmd)
     printf(" ----------------\n");
 }
 
-void print_input_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *next_file)
+void print_input_chevron_info(t_redir *redir, t_cmd *prev_cmd, t_file *next_file)
 {
     char *prev_cmd_name;
     char *next_file_name;
@@ -107,7 +107,7 @@ void print_input_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *nex
     printf(" ----------------\n");
 }
 
-void print_output_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *next_file)
+void print_output_chevron_info(t_redir *redir, t_cmd *prev_cmd, t_file *next_file)
 {
     char *prev_cmd_name;
     char *next_file_name;
@@ -129,7 +129,7 @@ void print_output_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *ne
     printf(" ----------------\n");
 }
 
-void print_append_chevron_info(t_redirection *redir, t_cmd *prev_cmd, t_file *next_file)
+void print_append_chevron_info(t_redir *redir, t_cmd *prev_cmd, t_file *next_file)
 {
     char *prev_cmd_name;
     char *next_file_name;

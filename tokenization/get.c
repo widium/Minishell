@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 12:57:18 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:59:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 
 
-char *get_env_var_value_with_name(t_variable *variable, char *name)
+char *get_env_var_value_with_name(t_env *  env, char *name)
 {
    t_env_var *var;
 
-    var = get_first_env_var(variable);
+    var = get_first_env_var(env);
     if (!var)
         return (NULL);
     while (var)
@@ -32,11 +32,11 @@ char *get_env_var_value_with_name(t_variable *variable, char *name)
     return (NULL); 
 }
 
-t_env_var *get_env_var_with_name(t_variable *variable, char *name)
+t_env_var *get_env_var_with_name(t_env *  env, char *name)
 {
     t_env_var *var;
 
-    var = get_first_env_var(variable);
+    var = get_first_env_var(env);
     if (!var)
         return (NULL);
     while (var)
@@ -50,18 +50,18 @@ t_env_var *get_env_var_with_name(t_variable *variable, char *name)
     return (0);
 }
 
-t_env_var *get_first_env_var(t_variable *vars)
+t_env_var *get_first_env_var(t_env * env)
 {
-    if (vars->first_var)
-        return (vars->first_var);
+    if (env->first_var)
+        return (env->first_var);
     return (0);
 }
 
-t_env_var *get_last_env_var(t_variable *variable)
+t_env_var *get_last_env_var(t_env *  env)
 {
     t_env_var *var;
 
-    var = get_first_env_var(variable);
+    var = get_first_env_var(env);
     if (!var)
         return (NULL);
     while (var)
@@ -73,12 +73,12 @@ t_env_var *get_last_env_var(t_variable *variable)
     return (0);
 }
 
-int get_env_var_size(t_variable *variable)
+int get_env_var_size(t_env *  env)
 {
     t_env_var *var;
     int i;
 
-    var = get_first_env_var(variable);
+    var = get_first_env_var(env);
     if (!var)
         return (0);
     i = 0;
@@ -151,7 +151,7 @@ t_token *get_next_token_built_in(t_token *token)
     return (NULL);
 }
 
-t_redirection *get_first_redirection(t_env *env)
+t_redir *get_first_redirection(t_env *env)
 {
     t_token *token;
 
@@ -294,16 +294,23 @@ char **get_cmd_args(t_cmd *cmd)
 
 char **get_env_variables(t_env *env)
 {
-    if (env->variable->variables)
-        return (env->variable->variables);
-    return (NULL);
+    char **env_var;
+
+    env_var = env_var_list_to_array(env);
+    return (env_var);
 }
 
 char **get_env_bins(t_env *env)
 {
-    if (env->variable->bins)
-        return (env->variable->bins);
-    return (NULL);
+    t_env_var *var;
+    char *path;
+    char **bins;
+
+    path = get_env_var_value_with_name(env, "PATH");
+    if (!path)
+        return (NULL);
+    bins = ft_split(path, ':');
+    return (bins);
 }
 
 int get_number_args(t_cmd *cmd)
@@ -326,12 +333,10 @@ int get_number_args(t_cmd *cmd)
 
 char *get_home_path(t_env *env)
 {
-    char **variables;
-    char *home;
+    char *value;
 
-    variables = get_env_variables(env);
-    home = get_variable_value(variables, "HOME");
-    return (home);
+    value = get_env_var_value_with_name(env, "HOME");
+    return (value);
 }
 
 char *get_current_path(void)

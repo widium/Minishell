@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 13:56:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 08:24:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int redirection_classification(t_env *env, char *line, int index)
 
     new_index = redirection_detection(line, index);
     token = create_token_redir(line, index, new_index);
-    add_chained_list(env, token);
+    add_token_list(env, token);
     index = get_argument_redirection(env, token, line, new_index);
     return (index);
 }
@@ -56,7 +56,7 @@ int word_classification(t_env *env, char *line, int index)
     else
     {
         token = tokenizer_word(content, TOKEN_WORD);
-        add_chained_list(env, token);
+        add_token_list(env, token);
     }
     return (new_index);
 }
@@ -71,7 +71,7 @@ int command_tokenization(t_env *env, char *line, char *content, int index)
         index = blank_detection(line, index);
         index = argument_detection(env, get_class(token), line, index);
     }
-    add_chained_list(env, token);
+    add_token_list(env, token);
     return (index);
 }
 
@@ -97,6 +97,6 @@ int boolean_classification(t_env *env, char *line, int index)
 
     new_index = boolean_detection(line, index);
     token = tokenizer_bool(line, index, new_index, TOKEN_BOOLEAN);
-    add_chained_list(env, token);
+    add_token_list(env, token);
     return (new_index);
 }

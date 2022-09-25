@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 11:19:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 08:24:12 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void parsing(t_env *env, char *line)
 // {
 //     new_index = paranthesis_detection(line, index);
 //     token = tokenizer_word(line, index, new_index, TOKEN_PARANTHESIS);
-//     add_chained_list(env, token);
+//     add_token_list(env, token);
 
 //     index = new_index;
 // }

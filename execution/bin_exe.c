@@ -6,22 +6,20 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 15:10:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:23:49 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void bin_execution(t_env *env, t_cmd *cmd)
+void bin_execution(t_env *env, t_cmd *cmd, char **variables)
 {
     int pid;
     char *path;
     char **args;
-    char **variables;
 
     path = get_cmd_path(cmd);
     args = get_cmd_args(cmd);
-    variables = get_env_variables(env);
     pid = fork();
     if (pid == 0)
     {

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:49:23 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 15:29:09 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:30:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ t_env	*init_env(char **env_variable)
 	env->verbose = 0;
 	env->error_parsing = 0;
 	env->error_processing = 0;
-	env->variable = init_variable(env_variable);
+	env->first_var = NULL;
 	env->first_line = NULL;
 	env->first_token = NULL;
+	create_chained_var(env, env_variable);
+	add_signal_env_var(env);
+	free_array(env_variable);
+	// env->env_vars = get_env_variables(env);
 	return (env);
 }
 
@@ -44,34 +48,18 @@ t_env_var	*init_env_variable(char *name, char *value, int id)
 	return (var);
 }
 
-t_variable	*init_variable(char **env_variable)
-{
-	t_variable	*vars;
-
-	vars = (t_variable *)malloc(sizeof(t_variable));
-	if (!vars)
-		return (NULL);
-	vars->first_var = NULL;
-	create_chained_var(vars, env_variable);
-	vars->path = get_env_var_value_with_name(vars, "PATH");
-    vars->bins = get_list_of_bins(vars, vars->path);
-	vars->variables = env_variable;
-	add_signal_env_var(vars);
-	return (vars);
-}
-
-void remove_and_disconect_env_var(t_variable *variable, t_env_var *var)
+void remove_and_disconect_env_var(t_env *env, t_env_var *var)
 {
 	t_env_var *iter;
 
-	iter = get_first_env_var(variable);
+	iter = get_first_env_var(env);
 	if (!iter)
 		return ;
 	while (iter)
 	{
 		if (iter->index == var->index)
 		{
-			disconect_env_var(variable, var);
+			disconect_env_var(env, var);
 			free_env_var(var);
 			return ;
 		}
@@ -79,7 +67,7 @@ void remove_and_disconect_env_var(t_variable *variable, t_env_var *var)
 	}
 }
 
-void add_signal_env_var(t_variable *vars)
+void add_signal_env_var(t_env * env)
 {
 	t_env_var	*signal_var;
 	char		*value;
@@ -88,7 +76,7 @@ void add_signal_env_var(t_variable *vars)
 	name = malloc_strcpy("?");
 	value = malloc_strcpy("NULL");
 	signal_var = init_env_variable(name, value, VALUE);
-	add_new_env_variable(vars, signal_var);
+	add_new_env_variable(env, signal_var);
 }
 
 char **add_env_variable(char **variables, char *var)

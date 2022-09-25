@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 16:52:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:06:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void    prompt(t_env	*env)
 {
 	char *read_line;
-	t_line *line;
 	
 	while (1)
 	{

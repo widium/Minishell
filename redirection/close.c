@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:33:26 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 15:31:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void close_fd(char *name, int fd)
 
 void remove_tmp_file(t_token *token_heredoc)
 {
-    t_redirection *redir;
+    t_redir *redir;
     t_file *tmp_file;
     
     redir = get_class(token_heredoc);

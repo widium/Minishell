@@ -1503,3 +1503,252 @@ env
 export A =12345
 env
 export A =123
+ls
+cd ..
+echo $PWD
+echo $OLDPWD
+exit a
+export
+echo "Hello" > test1.txt
+cat <test1.txt>test2.txt
+
+cat test2.txt 
+cat test1.txt 
+ls
+echo $?
+echo $?
+date | | exit
+date | | cat
+date || cat
+date | exit
+exit | date
+| date
+date |
+< test1.txt cat
+cat < test1.txt
+<< asdf | cat
+unset PATH
+ls
+env
+echo $PATH
+unset HOME
+cd
+"/bin/"date
+"da"te
+date
+"/bin/"date
+mkdir test_dir
+cd test_dir/
+chmod -x test_dir/
+cd test_dir/
+chmod +x test_dir/
+cp ./minishell test_dir/
+chmod -x test_dir/minishell 
+test_dir/minishell 
+chmod +x test_dir/minishell 
+chmod -x test_dir/
+test_dir/minishell 
+cat
+echo $?
+cat
+echo $?
+cat
+cat
+echo $?
+cat | cat
+cat | cat
+cat | cat | echo "asdf"
+echo "da"te
+e'c'ho "da"te
+| echo
+| echo
+
+
+
+
+
+
+
+
+
+
+echo it work
+cd home/widium/Programing/42_cursus
+cd home/widium/Programming/42_cursus
+/home/widium/Programming/42_cursus
+cd /home/widium/Programming/42_cursus
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+/bin/ls
+echo -n saluty
+echo -n saluty
+echo -n saluty
+echo -n saluty
+echo -nsaluty
+echo salui
+echo salui
+echo salui
+echo salui
+echo salui
+exit
+exit 0
+exit 123
+/bin/ls
+echo $?
+/bin/ls filethatdoesntexist
+echo $?
+
+
+asdvasdv
+cat
+cat
+
+echo "cat lol.c | cat > lol.c"
+ echo '$USER'
+ echo '|'
+ echo '>>'
+export A=123
+env
+unset A
+env
+export EDITOR=123
+env
+unset EDITOR
+cd .
+ls
+cd ..
+ls
+cat main | grep bla | wc
+cat main.c | grep bla | wc
+cat main.c | grep include | wc
+ls filethatdoesntexist | grep bla | wc
+echo saulkt
+ls
+dsbksdgbksdghsd
+cat | cat | ls
+echo $USER
+echo
+unset PATH
+ls
+ls
+unset PATH
+ls\
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+unset PATH
+ls
+/bin/ls
+unset PATH
+/bin/ls
+ls
+ls
+/bin/ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+echo $HOME
+echo $HOME
+echo $HOME
+export A=123
+env
+unset A=123
+env
+unset PATH
+env
+ls
+cat
+
+
+
+cat
+
+cst
+ls
+cat
+
+
+ls
+CAT
+cat
+
+
+
+cat
+echo "cat lol.c | cat > lol.c"
+echo '$USER'
+which pwd
+/usr/bin/pwd
+/usr/bin/pwd
+ls
+ls
+ls
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+/bin/ls -l
+/bin/cat main.c
+/bin/cat main.c
+echo -n echo
+echo echo -n
+echo salut
+echo cest moi
+exit 0
+exit 1
+/bin/ls filethatdoesntexist
+echo $?
+
+cat
+cat
+
+cat
+echo "cat lol.c | cat > lol.c"
+echo '$USER'
+env
+export A=1234
+env
+unset A
+env
+cd .
+pwd
+cd ..
+echo salut > test.txt
+cat test.txt 
+wc -l << stop
+cat main.c >> test.txt
+cat test.txt 
+wc -l < wc -l
+wc -l < test.txt 
+cat test.txt | grep include | wc -l
+ls filethatdoesntexist | grep salut | wc -l
+cat | cat | ls 
+dsbksdgbksdghsd
+echo "$USER"
+unset $USER
+export USER=tata
+echo "$USER"

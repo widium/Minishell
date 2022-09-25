@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 15:14:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 17:50:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void remove_token_cmd(t_cmd *cmd)
     
 }
 
-void remove_token_redir(t_redirection *redir)
+void remove_token_redir(t_redir *redir)
 {
     // printf("remove && free [%s]\n", redir->content);
     if (redir->content)

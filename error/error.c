@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 10:17:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int check_error_token_word(t_token *token)
 
 int check_error_token_redirection(t_token *token)
 {
-    t_redirection *redir;
+    t_redir *redir;
     int result;
     
     redir = get_class(token);
@@ -76,7 +76,7 @@ int check_error_token_redirection(t_token *token)
     return (result);
 }
 
-int check_error_token_heredoc(t_token *token, t_redirection *redir)
+int check_error_token_heredoc(t_token *token, t_redir *redir)
 {
     if (!redir->limiter)
     {
@@ -91,7 +91,7 @@ int check_error_token_heredoc(t_token *token, t_redirection *redir)
     return (0);
 }
 
-int check_error_token_basic_redirection(t_token *token, t_redirection *redir)
+int check_error_token_basic_redirection(t_token *token, t_redir *redir)
 {
     // if (!(is_token_file(token->next)) || !token->next)
     // {
@@ -106,7 +106,7 @@ int check_error_token_basic_redirection(t_token *token, t_redirection *redir)
     return (0);
 }
 
-int check_error_token_pipe(t_token *token, t_redirection *redir)
+int check_error_token_pipe(t_token *token, t_redir *redir)
 {
     if (!(is_token_cmd(token->next)) || !token->next)
     {

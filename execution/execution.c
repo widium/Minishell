@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 18:02:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:07:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void execution(t_env *env)
     t_token *token;
     int status_built_in;
     int status;
+    char **variables;
     
     if (env->verbose == 1)
         printf("=== Execution ===\n");
@@ -27,7 +28,9 @@ void execution(t_env *env)
         cmd = get_class(token);
         if (is_cmd_bin(cmd))
         {
-            bin_execution(env, cmd);
+            variables = get_env_variables(env);
+            bin_execution(env, cmd, variables);
+            free_array(variables);
         }
         else if (is_cmd_built_in(cmd) && cmd_have_argument(cmd))
         {
@@ -42,14 +45,6 @@ void execution(t_env *env)
     if (env->verbose == 1)
         printf("=========\n");
 }
-
-/*
-waitpid(pip->pid[n], &g_status_exit, 0);
-if (WIFSIGNALED(g_status_exit) && !ad->pa->is_blt)
-    g_status_exit = SIGNAL_ERR + g_status_exit;
-if (WIFEXITED(g_status_exit))
-    g_status_exit = WEXITSTATUS(g_status_exit);
-*/
 
 int get_last_status(int bin_status, int ret_built_in)
 {
@@ -90,12 +85,16 @@ void update_variable_status_process(t_env *env, int status)
 {
     t_env_var *var;
     char *value;
+    
     value = ft_itoa(status);
     if (!value)
         return ;
-    var = get_env_var_with_name(env->variable, "?");
+    var = get_env_var_with_name(env, "?");
     if (!var)
+    {
+        free(value);
         return ;
+    }
     if (var->value)
         free(var->value);
     var->value = value;

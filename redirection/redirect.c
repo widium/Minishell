@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:10:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/13 17:17:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int type_of_redirect(char *content)
     return (0);
 }
 
-int recover_limiter(t_redirection *redir, char *line, int index)
+int recover_limiter(t_redir *redir, char *line, int index)
 {
     int new_index;
     int start;

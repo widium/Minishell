@@ -6,34 +6,29 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/19 15:02:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:27:26 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../minishell.h"
 
-void recover_path_and_bins_variable(t_variable *var, char **env_variable)
-{
-    char *path;
-    char **bins;
+// void recover_path_and_bins_variable(t_env *env, char **env_variable)
+// {
+//     char *path;
+//     char **bins;
     
-    var->path = get_variable_value(env_variable, "PATH");
-    var->bins = get_list_of_bins(var, path);
-}
+//     var->path = get_variable_value(env_variable, "PATH");
+//     var->bins = get_list_of_bins(var, path);
+// }
 
-char **get_list_of_bins(t_variable *vars, char *value)
+char **get_list_of_bins(t_env * env)
 {
     char **bins;
+    char *path;
 
-    bins = ft_split(value, ':');
+    path = get_env_var_value_with_name(env, "PATH");
+    bins = ft_split(path, ':');
     return (bins);
-}
-
-char **get_bins(t_env *env)
-{
-    if (env->variable->bins)
-        return (env->variable->bins);
-    return (NULL);
 }
 
 int test_bin_access(char **bins, char *word)

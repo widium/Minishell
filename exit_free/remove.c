@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:20:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 15:29:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:08:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void remove_all(t_env *env)
 {   
     remove_all_token(env);
-    remove_variable(env->variable);
+    free_env_var_list(env);
     remove_all_line(env);
-    env->variable = NULL;
     free(env);
 }
 
@@ -47,30 +46,22 @@ void remove_line(t_line *line)
     free(line);
 }
 
-void remove_variable(t_variable *vars)
-{
-    free_array(vars->bins);
-    free_array(vars->variables);
-    free_env_var_list(vars);
-    free(vars);
-}
-
-void free_env_var_list(t_variable *variable)
+void free_env_var_list(t_env *  env)
 {
     t_env_var *var;
     t_env_var *iter;
 
-    var = get_first_env_var(variable);
+    var = get_first_env_var(env);
     if (!var)
         return ;
     while (var)
     {
         iter = var->next;
-        disconect_env_var(variable, var);
+        disconect_env_var(env, var);
         remove_env_var(var);
         var = iter;
     }
-    variable->first_var = NULL;
+    env->first_var = NULL;
 }
 
 void remove_env_var(t_env_var *var)

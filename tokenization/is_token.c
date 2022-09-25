@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 17:52:44 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/03 12:43:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 09:44:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int is_token_basic_redirection(t_token *token)
 }
 
 
-int is_redir_heredoc(t_redirection *redir)
+int is_redir_heredoc(t_redir *redir)
 {
     if (!redir)
         return (0);

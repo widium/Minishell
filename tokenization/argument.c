@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:47:07 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 09:48:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:24:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,9 @@ void get_arg_variables_value(t_env *env)
 
 int variable_exist(t_env *env, char *name)
 {
-    t_variable *vars;
     t_env_var *var;
 
-    vars = env->variable;
-    var = get_env_var_with_name(vars, name);
+    var = get_env_var_with_name(env, name);
     if (!var)
         return (0);
     if (same_name(var->name, name))
@@ -54,14 +52,11 @@ void change_arg_variable_content(t_env *env, t_arg *arg)
 {
     char *name;
     char *value;
-    t_variable *variable;
     t_env_var *var;
     
-
-    variable = env->variable;
     name = malloc_strcpy(arg->content);
     free(arg->content);
-    value = get_env_var_value_with_name(variable, name);
+    value = get_env_var_value_with_name(env, name);
     if (value == NULL)
     {
         printf("Error : unknow variable [%s]\n", name);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:16:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/22 09:42:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:26:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void processing_bin(t_env *env)
     t_token *token;
     char **bins;
     
-    bins = get_bins(env);
+    bins = get_list_of_bins(env);
     token = get_first_token_cmd(env);
     while (token)
     {
@@ -49,4 +49,5 @@ void processing_bin(t_env *env)
         }
         token = get_next_token_cmd(token);
     }
+    free_array(bins);
 }
