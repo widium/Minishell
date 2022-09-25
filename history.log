@@ -1752,3 +1752,12 @@ echo "$USER"
 unset $USER
 export USER=tata
 echo "$USER"
+echo $OLDPWD
+cd ..
+echo $OLDPWD
+cd ..
+echo $OLDPWD
+echo $PWD
+cd ..
+cd ..
+cd

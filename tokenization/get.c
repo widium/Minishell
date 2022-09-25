@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 16:59:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 18:01:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -360,4 +360,14 @@ char *get_parent_path(t_env *env)
     parent_path = malloc_strcpy_index(current_path, index);
     free(current_path);
     return (parent_path);
+}
+
+char *get_last_path(t_env *env)
+{
+    char *last_path;
+    char *path;
+    
+    last_path = get_env_var_value_with_name(env, "PWD");
+    path = malloc_strcpy(last_path);
+    return (path);
 }

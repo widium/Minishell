@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 15:25:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:59:05 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int cd(t_cmd *cmd, t_env *env)
 {
     char *path;
     char *new_path;
+    char *last_path;
 
     if (!cmd->arg)
         return (0);
@@ -36,7 +37,9 @@ int cd(t_cmd *cmd, t_env *env)
         return (1);
     }
     new_path = get_current_path();
+    last_path = get_last_path(env);
     change_env_var_value_with_name(env, "PWD", new_path);
+    change_env_var_value_with_name(env, "OLDPWD", last_path);
     return (0);
 }
 
