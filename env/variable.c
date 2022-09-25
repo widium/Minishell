@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:45:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 19:52:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:32:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,34 @@ char *get_variable_name(char *variable)
     while (variable[index])
     {
         if (variable[index] == '=')
+        {
+            end = index - 1;
+            name = malloc_substrcpy(variable, start, (end - start) + 1);
+            return (name);
+        }
+        index++;
+    }
+    end = index;
+    name = malloc_substrcpy(variable, start, (end - start) + 1);
+    return (name);
+}
+
+char *get_export_variable_name(char *variable)
+{
+    int index;
+    int start;
+    int end;
+    char *name;
+
+    index = 0;
+    start = 0;
+    if (!variable)
+        return (NULL);
+    while (variable[index])
+    {
+        if (is_blank(variable[index]))
+            return (NULL);
+        else if (variable[index] == '=')
         {
             end = index - 1;
             name = malloc_substrcpy(variable, start, (end - start) + 1);

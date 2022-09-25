@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 18:33:02 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:26:20 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void get_arg_variables_value(t_env *env);
 t_token *get_first_token(t_env *env);
 t_cmd *get_first_cmd(t_env *env);
 char *get_export_variable_value(char *variable);
+char *get_export_variable_name(char *variable);
 char *get_env_variable_value(char *variable);
 char *get_variable_value(char **variables, char *var);
 int same_name(char *first, char *second);

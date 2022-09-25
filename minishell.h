@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/23 18:45:43 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 07:29:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char **add_env_variable(char **variables, char *var);
 void add_signal_env_var(t_variable *vars);
 void add_new_env_variable(t_variable *variable, t_env_var *new);
 int assign_env_var_id(char *value);
+void add_or_create_env_var(t_env *env, char *name, char *value, int id);
 void change_env_var_value_with_name(t_env *env, char *var, char *value);
 void change_env_var_value(t_env_var *var, char *new_value);
 void update_variable_status_process(t_env *env, int status);

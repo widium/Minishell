@@ -1,8 +1,7 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/widium/Programming/42_cursus/Minishell'
 gcc -g3 -fsanitize=address -c main.c -o main.o
 gcc -g3 -fsanitize=address -c utils/init.c -o utils/init.o
- 
 gcc -g3 -fsanitize=address -c utils/string_utils.c -o utils/string_utils.o
 gcc -g3 -fsanitize=address -c env/chained_var.c -o env/chained_var.o
 gcc -g3 -fsanitize=address -c env/prompt.c -o env/prompt.o
@@ -10,130 +9,114 @@ gcc -g3 -fsanitize=address -c env/signal.c -o env/signal.o
 gcc -g3 -fsanitize=address -c env/env.c -o env/env.o
 gcc -g3 -fsanitize=address -c env/variable.c -o env/variable.o
 gcc -g3 -fsanitize=address -c env/line.c -o env/line.o
- 
 gcc -g3 -fsanitize=address -c exit_free/exit.c -o exit_free/exit.o
- 
 gcc -g3 -fsanitize=address -c exit_free/free.c -o exit_free/free.o
- 
 gcc -g3 -fsanitize=address -c exit_free/remove_arg.c -o exit_free/remove_arg.o
- 
 gcc -g3 -fsanitize=address -c exit_free/remove_token.c -o exit_free/remove_token.o
- 
 gcc -g3 -fsanitize=address -c exit_free/remove.c -o exit_free/remove.o
- 
 gcc -g3 -fsanitize=address -c history/file.c -o history/file.o
- 
 gcc -g3 -fsanitize=address -c parsing/detect.c -o parsing/detect.o
- 
 gcc -g3 -fsanitize=address -c parsing/detect2.c -o parsing/detect2.o
- 
 gcc -g3 -fsanitize=address -c parsing/detect3.c -o parsing/detect3.o
- 
 gcc -g3 -fsanitize=address -c parsing/detect4.c -o parsing/detect4.o
- 
 gcc -g3 -fsanitize=address -c parsing/detect5.c -o parsing/detect5.o
- 
 gcc -g3 -fsanitize=address -c parsing/detect_cmd.c -o parsing/detect_cmd.o
- 
 gcc -g3 -fsanitize=address -c detection/extraction.c -o detection/extraction.o
- 
 gcc -g3 -fsanitize=address -c detection/quote_extraction.c -o detection/quote_extraction.o
- 
 gcc -g3 -fsanitize=address -c detection/quote_detection.c -o detection/quote_detection.o
- 
 gcc -g3 -fsanitize=address -c detection/classification.c -o detection/classification.o
- 
 gcc -g3 -fsanitize=address -c is/is.c -o is/is.o
- 
 gcc -g3 -fsanitize=address -c is/is_redirection.c -o is/is_redirection.o
- 
 gcc -g3 -fsanitize=address -c is/is_quote.c -o is/is_quote.o
- 
 gcc -g3 -fsanitize=address -c is/is_file.c -o is/is_file.o
- 
 gcc -g3 -fsanitize=address -c parsing/parsing.c -o parsing/parsing.o
- 
 gcc -g3 -fsanitize=address -c parsing/casting.c -o parsing/casting.o
- 
 gcc -g3 -fsanitize=address -c verbose/verbose.c -o verbose/verbose.o
- 
 gcc -g3 -fsanitize=address -c verbose/verbose_token.c -o verbose/verbose_token.o
- 
 gcc -g3 -fsanitize=address -c verbose/verbose_class.c -o verbose/verbose_class.o
- 
 gcc -g3 -fsanitize=address -c verbose/verbose_env.c -o verbose/verbose_env.o
- 
 gcc -g3 -fsanitize=address -c verbose/verbose_cmd.c -o verbose/verbose_cmd.o
- 
 gcc -g3 -fsanitize=address -c verbose/verbose_redirect.c -o verbose/verbose_redirect.o
- 
 gcc -g3 -fsanitize=address -c tokenization/init_token.c -o tokenization/init_token.o
- 
 gcc -g3 -fsanitize=address -c tokenization/tokenizer.c -o tokenization/tokenizer.o
- 
 gcc -g3 -fsanitize=address -c tokenization/chained.c -o tokenization/chained.o
- 
 gcc -g3 -fsanitize=address -c tokenization/create.c -o tokenization/create.o
- 
 gcc -g3 -fsanitize=address -c tokenization/is_token.c -o tokenization/is_token.o
- 
 gcc -g3 -fsanitize=address -c tokenization/is_arg.c -o tokenization/is_arg.o
- 
 gcc -g3 -fsanitize=address -c tokenization/token.c -o tokenization/token.o
- 
 gcc -g3 -fsanitize=address -c tokenization/get.c -o tokenization/get.o
- 
 gcc -g3 -fsanitize=address -c tokenization/tokenization.c -o tokenization/tokenization.o
- 
 gcc -g3 -fsanitize=address -c tokenization/argument.c -o tokenization/argument.o
- 
 gcc -g3 -fsanitize=address -c redirection/redirect.c -o redirection/redirect.o
- 
 gcc -g3 -fsanitize=address -c redirection/redirection.c -o redirection/redirection.o
- 
 gcc -g3 -fsanitize=address -c redirection/manage_redirection.c -o redirection/manage_redirection.o
- 
 gcc -g3 -fsanitize=address -c redirection/heredoc.c -o redirection/heredoc.o
- 
 gcc -g3 -fsanitize=address -c redirection/close.c -o redirection/close.o
- 
 gcc -g3 -fsanitize=address -c boolean/boolean.c -o boolean/boolean.o
- 
 gcc -g3 -fsanitize=address -c boolean/is_boolean.c -o boolean/is_boolean.o
- 
 gcc -g3 -fsanitize=address -c concatenate/concatenate.c -o concatenate/concatenate.o
- 
 gcc -g3 -fsanitize=address -c execution/execution.c -o execution/execution.o
- 
 gcc -g3 -fsanitize=address -c execution/access.c -o execution/access.o
- 
 gcc -g3 -fsanitize=address -c execution/bin.c -o execution/bin.o
- 
 gcc -g3 -fsanitize=address -c execution/bin_processing.c -o execution/bin_processing.o
- 
 gcc -g3 -fsanitize=address -c execution/bin_exe.c -o execution/bin_exe.o
- 
 gcc -g3 -fsanitize=address -c execution/built_in_exe.c -o execution/built_in_exe.o
- 
 gcc -g3 -fsanitize=address -c execution/built_in.c -o execution/built_in.o
- 
 gcc -g3 -fsanitize=address -c error/error.c -o error/error.o
- 
 gcc -g3 -fsanitize=address -c error/error_cmd.c -o error/error_cmd.o
- 
 gcc -g3 -fsanitize=address -c error/error_built_in.c -o error/error_built_in.o
- 
 gcc -g3 -fsanitize=address -c processing/processing_cmd.c -o processing/processing_cmd.o
- 
 gcc -g3 -fsanitize=address -c processing/processing_built.c -o processing/processing_built.o
- 
 echo "==== Compiling all .c ===="
 echo "==== Compiling libft ===="
- 
 make -s -C libft
- 
+make[1]: Entering directory '/home/widium/Programming/42_cursus/Minishell/libft'
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isdigit.o check/ft_isdigit.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isalpha.o check/ft_isalpha.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isalnum.o check/ft_isalnum.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isascii.o check/ft_isascii.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_isprint.o check/ft_isprint.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strlen.o check/ft_strlen.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strlcat.o check/ft_strlcat.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strchr.o check/ft_strchr.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strrchr.o check/ft_strrchr.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strncmp.o check/ft_strncmp.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strnstr.o check/ft_strnstr.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_strtrim.o check/ft_strtrim.c
+clang -c -Wall -Wextra -Werror -I. -o check/ft_atol.o check/ft_atol.c
+clang -c -Wall -Wextra -Werror -I. -o check/same_str.o check/same_str.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_toupper.o conversion/ft_toupper.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_tolower.o conversion/ft_tolower.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_atoi.o conversion/ft_atoi.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strdup.o conversion/ft_strdup.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strjoin.o conversion/ft_strjoin.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_substr.o conversion/ft_substr.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_itoa.o conversion/ft_itoa.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strmapi.o conversion/ft_strmapi.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_striteri.o conversion/ft_striteri.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_split.o conversion/ft_split.c
+clang -c -Wall -Wextra -Werror -I. -o conversion/ft_strlcpy.o conversion/ft_strlcpy.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memset.o memory/ft_memset.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_bzero.o memory/ft_bzero.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memcpy.o memory/ft_memcpy.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memmove.o memory/ft_memmove.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memchr.o memory/ft_memchr.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_memcmp.o memory/ft_memcmp.c
+clang -c -Wall -Wextra -Werror -I. -o memory/ft_calloc.o memory/ft_calloc.c
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putchar_fd.o verbose/ft_putchar_fd.c
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putstr_fd.o verbose/ft_putstr_fd.c
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putnbr_fd.o verbose/ft_putnbr_fd.c
+clang -c -Wall -Wextra -Werror -I. -o verbose/ft_putendl_fd.o verbose/ft_putendl_fd.c
+clang -c -Wall -Wextra -Werror -I. -o get_next_line/get_next_line.o get_next_line/get_next_line.c
+clang -c -Wall -Wextra -Werror -I. -o printf/ft_check_format.o printf/ft_check_format.c
+clang -c -Wall -Wextra -Werror -I. -o printf/ft_hexa.o printf/ft_hexa.c
+clang -c -Wall -Wextra -Werror -I. -o printf/ft_printf.o printf/ft_printf.c
+clang -c -Wall -Wextra -Werror -I. -o printf/utils.o printf/utils.c
+clang -c -Wall -Wextra -Werror -I. -o free/free.o free/free.c
+clang -c -Wall -Wextra -Werror -I. -o free/copy.o free/copy.c
+ar src  libft.a check/ft_isdigit.o check/ft_isalpha.o check/ft_isalnum.o check/ft_isascii.o check/ft_isprint.o check/ft_strlen.o check/ft_strlcat.o check/ft_strchr.o check/ft_strrchr.o check/ft_strncmp.o check/ft_strnstr.o check/ft_strtrim.o check/ft_atol.o check/same_str.o conversion/ft_toupper.o conversion/ft_tolower.o conversion/ft_atoi.o conversion/ft_strdup.o conversion/ft_strjoin.o conversion/ft_substr.o conversion/ft_itoa.o conversion/ft_strmapi.o conversion/ft_striteri.o conversion/ft_split.o conversion/ft_strlcpy.o memory/ft_memset.o memory/ft_bzero.o memory/ft_memcpy.o memory/ft_memmove.o memory/ft_memchr.o memory/ft_memcmp.o memory/ft_calloc.o verbose/ft_putchar_fd.o verbose/ft_putstr_fd.o verbose/ft_putnbr_fd.o verbose/ft_putendl_fd.o get_next_line/get_next_line.o printf/ft_check_format.o printf/ft_hexa.o printf/ft_printf.o printf/utils.o free/free.o free/copy.o
+make[1]: Leaving directory '/home/widium/Programming/42_cursus/Minishell/libft'
 echo "==== Compiling Minishell ===="
- 
 gcc main.o utils/init.o utils/string_utils.o env/chained_var.o env/prompt.o env/signal.o env/env.o env/variable.o env/line.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/quote_detection.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o redirection/close.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o execution/built_in.o error/error.o error/error_cmd.o error/error_built_in.o processing/processing_cmd.o processing/processing_built.o -g3 -fsanitize=address -lreadline libft/libft.a -o minishell
 cat "header/header.txt"		
 make: Leaving directory '/home/widium/Programming/42_cursus/Minishell'

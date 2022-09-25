@@ -1498,3 +1498,8 @@ env
 export A=
 export A= salut
 env
+export A= 123
+env
+export A =12345
+env
+export A =123

@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Fri Sep 23 11:29:01 2022
+# Make data base, printed on Sun Sep 25 07:17:19 2022
 
 # Variables
 
@@ -54,7 +54,7 @@ XDG_DATA_DIRS = /home/widium/.local/share/flatpak/exports/share:/var/lib/flatpak
 # environment
 VSCODE_CODE_CACHE_PATH = /home/widium/.config/Code/CachedData/74b1f979648cc44d385a2286793c226e611f59e7
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
 # environment
 LANG = C
 # environment
@@ -96,7 +96,7 @@ CONDA_SHLVL = 0
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 3987
+VSCODE_PID = 4288
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -106,7 +106,7 @@ TEMPLATE = header/header.txt
 # makefile (from 'Makefile', line 111)
 FLAGS = -g3 $(SANITIZE)
 # environment
-SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1174,unix/manjaro:/tmp/.ICE-unix/1174
+SESSION_MANAGER = local/manjaro:@/tmp/.ICE-unix/1199,unix/manjaro:/tmp/.ICE-unix/1199
 # automatic
 *F = $(notdir $*)
 # environment
@@ -152,7 +152,7 @@ HEADER = header/class.h header/execution.h header/free.h header/get.h header/is.
 # environment
 LC_TIME = fr_FR.UTF-8
 # environment
-INVOCATION_ID = e0edd4b4d07d43b7b355f495900a7b9f
+INVOCATION_ID = 68f73ad2076a4bde9a7dc915fca8968d
 # environment
 LC_TELEPHONE = fr_FR.UTF-8
 # environment
@@ -192,11 +192,12 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := minishell
 # environment
-SYSTEMD_EXEC_PID = 1373
+SYSTEMD_EXEC_PID = 1380
 # environment
 DISPLAY = :0
 # environment
 GTK_MODULES = canberra-gtk-module
+ 
 # environment
 USER = widium
 # default
@@ -204,7 +205,7 @@ MAKE_VERSION := 4.3
 # environment
 KDE_SESSION_UID = 1000
 # environment
-MANAGERPID = 1103
+MANAGERPID = 1126
 # environment
 LC_MEASUREMENT = fr_FR.UTF-8
 # environment
@@ -216,7 +217,7 @@ LC_PAPER = fr_FR.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:14300
+JOURNAL_STREAM = 8:35870
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -267,9 +268,9 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 # Directories
 
 # header (device 66306, inode 10223799): 10 files, no impossibilities so far.
-# . (device 66306, inode 8652375): 29 files, no impossibilities.
+# . (device 66306, inode 8652375): 30 files, no impossibilities.
 
-# 39 files, no impossibilities in 2 directories.
+# 40 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -283,7 +284,6 @@ LC_IDENTIFICATION = fr_FR.UTF-8
 
 # Not a target:
 verbose/verbose.o:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -326,6 +326,7 @@ history/file.o:
 
 # Not a target:
 execution/bin.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -339,7 +340,7 @@ redirection/heredoc.o:
 # Not a target:
 header/verbose.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-21 15:20:32.486662487
+#  Last modified 2022-09-23 12:58:25.453331324
 #  File has been updated.
 #  Successfully updated.
 
@@ -375,7 +376,7 @@ is/is.o:
 
 minishell: main.o utils/init.o utils/string_utils.o env/chained_var.o env/prompt.o env/signal.o env/env.o env/variable.o env/line.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/quote_detection.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o redirection/close.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o execution/built_in.o error/error.o error/error_cmd.o error/error_built_in.o processing/processing_cmd.o processing/processing_built.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-23 11:21:47.94666706
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -406,6 +407,7 @@ verbose/verbose_env.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 debug: main.o utils/init.o utils/string_utils.o env/chained_var.o env/prompt.o env/signal.o env/env.o env/variable.o env/line.o exit_free/exit.o exit_free/free.o exit_free/remove_arg.o exit_free/remove_token.o exit_free/remove.o history/file.o parsing/detect.o parsing/detect2.o parsing/detect3.o parsing/detect4.o parsing/detect5.o parsing/detect_cmd.o detection/extraction.o detection/quote_extraction.o detection/quote_detection.o detection/classification.o is/is.o is/is_redirection.o is/is_quote.o is/is_file.o parsing/parsing.o parsing/casting.o verbose/verbose.o verbose/verbose_token.o verbose/verbose_class.o verbose/verbose_env.o verbose/verbose_cmd.o verbose/verbose_redirect.o tokenization/init_token.o tokenization/tokenizer.o tokenization/chained.o tokenization/create.o tokenization/is_token.o tokenization/is_arg.o tokenization/token.o tokenization/get.o tokenization/tokenization.o tokenization/argument.o redirection/redirect.o redirection/redirection.o redirection/manage_redirection.o redirection/heredoc.o redirection/close.o boolean/boolean.o boolean/is_boolean.o concatenate/concatenate.o execution/execution.o execution/access.o execution/bin.o execution/bin_processing.o execution/bin_exe.o execution/built_in_exe.o execution/built_in.o error/error.o error/error_cmd.o error/error_built_in.o processing/processing_cmd.o processing/processing_built.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -517,6 +519,7 @@ utils/string_utils.o:
 parsing/detect3.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -593,7 +596,6 @@ fclean: clean
 				@$(RM_FILE) $(NAME)
 
 # Not a target:
- 
 execution/built_in.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -602,7 +604,7 @@ execution/built_in.o:
 # Not a target:
 header/class.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-23 11:27:40.730000508
+#  Last modified 2022-09-23 15:29:04.139997262
 #  File has been updated.
 #  Successfully updated.
 
@@ -630,10 +632,11 @@ tokenization/is_token.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-22 18:18:17.573330743
+#  Last modified 2022-09-23 16:53:42.039994975
 #  File has been updated.
 #  Successfully updated.
 
@@ -668,7 +671,7 @@ detection/extraction.o:
 main.o: main.c header/class.h header/execution.h header/free.h header/get.h header/is.h header/token.h header/verbose.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-09-22 18:34:10.179997705
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -684,7 +687,7 @@ main.o: main.c header/class.h header/execution.h header/free.h header/get.h head
 # automatic
 # ^ := main.c header/class.h header/execution.h header/free.h header/get.h header/is.h header/token.h header/verbose.h
 # automatic
-# ? := header/class.h
+# ? := main.c header/class.h header/execution.h header/free.h header/get.h header/is.h header/token.h header/verbose.h
 # automatic
 # | := 
 # variable set hash-table stats:
@@ -708,7 +711,7 @@ parsing/detect2.o:
 # Not a target:
 header/free.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 18:03:50.003337904
+#  Last modified 2022-09-23 17:12:25.889995281
 #  File has been updated.
 #  Successfully updated.
 
@@ -733,7 +736,7 @@ env/line.o:
 # Not a target:
 header/token.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 17:23:59.183338075
+#  Last modified 2022-09-23 11:36:05.733334003
 #  File has been updated.
 #  Successfully updated.
 
@@ -765,7 +768,6 @@ env/env.o:
 utils/init.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -783,7 +785,7 @@ boolean/boolean.o:
 # Not a target:
 header/is.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-13 14:11:32.433335276
+#  Last modified 2022-09-23 19:48:22.506665117
 #  File has been updated.
 #  Successfully updated.
 
@@ -795,6 +797,7 @@ parsing/parsing.o:
 
 # Not a target:
 exit_free/remove_arg.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -814,7 +817,7 @@ redirection/redirection.o:
 # Not a target:
 header/get.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 15:01:59.960002614
+#  Last modified 2022-09-23 18:33:02.989996524
 #  File has been updated.
 #  Successfully updated.
 
@@ -831,7 +834,7 @@ sanitize: main.o utils/init.o utils/string_utils.o env/chained_var.o env/prompt.
 # Not a target:
 header/execution.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-15 14:31:55.916668693
+#  Last modified 2022-09-23 17:44:55.903328997
 #  File has been updated.
 #  Successfully updated.
 
@@ -870,15 +873,14 @@ tokenization/argument.o:
 
 # No 'vpath' search paths.
 
- 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 125 / storage = 1896 B / avg = 15 B
-# current buf: size = 8162 B / used = 1896 B / count = 125 / avg = 15 B
+# strcache buffers: 1 (0) / strings = 128 / storage = 1925 B / avg = 15 B
+# current buf: size = 8162 B / used = 1925 B / count = 128 / avg = 15 B
 
-# strcache performance: lookups = 371 / hit rate = 66%
+# strcache performance: lookups = 372 / hit rate = 65%
 # hash-table stats:
-# Load=125/8192=2%, Rehash=0, Collisions=5/371=1%
-# Finished Make data base on Fri Sep 23 11:29:01 2022
+# Load=128/8192=2%, Rehash=0, Collisions=5/372=1%
+# Finished Make data base on Sun Sep 25 07:17:19 2022
 
  
