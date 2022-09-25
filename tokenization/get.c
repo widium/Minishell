@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:11:56 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 18:01:38 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/25 18:27:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -334,9 +334,11 @@ int get_number_args(t_cmd *cmd)
 char *get_home_path(t_env *env)
 {
     char *value;
+    char *path;
 
     value = get_env_var_value_with_name(env, "HOME");
-    return (value);
+    path = malloc_strcpy(value);
+    return (path);
 }
 
 char *get_current_path(void)
