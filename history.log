@@ -1780,3 +1780,24 @@ echo -n
 echo -n salut
 echo -n salut
 echo -n salut
+echo test>test1.txt
+cat test1.txt 
+ls -l>test.txt
+ls -l>test2.txt
+echo -n salut | cat -e
+echo -n salut
+
+
+
+
+
+
+echo -n salut
+echo -n salut
+echo -n salut | cat -e
+echo salut | cat -e
+cat
+cat
+cat
+cat
+cat

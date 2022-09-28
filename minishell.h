@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:25:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:18:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void		exit_prompt(int key);
 void		write_line(char *line, int fd);
 
 int			blank_detection(char *line, int index);
+int			blank_escape(char *line, int index);
 char		*variable_name_extraction(t_env *env, char *line, int index);
 int			double_quotes_detection(char *string, int i);
 int			single_quotes_detection(char *line, int index);

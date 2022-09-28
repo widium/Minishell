@@ -1,4 +1,4 @@
-total 43408
+total 43412
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 built_in
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 concatenate
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 detection
@@ -8,7 +8,7 @@ drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 execution
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 exit_free
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 get
 drwxr-xr-x  2 widium widium     4096 Sep 15 15:50 header
--rwxr-xr-x  1 widium widium    18640 Sep 28 18:23 history.log
+-rwxr-xr-x  1 widium widium    18656 Sep 28 18:23 history.log
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 init
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 is
 drwxr-xr-x 12 widium widium     4096 Sep 28 18:07 libft
@@ -24,6 +24,7 @@ drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 processing
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 redirection
 -rw-r--r--  1 widium widium 43596219 Sep 28 16:47 sys
 -rwxr-xr-x  1 widium widium        6 Sep 28 18:12 test1.txt
--rwxr-xr-x  1 widium widium        0 Sep 28 18:23 test.txt
+-rwxr-xr-x  1 widium widium        0 Sep 28 18:23 test2.txt
+-rwxr-xr-x  1 widium widium     1665 Sep 28 18:23 test.txt
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:23 tokenization
 drwxr-xr-x  2 widium widium     4096 Sep 28 18:07 verbose
