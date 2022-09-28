@@ -1771,3 +1771,7 @@ ls
 exit
 ls
 echo sault
+echo -test
+echo -test
+echo -test
+echo -n echo

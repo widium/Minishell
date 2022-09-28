@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:30:32 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 16:02:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:00:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_flags(char *line, int i)
 {
 	if (index_is_over_flow(line, i))
 		return (0);
-	if (line[i] == '-' && !(is_blank(line[i + 1])))
+	if (line[i] == '-' && !(is_blank(line[i + 1])) && line[i + 1] == 'n')
 		return (1);
 	return (0);
 }
