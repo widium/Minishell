@@ -6,17 +6,17 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:53:29 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 14:13:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 08:36:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../minishell.h"
+#include "../minishell.h"
 
-void manage_fd_for_redirection(t_token *token)
-{   
+void	manage_fd_for_redirection(t_token *token)
+{
 	if (is_token_basic_redirection(token))
 	{
-	   manage_fd_basic_redirection(token); 
+		manage_fd_basic_redirection(token);
 	}
 	else if (is_token_pipe(token))
 	{
@@ -28,12 +28,12 @@ void manage_fd_for_redirection(t_token *token)
 	}
 }
 
-void manage_fd_heredoc(t_token *token)
+void	manage_fd_heredoc(t_token *token)
 {
-	t_cmd *prev_cmd;
-	t_redir *redir;
-	char *tmp_file_name;
-	int  fd_tmp;
+	t_cmd	*prev_cmd;
+	t_redir	*redir;
+	char	*tmp_file_name;
+	int		fd_tmp;
 
 	redir = get_class(token);
 	prev_cmd = get_prev_cmd(token);
@@ -63,16 +63,15 @@ void	manage_fd_pipe(t_token *token)
 	change_fd_cmd(next_cmd, fd[0], next_cmd->fd_out);
 }
 
-void manage_fd_basic_redirection(t_token *token)
+void	manage_fd_basic_redirection(t_token *token)
 {
-	t_cmd *prev_cmd;
-	t_cmd *next_cmd;
-	t_file *next_file;
-	
+	t_cmd	*prev_cmd;
+	t_cmd	*next_cmd;
+	t_file	*next_file;
+
 	prev_cmd = get_prev_cmd(token);
 	next_cmd = get_next_cmd(token);
-	next_file = get_next_file(token);
-
+	next_file = get_next_token_file(token);
 	if (!prev_cmd)
 		return ;
 	if (is_token_input_chevron(token))
@@ -92,21 +91,21 @@ void manage_fd_basic_redirection(t_token *token)
 	}
 }
 
-void open_next_file_with_flags(t_token *token, t_file *file)
+void	open_next_file_with_flags(t_token *token, t_file *file)
 {
 	if (is_token_input_chevron(token))
 	{
-		close_fd(file->name ,file->fd);
+		close(file->fd);
 		file->fd = open(file->name, O_RDONLY);
 	}
 	else if (is_token_output_chevron(token))
 	{
-		close_fd(file->name ,file->fd);
+		close(file->fd);
 		file->fd = open(file->name, O_WRONLY | O_TRUNC);
 	}
 	else if (is_token_append_chevron(token))
 	{
-		close_fd(file->name ,file->fd);
+		close(file->fd);
 		file->fd = open(file->name, O_WRONLY | O_APPEND);
 	}
 }

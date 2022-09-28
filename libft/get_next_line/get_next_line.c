@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:02:59 by ebennace          #+#    #+#             */
-/*   Updated: 2022/06/20 15:29:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 08:17:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,25 @@ char	*get_next_line(int fd)
 		return (NULL);
 	return (ft_separation(&statik, retour));
 }
-/*int main()
+
+char	*mini_get_next_line(int fd)
 {
-    int fd;
+	char	*start;
+	char	*cursor;
 
-    fd = open("test.txt", O_RDONLY);
-    printf("%s",get_next_line(fd));
-    printf("%s",get_next_line(fd));
-    printf("%s",get_next_line(fd));
-    printf("%s",get_next_line(fd));
-    printf("%s",get_next_line(fd));
-    printf("%s",get_next_line(fd));
-
-
+	start = malloc(10000);
+	cursor = start;
+	while (read(fd, cursor, 1) > 0)
+	{
+		if (*cursor == '\n')
+			break ;
+		cursor++;
+	}
+	if (cursor > start)
+	{
+		*cursor = 0;
+		return (start);
+	}
+	free(start);
+	return (NULL);
 }
-*/

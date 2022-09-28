@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:56:25 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/12 15:37:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:02:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strjoin_free_first(char *s1, char *s2)
 {
-	char *complete;
+	char	*complete;
 
 	complete = ft_strjoin(s1, s2);
 	free(s1);
@@ -53,7 +53,7 @@ char	*ft_strjoin_free_first(char *s1, char *s2)
 
 char	*ft_strjoin_free_second(char *s1, char *s2)
 {
-	char *complete;
+	char	*complete;
 
 	complete = ft_strjoin(s1, s2);
 	free(s2);
@@ -63,7 +63,7 @@ char	*ft_strjoin_free_second(char *s1, char *s2)
 
 char	*ft_strjoin_free_all(char *s1, char *s2)
 {
-	char *complete;
+	char	*complete;
 
 	complete = ft_strjoin(s1, s2);
 	free(s1);
@@ -94,94 +94,9 @@ char	*ft_strjoin_char(char *s1, char *s2, char c)
 	cont[i] = c;
 	while (s2[y])
 	{
-
 		cont[i + y + 1] = s2[y];
 		++y;
 	}
 	cont[i + y + 1] = '\0';
 	return (cont);
 }
-
-int ft_strlen_array(char **array)
-{
-	int i;
-
-	if (!array)
-		return (0);
-	i = 0;
-	while (array[i])
-		i++;
-	return (i);
-}
-
-char	**ft_arrayjoin_str(char **array, char *str, int pos)
-{
-	char **new_array;
-	int size;
-	int i;
-	int y;
-	
-	size = ft_strlen_array(array);
-	new_array = malloc(sizeof(char *)*(size + 2));
-	
-	i = 0;
-	y = 0;
-	while (array[i])
-	{
-		if (y != pos)
-		{
-			new_array[y] = malloc_strcpy(array[i]);
-			i++;
-		}
-		else
-			new_array[y] = malloc_strcpy(str);
-		y++;
-	}
-	if (y == pos && i >= size)
-	{
-		new_array[y] = malloc_strcpy(str);
-		y++;
-	}
-	new_array[y] = NULL;
-	return (new_array);
-	
-}
-
-char	**ft_arrayremove_str(char **array, int pos)
-{
-	char **new_array;
-	int size;
-	int i;
-	int y;
-	
-	if (pos < 0)
-		return (array);
-	size = ft_strlen_array(array);
-	new_array = malloc(sizeof(char *)*size);
-	i = 0;
-	y = 0;
-	while (y < (size - 1))
-	{
-		if (y != pos)
-			new_array[y] = malloc_strcpy(array[i]);
-		else
-		{	
-			i++;
-			new_array[y] = malloc_strcpy(array[i]);	
-		}
-		i++;
-		y++;
-	}
-	new_array[y] = NULL;
-	return (new_array);
-	
-}
-
-/*
-int main ()
-{
-	char s1[] = "12345";
-	char s2[] = "12345";
-	printf("%s\n",(char *)ft_strjoin(s1, s2));
-}
-*/

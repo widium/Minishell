@@ -6,43 +6,45 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 13:09:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:54:40 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../minishell.h"
+#include "../minishell.h"
 
-void use_signal(void)
+void	use_signal(void)
 {
 	signal(SIGQUIT, pass);
 	signal(SIGINT, call_prompt);
-	// signal(SIGINT, stop_prompt);
-		
 }
 
-void call_prompt(int key)
+void	call_prompt(int key)
 {
 	rl_replace_line("", 0);
 	rl_on_new_line();
 	write(1, "\n", 1);
 	rl_redisplay();
-	
 }
 
-void stop_prompt(int key)
+void	pass(int key)
 {
-	printf("salut\n");
 	return ;
 }
 
-void pass(int key)
-{
-	return;
-}
-
-void exit_prompt(int key)
+void	exit_prompt(int key)
 {
 	printf("Exit...\n");
 	exit(0);
-	
+}
+
+void	add_signal_env_var(t_env *env)
+{
+	t_var	*signal_var;
+	char	*value;
+	char	*name;
+
+	name = malloc_strcpy("?");
+	value = malloc_strcpy("NULL");
+	signal_var = init_env_variable(name, value, VALUE);
+	add_new_env_variable(env, signal_var);
 }

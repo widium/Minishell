@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 16:01:52 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/15 16:50:26 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/28 17:01:47 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS = check/ft_isdigit.c \
 	   check/ft_strtrim.c \
 	   check/ft_atol.c \
 	   check/same_str.c \
+	   array/join_array.c \
+	   array/array.c \
 	   conversion/ft_toupper.c \
 	   conversion/ft_tolower.c \
 	   conversion/ft_atoi.c \
@@ -47,6 +49,7 @@ SRCS = check/ft_isdigit.c \
 	   verbose/ft_putstr_fd.c \
 	   verbose/ft_putnbr_fd.c \
 	   verbose/ft_putendl_fd.c \
+	   verbose/print_array.c \
 	   get_next_line/get_next_line.c \
 	   printf/ft_check_format.c \
 	   printf/ft_hexa.c \
@@ -54,6 +57,7 @@ SRCS = check/ft_isdigit.c \
 	   printf/utils.c \
 	   free/free.c \
 	   free/copy.c \
+	   free/copy_array.c \
 	   
 
 

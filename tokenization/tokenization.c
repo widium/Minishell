@@ -6,38 +6,55 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:59:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/21 16:07:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:44:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void tokenization(t_env *env, char *line)
+void	tokenization(t_env *env, char *line)
 {
-    int index;
+	int	index;
 
-    index = 0;
-    while (line_is_not_finish(line, index))
-    {
-        if (is_word(env, line, index))
-        { 
-            index = word_classification(env, line, index);
-        }
-        if (is_redirection(line, index))
-        {
-            index = redirection_classification(env, line, index);
-        }
-        index++;
-    }
+	index = 0;
+	while (line_is_not_finish(line, index))
+	{
+		if (is_word(env, line, index))
+		{
+			index = word_classification(env, line, index);
+		}
+		if (is_redirection(line, index))
+		{
+			index = redirection_classification(env, line, index);
+		}
+		index++;
+	}
 }
 
-int variable_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
+int	single_tokenization(t_cmd *cmd, char *line, int start, int index)
 {
-    int new_index;
-    
-    if (is_variable(env, line, index))
-        new_index = variables_extraction(env, cmd, line, index);
-    else 
-        new_index = word_detection(env, line, index);
-    return (new_index);
+	t_arg	*arg;
+	char	*content;
+	int		end;
+
+	if (is_finish(line[index]))
+	{
+		content = get_rest_single_quote(line, start, index, "\'");
+	}
+	else
+	{
+		content = malloc_substrcpy(line, start, index);
+		index++;
+	}
+	arg = create_arg(content, TOKEN_SINGLE_QUOTE);
+	add_arg_list(cmd, arg);
+	return (index);
+}
+
+t_token	*cmd_tokenization(char *word, int id)
+{
+	t_token	*token;
+
+	token = create_token_command(id, word);
+	return (token);
 }

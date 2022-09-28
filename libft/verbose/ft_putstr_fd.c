@@ -6,18 +6,18 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 19:04:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/05 18:45:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 16:51:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void ft_putstr_fd(char *str, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
-	int i;
+	int	i;
 
 	if (!(str))
-		return;
+		return ;
 	i = ft_strlen(str);
 	write(fd, str, i);
 }

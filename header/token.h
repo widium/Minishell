@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 15:14:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:41:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,59 +42,50 @@
 
 # include "class.h"
 
-t_token *init_token(void);
+t_token	*init_token(void);
 t_blank	*init_blank(char *content, int id);
 t_word	*init_word(char *content, int id);
-t_cmd   *init_cmd(char *content, int id);
+t_cmd	*init_cmd(char *content, int id);
 t_file	*init_file(char *name, int fd);
-t_single	*init_single(char *content, int id);
-t_double	*init_double(char *content, int id);
 t_redir	*init_redirection(int type, char *content);
 t_redir	*init_heredoc(int type, char *content, char *limiter);
-t_boolean	*init_boolean_operator(char * content, char *first, char *second, int id);
-t_wildcard	*init_wildcard(void);
-t_arg *init_arg(char *content, int id);
+t_arg	*init_arg(char *content, int id);
 
-void create_chained_var(t_env *  env, char **env_variable);
-t_token *create_token_word(char *content, int id);
-t_token *create_token_bool(char *content, char *first, char *second, int id);
-t_token *create_token_redir(char *line, int index, int new_index);
-t_token *create_token_heredoc(int type, char *content, char *limiter);
-t_token *create_token_variable(int id, char *content);
-t_token *create_token_command(int id, char *content);
-t_arg *create_arg(char *content, int id);
-t_token *create_token_file(char *name, int fd, int id);
-int next_file_tokenization(t_env *env, char *line, int index);
+void	create_chained_var(t_env *env, char **env_variable);
+t_token	*create_token_word(char *content, int id);
+t_token	*create_token_redir(char *line, int index, int new_index);
+t_token	*create_token_command(int id, char *content);
+t_arg	*create_arg(char *content, int id);
+t_token	*create_token_file(char *name, int fd, int id);
+int		next_file_tokenizer(t_env *env, char *line, int index);
 
-void *choose_class(char *content, int id);
-void choose_arg_class(t_token *token, char *arg);
-void connect_new_var(t_env_var *prev_var, t_env_var *curr_var, t_env_var *next_var);
-void connect_var(t_env_var *curr_var, t_env_var *next_var);
-void connect_token(t_token *curr_token, t_token *next_token);
-void connect_arg(t_arg *curr_arg, t_arg *next_arg);
-void connect_line(t_line *curr_line, t_line *next_line);
-void add_arg_list(t_cmd *cmd, t_arg *arg);
-void add_line_list(t_env *env, t_line *line);
+void	*choose_class(char *content, int id);
+void	choose_arg_class(t_token *token, char *arg);
+void	connect_new_var(t_var *prev_var, t_var *curr_var, t_var *next_var);
+void	connect_var(t_var *curr_var, t_var *next_var);
+void	connect_token(t_token *curr_token, t_token *next_token);
+void	connect_arg(t_arg *curr_arg, t_arg *next_arg);
+void	connect_line(t_line *curr_line, t_line *next_line);
+void	add_arg_list(t_cmd *cmd, t_arg *arg);
+void	add_line_list(t_env *env, t_line *line);
 
-void tokenization(t_env *env, char *line);
-int tokenize_content_single_quote(t_cmd *cmd, char *line, int start, int index);
-char *get_content_double_quote(t_cmd *cmd, char *line, int start, int *index);
-t_token *tokenizer_word(char *content, int id);
-int command_tokenization(t_env *env, char *line, char *content, int index);
-t_token *tokenizer_bool(char *line, int start, int end, int id);
-t_token *tokenizer_command(char *word, int id);
-t_arg *tokenizer_arg(char *line, int start, int end, int id);
-void tokenize_word_arg(t_env *env, t_cmd *cmd, char *content);
-t_token *tokenizer_file(char *name, int id);
+void	tokenization(t_env *env, char *line);
+int		single_tokenization(t_cmd *cmd, char *line, int start, int index);
+char	*get_content_double(t_cmd *cmd, char *line, int start, int *index);
+t_token	*word_tokenizer(char *content, int id);
+int		cmd_tokenizer(t_env *env, char *line, char *content, int index);
+t_token	*cmd_tokenization(char *word, int id);
+t_arg	*arg_tokenizer(char *line, int start, int end, int id);
+void	word_arg_tokenizer(t_env *env, t_cmd *cmd, char *content);
+t_token	*file_tokenizer(char *name, int id);
 
-int size_of_list(t_cmd *cmd);
-int size_of_list_env(t_env *env);
+int		size_of_cmd_list(t_cmd *cmd);
+int		size_of_var_list(t_env *env);
 
-char **list_to_array(t_cmd *cmd);
-char **env_var_list_to_array(t_env *env);
-char *list_to_string(t_cmd *cmd);
+char	**cmd_list_to_array(t_cmd *cmd);
+char	**variable_list_to_array(t_env *env);
+char	*cmd_list_to_string(t_cmd *cmd);
 
+char	*convert_id(int id);
 
-char *convert_id(int id);
-
-# endif
+#endif

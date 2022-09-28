@@ -6,97 +6,85 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/25 08:24:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:42:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int redirection_classification(t_env *env, char *line, int index)
+int	redirection_classification(t_env *env, char *line, int index)
 {
-    t_token *token;
-    int new_index;
-    int type;
-    char *content;
+	t_token	*token;
+	int		new_index;
+	int		type;
+	char	*content;
 
-    new_index = redirection_detection(line, index);
-    token = create_token_redir(line, index, new_index);
-    add_token_list(env, token);
-    index = get_argument_redirection(env, token, line, new_index);
-    return (index);
+	new_index = redirection_detection(line, index);
+	token = create_token_redir(line, index, new_index);
+	add_token_list(env, token);
+	index = arg_redirect_extraction(env, token, line, new_index);
+	return (index);
 }
 
-int get_argument_redirection(t_env *env, t_token *token, char *line, int index)
+int	word_classification(t_env *env, char *line, int index)
 {
-    if (is_token_heredoc(token))
-    {
-        index = recover_limiter(get_class(token), line, ++index);
-    }
-    else if (is_token_basic_redirection(token))
-    {
-        index = next_file_tokenization(env, line, ++index);
-    }
-    return (index);
+	char	*content;
+	int		new_index;
+	t_token	*token;
+
+	new_index = word_detection(env, line, index);
+	content = malloc_substrcpy(line, index, new_index);
+	if (is_cmd(env, content))
+	{
+		new_index = cmd_tokenizer(env, line, content, ++new_index);
+	}
+	else
+	{
+		token = word_tokenizer(content, TOKEN_WORD);
+		add_token_list(env, token);
+	}
+	return (new_index);
 }
 
-
-
-int word_classification(t_env *env, char *line, int index)
+t_token	*cmd_classification(t_env *env, char *content)
 {
-    char *content;
-    int new_index;
-    t_token *token;
+	t_token	*token;
 
-    new_index = word_detection(env, line, index);
-    content = malloc_substrcpy(line, index, (new_index - index) + 1);
-    if (is_cmd(env, content))
-    {
-        new_index = command_tokenization(env, line, content, ++new_index);
-    }
-    else
-    {
-        token = tokenizer_word(content, TOKEN_WORD);
-        add_token_list(env, token);
-    }
-    return (new_index);
-}
- 
-int command_tokenization(t_env *env, char *line, char *content, int index)
-{
-    t_token *token;
-    
-    token = command_classification(env, content);
-    if (index_not_over_flow(line, index) && !(is_separator(line, index)))
-    {
-        index = blank_detection(line, index);
-        index = argument_detection(env, get_class(token), line, index);
-    }
-    add_token_list(env, token);
-    return (index);
+	if (is_built_in(content))
+	{
+		token = cmd_tokenization(content, TOKEN_BUILT_IN);
+	}
+	else if (is_bin(env, content))
+	{
+		token = cmd_tokenization(content, TOKEN_BINARY);
+	}
+	return (token);
 }
 
-t_token *command_classification(t_env *env, char *content)
+int	arg_classification(t_env *env, t_cmd *cmd, char *line, int index)
 {
-    t_token *token;
+	int		new_index;
 
-    if (is_built_in(content))
-    {
-        token = tokenizer_command(content, TOKEN_BUILT_IN);
-    }
-    else if (is_bin(env, content))
-    {
-        token = tokenizer_command(content, TOKEN_BINARY);
-    }
-    return (token);
-}
-
-int boolean_classification(t_env *env, char *line, int index)
-{
-    t_token *token;
-    int new_index;
-
-    new_index = boolean_detection(line, index);
-    token = tokenizer_bool(line, index, new_index, TOKEN_BOOLEAN);
-    add_token_list(env, token);
-    return (new_index);
+	new_index = index;
+	if (is_blank_argument(env, line, index))
+	{
+		new_index = blank_arg_tokenizer(env, cmd, line, index);
+	}
+	else if (is_single_quote(line[index]))
+	{
+		new_index = single_tokenizer(cmd, line, index);
+	}
+	else if (is_double_quote(line[index]))
+	{
+		new_index = double_tokenizer(env, cmd, line, index);
+	}
+	else if (is_variable_word(line, index))
+	{
+		new_index = variable_tokenizer(env, cmd, line, index);
+	}
+	else if (is_word(env, line, index))
+	{
+		new_index = word_arg_extraction(env, cmd, line, index);
+	}
+	return (new_index);
 }

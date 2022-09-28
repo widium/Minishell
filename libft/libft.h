@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:51:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/11 16:52:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:08:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char			*ft_strjoin_free_second(char *s1, char *s2);
 char			*ft_strjoin_free_all(char *s1, char *s2);
 char			*ft_strjoin_char(char *s1, char *s2, char c);
 char			**ft_arrayjoin_str(char **array, char *str, int pos);
+void			copy_dimensions(char **array, char **new_array, int y, int *i);
 char			**ft_arrayremove_str(char **array, int pos);
 char			*ft_substr(char *s, int start, int len);
 char			*ft_itoa(int n);
@@ -89,7 +90,7 @@ int				ft_strlen_array(char **array);
 size_t			ft_strlcpy(char *dest, const char *src, size_t n);
 char			*malloc_strcpy(char *ori);
 char			*malloc_strcpy_index(char *ori, int len);
-char			*malloc_substrcpy(char *origin, int index, int len);
+char			*malloc_substrcpy(char *origin, int start, int end);
 char			*malloc_strcpy_after_index(char *ori, int index);
 char			**malloc_strcpy_array(char **ori);
 size_t			col_count(char **str);
