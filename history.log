@@ -1775,3 +1775,8 @@ echo -test
 echo -test
 echo -test
 echo -n echo
+echo
+echo -n
+echo -n salut
+echo -n salut
+echo -n salut

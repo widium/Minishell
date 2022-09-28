@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:47:48 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 07:08:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:06:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	processing_echo(t_cmd *cmd)
 	{
 		arg = get_cmd_flags(cmd);
 		cmd->flags = malloc_strcpy(arg->content);
+		if (is_arg_blank(arg->next))
+			remove_arg_in_cmd(cmd, arg->next);
 		remove_arg_in_cmd(cmd, arg);
 	}
 }
