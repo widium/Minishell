@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_cmd.c                                          :+:      :+:    :+:   */
+/*   get_next.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 11:41:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 14:03:30 by ebennace         ###   ########.fr       */
+/*   Created: 2022/09/29 14:02:21 by ebennace          #+#    #+#             */
+/*   Updated: 2022/09/29 14:03:39 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-t_token	*get_first_token_cmd(t_env *env)
+t_token	*get_next_token_cmd(t_token *token)
 {
-	t_token	*token;
-
-	if (!(get_first_token(env)))
-		return (NULL);
-	token = get_first_token(env);
+	token = token->next;
 	while (token)
 	{
 		if (is_token_cmd(token))
@@ -28,13 +24,9 @@ t_token	*get_first_token_cmd(t_env *env)
 	return (NULL);
 }
 
-t_token	*get_first_token_built_in(t_env *env)
+t_token	*get_next_token_built_in(t_token *token)
 {
-	t_token	*token;
-
-	if (!(get_first_token(env)))
-		return (NULL);
-	token = get_first_token(env);
+	token = token->next;
 	while (token)
 	{
 		if (is_token_built_in(token))
@@ -44,13 +36,9 @@ t_token	*get_first_token_built_in(t_env *env)
 	return (NULL);
 }
 
-t_token	*get_first_token_bin(t_env *env)
+t_token	*get_next_token_bin(t_token *token)
 {
-	t_token	*token;
-
-	if (!(get_first_token(env)))
-		return (NULL);
-	token = get_first_token(env);
+	token = token->next;
 	while (token)
 	{
 		if (is_token_bin(token))
@@ -60,20 +48,24 @@ t_token	*get_first_token_bin(t_env *env)
 	return (NULL);
 }
 
-t_cmd	*get_prev_cmd(t_token *token)
+t_file	*get_next_token_file(t_token *token)
+{
+	while (token)
+	{
+		if (is_token_file(token))
+			return (get_class(token));
+		token = token->next;
+	}
+	return (NULL);
+}
+
+t_cmd	*get_next_cmd(t_token *token)
 {
 	while (token)
 	{
 		if (is_token_cmd(token))
 			return (get_class(token));
-		token = token->prev;
+		token = token->next;
 	}
-	return (NULL);
-}
-
-char	*get_cmd_path(t_cmd *cmd)
-{
-	if (cmd->bin)
-		return (cmd->bin);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:56:26 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 13:48:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:04:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	update_variable_status_process(t_env *env, int status)
 	value = ft_itoa(status);
 	if (!value)
 		return ;
-	// printf("update with [%s]\n", value);
 	var = get_env_var_with_name(env, "?");
 	if (!var)
 	{
