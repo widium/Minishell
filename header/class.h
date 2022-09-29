@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 07:48:06 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:22:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ typedef struct s_line
 
 }	t_line;
 
-typedef struct s_env_variable
+typedef struct s_var
 {
-	int						index;
-	int						id;
-	char					*name;
-	char					*value;
-	struct s_env_variable	*next;
-	struct s_env_variable	*prev;
+	int				index;
+	int				id;
+	char			*name;
+	char			*value;
+	struct s_var	*next;
+	struct s_var	*prev;
 
 }	t_var;
 

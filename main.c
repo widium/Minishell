@@ -6,13 +6,11 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 13:46:57 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:30:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-int	g_tamer = 0;
 
 int	main(int argc, char **argv, char **env_var)
 {

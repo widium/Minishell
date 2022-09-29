@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # There is NO WARRANTY, to the extent permitted by law.
  
 
-# Make data base, printed on Thu Sep 29 14:03:11 2022
+# Make data base, printed on Thu Sep 29 15:30:04 2022
 
 # Variables
 
@@ -96,7 +96,7 @@ CONDA_SHLVL = 0
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5928
+VSCODE_PID = 87645
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -251,6 +251,7 @@ KDE_SESSION_VERSION = 5
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
 # makefile (from 'Makefile', line 133)
 CC = gcc
+ 
 # environment
 KDE_FULL_SESSION = true
 # environment
@@ -365,7 +366,6 @@ get/get.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 is/is_token_cmd.o:
@@ -634,8 +634,8 @@ execution/execution.o:
 #  File has not been updated.
 
 # Not a target:
- 
 tokenization/tokenizer.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -847,7 +847,6 @@ header/token.h:
 
 # Not a target:
 is/is_token_redirection.o:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -892,6 +891,7 @@ exit_free/disconect.o:
 get/get_next.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -1026,9 +1026,8 @@ is/is_blank.o:
 # current buf: size = 8162 B / used = 2420 B / count = 154 / avg = 15 B
 
 # strcache performance: lookups = 473 / hit rate = 67%
- 
 # hash-table stats:
 # Load=154/8192=2%, Rehash=0, Collisions=5/473=1%
-# Finished Make data base on Thu Sep 29 14:03:11 2022
+# Finished Make data base on Thu Sep 29 15:30:04 2022
 
  
