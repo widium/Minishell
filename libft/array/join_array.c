@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:53:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 17:09:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:13:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 	int		i;
 	int		y;
 
-	size = ft_strlen_array(array);
+	size = len_array(array);
 	new_array = malloc(sizeof(char *) * (size + 2));
 	i = 0;
 	y = 0;
@@ -55,7 +55,7 @@ char	**ft_arrayremove_str(char **array, int pos)
 
 	if (pos < 0)
 		return (array);
-	size = ft_strlen_array(array);
+	size = len_array(array);
 	new_array = malloc(sizeof(char *) * size);
 	i = 0;
 	y = 0;

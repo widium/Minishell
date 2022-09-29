@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 17:20:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 08:02:44 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:00:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	remove_all(t_env *env)
 	remove_all_token(env);
 	remove_var_list(env);
 	remove_all_line(env);
+	remove_env_vars(env);
 	free(env);
 }
 

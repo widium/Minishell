@@ -6,13 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 15:54:40 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:47:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	use_signal(void)
+void	use_signal(t_env *env)
 {
 	signal(SIGQUIT, pass);
 	signal(SIGINT, call_prompt);
@@ -24,6 +24,7 @@ void	call_prompt(int key)
 	rl_on_new_line();
 	write(1, "\n", 1);
 	rl_redisplay();
+	// g_tamer = 130;
 }
 
 void	pass(int key)
@@ -44,7 +45,7 @@ void	add_signal_env_var(t_env *env)
 	char	*name;
 
 	name = malloc_strcpy("?");
-	value = malloc_strcpy("NULL");
+	value = malloc_strcpy("0");
 	signal_var = init_env_variable(name, value, VALUE);
 	add_new_env_variable(env, signal_var);
 }

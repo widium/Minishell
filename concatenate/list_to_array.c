@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 07:24:49 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 07:28:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:45:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ char	**variable_list_to_array(t_env *env)
 	complete = malloc(sizeof(char *) * (size_of_var_list(env) + 1));
 	while (var)
 	{
-		complete[i] = ft_strjoin_char(var->name, var->value, '=');
+		if (!var->value)
+			complete[i] = ft_strjoin_char(var->name, "", '=');
+		else
+			complete[i] = ft_strjoin_char(var->name, var->value, '=');
 		var = var->next;
 		i++;
 	}

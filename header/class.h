@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:37:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 14:05:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 07:48:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_env
 	int			verbose;
 	int			error_parsing;
 	int			error_processing;
+	char		**env_vars;
 	t_line		*first_line;
 	t_token		*first_token;
 	t_var		*first_var;

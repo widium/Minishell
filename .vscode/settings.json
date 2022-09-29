@@ -91,6 +91,7 @@
         "free.h": "c",
         "is.h": "c",
         "token.h": "c",
-        "termios.h": "c"
+        "termios.h": "c",
+        "string.h": "c"
     }
 }

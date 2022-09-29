@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 07:53:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:03:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,13 @@ void	remove_arg_in_cmd(t_cmd *cmd, t_arg *arg)
 	else if (arg->next)
 		cmd->first_arg = arg->next;
 	remove_arg(arg);
+}
+
+void	remove_env_vars(t_env *env)
+{
+	if (env->env_vars)
+	{
+		free_array(env->env_vars);
+	}
+	env->env_vars = NULL;
 }

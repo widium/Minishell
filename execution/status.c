@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:56:26 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 13:57:23 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:48:06 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	get_last_status(int bin_status, int ret_built_in)
 {
-	if (bin_status == -1)
-		return (ret_built_in);
-	else if (ret_built_in == -1)
+	if (ret_built_in == -1)
 		return (bin_status);
+	else if (bin_status == -1)
+		return (ret_built_in);
 }
 
 int	convert_status_process_value(int status)
@@ -37,14 +37,12 @@ void	update_variable_status_process(t_env *env, int status)
 	value = ft_itoa(status);
 	if (!value)
 		return ;
+	// printf("update with [%s]\n", value);
 	var = get_env_var_with_name(env, "?");
 	if (!var)
 	{
 		free(value);
 		return ;
 	}
-	if (var->value)
-		free(var->value);
-	var->value = value;
-	var->id = VALUE;
+	change_env_var_value(var, value);
 }

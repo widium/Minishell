@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 18:18:45 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:47:08 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # include "header/is.h"
 # include "header/verbose.h"
 
+extern int	g_tamer;
+
 void		ask_verbose(t_env *env);
 t_env		*init_env(char **varaibles);
 t_var		*init_env_variable(char *name, char *value, int id);
@@ -69,7 +71,7 @@ int			line_is_not_empty(char	*line);
 
 int			return_last_back_slash_index(char *str);
 
-void		use_signal(void);
+void		use_signal(t_env *env);
 void		call_prompt(int key);
 void		stop_prompt(int key);
 void		pass(int key);
@@ -161,7 +163,7 @@ int			check_error_token_redirection(t_token *token);
 int			check_error_token_heredoc(t_token *token, t_redir *redir);
 int			check_error_token_basic_redirection(t_token *token, t_redir *redir);
 int			check_error_token_pipe(t_token *token, t_redir *redir);
-int			check_error_token_word(t_token *token);
+int			check_error_token_word(t_env *env, t_token *token);
 int			check_error_token_cmd(t_token *token);
 int			check_error_built_in(t_cmd *cmd);
 

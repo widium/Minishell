@@ -6,11 +6,26 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:34:53 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 08:41:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:04:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
+
+void	execute_line(t_env *env, char *line)
+{
+	parsing(env, line);
+	check_error_parsing(env);
+	if (doesnt_have_error_parsing(env))
+	{
+		processing_cmd(env);
+		processing_redirection(env);
+		if (doesnt_have_error_processing(env))
+			execution(env);
+	}
+	reset_counter_error(env);
+	remove_all_token(env);
+}
 
 int	env_have_multi_line(t_env *env)
 {
@@ -27,22 +42,6 @@ int	env_have_multi_line(t_env *env)
 	if (nbr > 1)
 		return (1);
 	return (0);
-}
-
-void	execute_line(t_env *env, char *line)
-{
-	parsing(env, line);
-	check_error_parsing(env);
-	if (doesnt_have_error_parsing)
-	{
-		processing_cmd(env);
-		processing_redirection(env);
-		if (doesnt_have_error_processing)
-			execution(env);
-	}
-	reset_counter_error(env);
-	remove_all_token(env);
-	free(line);
 }
 
 void	execute_multi_line(t_env *env, t_line *line)

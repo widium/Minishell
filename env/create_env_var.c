@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 18:00:19 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 15:52:51 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:13:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**add_env_variable(char **variables, char *var)
 	int		last_index;
 	char	**new_variables;
 
-	last_index = ft_strlen_array(variables);
+	last_index = len_array(variables);
 	new_variables = ft_arrayjoin_str(variables, var, last_index);
 	return (new_variables);
 }

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:40:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:33:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,19 @@ void	check_error_parsing(t_env *env)
 		}
 		if (is_token_word(token))
 		{
-			env->error_parsing += check_error_token_word(token);
+			env->error_parsing += check_error_token_word(env, token);
 		}
 		token = token->next;
 	}
 }
 
-int	check_error_token_word(t_token *token)
+int	check_error_token_word(t_env *env, t_token *token)
 {
 	int		result;
 	t_word	*word;
 
 	word = get_class(token);
 	printf("Error : [Unknow token \"%s\"]\n", word->content);
+	update_variable_status_process(env, 127);
 	return (1);
 }

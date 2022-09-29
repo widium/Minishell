@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 17:50:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:47:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ void	prompt(t_env	*env)
 
 	while (1)
 	{
-		use_signal();
+		use_signal(env);
 		read_line = get_line(env);
 		if (!read_line)
 		{
 			printf("exit\n");
 			break ;
 		}
-		execute_line(env, read_line);
+		if (line_is_not_empty(read_line))
+			execute_line(env, read_line);
+		free(read_line);
 	}
 }
 

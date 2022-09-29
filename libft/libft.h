@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:51:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 17:08:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 08:13:52 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 size_t			ft_strlcat(char *dest, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
-int				ft_strlen_array(char **array);
+int				len_array(char **array);
 size_t			ft_strlcpy(char *dest, const char *src, size_t n);
 char			*malloc_strcpy(char *ori);
 char			*malloc_strcpy_index(char *ori, int len);

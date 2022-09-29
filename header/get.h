@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:42:01 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 15:24:26 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:53:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,12 @@ t_redir	*get_first_redirection(t_env *env);
 t_token	*get_first_token_redirection(t_env *env);
 t_token	*get_first_token_cmd(t_env *env);
 t_token	*get_first_token_built_in(t_env *env);
+t_token	*get_first_token_bin(t_env *env);
 
 t_token	*get_next_token_redirection(t_token *token);
 t_token	*get_next_token_cmd(t_token *token);
 t_token	*get_next_token_built_in(t_token *token);
+t_token	*get_next_token_bin(t_token *token);
 
 int		get_nbr_pipes(t_env *env);
 

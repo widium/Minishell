@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:41:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 15:51:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:52:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ t_token	*get_first_token_built_in(t_env *env)
 	while (token)
 	{
 		if (is_token_built_in(token))
+			return (token);
+		token = token->next;
+	}
+	return (NULL);
+}
+
+t_token	*get_first_token_bin(t_env *env)
+{
+	t_token	*token;
+
+	if (!(get_first_token(env)))
+		return (NULL);
+	token = get_first_token(env);
+	while (token)
+	{
+		if (is_token_bin(token))
 			return (token);
 		token = token->next;
 	}

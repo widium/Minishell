@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:46:10 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:50:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/09/29 07:59:58 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	remove_var_list(t_env *env);
 void	free_env_var(t_var *var);
 void	remove_and_disconect_env_var(t_env *env, t_var *var);
 void	remove_all(t_env *env);
+void	remove_env_vars(t_env *env);
 void	remove_all_token(t_env *env);
 void	remove_blank_arg(t_cmd *cmd);
 void	remove_arg(t_arg *arg);
