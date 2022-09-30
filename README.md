@@ -2,16 +2,21 @@
 - [Get Started](#get-started)
 - [Understanding the project structure](#understanding-the-project-structure)
 - [Parser](#parser)
-  - [1. Parser Type Detection](#parser-type-detection)
-  - [2. Parser Extraction](#parser-extraction)
-  - [3. Parser Classification](#parser-classification)
+  	- [1. Parser Type Detection](#parser-type-detection)
+  	- [2. Parser Extraction](#parser-extraction)
+  	- [3. Parser Classification](#parser-classification)
 - [Tokenizer](#tokenizer)
-  - [1. Token class](#token-class)
-  - [2. Example of Structure](#example-of-structure)
-  - [3. Create Token](#create-token)
-  - [4. Chained Token Bidirectional](#chained-token-bidirectional)
-  - [5. Env variable structure](#env-variable-structure)
-   - [5.1 Construire une t_var a partir d'une String](construire-une-t_var-a-partir-d-une-string)
+  	- [1. Token class](#token-class)
+  	- [2. Example of Structure](#example-of-structure)
+  	- [3. Create Token](#create-token)
+  	- [4. Chained Token Bidirectional](#chained-token-bidirectional)
+- [Env variable structure](#env-variable-structure)
+  	- [1.Construire un t_var avec une String](#construire-un-t_var-avec-une-string)
+  		- [1.Extraire le nom d une variable](#extraire-le-nom-d-une-variable)
+  		- [2.Extraire la valeur d une variable](#extraire-la-valeur-d-une-variable)
+  		- [3.Construire la structure t_var](#construire-la-structure-t_var)
+  		- [4.Ajouter le t_var a la list de variables](#ajouter-le-t_var-a-la-list-de-variables)
+  	- [2.Convertir toute les variables environnement en t_var](#convertir-toute-les-variables-environnement-en-t_var)
 - [Theorical Utils](#theorical-utils)
 ***
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/85416801/193201839-19b1a2d4-73d5-4c6d-9264-7eb79829c24e.gif)
@@ -249,9 +254,9 @@ void connect_token(t_token *curr_token, t_token *next_token)
 	next_token->prev = curr_token;
 }
 ~~~
- - ## Env variable structure
+ - # Env variable structure
 	![](https://i.imgur.com/BW2xbwu.png)
-### Construire une t_var a partir d'une String
+- ## Construire un t_var avec une String
 ~~~C
 VARIABLE_NAME=VALUE
 ~~~
@@ -260,9 +265,6 @@ name = get_variable_name(env_variable[index]);
 value = get_env_variable_value(env_variable[index]);
 var = init_env_variable(name, value, VALUE);
 ~~~
-- #### Extraire le nom d'une variable
-- #### Extraire la valeur d'une variable
-- #### Construire la structure d'un t_var
 ~~~C
 "var numero 48" :
 
@@ -272,13 +274,142 @@ var = init_env_variable(name, value, VALUE);
  | value : [/bin/bash]
  ----------------
 ~~~
+- ## Extraire le nom d une variable
+- **Extraire** le nom a partir de l'egal 
+- **definir** la fin du nom 
+	- **a l'index de l'egal - 1** 
+	- **ou a la fin de la string**
 
-### Convertir toute les variables d'environnement en t_var 
+~~~C
+VARIABLE_NAME=VALUE
+^           ^
+|           |
+"start"    "end"
+~~~
+~~~C
+char	*get_variable_name(char *variable)
+{
+	int		index;
+	int		start;
+	int		end;
+	char	*name;
+
+	index = 0;
+	start = 0;
+	if (!variable)
+		return (NULL);
+	while (variable[index])
+	{
+		if (variable[index] == '=')
+		{
+			end = index - 1;
+			name = malloc_substrcpy(variable, start, end);
+			return (name);
+		}
+		index++;
+	}
+	end = index;
+	name = malloc_substrcpy(variable, start, end);
+	return (name);
+}
+~~~
+- ## Extraire la valeur d une variable
+- **Extraire** la valeur a partir de l'egal 
+- **definir** le debut de la valeur 
+	- **a l'index de l'egal + 1** 
+- **definir la fin de la valeur a la fin de la string**
+~~~C
+VARIABLE_NAME=VALUE
+	      ^    ^
+              |    |
+           "start" "end"
+~~~
+~~~C
+char	*get_env_variable_value(char *variable)
+{
+	int		i;
+	int		start;
+	int		end;
+	char	*value;
+
+	i = 0;
+	if (!variable)
+		return (NULL);
+	while (variable[i])
+	{
+		if (variable[i] == '=' && !(is_blank(variable[i + 1])))
+		{
+			start = i + 1;
+			end = ft_strlen(variable);
+			value = malloc_substrcpy(variable, start, end);
+			if (is_value_null(value))
+			{
+				free(value);
+				return (NULL);
+			}
+			return (value);
+		}
+		i++;
+	}
+	return (NULL);
+}
+~~~
+- ## Construire la structure t_var
+- **apres** avoir :
+	- [Extraire le nom d une variable](#extraire-le-nom-d-une-variable)
+  	- [Extraire la valeur d une variable](#extraire-la-valeur-d-une-variable)
+	- **Definir** un ID qui defini si il y a une valeur ou non
+~~~C
+t_var	*init_env_variable(char *name, char *value, int id)
+{
+	t_var	*var;
+
+	var = (t_var *)malloc(sizeof(t_var));
+	if (!var)
+		return (NULL);
+	var->index = -1;
+	var->id = id;
+	var->name = name;
+	var->value = value;
+	var->next = NULL;
+	var->prev = NULL;
+	return (var);
+}
+~~~
+- ## Ajouter le t_var a la list de variables
+~~~C
+void	add_variables_list(t_env *env, t_var *var)
+{
+	t_var	*iter;
+	int		i;
+
+	i = 0;
+	if (!(env->first_var))
+	{
+		env->first_var = var;
+		var->index = i;
+	}
+	else
+	{
+		iter = env->first_var;
+		i++;
+		while (iter->next)
+		{
+			i++;
+			iter = iter->next;
+		}
+		var->index = i;
+		connect_var(iter, var);
+	}
+}
+~~~
+
+## Convertir toute les variables environnement en t_var 
 - **Iterez** dans chacune des variable d'envrionnement
-	- [[Extraire le nom d'une variable]]
-	- [[Extraire la valeur d'une variable]]
-	- [[Construire la structure d'un t_var]]
-	- [[create_chained_list() - C|add_chained_list]]
+	- [Extraire le nom d une variable](#extraire-le-nom-d-une-variable)
+  	- [Extraire la valeur d une variable](#extraire-la-valeur-d-une-variable)
+  	- [Construire la structure t_var](#construire-la-structure-t_var)
+	- [Ajouter le t_var a la list de variables](#ajouter-le-t_var-a-la-list-de-variables)
 ~~~C
 void	create_chained_var(t_env *env, char **env_variable)
 {	
