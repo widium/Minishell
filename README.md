@@ -1,23 +1,23 @@
 # Minimalist Bash Prompt
-- [Get Started](#get-started)
-- [Understanding the project structure](#understanding-the-project-structure)
-- [Parser](#parser)
+- [1. Get Started](#get-started)
+- [2. Understanding the project structure](#understanding-the-project-structure)
+- [3. Parser](#parser)
   	- [1. Parser Type Detection](#parser-type-detection)
   	- [2. Parser Extraction](#parser-extraction)
   	- [3. Parser Classification](#parser-classification)
-- [Tokenizer](#tokenizer)
+- [4. Tokenizer](#tokenizer)
   	- [1. Token class](#token-class)
   	- [2. Example of Structure](#example-of-structure)
   	- [3. Create Token](#create-token)
   	- [4. Chained Token Bidirectional](#chained-token-bidirectional)
-- [Env variable structure](#env-variable-structure)
+- [5. Env variable structure](#env-variable-structure)
   	- [1.Construire un t_var avec une String](#construire-un-t_var-avec-une-string)
   		- [1.Extraire le nom d une variable](#extraire-le-nom-d-une-variable)
   		- [2.Extraire la valeur d une variable](#extraire-la-valeur-d-une-variable)
   		- [3.Construire la structure t_var](#construire-la-structure-t_var)
   		- [4.Ajouter le t_var a la list de variables](#ajouter-le-t_var-a-la-list-de-variables)
   	- [2.Convertir toute les variables environnement en t_var](#convertir-toute-les-variables-environnement-en-t_var)
-- [Theorical Utils](#theorical-utils)
+- [6. Execution Bin](#execution)
 ***
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/85416801/193201839-19b1a2d4-73d5-4c6d-9264-7eb79829c24e.gif)
 ***
@@ -30,12 +30,6 @@ sudo pacman -Syu readline
 - MacOS
 ~~~bash
 brew install readline
-~~~
-- add in header file
-~~~C
-# include <readline/readline.h>
-# include <readline/history.h>
-add -lreadline with compilation
 ~~~
 ***
 # Understanding the project structure
@@ -63,10 +57,168 @@ void prompt(t_env *env, char *line)
 ![](https://i.imgur.com/s7VvwbT.png)
 - ## Parser Type Detection
 	![](https://i.imgur.com/4RxjAlf.png)
+~~~bash
+echo "salut$HOME"
+~~~
+~~~C
+if (is_word(env, line, start))
+{ 
+	end = word_extraction(env, line, start);
+	content = malloc_substrcpy(line, start, end);
+}
+~~~
+### Tester chaque index avec des fonction de detection de type :
+~~~bash
+echo "salut$HOME"
+^
+|
+index = 0
+~~~
+- `is_word()` definie quel attributs comporte un mot :
+	- **ne commence pas** par une quote `' "`
+	- **ne commence pas par** un characteres vide `space \n \t`
+	- **ne commence pas par** une paranthese `(`
+	- **ne commence pas par** un separateur `> < >> | && ||`
+	- **ne commence pas par** une Variables d'environnement
+	- **ne commence pas par** un `$`
+- La fonction **nous retourne 1** on peut alors recuperer le contenue du mot :
+~~~C
+int is_word(t_env *env, char *line, int i)
+{
+    if (!(is_quote(line[i])) && !(is_blank(line[i])) &&
+     !(is_paranthesis(line, i)) && !(is_separator(line, i)) &&
+     !(is_variable(env, line, i)) && line[i] != '$')
+        return (1);
+    return (0);
+}
+~~~
+- On peut alors definir plein de **fonction de detection de type** pour 
+	- **faciliter** sont parsing 
+	- **separer** chaque concept en evitant d'influencer les autres :
+~~~C
+int is_NULL(char *line);
+int is_input_chevrons(char *line, int i);
+int is_output_chevrons(char *line, int i);
+int is_pipe(char *line, int index);
+int is_append_chevrons(char *line, int i);
+int is_heredoc(char *line, int i);
+int is_file_redirection(char *line, int i);
+int is_redirection(char *line, int i);
+int is_boolean_operator(char *line, int i);
+~~~
 - ## Parser Extraction
 	![](https://i.imgur.com/teLmxbE.png)
+#### Une fois qu'un mot est detecter on va l'**extraire** de la string :
+~~~bash
+echo "salut$HOME"
+^
+|
+start = 0
+~~~
+
+- Pour savoir **quand s'arreter** on doit definir ==un type de caracteres de separation==
+- dans ce cas on utilise la fonction **`is_delimiter()`**
+~~~C
+int is_delimiter(t_env *env, char *line, int index)
+{
+    if (is_blank(line[index]) || is_paranthesis(line, index) ||
+     is_separator(line, index) || is_variable(env, line, index))
+        return (1);
+    return (0);    
+}
+~~~
+- cette fonction **retournera 1 lorsque le caracteres actuel sera un delimiteur de mot** 
+- recuperer **le dernier `index - 1 `** pour ne pas recuperer le caracters de separation 
+- **extraire le contenue avec l'index de debut et l'index de fin du mot** 
+~~~C
+malloc_substrcpy(line, start, end)
+~~~
+~~~bash
+echo "salut$HOME"
+^  ^
+|  |
+s  e
+~~~
+~~~C
+int word_extraction(t_env *env, char *line, int index)
+{
+    int start;
+
+    start = index;
+    while (line[index])
+    {
+        if (is_delimiter(env, line, index))
+        {
+            return (index - 1);
+        }
+        index++;
+    }
+    return (index);
+}
+~~~
 - ## Parser Classification
 	![](https://i.imgur.com/uYLGKNl.png)
+### Une fois Le [Parser Extraction](#parser-extraction)  on doit classifier le contenue 
+~~~bash
+content = echo
+~~~
+- Comme pour le  [Parser Type Detection](#parser-type-detection)  on doit definir **une fonction de detection de type** 
+- Dans ce cas on doit **classifier le mot** :
+- Il sera definit comme **une command ou comme un simple mot**
+~~~C
+if (is_cmd(env, content))
+	token = command_tokenization(env, line, content, ++new_index);
+else
+	token = tokenizer_word(content, TOKEN_WORD);
+
+add_token_list(env, token);
+~~~
+- `is_cmd()` permet de Tester si le mot **est un binaire ou un built_in** :
+~~~C
+int is_cmd(t_env *env, char *word)
+{
+    if (is_bin(env, word) || is_built_in(word))
+        return (1);
+    return (0);
+}
+
+"echo is cmd"
+~~~
+- `is_bin()` test si **le path absolue ou simple** est valable
+- `is_built_in()` test tout simplement **si le `content` est le meme qu'un built_in**
+~~~C
+int is_bin(t_env *env, char *word)
+{
+    char **bins;
+
+    bins = get_env_bins(env);
+    if (test_absolute_bin_access(word))
+        return (1);
+    else if (test_bin_access(bins, word))
+        return (1);
+    return (0);
+}
+
+
+int is_built_in(char *content)
+{
+    if (same_str(content, "echo", ft_strlen(content)))
+	    return (1); 
+    if (same_str(content, "cd", ft_strlen(content)))
+	    return (1);
+    if (same_str(content, "pwd", ft_strlen(content)))
+	    return (1);
+    if (same_str(content, "env", ft_strlen(content)))
+	    return (1);
+    if (same_str(content, "export", ft_strlen(content)))
+	    return (1);
+    if (same_str(content, "unset", ft_strlen(content)))
+	    return (1);
+    if (same_str(content, "exit", ft_strlen(content)))
+	    return (1);
+	return (0);
+}
+~~~
 ***
 # Tokenizer
  - ## Token Class
@@ -430,5 +582,75 @@ void	create_chained_var(t_env *env, char **env_variable)
 }
 ~~~
 ***
-# Theorical Utils
+# Execution
+![](https://i.imgur.com/8KkctLD.png)
+~~~c
+$> ls -la | wc
+stock pid [ls]:[57253]
+stock pid [wc]:[57254]
+close [history.log]:[3]
+close [ls]:[5]
+close [wc]:[4]
+------- Execution [ls process] --------
+Wait [ls]:[57253]
+DUP [ls]: fd_out [5], STDOUT_FILENO [1]
+close [history.log]:[3]
+close [ls]:[5]
+close [wc]:[4]
+------- Execution [wc process] --------
+Wait [wc]:[57254]
+DUP [wc] : fd_in [4], STDIN_FILENO [0]
+close [history.log]:[3]
+close [ls]:[5]
+close [wc]:[4]
+
+     27     238    1586
+
+~~~
+
+## Code :
+~~~C
+cmd = get_first_cmd(env);
+while (cmd)
+{
+	bin_execution(env, cmd);
+	cmd = get_next_cmd(cmd);
+}
+close_all_fd(env);
+wait_all_pid(env);
+
+
+void bin_execution(t_env *env, t_cmd *cmd)
+{
+    int pid;
+
+    pid = fork();
+    if (pid == 0)
+    {
+	redirect_cmd(cmd);
+	close_all_fd(env);
+	execve(path, args, variables);
+    }
+    else
+    {
+	stock_pid(cmd, id);
+        return ;
+    }
+}
+
+void wait_all_pid(t_env *env)
+{
+    t_token *token;
+    t_cmd *cmd;
+    int status;
+    
+    token = get_first_token_cmd(env);
+    while (token)
+    {
+        cmd = get_class(token);
+        waitpid(cmd->pid, &status, 0);
+        token = get_next_token_cmd(token);
+    }
+}
+~~~
 ***
