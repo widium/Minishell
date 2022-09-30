@@ -2102,3 +2102,60 @@ echo $?
 acACACASV
 echo $?
 echo $?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+echo "HELLO WORLD"
+ls
+cd 
+ls
+pwd
+export $ILOVEMINISHELL=42
+
+
+
+ls
+echo "hello world"
+echo $HOME
+
+
+
+
+
+
+ls
+echo "hello World"
+pwd
+echo $HOME
+cd
+
+
+
+
+
+
+echo hello world
+pwd
+cd ..
+export A
+export A=123
+env
+export B
+env
+export
+unset A=123
+env
+export
+unset B
+env
