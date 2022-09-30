@@ -6,106 +6,106 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/29 14:03:09 by ebennace         ###   ########.fr        #
+#    Updated: 2022/09/30 07:13:41 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
 # === File && Header === #
-SRCS		= 	main.c \
-				env/create_env_var.c \
-				env/prompt.c \
-				env/signal.c \
-				env/env_var_value.c \
-				env/variable.c \
-				env/line.c \
-				env/read_line.c \
-				env/chained.c \
-				init/init_token.c \
-				init/init_env.c \
-				init/init_redirect.c\
-				exit_free/free.c \
-				exit_free/remove_arg.c \
-				exit_free/remove_token.c \
-				exit_free/remove.c \
-				exit_free/disconect.c \
-				exit_free/remove_token_type.c \
-				detection/extraction.c \
-				detection/argument_extraction.c \
-				detection/classification.c \
-				is/is.c \
-				is/is_redirection.c \
-				is/is_basic_redirection.c \
-				is/is_separator.c \
-				is/is_blank.c \
-				is/is_token_cmd.c \
-				is/is_variable.c \
-				is/is_cmd.c \
-				is/is_fd.c \
-				is/is_quote.c \
-				is/is_file.c \
-				is/is_finish.c \
-				is/is_line.c \
-				is/is_cmd_arg.c \
-				is/is_arg.c \
-				is/have.c \
-				is/is_same.c \
-				is/is_built_in.c \
-				is/is_token.c \
-				is/is_token_redirection.c \
-				is/cmd_have.c \
-				parsing/parsing.c \
-				parsing/casting.c \
-				parsing/quote_detection.c \
-				parsing/word_detection.c \
-				parsing/redirection_detection.c \
-				verbose/verbose.c \
-				verbose/verbose_token.c \
-				verbose/verbose_class.c \
-				verbose/verbose_env.c \
-				verbose/verbose_cmd.c \
-				verbose/verbose_redirect.c \
-				verbose/verbose_env_var.c \
-				verbose/verbose_basic_redirect.c \
-				tokenization/tokenizer.c \
-				tokenization/create_token.c \
-				tokenization/tokenization.c \
-				tokenization/quote_tokenizer.c \
-				tokenization/cmd_tokenizer.c \
-				tokenization/connect.c \
-				redirection/redirect.c \
-				redirection/manage_redirection.c\
-				redirection/heredoc.c \
-				redirection/close.c \
-				concatenate/concatenate.c \
-				concatenate/list_to_array.c \
-				execution/execution.c \
-				execution/access.c \
-				execution/bin_exe.c \
-				execution/status.c \
-				built_in/built_in_exe.c \
-				built_in/built_in.c \
-				built_in/export.c \
-				error/error.c \
-				error/error_cmd.c \
-				error/error_built_in.c \
-				error/error_env.c \
-				error/error_redirect.c \
-				processing/variable_value.c \
-				processing/processing_cmd.c \
-				processing/processing_built.c \
-				processing/processing_redirection.c \
-				processing/bin_processing.c \
-				get/get.c \
-				get/get_env.c \
-				get/get_token.c \
-				get/get_next.c \
-				get/get_arg.c \
-				get/get_cmd.c \
-				get/get_redirection.c \
-				get/get_path.c \
-				
+SRCS		= 	source/main.c \
+				source/env/create_env_var.c \
+				source/env/prompt.c \
+				source/env/signal.c \
+				source/env/env_var_value.c \
+				source/env/variable.c \
+				source/env/line.c \
+				source/env/read_line.c \
+				source/env/chained.c \
+				source/init/init_token.c \
+				source/init/init_env.c \
+				source/init/init_redirect.c\
+				source/exit_free/free.c \
+				source/exit_free/remove_arg.c \
+				source/exit_free/remove_token.c \
+				source/exit_free/remove.c \
+				source/exit_free/disconect.c \
+				source/exit_free/remove_token_type.c \
+				source/detection/extraction.c \
+				source/detection/argument_extraction.c \
+				source/detection/classification.c \
+				source/is/is.c \
+				source/is/is_redirection.c \
+				source/is/is_basic_redirection.c \
+				source/is/is_separator.c \
+				source/is/is_blank.c \
+				source/is/is_token_cmd.c \
+				source/is/is_variable.c \
+				source/is/is_cmd.c \
+				source/is/is_fd.c \
+				source/is/is_quote.c \
+				source/is/is_file.c \
+				source/is/is_finish.c \
+				source/is/is_line.c \
+				source/is/is_cmd_arg.c \
+				source/is/is_arg.c \
+				source/is/have.c \
+				source/is/is_same.c \
+				source/is/is_built_in.c \
+				source/is/is_token.c \
+				source/is/is_token_redirection.c \
+				source/is/cmd_have.c \
+				source/parsing/parsing.c \
+				source/parsing/casting.c \
+				source/parsing/quote_detection.c \
+				source/parsing/word_detection.c \
+				source/parsing/redirection_detection.c \
+				source/verbose/verbose.c \
+				source/verbose/verbose_token.c \
+				source/verbose/verbose_class.c \
+				source/verbose/verbose_env.c \
+				source/verbose/verbose_cmd.c \
+				source/verbose/verbose_redirect.c \
+				source/verbose/verbose_env_var.c \
+				source/verbose/verbose_basic_redirect.c \
+				source/tokenization/tokenizer.c \
+				source/tokenization/create_token.c \
+				source/tokenization/tokenization.c \
+				source/tokenization/quote_tokenizer.c \
+				source/tokenization/cmd_tokenizer.c \
+				source/tokenization/connect.c \
+				source/redirection/redirect.c \
+				source/redirection/manage_redirection.c\
+				source/redirection/heredoc.c \
+				source/redirection/close.c \
+				source/concatenate/concatenate.c \
+				source/concatenate/list_to_array.c \
+				source/execution/execution.c \
+				source/execution/access.c \
+				source/execution/bin_exe.c \
+				source/execution/status.c \
+				source/built_in/built_in_exe.c \
+				source/built_in/built_in.c \
+				source/built_in/export.c \
+				source/error/error.c \
+				source/error/error_cmd.c \
+				source/error/error_built_in.c \
+				source/error/error_env.c \
+				source/error/error_redirect.c \
+				source/processing/variable_value.c \
+				source/processing/processing_cmd.c \
+				source/processing/processing_built.c \
+				source/processing/processing_redirection.c \
+				source/processing/bin_processing.c \
+				source/get/get.c \
+				source/get/get_env.c \
+				source/get/get_token.c \
+				source/get/get_next.c \
+				source/get/get_arg.c \
+				source/get/get_cmd.c \
+				source/get/get_redirection.c \
+				source/get/get_path.c \
+
 HEADER 			= header/class.h \
 				  header/execution.h \
 				  header/free.h \
@@ -115,11 +115,11 @@ HEADER 			= header/class.h \
 				  header/verbose.h \
 
 # ==== Template ==== #
-TEMPLATE = header/header.txt
+TEMPLATE = source/header/header.txt
 
 # ==== Execute ==== #
 EXE = @./$(NAME)
-
+LIBFT = source/libft/libft.a
 # ==== Debug && Leak ==== #
 SANITIZE 		= -fsanitize=address
 LEAKS 			= -fsanitize=leak
@@ -145,37 +145,37 @@ MAKE			= make -s
 $(NAME) : 	    $(OBJS)
 				@echo "==== Compiling all .c ===="
 				@echo "==== Compiling libft ===="
-				@$(MAKE) -C libft
+				@$(MAKE) -C source/libft
 				@echo "==== Compiling Minishell ===="
-				@$(CC) $(OBJS) $(FLAGS) $(READLINE) libft/libft.a -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(LIBFT) -o $(NAME)
 				@cat "$(TEMPLATE)"		
 
 all : 	 $(NAME)
 
 clean :
 				@echo "==== Remove all Libft .o ===="
-				@$(MAKE) clean -C libft
+				@$(MAKE) clean -C source/libft
 				@echo "==== Remove all Minishell .o ===="
 				@$(RM_FILE) $(OBJS)
 
 fclean : clean
-				@$(MAKE) fclean -C libft
+				@$(MAKE) fclean -C source/libft
 				@$(RM_FILE) $(NAME)
 
 debug : 		$(OBJS)
 				@echo "==== Mode Debug Activate ===="
-				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(SANITIZE) $(LIBFT) -o $(NAME)
 				$(DEBUGGER) $(NAME)
 				@cat "$(TEMPLATE)"
 				
 sanitize :		$(OBJS)
 				@echo "==== Mode Sanitize Activate ===="
-				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(SANITIZE) libft/libft.a  -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(SANITIZE) $(LIBFT) -o $(NAME)
 				@cat "$(TEMPLATE)"
 
 leak :			$(OBJS)
 				@echo "==== Mode Leak Activate ===="
-				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(LEAKS) libft/libft.a  -o $(NAME)
+				@$(CC) $(OBJS) $(FLAGS) $(READLINE) $(LEAKS) $(LIBFT) -o $(NAME)
 				@cat "$(TEMPLATE)"
 
 
