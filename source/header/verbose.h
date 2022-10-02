@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:34:03 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:27:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:23:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ void	print_all_cmd_info(t_env *env);
 void	print_all_env_var_struct(t_env *env);
 void	print_env_var_struct(t_var *var);
 void	print_all_env_export_var(t_env *env);
+void	print_all_env_export_var_fd(t_env *env, int fd);
 void	print_all_env_var(t_env *env);
+void	print_all_env_var_fd(t_env *env, int fd);
+void	print_env_var_fd(t_var *var, int fd);
 void	print_env_var(t_var *var);
+void	print_env_var_fd(t_var *var, int fd);
 void	print_cmd(t_cmd *cmd, int index);
 void	print_cmd_info(t_cmd *cmd);
 void	print_args(t_cmd *cmd);	

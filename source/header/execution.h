@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:29:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:32:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:20:25 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		built_in_execution(t_env *env, t_cmd *cmd);
 
 int		echo(t_cmd *cmd);
 int		cd(t_cmd *cmd, t_env *env);
-int		env_built_in(t_env *env);
+int		env_built_in(t_cmd *cmd, t_env *env);
 int		export_built_in(t_cmd *cmd, t_env *env);
 int		unset(t_cmd *cmd, t_env *env);
 int		pwd(t_cmd *cmd);

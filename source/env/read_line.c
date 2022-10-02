@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:34:53 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:19:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 18:35:34 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	parse_line_with_semicolon(t_env *env, char *line)
 	}
 }
 
-char	*get_line()
+char	*get_line(void)
 {
 	struct termios	saved;
 	struct termios	attributes;

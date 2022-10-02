@@ -3,6 +3,7 @@
         "minishell.h": "c",
         "token.h": "c",
         "chrono": "c",
-        "variant": "c"
+        "variant": "c",
+        "algorithm": "c"
     }
 }

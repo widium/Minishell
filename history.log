@@ -2231,3 +2231,268 @@ echo $?$?   $?
 echo test > fichier1 >> fichier2
 cat fichier1
 cat fichier2
+ls 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls 
+
+
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ls
+lsl
+lll
+sllslslsllslslsl
+@
+(
+"
+ls
+"ls
+"ls"
+
+
+;s
+ls
+"ls"
+ls "fichier1"
+ls "fichier1 "
+ls "fichier1"
+ln -s /bin/ls "ls ls"
+ls
+./ls ls
+"./ls ls"
+./lsls
+./ls ls
+lsls
+'./ls ls'
+ls "< test"
+ls >" test"
+ls
+cat " test"
+cat " test"
+cat '" test"'
+bash\
+bash
+ls
+cat <"test"
+cat <" test"
+vim test 
+cat <" test"
+cat <'" test"'
+cat <" test"
+vim ' test'
+vim " test"
+vim '" test"'
+cat <" test"
+vim ' test'
+cat <" test"
+bash
+cat <'" test"'
+env
+env
+env
+env > test
+cat test 
+env > test
+cat test 
+env >test
+ls
+rm test 
+rm " test"
+rm '"test"'
+rm ' test'
+rm " test"
+ls
+rm '" test"'
+ls
+rm ' test1'
+rm "'"" test""'"
+bash
+ls | cat | cat | cat | cat | miaou | cat
+bash
+ls > test | cat | cat | cat | cat | miaou | cat
+ls
+cat test 
+rm test 
+ls > test | cat | cat | cat | cat | miaou | cat
+cat test 
+ls > test | cat | cat | cat | cat | cat
+cat test 
+tes
+test
+test
+bash
+test
+/usr/bin/test
+test
+rm test 
+test
+ls > ls
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+
+
+
+
+
+ls
+
+
+
+ls
+ls
+ls
+ls
+
+
+
+ls
+
+
+
+ls
+bash -c ls
+ls
+rm ls
+ls > ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cat > cat
+
+
+
+
+
+
+
+
+
+
+
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+htop
+htop
+cat > cat
+fl
+
+
+
+
+
+
+
+
+
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+fl
+ls > ls
+
+ls
+ls
+ls
+ls
+ls
+ls > ls
+ls
+rm ls
+ls
+rm ls ls 
+rm "ls ls" 
+ls > ls
+rm ls
+ls > ls
+cat ls
+ls > ls
+cat ls
+rm ls
+ls
+ln -s /bin/ls "ls ls"
+ls
+'ls ls'
+'ls ls'
+bash
+export GG=ls
+$GG
+env > test
+cat test

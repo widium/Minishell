@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/13 16:01:52 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/28 17:01:47 by ebennace         ###   ########.fr        #
+#    Updated: 2022/10/02 19:25:24 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ SRCS = check/ft_isdigit.c \
 	   printf/ft_hexa.c \
 	   printf/ft_printf.c \
 	   printf/utils.c \
+	   printf/ft_printf_fd.c \
 	   free/free.c \
 	   free/copy.c \
 	   free/copy_array.c \

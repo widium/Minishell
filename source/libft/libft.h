@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:51:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:24:00 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:16:03 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void			ft_bzero(void *s, size_t n);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_calloc(size_t elementCount, size_t elementSize );
 void			ft_putchar_fd(char c, int fd);
+void			count_putchar_fd(char c, int *count, int fd);
 void			ft_putstr_fd(char *str, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -109,6 +110,7 @@ int				ft_puthexa_min(unsigned int nb);
 int				ft_puthexa_long(unsigned long nb);
 int				ft_check_format(const char *str, va_list liste, int i);
 int				ft_printf(const char *str, ...);
+int				ft_printf_fd(int fd, const char *str, ...);
 int				ft_print(unsigned long nb, char *dest, char *alphabet, int i);
 
 void			free_array(char **array);

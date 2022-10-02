@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/10/02 16:45:52 by ebennace         ###   ########.fr        #
+#    Updated: 2022/10/02 19:20:30 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ SRCS		= 	source/main.c \
 				source/verbose/verbose_cmd.c \
 				source/verbose/verbose_redirect.c \
 				source/verbose/verbose_env_var.c \
+				source/verbose/verbose_env_var_fd.c \
 				source/verbose/verbose_basic_redirect.c \
 				source/tokenization/tokenizer.c \
 				source/tokenization/create_token.c \

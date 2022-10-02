@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:23:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:24:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:20:41 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,25 @@ void	print_env_var(t_var *var)
 		ft_printf("%s=%s\n", var->name, var->value);
 }
 
-void	print_all_env_var_struct(t_env *env)
-{
-	t_var	*var;
+// void	print_all_env_var_struct(t_env *env)
+// {
+// 	t_var	*var;
 
-	var = get_first_env_var(env);
-	if (!var)
-		return ;
-	while (var)
-	{
-		print_env_var_struct(var);
-		var = var->next;
-	}
-}
+// 	var = get_first_env_var(env);
+// 	if (!var)
+// 		return ;
+// 	while (var)
+// 	{
+// 		print_env_var_struct(var);
+// 		var = var->next;
+// 	}
+// }
 
-void	print_env_var_struct(t_var *var)
-{
-	printf(" ---[%s]---\n", var->name);
-	printf(" | type : [%d]\n", var->id);
-	printf(" | index : [%d]\n", var->index);
-	printf(" | value : [%s]\n", var->value);
-	printf(" ----------------\n");
-}
+// void	print_env_var_struct(t_var *var)
+// {
+// 	printf(" ---[%s]---\n", var->name);
+// 	printf(" | type : [%d]\n", var->id);
+// 	printf(" | index : [%d]\n", var->index);
+// 	printf(" | value : [%s]\n", var->value);
+// 	printf(" ----------------\n");
+// }

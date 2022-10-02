@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:03:43 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 18:14:25 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:22:34 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	export_built_in(t_cmd *cmd, t_env *env)
 
 	if (!cmd->arg)
 	{
-		print_all_env_export_var(env);
+		print_all_env_export_var_fd(env, cmd->fd_out);
 		return (0);
 	}
 	name = get_export_variable_name(cmd->arg);
