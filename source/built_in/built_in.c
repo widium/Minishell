@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 12:04:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 15:09:24 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	echo(t_cmd *cmd)
 {
 	if (!cmd->arg)
+	{
+		ft_putstr_fd("\n", cmd->fd_out);
 		return (0);
+	}
 	ft_putstr_fd(cmd->arg, cmd->fd_out);
 	if (!(cmd_have_flags(cmd)))
 		ft_putstr_fd("\n", cmd->fd_out);
@@ -62,8 +65,14 @@ int	pwd(t_cmd *cmd, t_env *env)
 
 void	exit_built_in(t_cmd *cmd, t_env *env)
 {
+	int	signal;
+
 	remove_all(env);
 	ft_putstr_fd("exit", 2);
 	ft_putstr_fd("\n", 2);
-	exit(0);
+	if (!cmd->arg)
+		signal = 0;
+	else
+		signal = ft_atoi(cmd->arg);
+	exit(signal);
 }

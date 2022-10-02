@@ -2189,3 +2189,27 @@ ls > ff.txt
 ls > ff.t
 ls > ff.t
 cat ff.t 
+cat > test
+ls
+rm test
+ls
+ls > test
+ls
+cat < test
+echo
+echo
+echo
+echo
+echo sault
+exit 32
+exit
+
+
+exit
+exit 42
+exit 42 34
+exit 42 
+42    
+echo 42     
+exit 42     
+exit 42

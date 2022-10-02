@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:47:48 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 18:06:39 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 15:04:16 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void	choose_processing_built_in(t_env *env, t_cmd *cmd)
 		processing_cd(env, cmd);
 	else if (is_echo(cmd))
 		processing_echo(cmd);
+	else if (is_exit(cmd))
+		processing_exit(cmd);
+}
+
+void	processing_exit(t_cmd *cmd)
+{
+	int	nbr;
+
+	nbr = get_number_args(cmd);
+	if (nbr > 2)
+	{
+		ft_putstr_fd("Too many argument\n", 1);
+		remove_all_arg(cmd);
+	}
 }
 
 void	processing_echo(t_cmd *cmd)
