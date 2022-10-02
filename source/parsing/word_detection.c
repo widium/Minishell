@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:53:41 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 18:23:05 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:44:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	blank_escape(char *line, int index)
 	while (line[index])
 	{
 		if (!(is_blank(line[index])))
-			return (index - 1);
+			return (index);
 		index++;
 	}
 	return (index);

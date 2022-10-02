@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 18:23:15 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:45:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	next_file_tokenizer(t_env *env, char *line, int index)
 
 	if (line_is_finish(line, index))
 		return (index);
-	index = blank_escape(line, ++index);
+	index = blank_escape(line, index);
 	new_index = file_detection(line, index);
 	content = malloc_substrcpy(line, index, new_index);
 	token = file_tokenizer(content, TOKEN_FILE);

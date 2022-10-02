@@ -2184,3 +2184,8 @@ echo $?$?
 echo $?
 echo $?$?
 echo $?$?
+echo salut > ff.txt
+ls > ff.txt
+ls > ff.t
+ls > ff.t
+cat ff.t 
