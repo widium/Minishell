@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:13:57 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 15:15:48 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 15:23:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	is_blank(char c)
 int	is_blank_argument(t_env *env, char *line, int index)
 {
 	if (is_blank(line[index]) && !(is_blank(line[index + 1]))
-		&& !(is_separator(line, index + 1)) && is_word(env, line, index + 1)
-		&& !(is_finish(line[index + 1])))
+		&& !(is_separator(line, index + 1)) && !(is_variable(env, line, index))
+		&& line[index] != '$' && !((is_finish(line[index + 1]))))
 		return (1);
 	return (0);
 }

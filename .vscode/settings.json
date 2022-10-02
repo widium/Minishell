@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "minishell.h": "c",
-        "token.h": "c"
+        "token.h": "c",
+        "chrono": "c",
+        "variant": "c"
     }
 }

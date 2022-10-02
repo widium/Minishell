@@ -2213,3 +2213,15 @@ exit 42
 echo 42     
 exit 42     
 exit 42
+echo 's' "salut"
+echo 's' "salut"
+echo 's' "salut"
+echo 's' "salut"
+echo 's' "salut"
+echo 's' "salut"
+echo 's' "salut"
+echo 's' "salut"
+echo salut cest moi
+echo salut cest            moi
+echo 's' "salut"
+echo 's'"salut"
