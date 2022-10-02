@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 15:38:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:54:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	arg_redirect_extraction(t_env *env, t_token *token, char *line, int index)
 	return (index);
 }
 
-int	variables_extraction(t_env *env, t_cmd *cmd, char *line, int index)
+int	variables_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
 {
 	t_arg	*arg;
 	int		start;
@@ -38,14 +38,14 @@ int	variables_extraction(t_env *env, t_cmd *cmd, char *line, int index)
 	index++;
 	while (line[index])
 	{
-		if (is_delimiter(env, line, index) || is_quote(line[index]))
+		if (is_variable_delimiter(line, index))
 		{
 			end = index - 1;
 			break ;
 		}
 		index++;
 	}
-	if (!(is_delimiter(env, line, index - 1)))
+	if (is_variable_delimiter(line, index))
 		end = index - 1;
 	arg = arg_tokenizer(line, start + 1, end, TOKEN_VARIABLE);
 	add_arg_list(cmd, arg);

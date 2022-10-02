@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 15:30:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:56:46 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int			double_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
 int			single_tokenizer(t_cmd *cmd, char *line, int index);
 int			word_arg_extraction(t_env *env, t_cmd *cmd, char *line, int i);
 int			variable_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
-int			variables_extraction(t_env *env, t_cmd *cmd, char *line, int index);
+int			variables_tokenization(t_env *env, t_cmd *cmd, char *line, int i);
 int			string_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int			blank_arg_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
 int			flags_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);

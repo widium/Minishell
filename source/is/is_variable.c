@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:16:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 09:22:21 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:53:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	is_variable(t_env *env, char *line, int i)
 	if (is_variable_word(line, i))
 	{
 		name = variable_name_extraction(env, line, ++i);
+		if (!name)
+			return (0);
 		if (variable_exist(env, name))
 		{
 			free(name);
@@ -65,19 +67,19 @@ char	*variable_name_extraction(t_env *env, char *line, int index)
 
 	end = index;
 	start = index;
-	if (line[index + 1] == '$')
+	if (line[index] == '$')
 		return (NULL);
 	index++;
 	while (line[index])
 	{
-		if (is_delimiter(env, line, index))
+		if (is_variable_delimiter(line, index))
 		{
 			end = index - 1;
 			break ;
 		}
 		index++;
 	}
-	if (!(is_delimiter(env, line, index - 1)))
+	if (is_variable_delimiter(line, index))
 		end = index - 1;
 	name = malloc_substrcpy(line, start, end);
 	return (name);
