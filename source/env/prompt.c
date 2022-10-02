@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:17:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 13:47:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:19:42 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	prompt(t_env	*env)
 
 	while (1)
 	{
-		use_signal(env);
-		read_line = get_line(env);
+		use_signal();
+		read_line = get_line();
 		if (!read_line)
 		{
 			printf("exit\n");
@@ -31,7 +31,7 @@ void	prompt(t_env	*env)
 	}
 }
 
-void	create_history(t_env *env, char *line)
+void	create_history(char *line)
 {
 	int	fd;
 

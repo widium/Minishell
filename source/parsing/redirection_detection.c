@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 17:08:55 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:26:51 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ int	redirection_detection(char *line, int index)
 
 int	limiter_detection(char *line, int index)
 {
-	int	start;
-
-	start = index;
 	while (line[index])
 	{
 		if (is_blank(line[index]) || is_separator(line, index))

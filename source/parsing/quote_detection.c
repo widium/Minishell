@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:49:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 08:42:37 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:25:02 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ int	single_quotes_detection(char *line, int index)
 	return (start);
 }
 
-char	*get_content_double(t_cmd *cmd, char *line, int start, int *index)
+char	*get_content_double(char *line, int start, int *index)
 {
-	t_arg	*arg;
 	char	*content;
 
 	if (is_finish(line[*index]))

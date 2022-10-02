@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:40:52 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 08:03:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:20:07 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	remove_arg(t_arg *arg)
 
 void	remove_arg_in_cmd(t_cmd *cmd, t_arg *arg)
 {
-	t_arg	*first_arg;
-
 	if (arg->index == 1 && !arg->next)
 		cmd->first_arg = NULL;
 	else if (arg->next)

@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/09/30 07:13:41 by ebennace         ###   ########.fr        #
+#    Updated: 2022/10/02 16:45:52 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,18 +131,19 @@ RM_FILE = /bin/rm -rf
 # ==== Objet && compiling ==== #
 OBJS			= $(SRCS:.c=.o)
 CC				= gcc
-# FLAGS 		= -Wall -Werror -Wextra
 FLAGS			= -g3
+FLAGS 			+= -Wall -Werror -Wextra
 FLAGS 			+= $(SANITIZE)
 READLINE		= -lreadline
 MAKE			= make -s
 
 
 # === Convert all .c to .o with flags and header === # 
-%.o : %.c $(HEADER)
+%.o : %.c
 			@$(CC) $(FLAGS) -c $< -o $@
 	
 $(NAME) : 	    $(OBJS)
+				@echo "==== Create all .o ===="
 				@echo "==== Compiling all .c ===="
 				@echo "==== Compiling libft ===="
 				@$(MAKE) -C source/libft

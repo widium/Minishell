@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:34:03 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 08:08:08 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:27:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	print_array_fd(char **str, int fd);
 void	print_array_index(char **str, int index);
 void	print_args_array(char **args);	
 void	print_str_index(char *str, int i);
-void	print_detection(char *line, int start, int end, int token);	
 void	print_chained_list(t_env *env);
 void	print_variables(t_env *env);	
 void	print_token(t_token *token);	

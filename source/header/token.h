@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:19:50 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 15:41:32 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:25:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	add_line_list(t_env *env, t_line *line);
 
 void	tokenization(t_env *env, char *line);
 int		single_tokenization(t_cmd *cmd, char *line, int start, int index);
-char	*get_content_double(t_cmd *cmd, char *line, int start, int *index);
+char	*get_content_double(char *line, int start, int *index);
 t_token	*word_tokenizer(char *content, int id);
 int		cmd_tokenizer(t_env *env, char *line, char *content, int index);
 t_token	*cmd_tokenization(char *word, int id);

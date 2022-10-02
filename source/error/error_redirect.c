@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:39:25 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:40:12 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:40:07 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_error_token_redirection(t_token *token)
 	}
 	else if (is_token_heredoc(token))
 	{
-		result = check_error_token_heredoc(token, redir);
+		result = check_error_token_heredoc(redir);
 	}
 	else if (is_token_pipe(token))
 	{
@@ -33,7 +33,7 @@ int	check_error_token_redirection(t_token *token)
 	return (result);
 }
 
-int	check_error_token_heredoc(t_token *token, t_redir *redir)
+int	check_error_token_heredoc(t_redir *redir)
 {
 	if (!redir->limiter)
 	{

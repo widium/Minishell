@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:30:40 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 15:23:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:22:00 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	redirection_classification(t_env *env, char *line, int index)
 {
 	t_token	*token;
 	int		new_index;
-	int		type;
-	char	*content;
 
 	new_index = redirection_detection(line, index);
 	token = create_token_redir(line, index, new_index);

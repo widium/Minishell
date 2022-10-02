@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:53:29 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 08:36:19 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:29:45 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,9 @@ void	manage_fd_pipe(t_token *token)
 void	manage_fd_basic_redirection(t_token *token)
 {
 	t_cmd	*prev_cmd;
-	t_cmd	*next_cmd;
 	t_file	*next_file;
 
 	prev_cmd = get_prev_cmd(token);
-	next_cmd = get_next_cmd(token);
 	next_file = get_next_token_file(token);
 	if (!prev_cmd)
 		return ;

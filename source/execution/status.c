@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:56:26 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 14:04:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:30:19 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	get_last_status(int bin_status, int ret_built_in)
 		return (bin_status);
 	else if (bin_status == -1)
 		return (ret_built_in);
+	return (0);
 }
 
 int	convert_status_process_value(int status)

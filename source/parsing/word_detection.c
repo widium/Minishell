@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:53:41 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 14:44:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:26:22 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	word_detection(t_env *env, char *line, int index)
 {
-	int	start;
-
-	start = index;
 	while (line[index])
 	{
 		if (is_delimiter(env, line, index))
@@ -38,9 +35,6 @@ int	word_detection(t_env *env, char *line, int index)
 
 int	file_detection(char *line, int index)
 {
-	int	start;
-
-	start = index;
 	while (line[index])
 	{
 		if (is_separator(line, index))

@@ -14,8 +14,6 @@
 
 int	single_tokenizer(t_cmd *cmd, char *line, int index)
 {
-	t_arg	*arg;
-	char	*content;
 	int		start;
 	int		end;
 
@@ -55,7 +53,7 @@ int	double_tokenizer(t_env *env, t_cmd *cmd, char *line, int index)
 		}
 		index++;
 	}
-	content = get_content_double(cmd, line, start, &index);
+	content = get_content_double(line, start, &index);
 	double_tokenization(env, cmd, content);
 	free(content);
 	return (index);
@@ -63,7 +61,6 @@ int	double_tokenizer(t_env *env, t_cmd *cmd, char *line, int index)
 
 void	double_tokenization(t_env *env, t_cmd *cmd, char *content)
 {
-	t_arg	*arg;
 	int		index;
 	int		new_index;
 

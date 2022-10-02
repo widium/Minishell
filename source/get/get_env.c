@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:47:20 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 08:28:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:42:38 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	**get_env_variables(t_env *env)
 
 char	**get_env_bins(t_env *env)
 {
-	t_var	*var;
 	char	*path;
 	char	**bins;
 

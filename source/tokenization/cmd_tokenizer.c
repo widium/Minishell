@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 13:46:24 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:20:37 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	variable_tokenizer(t_env *env, t_cmd *cmd, char *line, int index)
 
 	if (is_variable(env, line, index))
 	{
-		new_index = variables_tokenization(env, cmd, line, index);
+		new_index = variables_tokenization(cmd, line, index);
 	}
 	else
 	{

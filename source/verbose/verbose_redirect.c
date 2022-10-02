@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:33:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:34:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:28:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 void	print_all_redirect_info(t_env *env)
 {
 	t_token	*token;
-	t_redir	*redir;
 
 	token = get_first_token_redirection(env);
 	while (token)
 	{
 		if (is_token_redirection(token))
 		{
-			redir = get_class(token);
 			print_redirect(token, get_prev_cmd(token),
 				get_next_cmd(token), get_next_token_file(token));
 		}

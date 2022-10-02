@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:47:48 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 15:04:16 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:42:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ void	processing_echo(t_cmd *cmd)
 
 void	processing_cd(t_env *env, t_cmd *cmd)
 {
-	t_arg	*arg;
-
 	if (!(cmd_have_args(cmd)))
 		cmd->arg = get_home_path(env);
 }

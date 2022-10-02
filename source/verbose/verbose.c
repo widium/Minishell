@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:50:04 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:35:01 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:27:17 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,4 @@ void	ask_verbose(t_env *env)
 	}
 	else if (answer == 'N' || answer == 'n')
 		env->verbose = 0;
-}
-
-void	print_detection(char *line, int start, int end, int token)
-{
-	printf("DETECTION : [");
-	while (line[start] && start <= end)
-	{
-		printf("%c", line[start]);
-		start++;
-	}
-	printf("]\n");
 }

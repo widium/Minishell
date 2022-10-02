@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 14:45:13 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:20:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	arg_redirect_extraction(t_env *env, t_token *token, char *line, int index)
 	return (index);
 }
 
-int	variables_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
+int	variables_tokenization(t_cmd *cmd, char *line, int index)
 {
 	t_arg	*arg;
 	int		start;

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:47:07 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 07:18:34 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:40:59 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	get_arg_variables_value(t_env *env)
 {
 	t_token	*token;
 	t_arg	*arg;
-	char	*content;
 
 	token = get_first_token(env);
 	while (token)
@@ -39,7 +38,6 @@ void	change_arg_variable_content(t_env *env, t_arg *arg)
 {
 	char	*name;
 	char	*value;
-	t_var	*var;
 
 	name = malloc_strcpy(arg->content);
 	free(arg->content);

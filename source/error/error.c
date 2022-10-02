@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 14:35:14 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 13:33:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:33:13 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	check_error_parsing(t_env *env)
 
 int	check_error_token_word(t_env *env, t_token *token)
 {
-	int		result;
 	t_word	*word;
 
 	word = get_class(token);

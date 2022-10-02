@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:16:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 13:53:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:22:31 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_variable(t_env *env, char *line, int i)
 
 	if (is_variable_word(line, i))
 	{
-		name = variable_name_extraction(env, line, ++i);
+		name = variable_name_extraction(line, ++i);
 		if (!name)
 			return (0);
 		if (variable_exist(env, name))
@@ -59,7 +59,7 @@ int	is_valide_variable(t_env *env, char *word)
 	return (1);
 }
 
-char	*variable_name_extraction(t_env *env, char *line, int index)
+char	*variable_name_extraction(char *line, int index)
 {
 	int		start;
 	int		end;

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 15:00:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:40:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,18 @@ int			limiter_extraction(t_redir *redir, char *line, int index);
 
 void		open_history_file(t_env	*env);
 
-char		*get_line(t_env *env);
+char		*get_line(void);
 int			env_have_multi_line(t_env *env);
 void		execute_line(t_env *env, char *line);
 void		execute_multi_line(t_env *env, t_line *line);
 void		prompt(t_env	*env);
-void		create_history(t_env	*env, char *line);
+void		create_history(char *line);
 int			line_is_empty(char	*line);
 int			line_is_not_empty(char	*line);
 
 int			return_last_back_slash_index(char *str);
 
-void		use_signal(t_env *env);
+void		use_signal(void);
 void		call_prompt(int key);
 void		stop_prompt(int key);
 void		pass(int key);
@@ -79,7 +79,7 @@ void		write_line(char *line, int fd);
 
 int			blank_detection(char *line, int index);
 int			blank_escape(char *line, int index);
-char		*variable_name_extraction(t_env *env, char *line, int index);
+char		*variable_name_extraction(char *line, int index);
 int			double_quotes_detection(char *string, int i);
 int			single_quotes_detection(char *line, int index);
 int			word_detection(t_env *env, char *line, int index);
@@ -94,7 +94,7 @@ int			double_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
 int			single_tokenizer(t_cmd *cmd, char *line, int index);
 int			word_arg_extraction(t_env *env, t_cmd *cmd, char *line, int i);
 int			variable_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
-int			variables_tokenization(t_env *env, t_cmd *cmd, char *line, int i);
+int			variables_tokenization(t_cmd *cmd, char *line, int i);
 int			string_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int			blank_arg_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
 int			flags_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
@@ -159,7 +159,7 @@ int			doesnt_have_error_parsing(t_env *env);
 void		reset_counter_error(t_env *env);
 void		check_error_parsing(t_env *env);
 int			check_error_token_redirection(t_token *token);
-int			check_error_token_heredoc(t_token *token, t_redir *redir);
+int			check_error_token_heredoc(t_redir *redir);
 int			check_error_token_basic_redirection(t_token *token, t_redir *redir);
 int			check_error_token_pipe(t_token *token, t_redir *redir);
 int			check_error_token_word(t_env *env, t_token *token);

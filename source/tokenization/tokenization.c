@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 17:59:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 15:44:38 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:28:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	single_tokenization(t_cmd *cmd, char *line, int start, int index)
 {
 	t_arg	*arg;
 	char	*content;
-	int		end;
 
 	if (is_finish(line[index]))
 	{

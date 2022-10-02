@@ -2225,3 +2225,9 @@ echo salut cest moi
 echo salut cest            moi
 echo 's' "salut"
 echo 's'"salut"
+exit t e s t
+exit t
+echo $?$?   $?
+echo test > fichier1 >> fichier2
+cat fichier1
+cat fichier2

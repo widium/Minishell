@@ -6,13 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 14:01:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:18:50 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	use_signal(t_env *env)
+void	use_signal(void)
 {
 	signal(SIGQUIT, pass);
 	signal(SIGINT, call_prompt);
@@ -20,6 +20,7 @@ void	use_signal(t_env *env)
 
 void	call_prompt(int key)
 {
+	(void)key;
 	rl_replace_line("", 0);
 	rl_on_new_line();
 	write(1, "\n", 1);
@@ -28,11 +29,13 @@ void	call_prompt(int key)
 
 void	pass(int key)
 {
+	(void)key;
 	return ;
 }
 
 void	exit_prompt(int key)
 {
+	(void)key;
 	printf("Exit...\n");
 	exit(0);
 }

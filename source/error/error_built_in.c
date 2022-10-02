@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:21:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 07:30:36 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:38:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	check_error_built_in(t_cmd *cmd)
 
 int	check_error_echo(t_cmd *cmd)
 {
-	int	nb_arg;
 	int	result;
 
+	(void)cmd;
 	result = 0;
 	return (result);
 }
