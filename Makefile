@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/10/02 19:20:30 by ebennace         ###   ########.fr        #
+#    Updated: 2022/10/04 17:27:21 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -138,6 +138,18 @@ FLAGS 			+= $(SANITIZE)
 READLINE		= -lreadline
 MAKE			= make -s
 
+# Cross fLags
+UNAME = $(shell uname -s)
+
+ifeq ($(UNAME), Linux)
+	NPROC := $(shell nproc)
+	
+else
+	NPROC := $(shell sysctl -n hw.ncpu)
+	FLAGS += -I$(HOME)/.brew/opt/readline/include
+    READLINE += -L$(HOME)/.brew/opt/readline/lib
+	
+endif
 
 # === Convert all .c to .o with flags and header === # 
 %.o : %.c
