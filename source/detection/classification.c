@@ -48,6 +48,7 @@ t_token	*cmd_classification(t_env *env, char *content)
 {
 	t_token	*token;
 
+	token = NULL;
 	if (is_built_in(content))
 	{
 		token = cmd_tokenization(content, TOKEN_BUILT_IN);

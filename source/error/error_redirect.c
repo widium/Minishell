@@ -17,6 +17,7 @@ int	check_error_token_redirection(t_token *token)
 	t_redir	*redir;
 	int		result;
 
+	result = 0;
 	redir = get_class(token);
 	if (is_token_basic_redirection(token))
 	{

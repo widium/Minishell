@@ -40,6 +40,7 @@ int	execute_cmd(t_env *env, t_token *token)
 	char	**variables;
 	int		status_built;
 
+	status_built = - 1;
 	cmd = get_class(token);
 	if (is_cmd_bin(cmd))
 	{

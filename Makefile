@@ -131,10 +131,10 @@ RM_FILE = /bin/rm -rf
 
 # ==== Objet && compiling ==== #
 OBJS			= $(SRCS:.c=.o)
-CC				= gcc
+CC				?= gcc
 FLAGS			= -g3
 FLAGS 			+= -Wall -Werror -Wextra
-FLAGS 			+= $(SANITIZE)
+# FLAGS 			+= $(SANITIZE)
 READLINE		= -lreadline
 MAKE			= make -s
 

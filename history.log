@@ -2496,3 +2496,14 @@ export GG=ls
 $GG
 env > test
 cat test
+ls
+ls
+pwd
+ls
+ls -la
+ls -,
+ls -l
+ls
+which ls
+ls
+exit
