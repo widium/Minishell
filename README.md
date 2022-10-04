@@ -17,7 +17,7 @@
   		- [3.Construire la structure t_var](#construire-la-structure-t_var)
   		- [4.Ajouter le t_var a la list de variables](#ajouter-le-t_var-a-la-list-de-variables)
   	- [2.Convertir toute les variables environnement en t_var](#convertir-toute-les-variables-environnement-en-t_var)
-- [6. Execution Bin](#execution)
+- [6. Execution](#execution)
 ***
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/85416801/193201839-19b1a2d4-73d5-4c6d-9264-7eb79829c24e.gif)
 ***
@@ -583,6 +583,8 @@ void	create_chained_var(t_env *env, char **env_variable)
 ~~~
 ***
 # Execution
+- Pour toute Theorie sur l'execution hesitez pas a checker ce repos [Pipex](https://github.com/widium/pipex)
+
 ![](https://i.imgur.com/8KkctLD.png)
 ~~~c
 $> ls -la | wc
