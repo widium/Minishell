@@ -23,13 +23,29 @@
 ***
 # Get Started
 ## Dependancy
-- Arch
+###  Arch
 ~~~bash
 sudo pacman -Syu readline
 ~~~
-- MacOS
+- add flags in Makefile
+~~~bash
+-lreadline
+~~~
+### MacOS
+- install brew 
+~~~bash
+curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
+~~~
+- install readline
 ~~~bash
 brew install readline
+~~~
+- change flags in makefile
+~~~bash
+"add when Create .o file"
+FLAGS += -I$(HOME)/.brew/opt/readline/include
+"add in compilation"
+READLINE += -L$(HOME)/.brew/opt/readline/lib
 ~~~
 ***
 # Understanding the project structure
