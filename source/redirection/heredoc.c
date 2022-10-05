@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:56:27 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 09:19:30 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:17:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char	*heredoc_prompt(char *limiter)
 		}
 	}
 	close(fd_tmp);
+	unlink("tmp.txt");
 	return (tmp_file_name);
 }
 
