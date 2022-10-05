@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 14:53:35 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:41:53 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	execute_cmd(t_env *env, t_token *token)
 	char	**variables;
 	int		status_built;
 
-	status_built = - 1;
+	status_built = -1;
 	cmd = get_class(token);
 	if (is_cmd_bin(cmd))
 	{
