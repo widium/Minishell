@@ -2596,3 +2596,91 @@ echo "$salut" w
 echo "$salut" w
 echo "$salut" w
 echo "$USER"
+echo "salut" w
+echo "salut"      w
+echo 's' "salut"
+echo sa"$HOME"$ma$ta'sa$lut' $ $home $
+echo
+exit
+exit test 
+exit t e s t 
+ls
+echo $?
+exitsdvs
+echo $?
+grep -t
+echo $?
+cat sdwf
+echo $?
+exit 113 > exit.sh
+echo exit 113 > exit.sh
+bash exit.sh 
+echo $?
+echo $?$?
+echo $?$? $?
+echo $? $? $?
+echo $? $?    $?
+cat
+echo $?
+cat
+echo $?
+echo $?
+echo $?
+echo $?
+cat
+echo $?
+echo $?
+echo -n $HOME $PWD
+
+echo -n -n -n -n -n
+
+echo /bin/ls $USER
+echo 'salut'
+ls '  '
+ls '-la'
+echo 'cat lol.c | cat > lol.c'
+echo '$USER | cat -e'
+echo sa"$HOME"$ma$ta'sa$lut' $ $home $
+echo 'salut'
+ls '  '
+ls '-la'
+echo 'cat lol.c | cat > lol.c'
+echo '$USER | cat -e'
+env 
+export USER
+env
+export TEST
+env
+export
+export TEST=1234
+rnv
+env
+unset TEST
+env
+export
+cd ..
+echo test > fichier
+cat fichier 
+echo test > fichier >> fichier2
+cat fichier2
+cat fichier
+cat < fichier
+cat < fichier2
+echo 1 < file
+echo 1 << file
+bash
+echo test | cat -e
+cat file | grep test | wc -l
+cat existepas | grep test 
+cat | cat | ls
+
+echo "$HOME"$PWD"/NEWDIR
+echo $HOME
+echo $PWD
+echo "$HOME"$PWD
+echo "$HOME"$PWD/NEWDIR
+echo "$HOME"$PWD"NEWDIR"
+echo "$HOME"$PWD'NEWDIR'
+echo "$HOME"$PWD
+echo "$HOME"$PWD
+echo "$HOME"$PWD'salut'
