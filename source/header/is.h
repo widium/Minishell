@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:27:22 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 13:26:20 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:03:07 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	is_blank_before_redirection(char *line, int index);
 int	is_blank_before_finish(char *line, int index);
 int	is_separator(char *line, int i);
 int	is_word(t_env *env, char *line, int i);
+int	is_dollar_word(t_env *env, char *line, int i);
 int	is_word_argument_separator(t_env *env, char *line, int index);
 int	is_variable(t_env *env, char *line, int index);
 int	is_variable_word(char *line, int i);

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 15:35:27 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:02:47 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,21 @@ int	is_back_slash(char c)
 
 int	is_word(t_env *env, char *line, int i)
 {
+	int	ret;
+
+	ret = 0;
 	if (!(is_quote(line[i])) && !(is_blank(line[i]))
 		&& !(is_separator(line, i))
-		&& !(is_variable(env, line, i)) && line[i] != '$')
+		&& !(is_variable(env, line, i)))
+		ret = 1;
+	if (is_dollar_word(env, line, i))
+		ret = 1;
+	return (ret);
+}
+
+int is_dollar_word(t_env *env, char *line, int i)
+{
+	if (line[i] == '$' && is_argument_separator(env, line, i))
 		return (1);
 	return (0);
 }
