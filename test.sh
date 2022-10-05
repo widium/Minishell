@@ -28,7 +28,7 @@ echo $?$?   $?                      OK
 
 Signaux
 CTRL + C                            OK
-CTRL + \                            KO
+CTRL + \                            OK
 CTRL + D                            OK
 
 Double Quotes
