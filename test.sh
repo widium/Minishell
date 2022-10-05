@@ -9,6 +9,7 @@ echo salut                          OK
 echo -n salut -n                    OK
 echo "salut"    w                   OK
 echo 's' "salut"                    OK
+echo sa"$HOME"$ma$ta'sa$lut' $ $home $ OK
 echo                                OK
 
 Exit

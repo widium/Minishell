@@ -2573,3 +2573,5 @@ echo $ $
 echo sa"$HOME"$ma$ta'sa$lut'
 echo sa"$HOME"$ma$ta'sa$lut' $ $
 echo sa"$HOME"$ma$ta'sa$lut' $ $tatata
+echo sa"$HOME"$ma$ta'sa$lut' $ $home $
+bash
