@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:31:33 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 19:18:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:01:33 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	exit_built_in(t_cmd *cmd, t_env *env)
 {
 	int	signal;
 
-	remove_all(env);
 	ft_putstr_fd("exit", 2);
 	ft_putstr_fd("\n", 2);
 	if (!cmd->arg)
 		signal = 0;
 	else
 		signal = ft_atoi(cmd->arg);
+	remove_all(env);
 	exit(signal);
 }
