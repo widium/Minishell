@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:53:45 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 08:13:52 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 08:43:57 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	copy_dimensions(char **array, char **new_array, int y, int *i)
 {
 	new_array[y] = malloc_strcpy(array[*i]);
 	(*i)++;
+}
+
+void	copy_str_in_array(char **new_array, int index, char *str)
+{
+	new_array[index] = malloc_strcpy(str);
 }
 
 char	**ft_arrayjoin_str(char **array, char *str, int pos)
@@ -34,12 +39,12 @@ char	**ft_arrayjoin_str(char **array, char *str, int pos)
 		if (y != pos)
 			copy_dimensions(array, new_array, y, &i);
 		else
-			new_array[y] = malloc_strcpy(str);
+			copy_str_in_array(new_array, y, str);
 		y++;
 	}
 	if (y == pos && i >= size)
 	{
-		new_array[y] = malloc_strcpy(str);
+		copy_str_in_array(new_array, y, str);
 		y++;
 	}
 	new_array[y] = NULL;
@@ -73,4 +78,16 @@ char	**ft_arrayremove_str(char **array, int pos)
 	}
 	new_array[y] = NULL;
 	return (new_array);
+}
+
+char	**str_to_array(char *str)
+{
+	char	**new_args;
+	int		i;
+
+	i = 0;
+	new_args = malloc(sizeof(char *) * (2));
+	copy_str_in_array(new_args, i, str);
+	new_args[i + 1] = NULL;
+	return (new_args);
 }

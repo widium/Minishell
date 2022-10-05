@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/10/04 17:27:21 by ebennace         ###   ########.fr        #
+#    Updated: 2022/10/04 18:15:06 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,7 +134,7 @@ OBJS			= $(SRCS:.c=.o)
 CC				?= gcc
 FLAGS			= -g3
 FLAGS 			+= -Wall -Werror -Wextra
-# FLAGS 			+= $(SANITIZE)
+FLAGS 			+= $(SANITIZE)
 READLINE		= -lreadline
 MAKE			= make -s
 

@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:51:09 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 19:16:03 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 08:44:11 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char			*ft_strjoin_free_all(char *s1, char *s2);
 char			*ft_strjoin_char(char *s1, char *s2, char c);
 char			**ft_arrayjoin_str(char **array, char *str, int pos);
 void			copy_dimensions(char **array, char **new_array, int y, int *i);
+void			copy_str_in_array(char **new_array, int index, char *str);
+char			**str_to_array(char *str);
 char			**ft_arrayremove_str(char **array, int pos);
 char			*ft_substr(char *s, int start, int len);
 char			*ft_itoa(int n);
