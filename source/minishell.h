@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 09:59:56 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:48:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ char		*variable_name_extraction(char *line, int index);
 int			double_quotes_detection(char *string, int i);
 int			single_quotes_detection(char *line, int index);
 int			word_detection(t_env *env, char *line, int index);
+int			word_arg_detection(t_env *env, char *line, int index);
 int			limiter_detection(char *line, int index);
 int			file_detection(char *line, int index);
 int			redirection_detection(char *line, int index);

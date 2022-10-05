@@ -2552,3 +2552,13 @@ echo $?
 echo $?
 
 echo $?
+echo "HOME"$ma$ta'sa$lut'
+echo "$HOME"$ma$ta'sa$lut'
+echo sa"$HOME"$ma$ta'sa$lut'
+sa"$HOME"$ma$ta'sa$lut'
+echo sa"$HOME"$ma$ta'sa$lut'
+echo sa"$HOME"$ma$ta'sa$lut'
+echo sa"$HOME"$ma$ta'sa$lut'
+echo $ma$ta'sa$lut'
+echo $ma$ta'sa$lut'
+echo sa"$HOME"$ma$ta'sa$lut'

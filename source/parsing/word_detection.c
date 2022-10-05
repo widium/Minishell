@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:53:41 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:26:22 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:50:27 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ int	word_detection(t_env *env, char *line, int index)
 		index++;
 	}
 	return (index);
+}
+
+int	word_arg_detection(t_env *env, char *line, int index)
+{
+	int		end;
+
+	end = index;
+	while (line[index])
+	{
+		if (is_word_argument_separator(env, line, index))
+		{
+			end = index - 1;
+			break ;
+		}
+		index++;
+	}
+	if (!(is_word_argument_separator(env, line, index)))
+		end = index -1;
+	return (end);
 }
 
 int	file_detection(char *line, int index)
