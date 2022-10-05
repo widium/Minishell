@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 12:56:49 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:37:58 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	check_error_token_cmd(t_token *token)
 	if (is_token_cmd(token->next))
 	{
 		next_cmd = get_class(token->next);
-		printf("Error : [Two following cmd \"%s\" && \"%s\"]\n",
+		ft_printf("Error : [Two following cmd \"%s\" && \"%s\"]\n",
 			cmd->content, next_cmd->content);
 		result += 1;
 	}
 	else if (is_token_cmd(token->prev))
 	{
 		prev_cmd = get_class(token->prev);
-		printf("Error : [Two following cmd \"%s\" && \"%s\"]\n",
+		ft_printf("Error : [Two following cmd \"%s\" && \"%s\"]\n",
 			prev_cmd->content, cmd->content);
 		result += 1;
 	}

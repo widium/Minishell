@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:47:07 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:40:59 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	change_arg_variable_content(t_env *env, t_arg *arg)
 	value = get_env_var_value_with_name(env, name);
 	if (value == NULL)
 	{
-		printf("Error : unknow variable [%s]\n", name);
+		ft_printf("Error : unknow variable [%s]\n", name);
 		env->error_processing += 1;
 	}
 	else

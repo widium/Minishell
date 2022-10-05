@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:16:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 18:31:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	processing_cmd(t_env *env)
 	processing_bin(env);
 	if (env->verbose == 1)
 	{
-		printf("=== Processing Command ===\n");
+		ft_printf("=== Processing Command ===\n");
 		print_all_cmd_info(env);
-		printf("=========\n");
+		ft_printf("=========\n");
 	}
 }
 

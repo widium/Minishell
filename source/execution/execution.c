@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 17:08:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 09:41:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	execution(t_env *env)
 	int		status_built;
 
 	if (env->verbose == 1)
-		printf("=== Execution ===\n");
+		ft_printf("=== Execution ===\n");
 	token = get_first_token_cmd(env);
 	while (token)
 	{
@@ -31,7 +31,7 @@ void	execution(t_env *env)
 	status = get_last_status(status, status_built);
 	update_variable_status_process(env, status);
 	if (env->verbose == 1)
-		printf("=========\n");
+		ft_printf("=========\n");
 }
 
 int	execute_cmd(t_env *env, t_token *token)

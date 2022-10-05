@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 09:15:47 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 09:17:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	processing_redirection(t_env *env)
 		}
 		if (env->verbose == 1)
 		{
-			printf("=== Processing Redirection ===\n");
+			ft_printf("=== Processing Redirection ===\n");
 			print_all_redirect_info(env);
-			printf("-- Command Redirection --\n");
+			ft_printf("-- Command Redirection --\n");
 			print_all_cmd_info(env);
-			printf("=========\n");
+			ft_printf("=========\n");
 		}
 	}
 }

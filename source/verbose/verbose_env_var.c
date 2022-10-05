@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:23:13 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 19:20:41 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	print_env_var(t_var *var)
 
 // void	print_env_var_struct(t_var *var)
 // {
-// 	printf(" ---[%s]---\n", var->name);
-// 	printf(" | type : [%d]\n", var->id);
-// 	printf(" | index : [%d]\n", var->index);
-// 	printf(" | value : [%s]\n", var->value);
-// 	printf(" ----------------\n");
+// 	ft_printf(" ---[%s]---\n", var->name);
+// 	ft_printf(" | type : [%d]\n", var->id);
+// 	ft_printf(" | index : [%d]\n", var->index);
+// 	ft_printf(" | value : [%s]\n", var->value);
+// 	ft_printf(" ----------------\n");
 // }

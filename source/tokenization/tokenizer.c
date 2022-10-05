@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:16:38 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 14:45:10 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_token	*file_tokenizer(char *name, int id)
 
 	fd = open(name, O_RDONLY | O_WRONLY | O_CREAT, 0777);
 	if (fd < 0)
-		printf("%s : so such file or directory\n", name);
+		ft_printf("%s : so such file or directory\n", name);
 	token = create_token_file(name, fd, id);
 	return (token);
 }

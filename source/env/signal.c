@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 15:10:29 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	pass(int key)
 void	exit_prompt(int key)
 {
 	(void)key;
-	printf("Exit...\n");
+	ft_printf("Exit...\n");
 	exit(0);
 }
 

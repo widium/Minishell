@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 13:21:39 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:38:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_error_cd(t_cmd *cmd)
 	if (nb_arg > 1)
 	{
 		result++;
-		printf("cd : too many arguments.\n");
+		ft_printf("cd : too many arguments.\n");
 	}
 	return (result);
 }

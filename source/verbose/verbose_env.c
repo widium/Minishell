@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 20:22:28 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/26 17:49:49 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	print_all_line(t_env *env)
 
 void	print_line(t_line *line)
 {
-	printf("Line [%d] : [%s]\n", line->index, line->content);
+	ft_printf("Line [%d] : [%s]\n", line->index, line->content);
 }

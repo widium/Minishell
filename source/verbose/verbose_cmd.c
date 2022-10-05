@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 12:03:36 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/28 16:27:53 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:07:10 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	print_cmd_info(t_cmd *cmd)
 {
-	printf(" ---[%s]---\n", cmd->content);
-	printf(" | type : [%d]\n", cmd->id);
+	ft_printf(" ---[%s]---\n", cmd->content);
+	ft_printf(" | type : [%d]\n", cmd->id);
 	if (is_cmd_bin(cmd))
 	{
-		printf(" | path : [%s]\n", cmd->bin);
-		printf(" | args : [");
+		ft_printf(" | path : [%s]\n", cmd->bin);
+		ft_printf(" | args : [");
 		print_array(cmd->args);
-		printf("]\n");
+		ft_printf("]\n");
 	}
 	else if (is_cmd_built_in(cmd))
 	{
-		printf(" | arg : [%s]\n", cmd->arg);
-		printf(" | flags : [%s]\n", cmd->flags);
+		ft_printf(" | arg : [%s]\n", cmd->arg);
+		ft_printf(" | flags : [%s]\n", cmd->flags);
 	}
-	printf(" | fd_in : [%d]\n", cmd->fd_in);
-	printf(" | fd_out : [%d]\n", cmd->fd_out);
+	ft_printf(" | fd_in : [%d]\n", cmd->fd_in);
+	ft_printf(" | fd_out : [%d]\n", cmd->fd_out);
 	if (cmd_have_args(cmd))
 		print_args(cmd);
-	printf(" ----------------\n");
+	ft_printf(" ----------------\n");
 }
 
 void	print_all_cmd_info(t_env *env)
