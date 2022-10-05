@@ -2694,3 +2694,7 @@ echo "$HOME"$PWD'salut'
 echo "$HOME"$PWD'salut'
 echo "$HOME"$PWD'salut'
 echo "$HOME"$PWD'/salut'
+ls
+cd
+rm exit.sh
+ls
