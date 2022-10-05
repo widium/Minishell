@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 14:23:35 by ebennace          #+#    #+#             */
-/*   Updated: 2022/09/29 17:43:50 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:59:15 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_env	*init_env(char **env_variable)
 	create_chained_var(env, env_variable);
 	add_signal_env_var(env);
 	free_array(env_variable);
+	g_env = env;
 	return (env);
 }
 

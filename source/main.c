@@ -6,11 +6,13 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:02:08 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:17:46 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:59:04 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+t_env	*g_env;
 
 int	main(int argc, char **argv, char **env_var)
 {

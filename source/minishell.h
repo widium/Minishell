@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:40:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 09:59:56 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 # include "header/execution.h"
 # include "header/is.h"
 # include "header/verbose.h"
+
+extern t_env	*g_env;
 
 void		ask_verbose(t_env *env);
 t_env		*init_env(char **varaibles);

@@ -4,6 +4,7 @@
         "token.h": "c",
         "chrono": "c",
         "variant": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "execution.h": "c"
     }
 }
