@@ -2587,3 +2587,12 @@ coucoucouccouc
 cat
 cat
 scascdscscascsdcsdc
+echo "salut"   w
+echo "salut" w
+echo "salut"     w
+echo "$salut"     w
+echo "$salut"  w
+echo "$salut" w
+echo "$salut" w
+echo "$salut" w
+echo "$USER"

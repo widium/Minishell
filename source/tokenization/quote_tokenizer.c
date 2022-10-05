@@ -71,10 +71,11 @@ void	double_tokenization(t_env *env, t_cmd *cmd, char *content)
 		if (is_variable_word(content, index))
 		{
 			new_index = variables_tokenization(env, cmd, content, index);
+			index =	new_index;
 		}
 		else
 		{
-			new_index = word_arg_detection(env, content, index);
+			new_index = string_extraction(env, cmd, content, index);
 			index = new_index;
 		}
 		index++;
