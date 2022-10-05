@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:53:15 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 12:02:47 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:05:30 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,4 @@ int	is_word(t_env *env, char *line, int i)
 	if (is_dollar_word(env, line, i))
 		ret = 1;
 	return (ret);
-}
-
-int is_dollar_word(t_env *env, char *line, int i)
-{
-	if (line[i] == '$' && is_argument_separator(env, line, i))
-		return (1);
-	return (0);
 }
