@@ -2684,3 +2684,14 @@ echo "$HOME"$PWD'NEWDIR'
 echo "$HOME"$PWD
 echo "$HOME"$PWD
 echo "$HOME"$PWD'salut'
+echo "$HOME"$PWD
+echo "$HOME"$PWD
+echo "$HOME"$PWD'salut'
+echo "$HOME"$PWD'salut'
+echo "$HOME"$PWD'salut' 
+echo "$HOME"$PWD'salut'
+
+echo "$HOME"$PWD'salut'
+echo "$HOME"$PWD'salut'
+echo "$HOME"$PWD'salut'
+echo "$HOME"$PWD'/salut'

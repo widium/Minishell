@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:16:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 14:49:28 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 16:09:46 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	is_variable(t_env *env, char *line, int i)
 	if (is_variable_word(line, i))
 	{
 		name = variable_name_extraction(line, ++i);
+		printf("name [%s]\n", name);
 		if (!name)
 			return (0);
 		if (variable_exist(env, name))
