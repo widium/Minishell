@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:58:42 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 11:48:04 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:41:32 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void		write_line(char *line, int fd);
 int			blank_detection(char *line, int index);
 int			blank_escape(char *line, int index);
 char		*variable_name_extraction(char *line, int index);
+int			variable_detection(char *line, int index);
 int			double_quotes_detection(char *string, int i);
 int			single_quotes_detection(char *line, int index);
 int			word_detection(t_env *env, char *line, int index);
@@ -97,7 +98,7 @@ int			double_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
 int			single_tokenizer(t_cmd *cmd, char *line, int index);
 int			word_arg_extraction(t_env *env, t_cmd *cmd, char *line, int i);
 int			variable_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
-int			variables_tokenization(t_cmd *cmd, char *line, int i);
+int			variables_tokenization(t_env *env, t_cmd *cmd, char *line, int i);
 int			string_extraction(t_env *env, t_cmd *cmd, char *line, int index);
 int			blank_arg_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);
 int			flags_tokenizer(t_env *env, t_cmd *cmd, char *line, int index);

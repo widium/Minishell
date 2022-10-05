@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:44:58 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 11:48:17 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:49:21 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,33 @@ int	flags_tokenizer(t_env *env, t_cmd *cmd, char *line, int index)
 
 int	variable_tokenizer(t_env *env, t_cmd *cmd, char *line, int index)
 {
-	int	new_index;
+	int		new_index;
 
 	if (is_variable(env, line, index))
 	{
-		new_index = variables_tokenization(cmd, line, index);
+		new_index = variables_tokenization(env, cmd, line, index);
 	}
 	else
 	{
 		new_index = word_arg_detection(env, line, index);
 	}
+	return (new_index);
+}
+
+int	variables_tokenization(t_env *env, t_cmd *cmd, char *line, int index)
+{
+	int		new_index;
+	char	*name;
+	t_arg	*arg;
+
+	new_index = variable_detection(line, ++index);
+	name = malloc_substrcpy(line, index, new_index);
+	if (variable_exist(env, name))
+	{
+		arg = create_arg(name, TOKEN_VARIABLE);
+		add_arg_list(cmd, arg);
+	}
+	else
+		free(name);
 	return (new_index);
 }

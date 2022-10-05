@@ -6,7 +6,7 @@
 #    By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 17:58:32 by ebennace          #+#    #+#              #
-#    Updated: 2022/10/04 18:15:06 by ebennace         ###   ########.fr        #
+#    Updated: 2022/10/05 14:50:28 by ebennace         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS		= 	source/main.c \
 				source/detection/extraction.c \
 				source/detection/argument_extraction.c \
 				source/detection/classification.c \
+				source/detection/variable_detection.c \
 				source/is/is.c \
 				source/is/is_redirection.c \
 				source/is/is_basic_redirection.c \

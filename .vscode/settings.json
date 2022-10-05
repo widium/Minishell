@@ -5,6 +5,8 @@
         "chrono": "c",
         "variant": "c",
         "algorithm": "c",
-        "execution.h": "c"
+        "execution.h": "c",
+        "source_location": "c",
+        "typeinfo": "c"
     }
 }

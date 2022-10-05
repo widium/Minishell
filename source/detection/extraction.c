@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:25:16 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/02 16:20:33 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:35:01 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,32 @@ int	arg_redirect_extraction(t_env *env, t_token *token, char *line, int index)
 	return (index);
 }
 
-int	variables_tokenization(t_cmd *cmd, char *line, int index)
-{
-	t_arg	*arg;
-	int		start;
-	int		end;
+// int	variables_tokenization(t_cmd *cmd, char *line, int index)
+// {
+// 	t_arg	*arg;
+// 	int		start;
+// 	int		end;
 
-	end = index;
-	start = index;
-	if (line[index + 1] == '$')
-		return (index + 1);
-	index++;
-	while (line[index])
-	{
-		if (is_variable_delimiter(line, index))
-		{
-			end = index - 1;
-			break ;
-		}
-		index++;
-	}
-	if (is_variable_delimiter(line, index))
-		end = index - 1;
-	arg = arg_tokenizer(line, start + 1, end, TOKEN_VARIABLE);
-	add_arg_list(cmd, arg);
-	return (end);
-}
+// 	end = index;
+// 	start = index;
+// 	if (line[index + 1] == '$')
+// 		return (index + 1);
+// 	index++;
+// 	while (line[index])
+// 	{
+// 		if (is_variable_delimiter(line, index))
+// 		{
+// 			end = index - 1;
+// 			break ;
+// 		}
+// 		index++;
+// 	}
+// 	if (is_variable_delimiter(line, index))
+// 		end = index - 1;
+// 	arg = arg_tokenizer(line, start + 1, end, TOKEN_VARIABLE);
+// 	add_arg_list(cmd, arg);
+// 	return (end);
+// }
 
 int	word_arg_extraction(t_env *env, t_cmd *cmd, char *line, int index)
 {
