@@ -6,7 +6,7 @@
 /*   By: ebennace <ebennace@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:07:02 by ebennace          #+#    #+#             */
-/*   Updated: 2022/10/05 15:03:31 by ebennace         ###   ########.fr       */
+/*   Updated: 2022/10/05 15:10:29 by ebennace         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	pass(int key)
 {
 	(void)key;
 	rl_on_new_line();
-	rl_redisplay();
 }
 
 void	exit_prompt(int key)
